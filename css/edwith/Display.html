@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+	.inline{
+		background:pink;
+		/* width, height 속성은 inline에 적용x */
+		width:100px;
+		height:100px;
+		/* margin padding은 좌우 에만 적용된다.*/
+		margin:10px;
+		padding:10px;
+		border:10px solid red;
+	}
+	.block{
+		background:pink;
+		width:100px;
+		height:100px;
+		margin:10px;
+		padding:10px;
+		border:10px solid red;
+	}
+	.inlineblock{
+		background:pink;
+		width:100px;
+		height:100px;
+		margin:10px;
+		padding:10px;
+		border:10px solid red;
+	}
+	</style>
+</head>
+<body>
+	<br><br><br>
+	<div>
+		<div style="display:inline" class="inline">box</div>
+		<div style="display:inline" class="inline">box</div>
+	</div>
+	<div>
+		<div style="display:block" class="block">box</div>
+		<div style="display:block" class="block">box</div>
+	</div>
+	<div>
+		<div style="display:inline-block" class="inlineblock">box</div>
+		<div style="display:inline-block" class="inlineblock">box</div>
+	</div>
+</body>
+</html>

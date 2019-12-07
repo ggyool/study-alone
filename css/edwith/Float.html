@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style>
+		.container {width:400px; padding:15px; border:1px dashed #aaa;}
+		.container div {width:100px; height:100px;}
+		.container div:nth-child(1) {background-color:green;}
+		.container div:nth-child(2) {background-color:skyblue;}
+	</style>
+</head>
+<body>
+	<h2>요소를 보통의 흐름에서 벗어나 띄워지게 함</h2>
+	<div class="container">
+		<div style="float:left">Box1</div>
+		<div style="width:150px;height:150px">Box2</div>
+	</div>
+	<h2>주변 텍스트나 인라인요소가 주위를 감싸는 특징이 있음.</h2>
+	<div class="container">
+		<div style="float:left">Box1</div>
+		<div style="float:right">Box2</div>
+		<p style="font-size:30px; border:3px solid red">
+		dummy text..dummy text..dummy text..dummy text..dummy text..dummy text..
+		</p>
+	</div>
+</body>
+</html>
