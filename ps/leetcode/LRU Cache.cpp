@@ -1,47 +1,46 @@
 #include <unordered_map>
-#include <set>
-#include <algorithm>
-#include <deque>
+#include <queue>
 using namespace std;
-	
+
 class LRUCache {
 	int cap;
-	int total;
-	deque<int> dq;
+	int cnt;
 	unordered_map<int, int> valueMap;
-	unordered_map<int, int> countMap;
+	unordered_map<int, int> cntMap;
+	queue<int> q;
+
 public:
 	LRUCache(int capacity) {
 		cap = capacity;
-		total = 0;
+		cnt = 0;
 	}
+
 	int get(int key) {
-		if (countMap[key] > 0)
-		{
-			dq.push_back(key);
-			++countMap[key];
-			return valueMap[key];
-		}
-		return -1;
+		if (cntMap[key] == 0) return -1;
+		++cntMap[key];
+		q.push(key);
+		return valueMap[key];
 	}
+
 	void put(int key, int value) {
-		while (cap!=0 && total==cap)
+		while (cap == cnt)
 		{
-			if (countMap[key] > 0) break;
-			if (countMap[dq.front()] > 1)
-			{
-				--countMap[dq.front()];
-				dq.pop_front();
-				continue;
-			}
-			int eraseKey = dq.front();
-			--countMap[eraseKey];
-			--total;
-			dq.pop_front();
+			if (cntMap[key] > 0) break;
+			int tkey = q.front();
+			if (cntMap[tkey] == 1) --cnt;
+			--cntMap[tkey];
+			q.pop();
 		}
-		dq.push_back(key);
 		valueMap[key] = value;
-		if (countMap[key] == 0) ++total;
-		++countMap[key];		
+		++cntMap[key];
+		q.push(key);
+		if (cntMap[key] == 1) ++cnt;
 	}
 };
+
+/**
+* Your LRUCache object will be instantiated and called as such:
+* LRUCache* obj = new LRUCache(capacity);
+* int param_1 = obj->get(key);
+* obj->put(key,value);
+*/
