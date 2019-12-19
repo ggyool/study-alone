@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+  <head>
+	<style>
+		.wrap{
+			position:relative;
+		}
+		
+		.wrap{
+			width:150px;
+			height:100px;
+			border:2px solid gray;
+			text-align:center;
+			line-height:100px
+		}
+		.wrap>div{
+			width:150px;
+			height:100px;
+			border:2px solid gray;
+			text-align:center;
+			line-height:100px
+		}
+		.relative{
+			position:relative;
+			left:10px;
+		}
+		.absolute{
+			position:absolute;
+			left:130px;
+			top:30px;
+		}
+		.fixed{
+			position:fixed;;
+			top:250px;
+		}
+	</style>
+  </head>
+  <body>
+	<div class="wrap">
+		<div class="static">static</div>
+		<div class="relative">relative</div>
+		<div class="absolute">absolute</div>
+		<div class="fixed">fixed</div>
+	</div>
+  </body>
+</html>
