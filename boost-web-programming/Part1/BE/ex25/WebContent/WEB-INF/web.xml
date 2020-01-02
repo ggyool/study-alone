@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <display-name>ex25</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!-- 아래부터 추가된 부분 -->
+  <servlet>
+    <description></description>
+    <display-name>TenServlet</display-name>
+    <servlet-name>TenServlet</servlet-name> <!-- 3번:찾음 -->
+    <servlet-class>exam.TenServlet</servlet-class> <!-- 4번: 읽음 -->
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TenServlet</servlet-name> <!-- 2번: 이름을 알아냄 찾으러감 -->
+    <url-pattern>/ten</url-pattern> <!-- 1번: 요청받음-->
+  </servlet-mapping>
+</web-app>
