@@ -29,7 +29,21 @@
 			 non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 		</div>
 	</div>
+		<input id="btn" type="button" value="click">
 	<br>
+	<script>
+		function reqListener () {
+		  console.log(this.responseText);
+		}
+		var oReq;
+		var btn = document.getElementById("btn");
+		btn.addEventListener("click", function(){
+			oReq = new XMLHttpRequest();
+			oReq.addEventListener("load", reqListener);
+			oReq.open("GET", "http://localhost:8080/aboutme/");
+			oReq.send();
+		})
+	</script>
 	<footer>
 		<div class="contents_footer">ggyool@naver.com<br>
 		http://github.com.ggyool</div>
