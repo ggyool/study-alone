@@ -37,8 +37,11 @@ public class TodoDao {
 		return insertCount;
 	}
 	
-	public List<TodoDto> getTodos(){
-		List<TodoDto> list = new ArrayList<>();
+	public List<ArrayList<TodoDto>>getList(){
+		List<ArrayList<TodoDto>> list = new ArrayList<ArrayList<TodoDto>>();
+		list.add(new ArrayList<TodoDto>());
+		list.add(new ArrayList<TodoDto>());
+		list.add(new ArrayList<TodoDto>());
 		try {
 			Class.forName(driverName);
 		} catch (ClassNotFoundException e) {
@@ -51,13 +54,19 @@ public class TodoDao {
 			try(ResultSet rs = ps.executeQuery()){
 				while(rs.next()) {
 					TodoDto dto = new TodoDto();
+					String type = rs.getString(5);
+					String strRegdate = rs.getString(6);
+					String[] listRegdate = strRegdate.split(" ");
 					dto.setId(rs.getLong(1));
 					dto.setTitle(rs.getString(2));
 					dto.setName(rs.getString(3));
 					dto.setSequence(rs.getInt(4));
-					dto.setType(rs.getString(5));
-					dto.setRegdate(rs.getString(6));
-					list.add(dto);
+					dto.setType(type);
+					dto.setRegdate(listRegdate[0]);
+					if(type.contentEquals("TODO")) list.get(0).add(dto);
+					else if(type.contentEquals("DOING")) list.get(1).add(dto);
+					else if(type.contentEquals("DONE")) list.get(2).add(dto);
+					else list.get(0).add(dto);
 				}
 			} catch(Exception e) {
 				e.printStackTrace();
