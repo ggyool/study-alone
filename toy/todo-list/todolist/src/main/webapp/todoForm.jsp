@@ -90,7 +90,7 @@
 		background-color : rgb(235,235,235);
 		padding : 10px 0px;
 		width : 10rem;
-		margin-right : 3rem;
+		margin-right : 6rem;
 		background-color : white;
 		border-style : solid;
 		border-color : rgb(130,130,130);
@@ -102,6 +102,7 @@
 		color : white;
 		padding : 10px 0px;
 		width : 10rem;
+		margin-left : 1.75rem;
 	}
 	#content-input-title, #content-input-name{
 		font-size : 1.2rem;

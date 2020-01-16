@@ -20,13 +20,13 @@
 		<div id="content-body">
 			<div id="content-body-todo">
 				<h1>TODO</h1>
-				<ul>
+				<ul id="ul-todo">
 				<c:forEach items="${todoList}" var="dto">
 					<li>
 					<div id="li-title">${dto.title}</div>
 						<div>
 							<div id="li-content">등록날짜:${dto.regdate}, ${dto.name}, 우선순위 ${dto.sequence}</div>
-							<input id="li-button" type="button" value="→">
+							<input data-type="TODO" id="${dto.id}" class="li-button" type="button" value="→">
 						</div>
 					</li>
 				</c:forEach>
@@ -34,13 +34,14 @@
 			</div>
 			<div id="content-body-doing">
 				<h1>DOING</h1>
-				<ul>
+				<ul id="ul-doing">
 				<c:forEach items="${doingList}" var="dto">
 					<li>
 					<div id="li-title">${dto.title}</div>
 						<div>
 							<div id="li-content">등록날짜:${dto.regdate}, ${dto.name}, 우선순위 ${dto.sequence}</div>
-							<input id="li-button" type="button" value="→">
+							<input data-type="doing" id="${dto.id}" class="li-button" 
+							type="button" value="→">
 						</div>
 					</li>
 				</c:forEach>
@@ -48,13 +49,13 @@
 			</div>
 			<div id="content-body-done">
 				<h1>DONE</h1>	
-				<ul>
+				<ul id="ul-done">
 				<c:forEach items="${doneList}" var="dto">
 					<li>
 					<div id="li-title">${dto.title}</div>
 						<div>
 							<div id="li-content">등록날짜:${dto.regdate}, ${dto.name}, 우선순위 ${dto.sequence}</div>
-							<input id="li-button" type="button" value="→">
+							<input data-type="done" id="${dto.id}" class="li-button" type="button" value="→">
 						</div>
 					</li>
 				</c:forEach>
@@ -95,7 +96,7 @@
 		color : white;
 		float : right;
 		padding : 10px 25px;
-		margin-right : 2rem;
+		margin-right : 6rem;
 	}
 	#content-body{
 		clear : both;
@@ -110,7 +111,7 @@
 		font-weight : bold;
 		background-color : rgb(0,50,70);
 		color : white;
-		width : 25rem;
+		width : 27rem;
 		height : 5rem;
 		line-height : 5rem;
 		margin-top : 2rem;
@@ -121,7 +122,7 @@
 	}
 	
 	#content-body > div > ul{
-		width : 25rem;
+		width : 27rem;
 		padding : 0px 0px;
 		margin : 0px 0px;
 		position : relative;
@@ -130,7 +131,7 @@
 		background-color : rgba(89,193,235,0.3);
 		list-style-type: none;
 		padding : 0px 0px;
-		width : 25rem;
+		width : 27rem;
 		height : 7rem;
 		margin-top : 0.75rem;
 		margin-left : 0.75rem;
@@ -146,7 +147,7 @@
 	#li-content{
 		display : inline-block;
 	}
-	#li-button{
+	.li-button{
 		position : absolute;
 		right : 0.25rem;
 		font-size : 1.2rem;
@@ -154,9 +155,51 @@
 </style>
 
 <script>
-	var btn = document.getElementById("content-header-registerbtn");
-	btn.addEventListener("click", function(){
+	var registerBtn = document.getElementById("content-header-registerbtn");
+	registerBtn.addEventListener("click", function(){
 		location.href = "../todo";
 	});
+	
+	var btnList = document.getElementsByClassName("li-button");
+	var len = btnList.length;
+	for(var i=0; i<len; ++i){
+		btnList[i].addEventListener("click", function (){
+			var httpRequest = new XMLHttpRequest(); 
+			httpRequest.onreadystatechange = responsCallback;
+			httpRequest.open("GET", "/TodoTypeServlet?id=" + this.getAttribute("id") + "&data-type=" + this.getAttribute("data-type"));
+			httpRequest.send();
+		});
+	}
+	
+	function responsCallback(){
+		if (this.readyState === XMLHttpRequest.DONE) {
+			if (this.status === 200){
+				var obj = eval('(' + this.responseText + ')');
+				var type = obj["type"].toLowerCase();
+				var ele = document.getElementById(obj.id);
+				ele.setAttribute("data-type", type);
+				var liEle = ele.parentElement.parentElement;
+				if(type==="erase"){
+					liEle.parentNode.removeChild(liEle);
+				}
+				else{
+					var ulEle = document.getElementById("ul-"+type);
+					ulEle.appendChild(liEle);
+				}
+			} 
+			else {
+				alert('request에 뭔가 문제가 있어요.');
+			}
+		}  
+	}
 </script>
 </html>
+
+
+
+
+
+
+
+
+

@@ -25,13 +25,15 @@ public class MainServlet extends HttpServlet {
 
     
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");  
+		response.setContentType("text/html;charset=utf-8");
 		TodoDao dao = new TodoDao();
 		List<ArrayList<TodoDto>> list = dao.getList();
 		
 		request.setAttribute("todoList", list.get(0));
 		request.setAttribute("doingList", list.get(1));
 		request.setAttribute("doneList", list.get(2));
-		request.setAttribute("test", "asd");
 		RequestDispatcher dispatcher = request.getRequestDispatcher("main.jsp");
 		dispatcher.forward(request, response);
 	} 

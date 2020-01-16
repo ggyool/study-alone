@@ -88,8 +88,8 @@ public class TodoDao {
 		String sql = "UPDATE todo SET type=? WHERE id=?";
 		try(Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 				PreparedStatement ps = conn.prepareStatement(sql)){
-			if(dto.getType() == "TODO") ps.setString(1, "DOING");
-			else if(dto.getType() == "DOING") ps.setString(1, "DONE");
+			if(dto.getType().contentEquals("TODO")) ps.setString(1, "DOING");
+			else if(dto.getType().contentEquals("DOING")) ps.setString(1, "DONE");
 			else ps.setString(1,  dto.getType());
 			ps.setLong(2, dto.getId());
 			updateCount = ps.executeUpdate();
@@ -97,5 +97,26 @@ public class TodoDao {
 			e.printStackTrace();
 		}
 		return updateCount;
+	}
+	
+	public int deleteTodo(TodoDto dto) {
+		int deleteCount = 0;
+		try {
+			Class.forName(driverName);
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}	
+		
+		String sql = "DELETE from todo WHERE id = ?";
+		try(Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+				PreparedStatement ps = conn.prepareStatement(sql)){
+			if(dto.getType().contentEquals("DONE")) {
+				ps.setLong(1, dto.getId());
+				deleteCount = ps.executeUpdate();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return deleteCount;
 	}
 }
