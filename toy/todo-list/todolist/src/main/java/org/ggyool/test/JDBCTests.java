@@ -16,13 +16,6 @@ public class JDBCTests {
 		dao.addTodo(new TodoDto("끝남1", "ggyool", 1, "DONE"));
 		dao.addTodo(new TodoDto("끝남2", "ggyool", 1, "DONE"));
 		*/
-		
-		List<ArrayList<TodoDto>> list = dao.getList();
-		for(List<TodoDto> lst : list) {
-			for(TodoDto dto : lst) {
-				System.out.println(dto);
-			}
-			System.out.println("-------------------");
-		}
+
 	}
 }

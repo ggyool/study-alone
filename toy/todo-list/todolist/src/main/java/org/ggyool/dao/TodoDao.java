@@ -12,7 +12,7 @@ import org.ggyool.dto.TodoDto;
 
 public class TodoDao {
 	private static String driverName = "com.mysql.jdbc.Driver";
-	private static String dbUrl = "jdbc:mysql://localhost:3306/connectdb";
+	private static String dbUrl = "jdbc:mysql://localhost:3306/connectdb?useSSL=true&verifyServerCertificate=false";
 	private static String dbUser = "connectuser";
 	private static String dbPassword = "connect123!@#";
 	

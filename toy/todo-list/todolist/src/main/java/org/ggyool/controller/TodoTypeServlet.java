@@ -29,7 +29,7 @@ public class TodoTypeServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");  
 		response.setContentType("application/json");
 
-		String type = request.getParameter("data-type").toUpperCase();
+		String type = request.getParameter("type").toUpperCase();
 		Long id = Long.parseLong(request.getParameter("id"));
 		
 		TodoDto dto = new TodoDto();

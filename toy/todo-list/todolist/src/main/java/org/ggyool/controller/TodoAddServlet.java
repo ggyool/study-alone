@@ -26,7 +26,6 @@ public class TodoAddServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");  
 		response.setContentType("text/html;charset=utf-8");
 		String title = request.getParameter("title");
-		System.out.println(title);
 		String name = request.getParameter("name");
 		int sequence = Integer.parseInt(request.getParameter("sequence"));
 		TodoDto dto = new TodoDto(title, name, sequence);

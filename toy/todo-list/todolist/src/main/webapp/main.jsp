@@ -23,10 +23,11 @@
 				<ul id="ul-todo">
 				<c:forEach items="${todoList}" var="dto">
 					<li>
-					<div id="li-title">${dto.title}</div>
+						<div id="li-title">${dto.title}</div>
 						<div>
 							<div id="li-content">등록날짜:${dto.regdate}, ${dto.name}, 우선순위 ${dto.sequence}</div>
-							<input data-type="TODO" id="${dto.id}" class="li-button" type="button" value="→">
+							<input class="li-button" onclick="clickCallback(this, '${dto.id}')"
+							type="button" value="→">
 						</div>
 					</li>
 				</c:forEach>
@@ -37,25 +38,26 @@
 				<ul id="ul-doing">
 				<c:forEach items="${doingList}" var="dto">
 					<li>
-					<div id="li-title">${dto.title}</div>
+						<div id="li-title">${dto.title}</div>
 						<div>
 							<div id="li-content">등록날짜:${dto.regdate}, ${dto.name}, 우선순위 ${dto.sequence}</div>
-							<input data-type="doing" id="${dto.id}" class="li-button" 
-							type="button" value="→">
+							<input class="li-button" onclick="clickCallback(this, '${dto.id}')"
+							type="button" value="→" >
 						</div>
 					</li>
 				</c:forEach>
 				</ul>
 			</div>
 			<div id="content-body-done">
-				<h1>DONE</h1>	
+				<h1>DONE</h1>		
 				<ul id="ul-done">
 				<c:forEach items="${doneList}" var="dto">
 					<li>
-					<div id="li-title">${dto.title}</div>
+						<div id="li-title">${dto.title}</div>
 						<div>
 							<div id="li-content">등록날짜:${dto.regdate}, ${dto.name}, 우선순위 ${dto.sequence}</div>
-							<input data-type="done" id="${dto.id}" class="li-button" type="button" value="→">
+							<input class="li-button" onclick="clickCallback(this, '${dto.id}')"
+							type="button" value="→">
 						</div>
 					</li>
 				</c:forEach>
@@ -159,16 +161,16 @@
 	registerBtn.addEventListener("click", function(){
 		location.href = "../todo";
 	});
-	
-	var btnList = document.getElementsByClassName("li-button");
-	var len = btnList.length;
-	for(var i=0; i<len; ++i){
-		btnList[i].addEventListener("click", function (){
-			var httpRequest = new XMLHttpRequest(); 
-			httpRequest.onreadystatechange = responsCallback;
-			httpRequest.open("GET", "/TodoTypeServlet?id=" + this.getAttribute("id") + "&data-type=" + this.getAttribute("data-type"));
-			httpRequest.send();
-		});
+	var inputBtn;
+	function clickCallback(btn, dtoId){
+		var dtoType = btn.parentElement.parentElement.parentElement.previousElementSibling.innerText.toLowerCase();
+		inputBtn = btn;
+		httpRequest = new XMLHttpRequest(); 
+		
+		httpRequest.onreadystatechange = responsCallback;
+		
+		httpRequest.open("GET", "/TodoTypeServlet?id=" + dtoId + "&type=" + dtoType);
+		httpRequest.send();
 	}
 	
 	function responsCallback(){
@@ -176,9 +178,10 @@
 			if (this.status === 200){
 				var obj = eval('(' + this.responseText + ')');
 				var type = obj["type"].toLowerCase();
-				var ele = document.getElementById(obj.id);
-				ele.setAttribute("data-type", type);
-				var liEle = ele.parentElement.parentElement;
+				var liEle = inputBtn.parentElement.parentElement;
+				console.log('obj:', obj);
+				console.log('type:', type);
+				console.log('liEle:', liEle);
 				if(type==="erase"){
 					liEle.parentNode.removeChild(liEle);
 				}
@@ -186,11 +189,11 @@
 					var ulEle = document.getElementById("ul-"+type);
 					ulEle.appendChild(liEle);
 				}
-			} 
+			}
 			else {
 				alert('request에 뭔가 문제가 있어요.');
 			}
-		}  
+		}
 	}
 </script>
 </html>
