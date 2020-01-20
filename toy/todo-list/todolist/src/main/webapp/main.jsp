@@ -163,6 +163,7 @@
 	});
 	var inputBtn;
 	function clickCallback(btn, dtoId){
+
 		var dtoType = btn.parentElement.parentElement.parentElement.previousElementSibling.innerText.toLowerCase();
 		inputBtn = btn;
 		httpRequest = new XMLHttpRequest(); 
@@ -179,9 +180,7 @@
 				var obj = eval('(' + this.responseText + ')');
 				var type = obj["type"].toLowerCase();
 				var liEle = inputBtn.parentElement.parentElement;
-				console.log('obj:', obj);
-				console.log('type:', type);
-				console.log('liEle:', liEle);
+
 				if(type==="erase"){
 					liEle.parentNode.removeChild(liEle);
 				}
