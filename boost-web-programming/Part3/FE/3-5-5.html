@@ -1,0 +1,32 @@
+<html>
+	<header>
+	
+	</header>
+	<body>
+		<h2>template exam</h2>
+		<ul class="content"></ul>
+		
+		<script id="template-list-item" type="text/template">
+			<li><h4>{title}</h4></li>
+			<li><p>{content}</p></li>
+			<li><div>{price}</div></li>
+		</script>
+		
+		<script>
+			// 서버에서 가져왔다고 가정
+			var data = [
+				{title : "hello",content : "lorem",price : 2000},
+				{title : "world",content : "dkfief",price : 3000}
+			];
+			var html = document.querySelector("#template-list-item").innerHTML;
+			var resultHTML = "";
+			for(var i=0, len=data.length; i<len; ++i){
+				resultHTML += html.replace("{title}", data[i].title)
+								  .replace("{content}", data[i].content)
+								  .replace("{price}", data[i].price);
+			}
+			
+			document.querySelector(".content").innerHTML = resultHTML;
+		</script>
+	</body>
+</html>	

@@ -4,9 +4,7 @@
 #include <iostream>
 using namespace std;
 
-// n 
-// mp.count 썼었는데 o(1) 이 아닌가봄 처음 풀었던 2n이랑 비슷해서 빼버리고
-// 기본값 0을 사용하기 위해 1더해서 넣었다.
+// 처음 풀었던게 2n, 이게 n인 것 같은데 시간은 그게 그거
 
 class Solution {
 public:

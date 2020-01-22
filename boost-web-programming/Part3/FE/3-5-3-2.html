@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width">
+	  <title>event test</title>
+	  <style>
+		ul{
+			background-color : rgb(200, 200, 200);
+		}
+		li{
+			background-color : yellow;
+		}
+	  </style>
+	</head>
+	<body>
+		<h1 class="log"></h1>
+		<ul>
+			<li><img src="./sample.png"></li>
+		</ul>
+		<script>
+			document.addEventListener("DOMContentLoaded", function(){
+				var log = document.querySelector(".log");
+				var lists = document.querySelectorAll("ul > li");
+				var ul = document.querySelector("ul");
+
+				ul.addEventListener("click",function(evt) {
+					var target = evt.target;
+					if(target.tagName === "IMG"){
+						log.innerHTML = target.src;
+					}
+					else if(target.tagName === "LI"){
+						log.innerHTML = target.firstElementChild.src;
+					}
+				});
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width">
+	  <title>event test</title>
+	  <style>
+		ul{
+			background-color : rgb(200, 200, 200);
+		}
+	  </style>
+	</head>
+	<body>
+		<h1 class="log"></h1>
+		<ul>
+			<li><img src="./sample.png"></li>
+			<li><img src="./sample.png"></li>
+			<li><img src="./sample.png"></li>
+		</ul>
+		<script>
+			document.addEventListener("DOMContentLoaded", function(){
+				var log = document.querySelector(".log");
+				var lists = document.querySelectorAll("ul > li");
+				var ul = document.querySelector("ul");
+				var img = document.querySelector("img");
+				/*
+				for(var i=0,len=lists.length; i < len; i++) {
+				  lists[i].addEventListener("click", function(evt) {
+					 log.innerHTML = "clicked" + evt.currentTarget.firstElementChild.src;
+				  });
+				}*/
+
+				// li 부분을 눌러도 마찬가지로 실행된다.
+				ul.addEventListener("click",function(evt) {
+					// UL, IMG 
+					console.log(evt.currentTarget.tagName, evt.target.tagName);
+				});
+				
+				// 이미지를 클릭하면 위의 ul 이벤트와 동시에 된다.
+				img.addEventListener("click", function(){
+					console.log("img clicked!");
+				});
+			});
+		</script>
+	</body>
+</html>
