@@ -46,13 +46,11 @@
 	</script>
 	<script src="./main.js"></script>
 	<script id="li-template" type="text/template">
-		<li>
-			<div id="li-title">{dto.title}</div>
-			<div>
-				<div id="li-content">등록날짜:{dto.regdate}, {dto.name}, 우선순위 {dto.sequence}</div>
-				<input class="li-button" onclick="clickCallback(this, '{dto.id}')" type="button" value="→">
-			</div>
-		</li>
+		<div id="li-title">{dto.title}</div>
+		<div>
+			<div id="li-content">등록날짜:{dto.regdate}, {dto.name}, 우선순위 {dto.sequence}</div>
+			<input class="li-button" type="button" value="→">
+		</div>
 	</script>
 </body>
 </html>

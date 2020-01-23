@@ -17,12 +17,6 @@ public class TodoDTO {
 		this.name = name;	
 		this.sequence = sequence;
 	}
-	public TodoDTO(String title, String name, int sequence, String type){
-		this.title = title;
-		this.name = name;	
-		this.sequence = sequence;
-		this.type = type;
-	}
 
 	public Long getId() {
 		return id;

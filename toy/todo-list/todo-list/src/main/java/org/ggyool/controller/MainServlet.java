@@ -1,6 +1,7 @@
 package org.ggyool.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,9 +33,6 @@ public class MainServlet extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		
 		List<ArrayList<TodoDTO>> list = dao.getList();
-		System.out.println(list.get(0));
-		System.out.println(list.get(1));
-		System.out.println(list.get(2));
 		
 		// list 를 JSON string 으로 바꿔서 보낸다.
 		ObjectMapper objectMapper = new ObjectMapper();
@@ -47,6 +45,24 @@ public class MainServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("utf-8");  
+		response.setContentType("text/plain");
+		;
+		TodoDTO dto = new TodoDTO();
+		Long id = Long.parseLong(request.getParameter("id"));
+		String type = request.getParameter("type");
+		dto.setId(id);
+		dto.setType(type);
+		int res;
+		if(type.contentEquals("DONE"))
+			res = dao.deleteTodo(dto);
+		else
+			res = dao.updataTodo(dto);
+		PrintWriter out = response.getWriter();
+		out.print(res==1?"success":"fail");
+		out.close();
 	}
-
 }
+
+

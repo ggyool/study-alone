@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+html{
+	font-size : 0.75vw;
+}
+body{
+	background-color : rgb(235, 235, 235);
+}
+#content-blank{
+	height : 2.5vh;
+}
+#content{
+	width : 75%;
+	background-color : rgb(255, 255, 255);
+	margin : auto;
+	text-align : center;
+}
+#content-header{
+	
+}
+#content-body-wrapper{
+	margin-left : 22vw;
+}
+#content-body{
+	text-align : left;
+}
+#content-title{
+	font-weight : bold;
+}
+.content-question{
+	font-size : 1.25rem;
+	color : rgb(100,100,100);
+	margin-bottom : 0.5vh;
+}
+#button-frame{
+	margin : 4vh 0px;
+	padding-bottom : 5vh;
+}
+#prev-button{
+	text-decoration : underline;
+	font-size : 1.2rem;
+	font-weight : bold;
+	background-color : rgb(235,235,235);
+	padding : 1.25vh 0px;
+	width : 7.5vw;
+	margin-right : 4.8vw;
+	background-color : white;
+	border-style : solid;
+	border-color : rgb(130,130,130);
+}
+
+#submit-button, #reset-button{
+	font-size : 1.2rem;
+	background-color : rgb(59,164,245);
+	color : white;
+	padding : 1.25vh 0px;
+	width : 7.5vw;
+	margin-left : 1.25vw;
+}
+#content-input-title, #content-input-name{
+	font-size : 1.2rem;
+	height : 3vh;
+	color : rgb(100,100,100);
+	margin-bottom : 1.25vh;
+}
+.radio-text{
+	display : inline-block;
+	margin-right : 1.25vw;
+	font-weight : bold;
+}
