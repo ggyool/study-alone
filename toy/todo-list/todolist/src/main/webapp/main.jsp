@@ -157,6 +157,7 @@
 </style>
 
 <script>
+	console.log("${doingList}");
 	var registerBtn = document.getElementById("content-header-registerbtn");
 	registerBtn.addEventListener("click", function(){
 		location.href = "../todo";

@@ -1,0 +1,92 @@
+@charset "UTF-8";
+
+html{
+	font-size : 0.75vw;
+}
+body{
+		background-color : rgb(235, 235, 235);
+	}
+#content{
+	width : 75%;
+	background-color : rgb(255, 255, 255);
+	margin : auto;
+	padding-bottom : 7vh;	
+}
+#content-blank{
+	height : 5vh;
+}
+#content-header{
+	background-color : green;
+}
+#content-header-title{
+	font-size : 2rem;
+	font-weight : bold;
+	color : rgb(0,50,70);
+	float : left;
+	transform: rotate(-35deg); 
+	overflow: hidden;
+	padding-top : 3vh;
+}
+#content-header-registerbtn{
+	font-size : 1.2rem;
+	background-color : rgb(59,164,245);
+	color : white;
+	float : right;
+	padding : 1vh 1.75vw;
+	margin-right : 4.5vw;
+}
+#content-body{
+	clear : both;
+	margin-left : 6.25vw;
+	
+}
+#content-body > div{
+	display : inline-block;	
+	vertical-align : top;
+}
+#content-body > div > h1{
+	font-size : 1.8rem;
+	font-weight : bold;
+	background-color : rgb(0,50,70);
+	color : white;
+	width : 20vw;
+	height : 8vh;
+	line-height : 8vh;
+	margin-top : 2.5vh;
+	margin-bottom : 0px;
+	margin-left : 1vw;
+	padding-left : 2vw;
+	box-sizing:border-box;
+}
+
+#content-body > div > ul{
+	width : 20vw;
+	padding : 0px 0px;
+	margin : 0px 0px;
+	position : relative;
+}
+#content-body > div > ul >li{
+	background-color : rgba(89,193,235,0.3);
+	list-style-type: none;
+	padding : 0px 0px;
+	width : 20vw;
+	height : 10vh;
+	margin-top : 1.5vh;
+	margin-left : 1vw;
+	padding-left : 1.5vw;
+	box-sizing:border-box;
+}	
+#li-title{
+	font-size : 1.5rem;
+	font-weight : bold;
+	padding-top : 1.5vh;
+	padding-bottom : 1vh;
+}
+#li-content{
+	display : inline-block;
+}
+.li-button{
+	position : absolute;
+	right : 0.25vh;
+	font-size : 1.2rem;
+}
