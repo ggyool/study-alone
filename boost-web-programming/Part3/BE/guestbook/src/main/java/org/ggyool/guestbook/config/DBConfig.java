@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 @Configuration
 // transaction 처리를 위한 어노테이션
 @EnableTransactionManagement
-// 사용자의 처리
 public class DBConfig implements TransactionManagementConfigurer{
 	
 	private String driverClassName = "com.mysql.jdbc.Driver";
@@ -36,7 +35,7 @@ public class DBConfig implements TransactionManagementConfigurer{
 	
 	@Override
 	public TransactionManager annotationDrivenTransactionManager() {
-		return null;
+		return transactionManger();
 	}
 	
 	@Bean
