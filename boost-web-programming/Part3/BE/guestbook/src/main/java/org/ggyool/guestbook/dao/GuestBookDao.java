@@ -33,7 +33,7 @@ public class GuestBookDao {
 				.withTableName("guestbook")
 				.usingGeneratedKeyColumns("id");
 	}
-	
+			
 	public Long insert(GuestBook guestBook) {
 		SqlParameterSource params = new BeanPropertySqlParameterSource(guestBook);
 		return insertAction.executeAndReturnKey(params).longValue();

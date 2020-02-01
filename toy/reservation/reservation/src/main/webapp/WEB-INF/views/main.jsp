@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 
@@ -49,35 +50,18 @@
                     </div>
                 </div>
             </div>
+            
+            
             <div class="section_event_tab">
                 <ul class="event_tab_lst tab_lst_min">
                     <li class="item" data-category="0">
                         <a class="anchor active"> <span>전체리스트</span> </a>
                     </li>
-                    <li class="item" data-category="1">
-                        <a class="anchor"> <span>전시</span> </a>
-                    </li>
-                    <li class="item" data-category="2">
-                        <a class="anchor"> <span>뮤지컬</span> </a>
-                    </li>
-                    <li class="item" data-category="3">
-                        <a class="anchor"> <span>콘서트</span> </a>
-                    </li>
-                    <li class="item" data-category="4">
-                        <a class="anchor"> <span>클래식</span> </a>
-                    </li>
-                    <li class="item" data-category="5">
-                        <a class="anchor"> <span>연극</span> </a>
-                    </li>
-                    <!-- li class="item" data-category="7">
-                        <a class="anchor"> <span>클래스</span> </a>
-                    </li>
-                    <li class="item" data-category="8">
-                        <a class="anchor"> <span>체험</span> </a>
-                    </li>
-                    <li class="item" data-category="9">
-                        <a class="anchor last"> <span>키즈</span> </a>
-                    </li -->
+                    <c:forEach items="${categoryList}" var="category">
+                    	<li class="item" data-category="${category.id}">
+	                        <a class="anchor"> <span>${category.name}</span> </a>
+	                    </li>
+                    </c:forEach>
                 </ul>
             </div>
             <div class="section_event_lst">
@@ -178,6 +162,7 @@
             </a>
         </li>
     </script>
+    <script src="main.js"></script>
 </body>
 
 </html>

@@ -23,6 +23,7 @@ public class GuestBookServiceImpl implements GuestBookService{
 	
 	
 	// 읽어드리기만 하는 method 는  @Transactional 을 붙여주면 내부적으로 readonly로 처리하게된다.
+	// defalut가 false인데.. (readOnly=true) 는 언제 쓰는걸까
 	@Override
 	@Transactional
 	public List<GuestBook> getGuestBooks(Integer start) {

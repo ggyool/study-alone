@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Naver booking Icons";
-    //src: url('/../img/fonts/Naver-booking-Icons.woff?456918077') format('woff');
+    src: url('../img/font/Naver-booking-Icons.woff?456918077') format('woff');
     font-weight: 400;
     font-style: normal
 }
@@ -126,7 +126,7 @@
 }
 @font-face {
     font-family: "Naver Icons";
-    //src: url('/../img/fonts/Naver-Icons.woff?456918077') format('woff');
+    //src: url('../img/font/Naver-Icons.woff?456918077') format('woff');
     font-weight: 400;
     font-style: normal
 }
@@ -823,18 +823,20 @@
 .fn-writing2:before {
     content: "\EADD"
 }
+/*
 @font-face {
     font-family: NanumGothicWebR;
     font-style: normal;
     font-weight: 400;
-    src: url('/../img/fonts/NanumGothicRegular.woff?1703172120') format('woff')
+    src: url('../img/font/NanumGothicRegular.woff?1703172120') format('woff')
 }
 @font-face {
     font-family: NanumGothicWebB;
     font-style: normal;
     font-weight: 400;
-    src: url('/../img/fonts/NanumGothicBold.woff?1703172120') format('woff')
-}
+    src: url('../img/font/NanumGothicBold.woff?1703172120') format('woff')
+}*/
+
 @charset "utf-8";
 body,
 html {
@@ -1151,7 +1153,7 @@ hr {
 .ct [class^=section_] .out_tit,
 .info_header {
     display: block;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .img_border {
     background-color: transparent;
@@ -1215,7 +1217,7 @@ hr {
     line-height: 21px
 }
 .font_style_base_btn {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-size: 17px
 }
 .font_style_base_title {
@@ -1288,7 +1290,7 @@ hr {
 }
 .count_num,
 .in_tit {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .info_header i[class*=ico_] {
@@ -1314,15 +1316,15 @@ hr {
 .agreement_nessasary,
 .info_tit {
     font-weight: 400;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .select_info,
 .select_info .select_data {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-size: 17px
 }
 .dsc {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-size: 16px;
     line-height: 24px
 }
@@ -1338,7 +1340,7 @@ hr {
 }
 .sale_price {
     font-size: 15px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .sale_price .price {
     display: inline-block;
@@ -2054,7 +2056,7 @@ input[type=radio].chk_agree+.label:before {
 .floating_btn .simple_price_info,
 .floating_btn .simple_price_info .figure {
     display: block;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 input[type=checkbox].chk_custom+.label:before {
     background-image: url(.../img/spr_book.ada46c4e031284d4b513fda5c38b5187.png);
@@ -2199,7 +2201,7 @@ select {
 .btn_gostore,
 .btn_review_more,
 .floating_btn .simple_price_info .figure .price_type {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .floating_btn .simple_price_info .figure .price_type {
     font-size: 16px;
@@ -2337,7 +2339,7 @@ select {
 .bk_btn,
 .bk_btn_srch,
 .btn_group .btn_white {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .btn_review_more .fn-forward1 {
     font-size: 18px;
@@ -2509,14 +2511,14 @@ select {
     max-width: 414px
 }
 .more_wrap .btn_more_circle .btn_more_circle_txt {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-size: 16px;
     line-height: 24px;
     color: #424242
 }
 .top_info .top_info_txt .invisible,
 .top_title .title {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .more_wrap .btn_more_circle .fn-booking-plus1 {
     font-size: 14px;
@@ -2719,7 +2721,7 @@ select {
     color: #fff
 }
 .top_title.gr .title {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     color: #fff
 }
@@ -2732,7 +2734,7 @@ select {
     padding: 10px 20px 11px;
     background-color: #fff;
     border-bottom: 1px solid #ededed;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2775,11 +2777,11 @@ select {
     background: #e9ecef;
     font: 0/0 a;
     word-wrap: break-word;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .calendar .tit_calendar .calendar-title,
 .footer .lst_link .item .policy_em {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .footer .lst_nav {
     display: block;
@@ -3352,7 +3354,7 @@ select {
 .calendar .tb_calendar .tb_body td.calendar-selected .num,
 .calendar .tb_calendar .tb_body td.calendar-selected .txt,
 .calendar .tb_calendar .tb_header th {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .calendar .tit_calendar .calendar-btn .fn-booking {
     margin: 0 -6px;
@@ -3460,7 +3462,7 @@ select {
 .calendar .tb_calendar .tb_body td.calendar-selected .num.stock,
 .calendar .tb_calendar .tb_body td.calendar-selected .txt.stock {
     color: #a5defe!important;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .calendar .tb_calendar .tb_body td.calendar-selected.end-day,
@@ -3476,7 +3478,7 @@ select {
 .calendar .tb_calendar .tb_body td.calendar-gap .num,
 .calendar .tb_calendar .tb_body td.calendar-gap .txt {
     background: 0 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     color: #fff!important
 }
@@ -3485,7 +3487,7 @@ select {
 .ly_info .in_ly_tit,
 .ly_info .in_ly_tit .tit_str,
 .pop_bottom_btnarea .btn_bottom {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .calendar .tb_calendar .tb_body td.calendar-gap .num.stock,
 .calendar .tb_calendar .tb_body td.calendar-gap .txt.stock {
@@ -3710,7 +3712,7 @@ select {
 }
 .pagination .num.off,
 .preview_txt .preview_txt_tit {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 500
 }
 .pop_bottom_btnarea .btn_gray,
@@ -3966,7 +3968,7 @@ select {
     padding-left: 7.5px
 }
 .middot:before {
-    content: "•";
+    content: "��";
     position: absolute;
     left: 0;
     top: 0;
@@ -4043,7 +4045,7 @@ select {
 .bar_tit .option_label {
     display: inline-block;
     margin-right: 7px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     color: #000;
     vertical-align: middle;
@@ -4053,7 +4055,7 @@ select {
 }
 .bar_tit .option_value {
     display: inline-block;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     font-size: 15px;
     color: #666;
@@ -4102,7 +4104,7 @@ select {
     width: 65px;
     color: #666;
     font-size: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 500;
     line-height: 15px
 }
@@ -4228,13 +4230,13 @@ select {
     margin-left: 3px;
     vertical-align: top;
     font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     color: #000
 }
 .form_vertical .label,
 .form_vertical .label .custom_text {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     color: #333
 }
 .form_horizontal .inline_form .inline_control .inline_control_inner .seat_item .seat_item_dsc {
@@ -4345,7 +4347,7 @@ select {
     padding: 4px 0 4px 8px;
     width: 100%;
     height: 38px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     color: #333;
     line-height: 24px;
@@ -4437,7 +4439,7 @@ select {
     height: 40px;
     padding-top: 2px;
     background-color: #fff;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 500;
     font-size: 15px;
     line-height: 19px;
@@ -4562,7 +4564,7 @@ select {
     margin-bottom: 4px;
     padding-left: 32px;
     padding-right: 32px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     text-shadow: 0 0 1px rgba(0, 0, 0, .2);
     font-size: 35px;
@@ -4617,7 +4619,7 @@ select {
     line-height: 19px;
     font-weight: 500;
     text-align: center;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .group_visual .visua../img .item .vr {
     font-size: 14px
@@ -4835,7 +4837,7 @@ select {
     display: none
 }
 .box_booking .box_booking_body .lst_box .item .anchor.on .box_info {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     color: #fff
 }
@@ -4926,7 +4928,7 @@ select {
     padding-bottom: 12px;
     background-color: #fff;
     border: 1px solid #8edd9d;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 500;
     font-size: 15px;
     color: #0aba16;
@@ -4935,7 +4937,7 @@ select {
 }
 .txt_hotdeal,
 .txt_hotdeal_b .deal_txt_strong {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .txt_hotdeal_b {
     display: none;
@@ -4992,7 +4994,7 @@ select {
 }
 .item_hotdeal .dsc_hotdeal .amount,
 .section_booking_date_time .select_info {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .txt_hotdeal:before {
@@ -5278,12 +5280,12 @@ select {
     border: 1px solid #c8e1af;
     text-align: center;
     color: #424242;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-size: 15px
 }
 .section_booking_date_time .updown_time_selector .list_time .item.on .anchor,
 .section_booking_date_time.light_date_time .select_info .calendar_week {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .section_booking_date_time .updown_time_selector .list_time .item.on .anchor {
@@ -5381,7 +5383,7 @@ select {
     padding: 10px 0 11px 3px;
     border-bottom: 1px solid #e1e1e1;
     font-size: 15px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     color: #666
 }
 .section_booking_date_time.light_date_time .updown_people .info_people .fn-booking-m-info1 {
@@ -5439,17 +5441,17 @@ select {
     padding-top: 4px;
     color: #bbb;
     text-align: right;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .section_booking_date_time.light_date_time .updown_people .individual_price .individual_price_won {
     margin-left: -4px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .preview_mini .mini_txt .mini_txt_tit,
 .section_booking_date_time.light_date_time .updown_people .people_total .total_cnt .price_type {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .section_booking_date_time.light_date_time .updown_people .individual_price.on_color {
@@ -5538,7 +5540,7 @@ select {
 .preview_mini .mini_txt .mini_txt_dsc {
     position: relative;
     display: block;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -5682,7 +5684,7 @@ select {
     border-top-right-radius: 3px
 }
 .select_layer .select_tit>.header_h4 {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 500;
     font-size: 18px;
     color: #222
@@ -5699,7 +5701,7 @@ select {
 }
 .sel_box_on .gray_label,
 .select_layer .lst_select .item .anchor {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-size: 18px
 }
 .select_layer .lst_select {
@@ -5852,17 +5854,17 @@ select {
 .bottom_select_option .select_option_title .tit {
     display: block;
     padding: 16.5px 20px 11.5px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     font-size: 16px
 }
 .bottom_select_option .select_option_title .tit .green {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .bottom_select_option .list_option_sum .in_sum_wrap .sum_price,
 .bottom_select_option .select_option_info .list_options .item.item_all .item_tit {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .bottom_select_option .list_option_sum {
@@ -5938,7 +5940,7 @@ select {
 .bottom_select_option .select_option_info .list_options .item.item_all .item_price .option_price,
 .check_option.category_tab .option_tab_wrap .option_tab .item .anchor,
 .quantity_option.category_tab .option_tab_wrap .option_tab .item .anchor {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .bottom_select_option .select_option_info .list_options .item.item_all .item_price_info {
     display: inline-block;
@@ -5961,7 +5963,7 @@ select {
 }
 .bottom_select_option .select_option_info .list_options_table .item .em,
 .soldout_tit {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .bottom_select_option .select_option_info.select_option_info_table {
     padding: 0 20px
@@ -6278,7 +6280,7 @@ select {
     padding: 1.5px 3px .5px;
     background-color: #f84459;
     font-size: 10px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     line-height: 12px;
     color: #fff
@@ -6289,7 +6291,7 @@ select {
     padding: 2px 4px 0;
     height: 36px;
     border-bottom: 2px solid #22c545;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     line-height: 36px;
     color: #0aba16
@@ -6418,7 +6420,7 @@ select {
     padding: 12px 5px 11px;
     margin: 0 9px;
     height: 22px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-size: 16px;
     line-height: 24px;
     color: #989898;
@@ -6427,7 +6429,7 @@ select {
 .tab_wrap .tab .item.active .anchor {
     padding-bottom: 10px;
     border-bottom: 1px solid #000;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     color: #000
 }
@@ -6633,12 +6635,12 @@ select {
 }
 .price_changegroup_wrap .price_number_select {
     padding: 12px 20px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     line-height: 21px
 }
 .group_banners .business_banners .banner_box .anchor .banner_txt .banner_tit,
 .group_banners .business_board .tit {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .price_changegroup_wrap .price_number_select+.price_number_select {
@@ -6768,7 +6770,7 @@ select {
 .common_bottom_buttongroup .common_bottom_btn,
 .common_bottom_buttongroup.para .common_bottom_btn,
 .group_banners .business_banners .banner_box .anchor .banner_txt .banner_tit .fn-booking {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .group_banners .business_banners .banner_box .anchor .banner_txt .banner_tit .fn-booking {
     margin-left: -4px;
@@ -6955,19 +6957,19 @@ select {
     border-right-width: 0;
     border-radius: 0;
     color: #F82222;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     -webkit-box-sizing: border-box;
     box-sizing: border-box
 }
 .qty_control .qty_input.disabled {
     color: #999;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .count_control .count_control_input,
 .section_event .event_info_box .event_info_tit .in_tit {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .count_control {
     display: table-cell;
@@ -7118,7 +7120,7 @@ select {
     left: 0;
     width: 4px;
     height: 4px;
-    content: "•";
+    content: "��";
     font-weight: 100;
     color: inherit;
     font-size: 8px;
@@ -7252,7 +7254,7 @@ select {
     margin: 5px 0 0
 }
 .section_event .event_info_box .event_info .in_dsc {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     color: #333;
     font-size: 16px;
     line-height: 24px
@@ -7283,7 +7285,7 @@ select {
 }
 .deposit_wrap .deposit_infor {
     font-size: 17px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     color: #333
 }
@@ -7318,7 +7320,7 @@ select {
 }
 .deposit_wrap .deposit_explan {
     padding: 10px 0 0 33px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     color: #333;
     line-height: 23px
 }
@@ -7327,7 +7329,7 @@ select {
 .option_common_wrap .option_common_detail .in_tit,
 .option_common_wrap .option_common_detail .option_bottom .price_select_sum,
 .option_common_wrap .option_common_detail .price_label .price_label_price {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .in_info {
@@ -7526,7 +7528,7 @@ select {
 }
 .details2 .price .figure .figure_sub {
     font-size: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .details2 .price .figure .price_type {
@@ -7590,7 +7592,7 @@ select {
 .details4 .price_control .price .figure {
     overflow: hidden;
     margin-bottom: 3px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-size: 16px;
     line-height: 16px;
     font-weight: 700;
@@ -7598,13 +7600,13 @@ select {
     vertical-align: middle
 }
 .details4 .price_control .price .figure .figure_sub {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-size: 16px;
     font-weight: 400
 }
 .section_booking_further .group_option_further .option_further .details .in_tit,
 .section_booking_further .group_option_further .option_further .details_switch .details_txt_inn .figure {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .details4 .price_control .price .figure .price_type {
@@ -7702,13 +7704,13 @@ select {
     color: #333
 }
 .section_booking_further .group_option_further .option_further .details_switch .details_txt_inn .figure .price_type {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .section_booking_further .group_option_further .option_further .details_switch .in_tit,
 .section_booking_further .option_details .chk_txt,
 .section_booking_further .option_details .figure {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .section_booking_further .group_option_further .option_further .details_switch .details_thumb {
@@ -7843,7 +7845,7 @@ select {
 .box_store_info .title_location,
 .store_info .lst_store_info .item_lt,
 .store_name {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .store_location .store_map {
     width: 100%;
@@ -7961,7 +7963,7 @@ select {
     padding-bottom: 1px;
     line-height: 18px;
     color: #0aba16;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -7971,7 +7973,7 @@ select {
 .store_info .channel_info .manager_tit,
 .store_info .lst_store_info .item_rt .title_time {
     font-weight: 500;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .store_info .lst_store_info .item_rt .item_sub {
     padding-top: 4px;
@@ -8052,7 +8054,7 @@ select {
     color: #000
 }
 .item_list_wrap .item_list .item .item_txt .item_txt_tit {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -8062,7 +8064,7 @@ select {
 .item_list_wrap .item_list .item .item_txt .item_txt_dsc,
 .section_booking_agreement .agreement,
 .section_booking_form .booking_form_wrap .booking_nessasary {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .item_list_wrap .item_list .item .item_txt .item_txt_dsc {
     max-height: 69px;
@@ -8135,7 +8137,7 @@ select {
     margin-right: 0;
     padding: 12.5px 20px 9px;
     width: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     border-top: none;
     border-bottom: 1px solid #eee;
@@ -8148,7 +8150,7 @@ select {
 .section_booking_agreement .agreement .useragreement_details,
 .section_booking_agreement .agreement .useragreement_details .policy_contents .policy_list .title_dt,
 .section_booking_agreement .agreement .useragreement_details.custom_details_wrap .custom_details {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .section_booking_agreement .agreement .chk_txt_span {
@@ -8294,7 +8296,7 @@ select {
 .section_booking_account .deposit_details .info_header,
 .section_booking_account .deposit_details .title,
 .section_booking_owner .owner_title {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .section_booking_agreement .agreement .btn_agreement .fn {
     font-size: 17px;
@@ -8380,7 +8382,7 @@ select {
 .section_booking_owner .owner .owner_dsc,
 .section_booking_owner .owner .owner_tit {
     display: table-cell;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     vertical-align: top
 }
 .section_booking_owner .owner .owner_tit {
@@ -8394,7 +8396,7 @@ select {
 }
 .section_booking_refund .info_detail .agreement_wrap .chk_txt,
 .section_booking_refund .info_detail .agreement_wrap .refund_txt {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     word-break: keep-all
 }
@@ -8437,7 +8439,7 @@ select {
 }
 .section_booking_refund .info_detail .info_detail_txt,
 .section_booking_refund .table_booking_info .td_r {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .section_booking_refund .info_detail .agreement_wrap .agreement_nessasary {
     display: table-cell;
@@ -8501,7 +8503,7 @@ select {
 .section_booking_summary .summary .summary_title,
 .section_booking_summary .summary_total .summary_title,
 .section_booking_summary .summary_total .summary_total_price {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .section_booking_summary {
@@ -8598,7 +8600,7 @@ select {
 .section_booking_summary .summary_total .summary_total_price .summary_total_price_type {
     font-size: 16px;
     line-height: 24px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .section_booking_summary .list_menu_option {
@@ -8636,7 +8638,7 @@ select {
 }
 .item_noresults {
     padding: 40px 20px 100px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 500;
     text-align: center
 }
@@ -8649,7 +8651,7 @@ select {
 .item_noresults .dsc,
 .item_noresults .help,
 .item_noresults .help_more .dsc {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .item_noresults .dsc {
@@ -8694,7 +8696,7 @@ select {
 }
 .err .btn_goback,
 .err .waiting {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .err .dsc {
@@ -8801,7 +8803,7 @@ select {
     padding: 11px 5px 6px;
     background: #0dab3c;
     border-top: 1px solid #0c9a36;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     font-size: 14px;
     color: #fff;
@@ -8920,7 +8922,7 @@ select {
     position: relative;
     padding: 0 50px 8px;
     font-size: 25px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     color: #fff;
     line-height: 29px;
@@ -8928,7 +8930,7 @@ select {
 }
 .group_section_home .section_home .home_dsc,
 .section_store_details .store_details .store_features .item {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     color: #fff
 }
@@ -9121,7 +9123,7 @@ select {
 }
 .section_item_lst .lst_item_box .item .item_preview .price,
 .section_item_lst .lst_item_box .item .item_txt .item_txt_tit {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     display: block
 }
 .section_item_lst .lst_item_box .item .item_preview .price {
@@ -9158,7 +9160,7 @@ select {
 }
 .section_item_lst .lst_item_box .item .item_txt .item_txt_dsc {
     max-height: 46px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     color: #666;
     font-size: 16px;
@@ -9194,7 +9196,7 @@ select {
     margin-bottom: -1px;
     border-bottom: 2px solid #0aba16;
     color: #0aba16;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .section_visual_step2 {
@@ -9429,7 +9431,7 @@ select {
 }
 .time_booking .info_time_cont .calendar_info .list_calendar_info .item,
 .time_booking .info_time_cont .txt {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     color: #999
 }
 .time_booking .time_controler .lst_time_cont .item.none .time_box {
@@ -9526,20 +9528,20 @@ select {
 .section_booking_ticket .ticket_body .qty .count_control .individual_price {
     padding-top: 4px;
     text-align: right;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     color: #bbb
 }
 .section_booking_ticket .ticket_body .qty .count_control .individual_price .price_type {
     margin-left: 1px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .section_booking_ticket .ticket_body .qty .product_amount,
 .section_booking_ticket .ticket_body .qty .product_amount .figure,
 .section_booking_ticket .ticket_body .qty .product_price,
 .section_booking_ticket .ticket_body .qty .product_price .figure {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     font-size: 16px
 }
@@ -9581,7 +9583,7 @@ select {
 }
 .section_booking_ticket .ticket_body .qty .price_type {
     font-size: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .section_booking_ticket .summary_total {
@@ -9596,7 +9598,7 @@ select {
 .section_booking_ticket .summary_total .summary_title {
     display: inline-block;
     float: left;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .section_booking_ticket .summary_total .summary_price_info {
@@ -9623,7 +9625,7 @@ select {
 .page_confirm .detail_info .info_lst .info_item .item_desc,
 .page_confirm .detail_info .info_lst .info_item .item_tit {
     font-size: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .detail_slot_seat {
@@ -9645,7 +9647,7 @@ select {
 .page_confirm {
     margin: 0 auto -3px;
     max-width: 414px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     border-bottom: none!important
 }
 .page_confirm .fn,
@@ -9782,14 +9784,14 @@ select {
     line-height: 24px;
     vertical-align: top;
     padding: 0 6px 2px 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     color: #333
 }
 .page_confirm .confirm_item_top .item_top_inside_left .item_top_inside_right .confirm_title,
 .page_confirm .confirm_item_top .item_top_inside_left .item_top_inside_right .confirm_top_content .detail_info.inform .item_tit {
     font-weight: 600;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .page_confirm .list_anchor {
     position: relative;
@@ -9990,7 +9992,7 @@ select {
 .page_confirm .confirm_item_top .item_top_inside_left .item_top_inside_right .confirm_top_content .confirm_number {
     min-height: 23px;
     font-size: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 500;
     color: #333
 }
@@ -10010,7 +10012,7 @@ select {
     font-size: 19px;
     line-height: 28px;
     color: #333;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     letter-spacing: -.2px
 }
@@ -10044,7 +10046,7 @@ select {
     padding: 20px 0 15px;
     margin: -2px 0 0 -3px;
     font-size: 15px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     color: #000
 }
@@ -10090,7 +10092,7 @@ select {
 .page_confirm .confirm_item_body .confirm_okaywrap .okay_msg.button_area .anchor_block .strong,
 .page_confirm .confirm_item_body .tit_confirm_item {
     font-weight: 500;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .page_confirm .confirm_item_top+.confirm_item_body {
     margin-top: -3px
@@ -10293,7 +10295,7 @@ select {
 .page_confirm .confirm_item_body .confirm_userinfo_wrap.nomember_info .info_title {
     padding: 5px 0 4px;
     font-size: 17px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     color: #000
 }
@@ -10363,7 +10365,7 @@ select {
     font-size: 18px;
     line-height: 20px;
     color: #005fc1;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 500;
     text-decoration: none
 }
@@ -10457,7 +10459,7 @@ select {
 }
 .page_confirm .confirm_item_body .confirm_paywrap .detail_info .foot .item_desc.td_right.pink,
 .page_confirm .confirm_item_body .confirm_paywrap .detail_info .foot .item_tit.td_right.pink {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .page_confirm .confirm_item_body .confirm_paywrap .detail_info+.confirm_pay_info {
@@ -10501,7 +10503,7 @@ select {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     margin-top: -3.5px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     font-size: 15px;
     line-height: 18.5px;
@@ -10510,7 +10512,7 @@ select {
 }
 .page_confirm .confirm_item_body .confirm_code .confirm_code_list_wrap .list_code_qr .item .code_txt,
 .page_confirm .confirm_item_body .confirm_code .confirm_code_list_wrap .list_code_qr .item .code_txt_sub .code_txt_used {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 500
 }
 .page_confirm .confirm_item_body .confirm_code .loading {
@@ -10547,7 +10549,7 @@ select {
     padding: 40px 10px 35px
 }
 .page_confirm .confirm_item_body .confirm_code .confirm_code_list_wrap .list_code .item .code_txt {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-size: 16px;
     line-height: 1.5em;
     text-align: center;
@@ -10641,7 +10643,7 @@ select {
 .popup_booking .pop_tit .sm,
 .popup_booking .user_list .item.detail_item .user_dsc,
 .popup_booking .user_list .item.pay_all .user_dsc .numb {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .page_confirm .confirm_item_body .confirm_code .confirm_code_list_wrap .list_code_qr .item .code_txt_sub .code_txt_company,
@@ -11072,7 +11074,7 @@ select {
 .popup_booking .pop_tit2 {
     font-size: 18px;
     line-height: 26px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     color: #000
 }
@@ -11082,7 +11084,7 @@ select {
 .popup_booking .pop_state .item_left .normal,
 .popup_booking .pop_state .numb,
 .popup_booking .pop_state .state_list {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .popup_booking .pop_state {
@@ -11201,7 +11203,7 @@ select {
 .popup_booking .pay_list .item.all .block_right,
 .popup_booking .pay_list .item.all .block_right .normal,
 .popup_booking .pop_tit_sub {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .popup_booking .pay_list .item.all .block_right {
     color: #F82222;
@@ -11337,7 +11339,7 @@ select {
 .popup_booking .pop_payrule .pay_rule_view .line_table td .number_data,
 .popup_booking .pop_tit_sub .btn_toggle_pay,
 .section_search_store .search_box .search_filed .input_search {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .popup_booking .pop_tit_sub:after,
 .popup_booking .pop_tit_sub:before {
@@ -11458,7 +11460,7 @@ select {
 .review_header .review_sub_title,
 .section_search_results .list_business>.item .business_name>.name,
 .section_search_store .search_box .btn_search {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .section_search_store .search_box .search_filed .input_search.placeholder {
@@ -11571,7 +11573,7 @@ select {
     color: #333;
     line-height: 21px;
     font-size: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     -webkit-box-sizing: border-box;
     moz-box-sizing: border-box;
     box-sizing: border-box
@@ -11598,7 +11600,7 @@ select {
     padding-left: 10px;
     color: #000;
     font-size: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     line-height: 1.1
 }
@@ -11606,7 +11608,7 @@ select {
 .write_act .title_star,
 .write_act .title_star_dsc {
     font-weight: 400;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .review_title .rating_point .bg_star_s {
     display: inline-block;
@@ -11727,7 +11729,7 @@ select {
 .write_act .btn_write .btn_txt {
     padding: 1px 10px;
     border: 1px solid #ddd;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-size: 15px;
     color: #666
 }
@@ -11745,7 +11747,7 @@ select {
 .review_contents .review_textarea,
 .review_contents .review_write_info {
     border: 1px solid #e8e8e8;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .review_contents.write.modify {
     padding-bottom: 233px
@@ -11955,7 +11957,7 @@ select {
 }
 .guide_review_info .btn_review_info .title_review_info {
     font-size: 17px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     line-height: 21px
 }
@@ -12017,7 +12019,7 @@ select {
 }
 .review_comment .comment_details {
     padding-left: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     color: #777;
     font-size: 15px;
     line-height: 24px
@@ -12025,7 +12027,7 @@ select {
 .review_comment .comment_details .comment_start,
 .review_comment .review_user {
     color: #000;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .review_comment .comment_details .comment_start {
     font-weight: 600
@@ -12055,14 +12057,14 @@ select {
 }
 .section_review_list .review_box .title_h3 {
     position: relative;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     font-size: 17px;
     letter-spacing: -.15px
 }
 .section_review_list .review_box .guide,
 .section_review_list .short_review_area .grade_area .text_value {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .section_review_list .review_box .title_h3 .count {
     margin-left: 6px;
@@ -12138,7 +12140,7 @@ select {
 .section_review_list .short_review_area .grade_area .text_value .total {
     margin-left: 5px;
     font-family: HelveticaNeue-Light;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     color: #888
 }
@@ -12223,7 +12225,7 @@ select {
 }
 .section_review_list .short_review_area .resoc_name {
     margin-bottom: 3px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     font-size: 16px;
     color: #333
@@ -12274,7 +12276,7 @@ select {
 .section_review_list .short_review_area .my_modify,
 .section_review_list .short_review_area .reply_area .reply_info .name,
 .section_review_list .short_review_area .reply_count {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .section_review_list .short_review_area .review_info .name {
@@ -12386,12 +12388,12 @@ select {
     display: inline-block;
     float: left;
     padding-top: 23px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .policy_history .select_policy_history,
 .policy_history .select_policy_history .date {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .policy_history .wrap_select_policy_history::before {
@@ -12440,12 +12442,12 @@ select {
 }
 .policy_contents .policy_list .title_dt {
     padding-top: 23px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .policy_contents .policy_list .desc_dd {
     padding-top: 6px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     color: #666;
     line-height: 24px
@@ -12548,14 +12550,14 @@ select {
     background-position: -253px -284px
 }
 .section_my .my_summary .summary_board .item .link_summary_board.on .figure {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 500;
     color: #bcff85
 }
 .section_my .my_summary .summary_board .item .figure,
 .section_my .my_summary .summary_board .item .tit,
 .section_my .wrap_mylist .list_cards .card .card_body .middle .card_detail .detail .item .item_tit {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .section_my .my_summary .summary_board .item .tit {
@@ -12574,7 +12576,7 @@ select {
 }
 .section_my .wrap_mylist .list_cards .card .card_body .middle .card_detail .tit,
 .section_my .wrap_mylist .list_cards .card .card_header .middle .tit {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .section_my .wrap_mylist {
     background: #e9ecef;
@@ -12704,7 +12706,7 @@ select {
 }
 .section_my .wrap_mylist .list_cards .card .card_body .middle .card_detail .detail .item .item_dsc,
 .section_my .wrap_mylist .list_cards .card .card_body .middle .card_detail .price_summary .price_tit {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #333
@@ -12735,7 +12737,7 @@ select {
 }
 .event .section_visual .group_visual .container_visual .visua../img .item .event_txt .event_txt_tit,
 .section_my .wrap_mylist .list_cards .card .card_body .middle .card_detail .price_summary .price_amount {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .section_my .wrap_mylist .list_cards .card .card_body .middle .card_detail .price_summary .price_amount {
@@ -12950,7 +12952,7 @@ select {
 .event .section_event_tab .event_tab_lst>.item .anchor,
 .event .section_visual .group_visual .container_visual .visua../img .item .event_txt .event_txt_adr,
 .event .section_visual .group_visual .container_visual .visua../img .item .event_txt .event_txt_dsc {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     white-space: nowrap
 }
@@ -13102,7 +13104,7 @@ select {
     padding: 10px 4.5px 8px 4px;
     color: #0aba16;
     border-bottom: 2px solid #0aba16;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .event .section_event_tab .event_tab_lst>.item .anchor.last {
@@ -13123,7 +13125,7 @@ select {
     text-align: center;
     background-color: #fff;
     font-size: 13px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     color: #666
 }
@@ -13173,14 +13175,14 @@ select {
 }
 .event .wrap_event_box .lst_event_box .item .event_txt .event_txt_tit {
     margin-bottom: 8px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600;
     font-size: 15px;
     color: #000
 }
 .event .wrap_event_box .lst_event_box .item .event_txt .event_txt_dsc,
 .event .wrap_event_box .lst_event_box .item .event_txt .event_txt_tit .sm {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     display: block;
     overflow: hidden;
@@ -13316,13 +13318,13 @@ select {
     display: block;
     padding: 11px 0 10px;
     text-indent: 11px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .bottom_select_seat .seat_info_tit .right_tit .green,
 .bottom_select_seat .select_seat_floating .group_option .item .seat_type .tit_badge,
 .bottom_select_seat .select_seat_floating .group_option .item .seat_type .tit_inn {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .bottom_select_seat .seat_info_tit .left_tit {
@@ -13460,7 +13462,7 @@ select {
 }
 .booking_login .login_header_sub,
 .bottom_select_seat .bottom_step_button>.anchor {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .bottom_select_seat .select_seat_floating .group_option .item .seat_type .tit_badge .seat_info_color,
@@ -13528,7 +13530,7 @@ select {
 .adminbooking_login .login_form .login_group.group2 .input_box,
 .booking_login .login_dsc .green,
 .booking_login .login_dsc .pink {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 .booking_login .login_header_sub.nomember {
@@ -13695,7 +13697,7 @@ select {
 }
 .adminbooking_login .login_form .login_group.group2 .input_box.notplaceholder {
     color: #000;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .adminbooking_login .login_form .agreement {
@@ -13703,7 +13705,7 @@ select {
 }
 .adminbooking_login .login_form .agreement input[type=checkbox].chk_agree+.label {
     height: 25px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     font-size: 15px;
     color: #000;
@@ -13892,7 +13894,7 @@ body.en .calendar .tb_calendar .tb_header th {
 }
 .talk .wrap_booking_inquiries .bk_ct .bk_result_area .bk_box_result_area .bk_result_txt,
 .talk .wrap_booking_inquiries .bk_header .bk_header_tit {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400
 }
 body.en .subscribe_banner .subscribe_strapline {
@@ -14050,7 +14052,7 @@ body.en .subscribe_banner .subscribe_strapline {
 }
 .talk .wrap_booking_inquiries .bk_ct .bk_lst_wrap .bk_lst_area .bk_lsts .bk_detail .bk_detail_lst .bk_detail_dsc,
 .talk .wrap_booking_inquiries .bk_ct .bk_lst_wrap .bk_lst_area .bk_lsts .bk_detail .bk_detail_lst .bk_detail_tit {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
@@ -14105,7 +14107,7 @@ body.en .subscribe_banner .subscribe_strapline {
     float: right;
     margin-right: 6px;
     color: #1088ee;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 600
 }
 .talk .wrap_booking_inquiries .bk_ct .bk_lst_wrap::after {
@@ -14169,7 +14171,7 @@ body.en .subscribe_banner .subscribe_strapline {
 .talk .wrap_booking_inquiries .bk_ct2 .bk_result_area .nodata_bk_mnt .strong {
     display: block;
     margin: 16px 0 6px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #333
@@ -14377,7 +14379,7 @@ body.en .subscribe_banner .subscribe_strapline {
 .talk .wrap_booking_inquiries .bk_ct2 .cnt_bk_box .wrap_bk_box .lst_bk_box .bk_item .bk_item_txt .bk_item_tit,
 .talk .wrap_booking_inquiries .bk_ct2 .cnt_bk_box .wrap_bk_box .lst_bk_box .bk_item .bk_preview .bk_price {
     font-weight: 600;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .talk .wrap_booking_inquiries .bk_ct2 .cnt_bk_box .wrap_bk_box .lst_bk_box .bk_item .bk_preview .bk_price {
     z-index: 5;
@@ -14415,7 +14417,7 @@ body.en .subscribe_banner .subscribe_strapline {
     line-height: 0
 }
 .talk .wrap_booking_inquiries .bk_ct2 .cnt_bk_box .wrap_bk_box .lst_bk_box .bk_item .bk_item_txt .bk_item_dsc {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     color: #666;
     font-size: 16px;
@@ -14526,7 +14528,7 @@ body.en .subscribe_banner .subscribe_strapline {
     padding: 0 0 26px 10px;
     border-bottom: 1px solid #5d5d5d;
     font-size: 27px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 500;
     color: #000;
     line-height: 31px
@@ -14534,7 +14536,7 @@ body.en .subscribe_banner .subscribe_strapline {
 .michelin_wrapper .michelin_top .mc_info_list .info_item,
 .michelin_wrapper .michelin_top .mc_state .numb,
 .michelin_wrapper .michelin_top .mc_state .state_list {
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif
 }
 .michelin_wrapper .michelin_top .mc_tit .michelin_color {
     color: #bd2333
@@ -14639,13 +14641,13 @@ body.en .subscribe_banner .subscribe_strapline {
 .michelin_wrapper .michelin_bottom .mc_subtit {
     padding: 0 0 9px;
     font-size: 16px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 500;
     color: #000
 }
 .michelin_wrapper .michelin_bottom .mc_para {
     font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 400;
     color: #333;
     line-height: 21px
@@ -14678,7 +14680,7 @@ body.en .subscribe_banner .subscribe_strapline {
     background: #fff;
     border: 1px solid #f6cbc6;
     font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebB, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     font-weight: 500;
     color: #eb5b4c;
     line-height: 21px
@@ -14690,7 +14692,7 @@ body.en .subscribe_banner .subscribe_strapline {
 .michelin_wrapper .michelin_bottom .close_explan {
     padding: 22px 0 0;
     font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '맑은 고딕', MalgunGothic, '돋움', Dotum, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', Helvetica Nenu, Helvetica, Roboto, Arial, NanumGothicWebR, '留묒� 怨좊뵓', MalgunGothic, '�룍��', Dotum, sans-serif;
     color: #989898
 }
 .michelin {

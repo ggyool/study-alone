@@ -1,0 +1,47 @@
+CREATE TABLE `category` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '카테고리 id',
+  `name` VARCHAR(50) NOT NULL COMMENT '카테고리 이름',
+  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `product` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '상품id',
+  `category_id` INT(11) NOT NULL COMMENT '카테고리id',
+  `description` VARCHAR(100) NULL DEFAULT NULL COMMENT '상품 간단 설명',
+  `content` TEXT NULL DEFAULT NULL COMMENT '상품 상세 설명',
+  `event` VARCHAR(4000) NULL DEFAULT NULL COMMENT '이벤트 정보',
+  `create_date` DATETIME NULL DEFAULT NULL COMMENT '생성시간',
+  `modify_date` DATETIME NULL DEFAULT NULL COMMENT '수정시간',
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`category_id`)
+  REFERENCES `category` (`id`)
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `file_info` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '파일id',
+  `file_name` VARCHAR(255) NOT NULL COMMENT '원본 파일명',
+  `save_file_name` VARCHAR(4000) NOT NULL COMMENT 'save파일 명',
+  `content_type` VARCHAR(255) NOT NULL COMMENT '파일 mime type',
+  `delete_flag` INT(1) NOT NULL COMMENT '삭제유무 삭제:1, 삭제안됨 : 0',
+  `create_date` DATETIME NULL DEFAULT NULL COMMENT '등록일',
+  `modify_date` DATETIME NULL DEFAULT NULL COMMENT '수정일',
+  PRIMARY KEY (`id`)) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+  
+ 
+ CREATE TABLE `product_image` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '상품 이미지 id',
+  `product_id` INT(11) NOT NULL COMMENT '상품 id',
+  `type` VARCHAR(2) NOT NULL COMMENT '이미지 type, th: 썸네일, ma: 메인, et: 기타 (etc)',
+  `file_id` INT(11) NOT NULL COMMENT 'file id',
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`product_id`)
+  REFERENCES `product` (`id`),
+  FOREIGN KEY (`file_id`)
+  REFERENCES `file_info` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+
