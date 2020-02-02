@@ -57,11 +57,6 @@
                     <li class="item" data-category="0">
                         <a class="anchor active"> <span>전체리스트</span> </a>
                     </li>
-                    <c:forEach items="${categoryList}" var="category">
-                    	<li class="item" data-category="${category.id}">
-	                        <a class="anchor"> <span>${category.name}</span> </a>
-	                    </li>
-                    </c:forEach>
                 </ul>
             </div>
             <div class="section_event_lst">
@@ -162,7 +157,12 @@
             </a>
         </li>
     </script>
-    <script src="main.js"></script>
+    <script type="rv-template" id="categoryList">
+   		<li class="item" data-category="{category.id}">
+			<a class="anchor"> <span>{category.name}</span> </a>
+		</li>
+    </script>
+    <script src="resources/js/main.js"></script>
 </body>
 
 </html>
