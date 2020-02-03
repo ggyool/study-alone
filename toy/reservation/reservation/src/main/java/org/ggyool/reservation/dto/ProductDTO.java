@@ -2,6 +2,10 @@ package org.ggyool.reservation.dto;
 
 import java.util.Date;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class ProductDTO {
 	private Long id;
 	private Long categoryId;
@@ -10,6 +14,9 @@ public class ProductDTO {
 	private String event;
 	private Date createDate;
 	private Date modifyDate;
+	@Autowired
+	private DisplayInfoDTO displayInfo;
+	
 	public Long getId() {
 		return id;
 	}
@@ -52,10 +59,17 @@ public class ProductDTO {
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
+	public DisplayInfoDTO getDisplayInfo() {
+		return displayInfo;
+	}
+	public void setDisplayInfo(DisplayInfoDTO displayInfo) {
+		this.displayInfo = displayInfo;
+	}
 	@Override
 	public String toString() {
 		return "ProductDTO [id=" + id + ", categoryId=" + categoryId + ", description=" + description + ", content="
-				+ content + ", event=" + event + ", createDate=" + createDate + ", modifyDate=" + modifyDate + "]";
+				+ content + ", event=" + event + ", createDate=" + createDate + ", modifyDate=" + modifyDate
+				+ ", displayInfo=" + displayInfo + "]";
 	}
 	
 	

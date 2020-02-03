@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(){
 	function categoryLoadFunc(evt){
+		console.log(evt);
 		if(evt.currentTarget.readyState === XMLHttpRequest.DONE){
 			if(evt.currentTarget.status === 200){
 				var categoryList = JSON.parse(evt.currentTarget.responseText).items;

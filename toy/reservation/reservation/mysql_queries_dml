@@ -665,3 +665,216 @@ insert into product_image (id, product_id, type, file_id) values ( 129,50, 'ma',
 
 
 
+
+
+
+
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 1,1, '- 관람시간: 화, 수, 금, 일요일 오전 10시 - 오후 6시 *전시 종료 30분 전 입장 마감됩니다.
+- 야간개관: 목, 토요일 오전 10시 - 저녁 8시 *전시 종료 30분 전 입장 마감됩니다.
+- 휴관안내: 전시 기간 중 매주 월요일 휴무이며, 설 연휴인 2018년 2월 15일, 16일 휴관입니다.
+12월 25일 (월요일) 정상 운영됩니다.', '대림미술관', '서울특별시 종로구 통의동 35-1', '서울특별시 종로구 자하문로4길 21 대림미술관', '02-6403-9961', 'daelimmuseum.org', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 2,2, '- 전시기간: 2017.10.21(토) – 2018.2.20(화)
+- 운영시간: 월-목 am 11:00 - pm 20:00 (19:00 입장마감) / 금-일 am 11:00 - pm 21:00 (20:00 입장마감)
+- 도슨트: 매주 금, 토 14:00, 16:00, 18:00 (3회) / 무료 오디오 가이드 상시 운영', 'KT&G 상상마당 홍대 갤러리 (4, 5F)', '서울특별시 마포구 서교동 367-5', '서울특별시 마포구 어울마당로 65 상상마당빌딩', '', 'https://www.sangsangmadang.com/display/detail/435', 'gallery@sangsangmadang.com', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 3,3, '- 관람시간: 오전 10시 ~ 오후 7시(입장마감 6시)
+- 월요일 휴관
+- 공휴일 정상개관(크리스마스/신정 정상개관)
+- 관람종료 1시간 전까지 발권 및 입장이 가능합니다.
+- 체험존은 관람종료 15분전에 마감합니다.', '서울숲 갤러리아포레 The Seouliteum G층 (B2)
+', '서울특별시 성동구 성수동1가 685-696', '서울특별시 성동구 왕십리로 85 갤러리아포레
+', '1522-1796', 'http://thealice.co.kr', 'medianart@mnart.co.kr', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 4,4, '- 2017.12.14.(목)~2017.12.17.(일)
+- 평일&주말 09:00~18:00
+- 연중무휴
+
+', '코엑스 Hall B', '서울특별시 강남구 삼성동 159 1층', '서울특별시 강남구 영동대로 513 코엑스
+', '02-866-6480
+', 'http://www.smartix.co.kr/', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 5,5, '- 2017.12.22.(금)~2018.3.4.(일)
+- 12월, 1월, 2월: 11:00 ~ 19:00 (마지막 입장: 18시)
+- 3월: 11:00 ~ 20:00 (마지막 입장: 19시)
+(매월 마지막 주 월요일 휴관. 단, 크리스마스와 설연휴는 정상운영합니다.)', '예술의전당 한가람미술관 3층(5,6 전시실)
+', '서울특별시 서초구 서초동 700', '서울특별시 서초구 남부순환로 2406 예술의전당
+', '02-6273-4242
+', 'https://girard.modoo.at/', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 6,6, '- 2017.12.14.(목)~2017.12.17.(일)', '코엑스 Hall B', '서울특별시 강남구 삼성동 159 1층', '서울특별시 강남구 영동대로 513 코엑스', '02-866-6480
+', 'http://www.smartix.co.kr/
+', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 7,7, '2017. 12. 15(Fri) – 17(Sun)
+11am – 18pm', '홍익대 대학로 아트센터 갤러리
+', '서울특별시 종로구 연건동 128-8 홍익대 대학로 아트센터
+', '서울특별시 종로구 대학로 57 홍익대학교대학로캠퍼스
+', '010-2794-2936', 'http://pp-graphic.com', 'about@pp-graphic.com
+', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 8,8, '- (매주 월요일 휴관 , 추석 연휴 10월 4일(수)~5일(목), 설 연휴 휴관)
+
+-관람 시간 : 화, 수, 목, 일요일 - 오전 10시 ~ 저녁 6시 (입장마감: 전시 종료 30분전)
+금요일, 토요일 – 오전 10시 ~ 저녁 8시 (입장마감: 전시 종료 30분전)
+도슨트 투어: 매시 정각 (11, 13, 14, 15, 16, 17시)
+정규 도슨트 투어는 미술관 사정에 따라 취소 될 수 있습니다.
+', '디뮤지엄', '서울특별시 용산구 한남동 50-1 Replace한남 F동', '서울특별시 용산구 독서당로29길 5-6 Replace한남 F동', '02-6403-9961
+', 'daelimmuseum.org/dmuseum', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 9,9, '기간 : 2017.09.02(토) ~ 2017.12.03(일)
+시간 : 11:00-20:00 (입장마감 오후 7시), 11월은 11:00-19:00 (입장마감 오후 6시) ※ 매월 마지막주 월요일 휴관 (9/25, 10/30)', '한가림미술관 제1전시실, 제2전시실', '서울시 서초구 서초동 700번지', '울시 서초구 남부순환로 2406 예술의전당', '02-837-6611', 'https://www.sacticket.co.kr/SacHome/exhibit/detail?searchSeq=30191', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 10,10, '전시기간 : 2017년 12월9일(토) ~ 2018년 3월11일(일)
+관람시간 : 11:00 ~ 19:00 (18:00 입장마감) 12월~2월
+11:00 ~ 20:00 (19:00 입장마감) 3월', '예술의전당 한가람미술관 1층', '서울특별시 서초구 서초동 700', '서울특별시 서초구 남부순환로 2406 예술의전당
+', '031-8038-3912
+', 'https://marie2017.modoo.at/
+', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 11,11, '2017년 12월 5일(화) ~ 2018년 1월 31일
+', '충무아트센터 대극장', '서울특별시 중구 흥인동 131', '서울특별시 중구 퇴계로 387 충무아트홀
+', '02-1644-2620', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 12,12, '2017년 11월 24일(금) ~ 2018년 1월 21일(일)', '홍익대 대학로 아트센터 대극장', '서울특별시 종로구 연건동 128-8', '서울특별시 종로구 대학로 57 홍익대학교대학로캠퍼스', '1577-3363
+', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 13,13, '2017년 12월 15일(금) ~ 2018년 1월 14일(일)', '세종문화회관 대극장', '서울특별시 종로구 세종로 81-3', '서울특별시 종로구 세종대로 175 세종이야기
+', '02-399-1000', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 14,14, '2018년 1월 27일(토) ~ 2018년 3월 4일(일)
+공연시간 : 화 ~ 일, 2월 17일(토) 11시, 14시', '국릴중앙박물관 극장용', '서울특별시 용산구 용산동6가 168-6', '서울특별시 용산구 서빙고로 137', '1566-5588', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 15,15, '2017년 9월 25일 ~ 2017년 12월 31일', '성균관대학교 새천년홀', '서울특별시 종로구 명륜3가 53', '서울특별시 종로구 성균관로 41', '02-740-1944', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 16,16, '2017년 10월 27일(금) ~ 2018년 1월 7일(일)', '두산아트센터 연강홀', '서울특별시 종로구 연지동 270', '서울특별시 종로구 종로33길 15 두산아트센터', '02-1588-5212', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 17,17, '- 2017년 12월 5일(화) 7시 30분
+- 2017년 12월 13일(수) 7시 30분
+- 2017년 12월 16일(토) 3시
+- 2017년 12월 23일(토) 7시
+- 2017년 12월 25일(월) 4시', '흰물결아트센터', '울특별시 서초구 서초동 1720-4', '서울특별시 서초구 반포대로 150', '02-535-7034', 'http://www.whitehall.kr', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 18,18, '- 2018년 1월 3일 ~ 2018년 1월 14일
+- 평일 오후 8시, 토요일 오후 3시 7시, 일요일 2시 6시(월요일 공연 없음)', '아르코예술극장 대극장', '서울특별시 종로구 대학로8길 7 한국문예회관
+', '서울특별시 종로구 동숭동 1-111', '02-6339-1232
+', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 19,19, '- 개막공연 : 2017년 10월 21일(토) 오후 3시
+- 2017년 12월 5일(토) 3시
+- 2017년 12월 16일(토) 7시
+- 2017년 12월 21일(목) 7시 30분
+- 2017년 12월 23일(토) 3시', '흰물결아트센터 화이트홀', '울특별시 서초구 서초동 1720-4', '서울특별시 서초구 반포대로 150', '02-535-7034', 'http://www.whitehall.kr', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 20,20, '- 평일 (월~금) 2시, 5시, 8시
+- 주말 (토~일) 1시, 3시10분, 5시20분, 7시30분
+', '대학로 쁘띠첼씨어터', '서울특별시 종로구 동숭동 1-144', '서울특별시 종로구 대학로12길 73 낙산재
+', '02-766-7667', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 21,21, '2017년 12월 12일(토) 12PM', '장소 추후 공개', '서울특별시 중구 태평로1가 31', '서울특별시 중구 세종대로 110', '010-3360-7846', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 22,22, '2017.12.30.(SAT) 저녁 7시
+', '@롤링홀', '서울특별시 마포구 서교동 402-22', '서울특별시 마포구 어울마당로 35', '02-322-8487', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 23,23, '2017년 12월24일 (일) 1회차: 오후 7시 / 2회차: 오후 9시
+', '카페 피아노 리브레 강남점
+', '서울특별시 강남구 역삼동 818-5 혜진빌딩 2층', '서울특별시 강남구 강남대로96길 20 혜진빌딩', '02-554-9913', 'https://youtu.be/BuaEQSxVR5A', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 24,24, '2017년 12월 22일(금) 오후 8시', '망원동 벨로주', '서울특별시 마포구 망원동 422-27 메디움빌딩 4층', '서울특별시 마포구 포은로 117 메디움빌딩 4층
+', '02-2644-4315', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 25,25, '- 12월 24일(일) 오후 3시
+- 12월 24일(일) 오후 7시 30분
+- 12월 25일(월) 오후 3시
+- 12월 25일(월) 오후 7시 30분
+', '8층 롯데콘서트홀', '서울특별시 송파구 신천동 29 롯데월드몰', '서울특별시 송파구 올림픽로 300 롯데월드몰', '02-1588-5212', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 26,26, '2017.12.17 7PM', 'YES24라이브홀', '서울특별시 광진구 광장동 319-33', '서울특별시 광진구 구천면로 20', '02-6012-7135', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 27,27, '2018.03.25 5PM', '예술의전당 콘서트홀', '서울특별시 서초구 서초동 700', '서울특별시 서초구 남부순환로 2406 예술의전당', '02-2658-3546', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 28,28, '- 일자 : 2017년 12월 30일(토) ~ 12월 31일(일)
+- 시간 : 토요일 오후 6시 / 일요일 오후 5시
+', '세종대학교 대양홀', '서울특별시 광진구 군자동 98', '서울특별시 광진구 능동로 209 세종대학교', '02-1644-5690', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 29,29, '- 일자 : 2017년 12월 24일(일) ~ 12월 25일(월)
+- 시간 : 일요일 오후 7시 / 월요일 오후 6시', '서울 잠실실내체육관', '서울특별시 송파구 잠실동 10', '서울특별시 송파구 올림픽로 25 서울종합운동장', '1644-5690', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 30,29, '2017년 12월 17일 (일) 6PM', '대전 컨벤션센터(DCC) 1F 전시홀', '대전광역시 유성구 도룡동 4-19', '대전광역시 유성구 엑스포로 107 대전컨벤션센터', '1588-2532', 'http://www.ggconcert.net', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 31,29, '2017년 11월 25일(토) 오후 7시', 'KBS부산홀', '부산광역시 수영구 남천동 63', '부산광역시 수영구 수영로 429 KBS부산방송총국', '1566-5490', 'http://www.wsmi.co.kr', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 32,30, '11월 18일(토) PM7 , 19일(일) PM5', '경기도문화의전당 대극장', '경기도 수원시 팔달구 인계동 1117', '경기도 수원시 팔달구 효원로307번길 20 경기도문화의전당', '02-1599-2005', 'http://www.sjticket.com', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 33,30, '12월 02일(토) PM7', 'KBS창원홀', '경상남도 창원시 의창구 신월동 97-4', '경상남도 창원시 의창구 중앙대로 178 KBS창원방송총국', '02-1599-2006', 'http://www.sjticket.com', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 34,30, '12월 09일(토) PM7', 'KBS울산홀', '울산광역시 남구 달동 416-7', '울산광역시 남구 번영로 212 한국방송공사', '02-1599-2007', 'http://www.sjticket.com', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 35,30, '12월 17일(일) PM5', 'KBS부산홀', '부산광역시 수영구 남천동 63', '부산광역시 수영구 수영로 429 KBS부산방송총국', '02-1599-2008', 'http://www.sjticket.com', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 36,30, '12월 23일(토) PM7 , 24일(일) PM5', '경북대학교 대강당', '대구광역시 북구 산격동 1370-1', '대구광역시 북구 대학로 80 경북대학교', '02-1599-2009', 'http://www.sjticket.com', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 37,31, '43072.6666666667', '소월아트홀 4층 더미소', '경기도 수원시 권선구 고색동 533-7', '경기도 수원시 권선구 매송고색로 646
+', '010-6365-5114
+', 'https://www.facebook.com/themiso12
+', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 38,32, '2017.03.27~2017.12.31
+월~토 19:30', '경주 세계문화 엑스포 문화센터 공연장', '경상북도 경주시 천군동 130', '경상북도 경주시 경감로 614', '054-740-3800', 'http://www.jeongdong.or.kr', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 39,33, '2017년 12월 22일 (금)
+', '민속극장풍류
+', '서울특별시 강남구 삼성동 112-2', '서울특별시 강남구 봉은사로 406 서울중요무형문화재전수회관
+', '02-3011-2178
+', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 40,34, '12월 9일(토) 오후 7시 30분', '양재동 온누리교회 횃불회관', '서울특별시 서초구 양재동 55
+', '서울특별시 서초구 바우뫼로31길 70 횃불선교회관
+', '010-9806-8655
+', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 41,35, '2017.12.03 Sun 5:00 PM', '마포아트센터 아트홀 맥', '서울특별시 마포구 대흥동 30-3
+', '서울특별시 마포구 대흥로20길 28 마포아트센터
+', '02-2263-4680', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 42,36, '2017.11.25 Sat 8:00 PM', '예술의 전당 IBK 챔버홀', '서울특별시 강서구 등촌3동 667-7 상지빌딩 3층', '서울특별시 강서구 강서로56길 110 상지빌딩 3층', '02-2658-3546', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 43,37, '2017년 12월 1일(금) 20시', '국립국악원 예악당', '서울특별시 서초구 서초3동 700', '서울특별시 서초구 남부순환로 2364 국립국악원
+', '02-580-3300', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 44,38, '- 2017.12.22-12.27
+- 평일 8시, 주말 3시
+- 월 공연없음', '국립국악원 예악당', '서울특별시 서초구 서초3동 700', '서울특별시 서초구 남부순환로 2364 국립국악원
+', '02-580-3300', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 45,39, '- 2017.9.8 ~ 12.31
+- 평일 20시
+- 주말, 공휴일 18시', '산암빌딩 지하1층 초콜릿팩토리 극장
+', '부산광역시 남구 대연동 72-7', '부산광역시 남구 수영로 298
+', '051-621-4005
+', 'http://yes-weare.com', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 46,40, '일시 : 2017년 11월 30일(목)
+시간 : PM 8', '홍대 롤링홀', '서울특별시 마포구 서교동 402-22', '서울특별시 마포구 어울마당로 35
+', '02-6481-1213
+', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 47,41, '2017.12.8~2018.1.7', '창원오피스텔 지하2층 창원축제소극장
+', '경상남도 창원시 의창구 용호동 73-49', '경상남도 창원시 의창구 용지로153번길 3 창원오피스텔
+', '055-1899-9498', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 48,41, '2008.5.15~', '대학로 삼형제극장(죽여주는이야기 전용관)
+', '서울특별시 종로구 동숭동 199-33', '서울특별시 종로구 이화장길 72
+', '02-6326-1333
+', 'http://www.ticketlink.co.kr/
+', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 49,42, '- 공연기간 : OPEN RUN
+- 공연시간 : 수~금 20시, 토 15시 18시30분, 일 15시, 월화 공연없음
+- 공연장소 : J', '대학로 한성아트트홀 2관', '서울특별시 종로구 이화동 139', '서울특별시 종로구 이화장길 26 대학로 JTN 아트홀
+', '070-8245-2602', 'https://www.facebook.com/domo2602
+', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 50,43, '2017년 11월 9일 (목) - 12일 (일)
+목,금 8시 / 토,일 4시', '서강대 메리홀 소극장
+', '서울특별시 마포구 신수동 1-1
+', '서울특별시 마포구 백범로 35
+', '010-9514-7626
+', 'http://projectsf.blog.me/', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 51,44, '공연기간 : 2016.04.29~OPEN RUN
+공연시간 : 평일 7시 30분 / 주말 및 공휴일 2시, 4시
+　　 　 　 (월요일 휴무)', '대학로 아루또소극장', ' 서울특별시 종로구 동숭동 1-47', '서울특별시 종로구 대학로8가길 48
+', '02-6012-2511
+', 'https://www.facebook.com/arutto
+', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 52,45, '2017.12.23~26', '광주문화예술회관 소극장', '광주광역시 북구 운암동 328-16', '광주광역시 북구 북문대로 60
+', '070-4279-5071', 'http://www.lscompany.co.kr
+', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 53,45, '2017.12.17.Fri ~ 12.31.Sun', '문화예술전용극장 CT
+', '대구광역시 중구 남일동 109-2 제일빌딩 지하 1층', '대구광역시 중구 중앙대로 394
+', '053-252-5733
+', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 54,46, '공연일시 :2017년 12월 19일(화)~2018년 3월 4일
+공연시간 :화-금 8시, 9시 30분 /
+토, 일,공휴일 3시, 5시, 7시 30분 (월 공연 없음)
+* 12/25(월) 공연 있음,12/26(화) 공연 없음
+12/27(수) 마티네 5시30분,
+1/1(월) 공연 있음 , 1/2(화) 공연 없음', '대학로 아트원씨어터 3관', '서울특별시 종로구 동숭동 1-181', '서울특별시 종로구 대학로12길 83 SW빌딩
+', '02-541-2929
+', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 55,47, '2017.11.24~2018.2.4', '5층 동숭소극장
+', '서울특별시 종로구 동숭동 1-5', '서울특별시 종로구 동숭길 122 동숭아트센타
+', '02-744-4331
+', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 56,48, '- 월,화,수 8시
+- 목, 금 3시, 8시
+- 토 3시, 6시
+- 일 3시', '대학로 이음센터 5층 이음홀', '서울특별시 종로구 동숭동 1-117', '서울특별시 종로구 대학로 112 (동숭동, 이음)
+', '070-8276-0917
+', '', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 57,49, '43082', '강남아트홀 2관', '서울특별시 서초구 서초동 1307 성우빌리지 B1', '서울특별시 서초구 서초대로73길 30 서초성우빌리지
+', '070-8129-7420
+', 'http://cafe.naver.com/extremeplay2010
+', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 58,49, '2017년 12월 1일 ~ 2017년 12월 31일', '익스트림씨어터1관
+', '서울특별시 종로구 동숭동 1-33', '서울특별시 종로구 대학로 128
+', '070-8129-7420
+', 'http://cafe.naver.com/extremeplay2010
+', '', now(), now());
+insert into display_info (id, product_id, opening_hours, place_name, place_lot, place_street, tel, homepage, email, create_date, modify_date ) values ( 59,50, '2017.12.20(수)~21.(목)
+16:00, 20:00', '경성대학교 예노소극장', '부산광역시 남구 대연동 산108-5', '부산광역시 남구 수영로 309 경성대학교
+', '1688-8998
+', 'http://mcong.kr', '', now(), now());
+
+
