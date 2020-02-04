@@ -1,18 +1,15 @@
 package org.ggyool.reservation.dao;
 
-import static org.ggyool.reservation.dao.productSqls.SELECT_TEST;
+import static org.ggyool.reservation.dao.ProductSqls.SELECT_BY_CATEGORY;
 
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.ggyool.reservation.dto.DisplayInfoDTO;
 import org.ggyool.reservation.dto.ProductDTO;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
@@ -20,16 +17,14 @@ import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
-import org.springframework.jdbc.support.JdbcUtils;
 import org.springframework.stereotype.Repository;
-
 
 @Repository
 public class ProductDAO {
 	
 	private NamedParameterJdbcTemplate jdbc;
 	private SimpleJdbcInsert insertAction;
-	private RowMapper<ProductDTO> rowMapper = BeanPropertyRowMapper.newInstance(ProductDTO.class);
+//	private RowMapper<ProductDTO> rowMapper = BeanPropertyRowMapper.newInstance(ProductDTO.class);
 	
 	public ProductDAO(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
@@ -38,52 +33,33 @@ public class ProductDAO {
 				.usingGeneratedKeyColumns("id");
 	}
 	
-	public Long insert(ProductDTO productDTO) {
+	public Integer insert(ProductDTO productDTO) {
 		SqlParameterSource params = new BeanPropertySqlParameterSource(productDTO);
-		return insertAction.executeAndReturnKey(params).longValue();
+		return insertAction.executeAndReturnKey(params).intValue();
 	}
-	
-	public List<ProductDTO> selectByCategoryId(Long categoryId, Long start, Long limit){
-		Map<String, Long> params = new HashMap<>();
+
+	public List<HashMap<String, Object>> selectByCategoryId(int categoryId, int start, int limit){
+		String sql = SELECT_BY_CATEGORY;
+		Map<String, Integer> params = new HashMap<>();
 		params.put("categoryId", categoryId);
 		params.put("start", start);
 		params.put("limit", limit);
-		return jdbc.query(SELECT_TEST, params, new RowMapper<ProductDTO>() {
+		return jdbc.query(sql, params, new RowMapper<HashMap<String, Object>>() {
 			@Override
-			public ProductDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
-				Map<String, Object> productMap = new HashMap<>();
-				Map<String, Object> displayInfoMap = new HashMap<>();
-				ProductDTO product = new ProductDTO();
-				DisplayInfoDTO displayInfo = new DisplayInfoDTO();
-				ResultSetMetaData metaData = rs.getMetaData();
-				int len = metaData.getColumnCount();
-				for(int i=1; i<=len; ++i) {
-					if(metaData.getTableName(i).contentEquals("product")) {
-						String nameInTable = metaData.getColumnName(i);
-						String nameInDTO = JdbcUtils.convertUnderscoreNameToPropertyName(nameInTable);
-						productMap.put(nameInDTO, rs.getObject(i));
-					}
-					else if(metaData.getTableName(i).contentEquals("display_info")){
-						String nameInTable = metaData.getColumnName(i);
-						String nameInDTO = JdbcUtils.convertUnderscoreNameToPropertyName(nameInTable);
-						displayInfoMap.put(nameInDTO, rs.getObject(i));
-					}
-				}
-				product.setId(new Long((Integer)productMap.get("id")));
-				product.setCategoryId(new Long((Integer)productMap.get("categoryId")));
-				product.setDescription((String)productMap.get("description"));
-				product.setContent((String)productMap.get("content"));
-				product.setEvent((String)productMap.get("event"));
-				product.setCreateDate((Date)productMap.get("createDate"));
-				product.setModifyDate((Date)productMap.get("modifyDate"));
-
-				displayInfo.setId(new Long((Integer)displayInfoMap.get("id")));
-				displayInfo.setPlaceName((String)displayInfoMap.get("placeName"));
-				
-				product.setDisplayInfo(displayInfo);
-				return product;
+			public HashMap<String, Object> mapRow(ResultSet rs, int rowNum) throws SQLException {
+				HashMap<String, Object> map = new HashMap<>();
+				map.put("productId", rs.getInt("productId"));
+				map.put("displayInfoId", rs.getInt("displayInfoId"));
+				map.put("productContent", rs.getString("productContent"));
+				map.put("productDescription", rs.getString("productDescription"));
+				map.put("placeName", rs.getString("placeName"));
+				map.put("productImageUrl", rs.getString("productImageUrl"));
+				return map;
 			}
-		});
+		});	
 	}
-	
 }
+
+
+
+

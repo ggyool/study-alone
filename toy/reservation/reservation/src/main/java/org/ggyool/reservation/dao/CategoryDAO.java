@@ -1,9 +1,15 @@
 package org.ggyool.reservation.dao;
 
+import static org.ggyool.reservation.dao.CategorySqls.COUNT_PRODUCTS_BY_CATEGORY_ID;
 import static org.ggyool.reservation.dao.CategorySqls.SELECT_ALL;
+import static org.ggyool.reservation.dao.CategorySqls.SELECT_WITH_COUNT;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -30,12 +36,37 @@ public class CategoryDAO {
 				.usingGeneratedKeyColumns("id");
 	}
 	
-	public Long insert(CategoryDTO categoryDto) {
+	public Integer insert(CategoryDTO categoryDto) {
 		SqlParameterSource params = new BeanPropertySqlParameterSource(categoryDto);
-		return insertAction.executeAndReturnKey(params).longValue();
+		return insertAction.executeAndReturnKey(params).intValue();
 	}
 	
 	public List<CategoryDTO> selectAll(){
 		return jdbc.query(SELECT_ALL, Collections.emptyMap(), rowMapper);
 	}
+	
+	public List<HashMap<String, Object>> selectWithCount(){
+		return jdbc.query(SELECT_WITH_COUNT, Collections.emptyMap(), new RowMapper<HashMap<String, Object>>() {
+			@Override
+			public HashMap<String, Object> mapRow(ResultSet rs, int rowNum) throws SQLException {
+				HashMap<String, Object> map = new HashMap<String, Object>();
+				map.put("count", rs.getInt("count"));
+				map.put("id", rs.getInt("id"));
+				map.put("name", rs.getString("name"));
+				return map;
+			}
+		});
+	}
+	
+	public Integer countProductsByCategoryId(int categoryId) {
+		Map<String, Integer> params = Collections.singletonMap("categoryId", categoryId);
+		return jdbc.queryForObject(COUNT_PRODUCTS_BY_CATEGORY_ID, params, Integer.class);
+	}
 }
+
+
+
+
+
+
+

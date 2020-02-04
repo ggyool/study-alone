@@ -878,3 +878,25 @@ insert into display_info (id, product_id, opening_hours, place_name, place_lot, 
 ', 'http://mcong.kr', '', now(), now());
 
 
+
+
+
+insert into promotion(id, product_id) values( 1, 1);
+insert into promotion(id, product_id) values( 2, 5);
+insert into promotion(id, product_id) values( 3, 6);
+insert into promotion(id, product_id) values( 4, 9);
+insert into promotion(id, product_id) values( 5, 11);
+insert into promotion(id, product_id) values( 6, 12);
+insert into promotion(id, product_id) values( 7, 18);
+insert into promotion(id, product_id) values( 8, 22);
+insert into promotion(id, product_id) values( 9, 34);
+insert into promotion(id, product_id) values( 10, 41);
+insert into promotion(id, product_id) values( 11, 44);
+
+
+
+
+
+
+
+

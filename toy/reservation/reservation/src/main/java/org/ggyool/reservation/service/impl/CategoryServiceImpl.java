@@ -23,7 +23,7 @@ public class CategoryServiceImpl implements CategoryService{
 
 	@Override
 	public CategoryDTO addCategory(CategoryDTO dto) {
-		Long id = categoryDao.insert(dto);
+		Integer id = categoryDao.insert(dto);
 		dto.setId(id);
 		return dto;
 	}

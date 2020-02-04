@@ -30,7 +30,7 @@ public class GuestBookController {
 		// 전체페이지 수 구하기
 		int count = guestBookService.getCount();
 		int pageCount = count / GuestBookService.LIMIT;
-		if(count % GuestBookService.LIMIT > 0) ++pageCount;
+		if(count % GuestBookService.LIMIT > 0) ++pageCount;	
 		
 		// 페이지 수가 3이면 0,5,10 이렇게 저장된다.
 		List<Integer> pageStartList = new ArrayList<>();

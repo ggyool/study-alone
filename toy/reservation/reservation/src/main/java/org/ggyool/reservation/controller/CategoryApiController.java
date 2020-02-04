@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(path="/api")
+@RequestMapping(path="/api/categories")
 public class CategoryApiController {
 
 	@Autowired
 	CategoryService categoryService;
 	
-	@GetMapping(path="/categories")
+	@GetMapping
 	public Map<String, Object> categories(){
 		Map<String, Object> map = new HashMap<>();
 		List<CategoryDTO> categoryList = categoryService.getCategories();

@@ -4,11 +4,11 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class DisplayInfoDTO {
 	
-	private Long id;
-	private Long productId;
+	private Integer id;
+	private Integer productId;
 	private String openingHours;
 	private String placeName;
 	private String placeLot;
@@ -18,16 +18,16 @@ public class DisplayInfoDTO {
 	private String email;
 	private Date createDate;
 	private Date modifyDate;
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Long getProductId() {
+	public Integer getProductId() {
 		return productId;
 	}
-	public void setProductId(Long productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
 	public String getOpeningHours() {

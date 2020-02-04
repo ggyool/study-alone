@@ -3,17 +3,17 @@ package org.ggyool.reservation.dto;
 import java.util.Date;
 
 public class FileInfoDTO {
-	private Long id;
+	private Integer id;
 	private String fileName;
 	private String saveFileName;
 	private String contentType;
 	private Integer deleteFlag;
 	private Date createDate;
 	private Date modifyDate;
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getFileName() {

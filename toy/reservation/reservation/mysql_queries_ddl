@@ -63,3 +63,28 @@ CREATE TABLE `display_info` (
 )  ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
+
+
+CREATE TABLE `promotion` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '프로모션 id',
+  `product_id` INT(11) NOT NULL COMMENT '프로모션id',
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`product_id`)
+  REFERENCES `product` (`id`))
+  ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `display_info_image` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT COMMENT '전시정보 이미지 id',
+  `display_info_id` INT(11) NOT NULL COMMENT '전시정보 id',
+  `file_id` INT(11) NOT NULL COMMENT 'file id',
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`display_info_id`)
+  REFERENCES `display_info` (`id`),
+  FOREIGN KEY (`file_id`)
+  REFERENCES `file_info` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+

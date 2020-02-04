@@ -5,28 +5,24 @@ import java.util.Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
 public class ProductDTO {
-	private Long id;
-	private Long categoryId;
+	private Integer id;
+	private Integer categoryId;
 	private String description;
 	private String content;
 	private String event;
 	private Date createDate;
 	private Date modifyDate;
-	@Autowired
-	private DisplayInfoDTO displayInfo;
-	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Long getCategoryId() {
+	public Integer getCategoryId() {
 		return categoryId;
 	}
-	public void setCategoryId(Long categoryId) {
+	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
 	public String getDescription() {
@@ -59,18 +55,9 @@ public class ProductDTO {
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
-	public DisplayInfoDTO getDisplayInfo() {
-		return displayInfo;
-	}
-	public void setDisplayInfo(DisplayInfoDTO displayInfo) {
-		this.displayInfo = displayInfo;
-	}
 	@Override
 	public String toString() {
 		return "ProductDTO [id=" + id + ", categoryId=" + categoryId + ", description=" + description + ", content="
-				+ content + ", event=" + event + ", createDate=" + createDate + ", modifyDate=" + modifyDate
-				+ ", displayInfo=" + displayInfo + "]";
+				+ content + ", event=" + event + ", createDate=" + createDate + ", modifyDate=" + modifyDate + "]";
 	}
-	
-	
 }

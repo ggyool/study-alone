@@ -1,5 +1,6 @@
 package org.ggyool.reservation.tests;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.ggyool.reservation.config.ApplicationConfig;
@@ -15,9 +16,13 @@ public class CategoryDaoTest {
 		//CategoryDTO dto = new CategoryDTO();
 		//dto.setName("임시");
 		//dao.insert(dto);
-		List<CategoryDTO> list = dao.selectAll();
-		for(CategoryDTO val:list) {
+		List<HashMap<String, Object>> list = dao.selectWithCount();
+		for(HashMap<String, Object> val:list) {
 			System.out.println(val);
 		}
+
+		System.out.println(dao.countProductsByCategoryId(1));
+		System.out.println(dao.countProductsByCategoryId(2));
+		System.out.println(dao.countProductsByCategoryId(3));
 	}
 }

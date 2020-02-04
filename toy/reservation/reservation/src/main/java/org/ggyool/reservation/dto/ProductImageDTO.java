@@ -1,20 +1,20 @@
 package org.ggyool.reservation.dto;
 
 public class ProductImageDTO {
-	private Long id;
-	private Long productId;
+	private Integer id;
+	private Integer productId;
 	private String type;
-	private Long fileId;
-	public Long getId() {
+	private Integer fileId;
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Long getProductId() {
+	public Integer getProductId() {
 		return productId;
 	}
-	public void setProductId(Long productId) {
+	public void setProductId(Integer productId) {
 		this.productId = productId;
 	}
 	public String getType() {
@@ -23,10 +23,10 @@ public class ProductImageDTO {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public Long getFileId() {
+	public Integer getFileId() {
 		return fileId;
 	}
-	public void setFileId(Long fileId) {
+	public void setFileId(Integer fileId) {
 		this.fileId = fileId;
 	}
 	@Override
