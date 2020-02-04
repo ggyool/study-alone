@@ -1,5 +1,6 @@
 package org.ggyool.reservation.dao;
 
+import static org.ggyool.reservation.dao.CategorySqls.COUNT_PRODUCTS;
 import static org.ggyool.reservation.dao.CategorySqls.COUNT_PRODUCTS_BY_CATEGORY_ID;
 import static org.ggyool.reservation.dao.CategorySqls.SELECT_ALL;
 import static org.ggyool.reservation.dao.CategorySqls.SELECT_WITH_COUNT;
@@ -58,10 +59,11 @@ public class CategoryDAO {
 		});
 	}
 	
-	public Integer countProductsByCategoryId(int categoryId) {
+	public Integer countProducts(Integer categoryId) {
 		Map<String, Integer> params = Collections.singletonMap("categoryId", categoryId);
 		return jdbc.queryForObject(COUNT_PRODUCTS_BY_CATEGORY_ID, params, Integer.class);
 	}
+
 }
 
 

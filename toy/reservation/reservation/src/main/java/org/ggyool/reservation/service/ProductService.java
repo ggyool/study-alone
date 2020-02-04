@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface ProductService {
 	public static final Integer LIMIT = 4;
-	public List<HashMap<String, Object>> getPrductsByCategory(int categoryId, int start);
+	public List<HashMap<String, Object>> getPrductsByCategory(Integer categoryId, int start);
 }
 				

@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.ggyool.reservation.service.CategoryService;
 import org.ggyool.reservation.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,14 +18,16 @@ public class ProductApiController {
 	
 	@Autowired
 	ProductService productSerice;
+	@Autowired
+	CategoryService categoryService;
 	
 	@GetMapping
 	public Map<String, Object> products(
-			@RequestParam(name="categoryId", required= true) int categoryId,
+			@RequestParam(name="categoryId", required=false) Integer categoryId,
 			@RequestParam(name="start",  required=false, defaultValue="0") int start) {
 		Map<String, Object> map = new HashMap<>();
 		List<HashMap<String, Object>> list = productSerice.getPrductsByCategory(categoryId, start);
-		int totalCount = list.size();
+		int totalCount = categoryService.countProducts(categoryId);
 		map.put("items", list);
 		map.put("totalCount", totalCount);
 		return map;

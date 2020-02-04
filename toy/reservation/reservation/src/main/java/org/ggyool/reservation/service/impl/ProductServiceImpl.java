@@ -17,7 +17,7 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Override
 	@Transactional(readOnly=true)
-	public List<HashMap<String, Object>> getPrductsByCategory(int categoryId, int start) {
+	public List<HashMap<String, Object>> getPrductsByCategory(Integer categoryId, int start) {
 		return productDao.selectByCategoryId(categoryId, start, LIMIT);
 	}
 }

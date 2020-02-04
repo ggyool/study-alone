@@ -38,7 +38,7 @@ public class ProductDAO {
 		return insertAction.executeAndReturnKey(params).intValue();
 	}
 
-	public List<HashMap<String, Object>> selectByCategoryId(int categoryId, int start, int limit){
+	public List<HashMap<String, Object>> selectByCategoryId(Integer categoryId, int start, int limit){
 		String sql = SELECT_BY_CATEGORY;
 		Map<String, Integer> params = new HashMap<>();
 		params.put("categoryId", categoryId);

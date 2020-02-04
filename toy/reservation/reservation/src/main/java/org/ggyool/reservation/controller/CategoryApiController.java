@@ -21,7 +21,7 @@ public class CategoryApiController {
 	@GetMapping
 	public Map<String, Object> categories(){
 		Map<String, Object> map = new HashMap<>();
-		List<CategoryDTO> categoryList = categoryService.getCategories();
+		List<HashMap<String, Object>> categoryList = categoryService.getCategories();
 		map.put("items", categoryList);
 		return map;
 	}

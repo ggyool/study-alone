@@ -15,7 +15,7 @@ public class ProductDaoTest {
 	public static void main(String[] args) {
 		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 		ProductDAO dao = ac.getBean(ProductDAO.class);
-		List<HashMap<String, Object>> map = dao.selectByCategoryId(5,0,0);
+		List<HashMap<String, Object>> map = dao.selectByCategoryId(null,0,10);
 		
 		for(HashMap<String, Object> key : map) {
 			System.out.println(key);

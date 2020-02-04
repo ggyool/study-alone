@@ -9,13 +9,20 @@ public class CategorySqls {
 	"FROM category INNER JOIN product " + 
 	"ON category.id = product.category_id " + 
 	"INNER JOIN display_info ON product.id = display_info.product_id " + 
-	"GROUP BY category.id";
+	"GROUP BY category.id " +
+	"ORDER BY category.id";
 	
 	public static final String COUNT_PRODUCTS_BY_CATEGORY_ID
-	= "SELECT COUNT(category.name) AS count " + 
+	= "SELECT COUNT(category.id) AS count " + 
 	"FROM category INNER JOIN product " + 
-	"ON category.id = product.category_id AND category.id=:categoryId " + 
-	"INNER JOIN display_info ON product.id = display_info.product_id " + 
-	"GROUP BY category.id";
-	;
+	"ON category.id = product.category_id AND category.id LIKE IF(:categoryId IS NULL, '%', :categoryId) " +
+	"INNER JOIN display_info ON product.id = display_info.product_id";
+	
+	public static final String COUNT_PRODUCTS
+	= "SELECT COUNT(*) AS count " +
+	"FROM category INNER JOIN product " +
+	"ON category.id = product.category_id AND category.id LIKE IF(:categoryId IS NULL, '%', :categoryId) " +
+	"INNER JOIN display_info ON product.id = display_info.product_id";
 }
+
+

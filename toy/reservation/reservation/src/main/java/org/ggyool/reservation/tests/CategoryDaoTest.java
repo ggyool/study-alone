@@ -20,9 +20,8 @@ public class CategoryDaoTest {
 		for(HashMap<String, Object> val:list) {
 			System.out.println(val);
 		}
+		System.out.println(dao.countProducts(1));
+		System.out.println(dao.countProducts(null));
 
-		System.out.println(dao.countProductsByCategoryId(1));
-		System.out.println(dao.countProductsByCategoryId(2));
-		System.out.println(dao.countProductsByCategoryId(3));
 	}
 }

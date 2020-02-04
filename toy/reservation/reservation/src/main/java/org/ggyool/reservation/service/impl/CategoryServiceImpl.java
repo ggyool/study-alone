@@ -1,6 +1,12 @@
 package org.ggyool.reservation.service.impl;
 
+import static org.ggyool.reservation.dao.CategorySqls.COUNT_PRODUCTS;
+import static org.ggyool.reservation.dao.CategorySqls.COUNT_PRODUCTS_BY_CATEGORY_ID;
+
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.ggyool.reservation.dao.CategoryDAO;
 import org.ggyool.reservation.dto.CategoryDTO;
@@ -17,8 +23,8 @@ public class CategoryServiceImpl implements CategoryService{
 	
 	@Override
 	@Transactional(readOnly=true)
-	public List<CategoryDTO> getCategories() {
-		return categoryDao.selectAll();
+	public List<HashMap<String, Object>> getCategories() {
+		return categoryDao.selectWithCount();
 	}
 
 	@Override
@@ -27,7 +33,11 @@ public class CategoryServiceImpl implements CategoryService{
 		dto.setId(id);
 		return dto;
 	}
-	
+
+	@Override
+	public Integer countProducts(Integer categoryId) {
+		return categoryDao.countProducts(categoryId);
+	}
 }
 
 
