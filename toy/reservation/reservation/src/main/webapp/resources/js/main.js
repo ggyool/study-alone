@@ -10,7 +10,8 @@ document.addEventListener("DOMContentLoaded", function(){
 	var defaultWidth;
 	var curPromotion = 0;
 	var promotionLen;
-	var slideTime = 2000;
+	var slideTime = 1000;
+	var slideDirection = 1;
 	
 	var initHttpRequest = new XMLHttpRequest();
 	initHttpRequest.open("GET", "api/categories")
@@ -68,24 +69,13 @@ document.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	function animationFunc(){
-		if(curPromotion!==0){
-			promotionUL.style.transform = "translate(" + String(-defaultWidth*curPromotion) + "px" + ",0px)";
-		}
-		else{
-			promotionUL.style.opacity = 1.0;
-		}
-			
-		++curPromotion;
-		if(curPromotion === promotionLen){
-			curPromotion = 0;
-			promotionUL.style.transition = "all 0s";
-			promotionUL.style.transform = "translate(0px, 0px)";
-			promotionUL.style.opacity = 0;
-			promotionUL.style.transition = "all 0.5s";
+		promotionUL.style.transform = "translate(" + String(-defaultWidth*curPromotion) + "px" + ",0px)";
+		curPromotion += slideDirection;
+		if(curPromotion === promotionLen - 1 || curPromotion === 0){
+			slideDirection *= -1;
 		}
 		window.setTimeout(animationFunc, slideTime);
 	}
-	
 	
 	function productsAjaxFunc(categoryId){
 		if(categoryId!==curCategory) {
