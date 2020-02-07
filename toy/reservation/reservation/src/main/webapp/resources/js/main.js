@@ -5,7 +5,12 @@ document.addEventListener("DOMContentLoaded", function(){
 	var categorySection = document.querySelector(".section_event_tab");
 	var itemUlList = document.querySelectorAll(".lst_event_box");
 	var countSpan = document.querySelector(".event_lst_txt > .pink")
+	var promotionUL;
 	var promotionList;
+	var defaultWidth;
+	var curPromotion = 0;
+	var promotionLen;
+	var slideTime = 2000;
 	
 	var initHttpRequest = new XMLHttpRequest();
 	initHttpRequest.open("GET", "api/categories")
@@ -16,6 +21,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	promotionsHttpRequest.open("GET", "api/promotions")
 	promotionsHttpRequest.onreadystatechange = promotionLoadFunc;
 	promotionsHttpRequest.send();
+	window.setTimeout(animationFunc, slideTime);
 	
 	function initLoadFunc(evt){
 		if(evt.currentTarget.readyState === XMLHttpRequest.DONE){
@@ -40,13 +46,47 @@ document.addEventListener("DOMContentLoaded", function(){
 		if(evt.currentTarget.readyState === XMLHttpRequest.DONE){
 			if(evt.currentTarget.status === 200){
 				promotionList = JSON.parse(evt.currentTarget.responseText).items;
-				
+				plen = promotionList.length;
+				promotionLen = plen;
+				var cotainerDiv = document.querySelector(".container_visual");
+				promotionUL = document.querySelector(".visual_img");
+				defaultWidth = promotionUL.getBoundingClientRect().width;
+				var defaultHeight = promotionUL.getBoundingClientRect().height;
+				cotainerDiv.style.width = defaultWidth + "px";
+				cotainerDiv.style.height = defaultHeight + "px";
+				promotionUL.style.width = defaultWidth * plen + "px";;
 				promotionList.forEach(function(promotion){
-					console.log(promotion.productImageUrl);
+					li = document.createElement("li");
+					img = document.createElement("img");
+					img.style.width = defaultWidth + "px";
+					img.src = promotion.productImageUrl;
+					li.appendChild(img);
+					promotionUL.appendChild(li);
 				});
 			}
 		}
 	}
+	
+	function animationFunc(){
+		if(curPromotion!==0){
+			promotionUL.style.transform = "translate(" + String(-defaultWidth*curPromotion) + "px" + ",0px)";
+		}
+		else{
+			promotionUL.style.opacity = 1.0;
+		}
+			
+		++curPromotion;
+		if(curPromotion === promotionLen){
+			curPromotion = 0;
+			promotionUL.style.transition = "all 0s";
+			promotionUL.style.transform = "translate(0px, 0px)";
+			promotionUL.style.opacity = 0;
+			promotionUL.style.transition = "all 0.5s";
+		}
+		window.setTimeout(animationFunc, slideTime);
+	}
+	
+	
 	function productsAjaxFunc(categoryId){
 		if(categoryId!==curCategory) {
 			end = -1;

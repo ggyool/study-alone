@@ -12597,3 +12597,16 @@ body.biz10 .section_item_details .item_details {
     height: 20px;
     background-position: -93px -24.5px;
 }
+.container_visual{
+	overflow : hidden;
+}
+.visual_img {
+	transition : all 0.5s;
+}
+.visual_img > li{
+	vertical-align : top;
+	display : inline-block;
+}
+.visual_img > li > img{
+
+}

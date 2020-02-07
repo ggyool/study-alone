@@ -43,6 +43,7 @@
                             <div class="container_visual">
                                 <!-- 슬라이딩기능: 이미지 (type = 'th')를 순차적으로 노출 -->
                                 <ul class="visual_img">
+                                	
                                 </ul>
                             </div>
                             <span class="nxt_fix" style="display:none;"></span>
