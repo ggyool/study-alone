@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	var defaultWidth;
 	var curPromotion = 0;
 	var promotionLen;
-	var slideTime = 1000;
+	var slideTime = 1500;
 	var slideDirection = 1;
 	
 	var initHttpRequest = new XMLHttpRequest();
