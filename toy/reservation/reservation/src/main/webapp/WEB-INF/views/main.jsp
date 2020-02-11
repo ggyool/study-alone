@@ -110,7 +110,7 @@
                     <span class="img_border"></span>
                 </div>
                 <div class="event_txt">
-                    <h4 class="event_txt_tit"> <span>${productDescription}</span> <small class="sm">{placeName}</small> </h4>
+                    <h4 class="event_txt_tit"> <span>{productDescription}</span> <small class="sm">{placeName}</small> </h4>
                     <p class="event_txt_dsc">{productContent}</p>
                 </div>
             </a>

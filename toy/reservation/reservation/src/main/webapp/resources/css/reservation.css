@@ -12601,7 +12601,7 @@ body.biz10 .section_item_details .item_details {
 	overflow : hidden;
 }
 .visual_img {
-	transition : all 0.5s;
+	transition : all;
 }
 .visual_img > li{
 	vertical-align : top;

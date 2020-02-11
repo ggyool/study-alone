@@ -1,65 +1,61 @@
 document.addEventListener("DOMContentLoaded", function(){
-	var curCategory = 0;
-	var end = -1;
-	var moreBtn = document.querySelector(".btn_more_wrap");
-	var categorySection = document.querySelector(".section_event_tab");
-	var itemUlList = document.querySelectorAll(".lst_event_box");
-	var countSpan = document.querySelector(".event_lst_txt > .pink")
-	var promotionUL;
-	var promotionList;
-	var defaultWidth;
-	var curPromotion = 0;
+	var categoryId = 0;
+	var start = 0;
+	var width;
+	var curPromotion = 1;
 	var promotionLen;
-	var slideTime = 1500;
-	var slideDirection = 1;
+	var slideTime = 2000;
+
+	(function init(){
+		var initHttpRequest = new XMLHttpRequest();
+		initHttpRequest.open("GET", "api/categories")
+		initHttpRequest.onreadystatechange = categoryLoadFunc;
+		initHttpRequest.send();
+		
+		var promotionsHttpRequest = new XMLHttpRequest();
+		promotionsHttpRequest.open("GET", "api/promotions")
+		promotionsHttpRequest.onreadystatechange = promotionLoadFunc;
+		promotionsHttpRequest.send();
+		window.setTimeout(animationFunc, slideTime);
+	})();
 	
-	var initHttpRequest = new XMLHttpRequest();
-	initHttpRequest.open("GET", "api/categories")
-	initHttpRequest.onreadystatechange = initLoadFunc;
-	initHttpRequest.send();
-	
-	var promotionsHttpRequest = new XMLHttpRequest();
-	promotionsHttpRequest.open("GET", "api/promotions")
-	promotionsHttpRequest.onreadystatechange = promotionLoadFunc;
-	promotionsHttpRequest.send();
-	window.setTimeout(animationFunc, slideTime);
-	
-	function initLoadFunc(evt){
-		if(evt.currentTarget.readyState === XMLHttpRequest.DONE){
-			if(evt.currentTarget.status === 200){
-				var categoryList = JSON.parse(evt.currentTarget.responseText).items;
+	function categoryLoadFunc(evt){
+		if(evt.target.readyState === XMLHttpRequest.DONE){
+			if(evt.target.status === 200){
+				var categoryList = JSON.parse(evt.target.responseText).items;
 				var categoryTemplate = document.querySelector("#categoryList").innerHTML;
-				var parent = document.querySelector(".event_tab_lst, .tab_lst_min");
 				var totalCount = 0;
 				categoryList.forEach(function(category){
 					var resHTML = categoryTemplate.replace("{category.id}", category.id)
 												.replace("{category.name}", category.name);
-					parent.innerHTML += resHTML;
+					document.querySelector(".event_tab_lst, .tab_lst_min").innerHTML += resHTML;
 					totalCount += category.count;
 				});
-				countSpan.innerText = totalCount + "개";
-			    productsAjaxFunc(0);
+				refreshTotalSpan(totalCount);
+			    productsAjaxFunc();
 			}
 		}
 	}
 	
 	function promotionLoadFunc(evt){
-		if(evt.currentTarget.readyState === XMLHttpRequest.DONE){
-			if(evt.currentTarget.status === 200){
-				promotionList = JSON.parse(evt.currentTarget.responseText).items;
+		if(evt.target.readyState === XMLHttpRequest.DONE){
+			if(evt.target.status === 200){
+				var promotionList = JSON.parse(evt.target.responseText).items;
+				plen = promotionList.length;
+				// 마지막 항목을 가장 앞에 추가
+				promotionList = [promotionList[plen-1]].concat(promotionList);
 				plen = promotionList.length;
 				promotionLen = plen;
-				var cotainerDiv = document.querySelector(".container_visual");
-				promotionUL = document.querySelector(".visual_img");
-				defaultWidth = promotionUL.getBoundingClientRect().width;
-				var defaultHeight = promotionUL.getBoundingClientRect().height;
-				cotainerDiv.style.width = defaultWidth + "px";
-				cotainerDiv.style.height = defaultHeight + "px";
-				promotionUL.style.width = defaultWidth * plen + "px";;
+				
+				initSize();
+				
+				var promotionUL = document.querySelector(".visual_img")
+				width = promotionUL.getBoundingClientRect().width;
+				promotionUL.style.transform = `translateX(${-width}px)`;
 				promotionList.forEach(function(promotion){
 					li = document.createElement("li");
 					img = document.createElement("img");
-					img.style.width = defaultWidth + "px";
+					img.style.width = width + "px";
 					img.src = promotion.productImageUrl;
 					li.appendChild(img);
 					promotionUL.appendChild(li);
@@ -68,26 +64,36 @@ document.addEventListener("DOMContentLoaded", function(){
 		}
 	}
 	
+	function initSize(){
+		var cotainerDiv = document.querySelector(".container_visual");
+		var promotionUL = document.querySelector(".visual_img");
+		var defaultWidth = promotionUL.getBoundingClientRect().width;
+		var defaultHeight = promotionUL.getBoundingClientRect().height;
+		cotainerDiv.style.width = width + "px";
+		cotainerDiv.style.height = defaultHeight + "px";
+		promotionUL.style.width = width * plen + "px";
+	}
 	function animationFunc(){
-		promotionUL.style.transform = "translate(" + String(-defaultWidth*curPromotion) + "px" + ",0px)";
-		curPromotion += slideDirection;
-		if(curPromotion === promotionLen - 1 || curPromotion === 0){
-			slideDirection *= -1;
-		}
+		var promotionUL = document.querySelector(".visual_img");
+		promotionUL.style.transition = '1s';
+		++curPromotion;
+		promotionUL.style.transform = `translateX(${-curPromotion*width}px)`;
+		promotionUL.addEventListener("transitionend", function(){
+			if(curPromotion === promotionLen-1){
+				curPromotion = 0;
+				promotionUL.style.transition = '0s';
+				promotionUL.style.transform = `translateX(0px)`;
+			}
+		});
 		window.setTimeout(animationFunc, slideTime);
 	}
 	
-	function productsAjaxFunc(categoryId){
-		if(categoryId!==curCategory) {
-			end = -1;
-			if(moreBtn.style.display === "none")
-				moreBtn.style.display = "";
-		}
+	function productsAjaxFunc(categoryId, start = 0){
 		var productsHttpRequest = new XMLHttpRequest();
-		var url = "api/products";
-		if(categoryId!==0 || end!==-1) url += '?';
-		if(categoryId!==0) url += "categoryId=" + categoryId;
-		if(end!==-1) url += "start=" + String(end+1);
+		var url;
+		if(categoryId) url = `api/products?categoryId=${categoryId}&start=${start}`;
+		else url = `api/products?start=${start}`;
+		productsHttpRequest.start = start;
 		productsHttpRequest.categoryId = categoryId;
 		productsHttpRequest.open("GET", url);
 		productsHttpRequest.onreadystatechange = productsLoadFunc;
@@ -96,46 +102,52 @@ document.addEventListener("DOMContentLoaded", function(){
 	
 	
 	function productsLoadFunc(evt){
-		if(evt.currentTarget.readyState === XMLHttpRequest.DONE){
-			if(evt.currentTarget.status === 200){
-				var liList = document.querySelectorAll(".tab_lst_min > li");
-				var categoryId = event.currentTarget.categoryId;
-				liList.forEach(function(li){
-					id = parseInt(li.getAttribute("data-category"));
-					a = li.querySelector("a");
-					if(id===categoryId){
-						a.className = "anchor active";
-					}else{
-						a.className = "anchor";						
-					}
-				});
-				var productsObj = JSON.parse(evt.currentTarget.responseText);
+		if(evt.target.readyState === XMLHttpRequest.DONE){
+			if(evt.target.status === 200){
+				// 성공했으므로 global scope 변경
+				start = evt.target.start;
+				categoryId = evt.target.categoryId;
+				var listProductUl = document.querySelectorAll(".lst_event_box");
+				var productsObj = JSON.parse(evt.target.responseText);
 				var productsList = productsObj.items;
 				var totalCount = productsObj.totalCount;
-				countSpan.innerText = totalCount + "개";
-				plen = productsList.length;
-				end += plen;
-				if(moreBtn.style.display === "" && end === totalCount-1){
-					moreBtn.style.display = "none";
-				}
-				
+				refreshTotalSpan(totalCount);
+				chkAndHideMoreBtn(totalCount);
 				var productsTemplate = document.querySelector("#itemList").innerHTML;
-				for(var i=0; i<plen; ++i){
-					var resHTML = productsTemplate.replace("{productDescription}", productsList[i].productDescription)
-												  .replace("{productImageUrl}", productsList[i].productImageUrl)
-  												  .replace("{placeName}", productsList[i].placeName)
-  												  .replace("{productContent}", productsList[i].productContent);
-					itemUlList[i%2].innerHTML += resHTML;
-				}
+				productsList.forEach(function(product,i){
+					var resHTML = productsTemplate.replace("{productDescription}", product.productDescription)
+					  .replace("{productDescription}", product.productDescription)
+					  .replace("{productImageUrl}", product.productImageUrl)
+					  .replace("{placeName}", product.placeName)
+					  .replace("{productContent}", product.productContent);
+					listProductUl[i%2].innerHTML += resHTML;
+				});
 			}
 		}
 	}
 	
-	moreBtn.addEventListener("click", function(){
-		productsAjaxFunc(curCategory);
+	function chkAndHideMoreBtn(totalCount){
+		var moreBtn = document.querySelector(".btn_more_wrap");
+		if(start+4 >= totalCount){
+			moreBtn.style.display = "none";
+		}else{
+			moreBtn.style.display = "";
+		}
+	}
+	
+	function refreshTotalSpan(totalCount){
+		var countSpan = document.querySelector(".event_lst_txt .pink");
+		countSpan.innerText = totalCount + "개";
+	}
+	
+	// 더보기 버튼
+	document.querySelector(".btn_more_wrap").addEventListener("click", function(){
+		productsAjaxFunc(categoryId, start+4);
 	});
 	
-	categorySection.addEventListener("click", function(evt){
+	
+	// 카테고리  선택
+	document.querySelector(".section_event_tab").addEventListener("click", function(evt){
 		var tagName = evt.target.tagName;
 		var categoryId;
 		if(tagName === "LI"){
@@ -145,12 +157,25 @@ document.addEventListener("DOMContentLoaded", function(){
 			categoryId = li.getAttribute("data-category");
 		}
 		else return;
-		productsAjaxFunc(parseInt(categoryId));
-		end = -1;
-		itemUlList[0].innerHTML = "";
-		itemUlList[1].innerHTML = "";
+		removeActive();
+		evt.target.closest("li").querySelector("a").className = "anchor active";
+		start = 0;
+		productsAjaxFunc(parseInt(categoryId, start));
+		cleanProducts();
 	});
+	
+	function removeActive(){
+		var selectAnchor = document.querySelector(".tab_lst_min .active");
+		selectAnchor.className = "anchor";
+	}
+	
+	function cleanProducts(){
+		var listProductUl = document.querySelectorAll(".lst_event_box");
+		listProductUl[0].innerHTML = "";
+		listProductUl[1].innerHTML = "";
+	}	
 });
+
 
 
 
