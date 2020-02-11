@@ -45,7 +45,7 @@ public class CategoryDAO {
 	public List<CategoryDTO> selectAll(){
 		return jdbc.query(SELECT_ALL, Collections.emptyMap(), rowMapper);
 	}
-	
+	// queryForList 안쓰고 query 쓰는걸로 하나 남겨두었음
 	public List<HashMap<String, Object>> selectWithCount(){
 		return jdbc.query(SELECT_WITH_COUNT, Collections.emptyMap(), new RowMapper<HashMap<String, Object>>() {
 			@Override

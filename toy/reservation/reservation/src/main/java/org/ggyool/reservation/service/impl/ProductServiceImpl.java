@@ -1,7 +1,7 @@
 package org.ggyool.reservation.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.ggyool.reservation.dao.ProductDAO;
 import org.ggyool.reservation.service.ProductService;
@@ -17,7 +17,7 @@ public class ProductServiceImpl implements ProductService{
 	
 	@Override
 	@Transactional(readOnly=true)
-	public List<HashMap<String, Object>> getPrductsByCategory(Integer categoryId, int start) {
+	public List<Map<String, Object>> getPrductsByCategory(Integer categoryId, int start) {
 		return productDao.selectByCategoryId(categoryId, start, LIMIT);
 	}
 }

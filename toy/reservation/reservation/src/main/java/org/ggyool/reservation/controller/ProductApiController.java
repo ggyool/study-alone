@@ -26,7 +26,7 @@ public class ProductApiController {
 			@RequestParam(name="categoryId", required=false) Integer categoryId,
 			@RequestParam(name="start",  required=false, defaultValue="0") int start) {
 		Map<String, Object> map = new HashMap<>();
-		List<HashMap<String, Object>> list = productSerice.getPrductsByCategory(categoryId, start);
+		List<Map<String, Object>> list = productSerice.getPrductsByCategory(categoryId, start);
 		int totalCount = categoryService.countProducts(categoryId);
 		map.put("items", list);
 		map.put("totalCount", totalCount);

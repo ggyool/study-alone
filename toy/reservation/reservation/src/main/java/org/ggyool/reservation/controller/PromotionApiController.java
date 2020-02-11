@@ -1,6 +1,7 @@
 package org.ggyool.reservation.controller;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import org.ggyool.reservation.service.PromotionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,8 @@ public class PromotionApiController {
 	PromotionService promotionService;
 	
 	@GetMapping
-	public HashMap<String, Object> promotions(){
-		HashMap<String, Object> map = new HashMap<>();
+	public Map<String, Object> promotions(){
+		Map<String, Object> map = new HashMap<>();
 		map.put("items", promotionService.getPromotions());
 		return map;
 	}

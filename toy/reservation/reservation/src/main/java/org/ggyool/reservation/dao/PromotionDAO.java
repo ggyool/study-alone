@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.sql.DataSource;
 
@@ -28,17 +29,8 @@ public class PromotionDAO {
 				.usingGeneratedKeyColumns("id");
 	}
 	
-	public List<HashMap<String, Object>> selectOnPromotion(){
-		return jdbc.query(SELECT_ON_PROMOTION, Collections.emptyMap(), new RowMapper<HashMap<String, Object>>(){
-			@Override
-			public HashMap<String, Object> mapRow(ResultSet rs, int rowNum) throws SQLException {
-				HashMap<String, Object> map = new HashMap<>();
-				map.put("id", rs.getInt("id"));
-				map.put("productId", rs.getInt("productId"));
-				map.put("productImageUrl", rs.getString("productImageUrl"));
-				return map;
-			}
-		});
+	public List<Map<String, Object>> selectOnPromotion(){
+		return jdbc.queryForList(SELECT_ON_PROMOTION, Collections.emptyMap());
 	}
 }
 

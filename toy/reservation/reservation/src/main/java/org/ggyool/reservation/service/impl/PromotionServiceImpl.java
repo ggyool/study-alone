@@ -1,7 +1,7 @@
 package org.ggyool.reservation.service.impl;
 
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.ggyool.reservation.dao.PromotionDAO;
 import org.ggyool.reservation.service.PromotionService;
@@ -17,7 +17,7 @@ public class PromotionServiceImpl implements PromotionService{
 	
 	@Override
 	@Transactional(readOnly=true)
-	public List<HashMap<String, Object>> getPromotions() {
+	public List<Map<String, Object>> getPromotions() {
 		return promotionDao.selectOnPromotion();
 	}
 	
