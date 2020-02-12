@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		if(evt.target.readyState === XMLHttpRequest.DONE){
 			if(evt.target.status === 200){
 				var promotionList = JSON.parse(evt.target.responseText).items;
-				plen = promotionList.length;
+				var plen = promotionList.length;
 				// 마지막 항목을 가장 앞에 추가
 				promotionList = [promotionList[plen-1]].concat(promotionList);
 				plen = promotionList.length;
@@ -73,6 +73,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		cotainerDiv.style.height = defaultHeight + "px";
 		promotionUL.style.width = width * plen + "px";
 	}
+	
 	function animationFunc(){
 		var promotionUL = document.querySelector(".visual_img");
 		promotionUL.style.transition = '1s';
