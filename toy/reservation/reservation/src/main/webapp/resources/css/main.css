@@ -1,0 +1,16 @@
+.container_visual{
+	overflow : hidden;
+}
+.visual_img {
+	transition : all;
+}
+.visual_img > li{
+	vertical-align : top;
+	display : inline-block;
+}
+.visual_img > li > img{
+
+}
+.btn_more_wrap > .btn_more{
+	width : 100%;
+}

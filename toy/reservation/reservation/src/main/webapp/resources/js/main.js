@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		var defaultHeight = promotionUL.getBoundingClientRect().height;
 		cotainerDiv.style.width = width + "px";
 		cotainerDiv.style.height = defaultHeight + "px";
-		promotionUL.style.width = width * plen + "px";
+		promotionUL.style.width = width * promotionLen + "px";
 	}
 	
 	function animationFunc(){

@@ -897,6 +897,219 @@ insert into promotion(id, product_id) values( 11, 44);
 
 
 
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 1,1, 'A',6000,20, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 2,1, 'Y',3000,33, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 3,1, 'B',2000,50, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 4,2, 'A',8000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 5,2, 'Y',3000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 6,2, 'B',2000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 7,3, 'A',11700,10, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 8,3, 'Y',9900,10, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 9,3, 'B',8100,10, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 10,4, 'A',3000,40, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 11,4, 'Y',1500,50, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 12,5, 'A',13000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 13,5, 'Y',10000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 14,5, 'B',8000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 15,6, 'A',3000,40, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 16,6, 'Y',1500,50, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 17,7, 'A',4000,20, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 18,7, 'Y',4000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 19,8, 'A',8000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 20,8, 'Y',5000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 21,8, 'B',3000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 22,9, 'A',13000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 23,9, 'Y',11000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 24,9, 'B',9000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 25,10, 'A',13000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 26,10, 'Y',10000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 27,10, 'B',8000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 28,11, 'V',112000,20, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 29,11, 'R',96000,20, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 30,12, 'V',77000,30, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 31,12, 'R',69300,30, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 32,13, 'B',28000,30, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 33,14, 'V',33000,50, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 34,14, 'R',27500,50, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 35,15, 'V',28000,60, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 36,15, 'R',20000,60, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 37,16, 'R',88000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 38,16, 'S',66000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 39,17, 'V',80000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 40,17, 'R',50000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 41,17, 'A',40000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 42,18, 'R',66000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 43,18, 'S',55000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 44,19, 'V',80000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 45,19, 'R',60000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 46,19, 'S',50000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 47,19, 'A',40000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 48,20, 'D',15800,64, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 49,20, 'E',19800,56, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 50,21, 'R',109000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 51,22, 'R',44000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 52,23, 'A',50000,9, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 53,23, 'Y',35000,36, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 54,24, 'R',20000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 55,25, 'V',98000,30, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 56,25, 'R',72000,40, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 57,25, 'S',45000,50, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 58,26, 'R',59000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 59,27, 'R',75000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 60,27, 'S',55000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 61,27, 'A',35000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 62,28, 'V',132000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 63,28, 'R',110000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 64,28, 'S',99000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 65,28, 'A',88000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 66,29, 'R',110000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 67,29, 'S',99000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 68,30, 'V',121000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 69,30, 'R',110000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 70,30, 'S',99000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 71,31, 'R',10000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 72,32, 'V',50000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 73,32, 'R',30000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 74,32, 'S',20000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 75,33, 'R',0,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 76,34, 'R',25000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 77,35, 'R',30000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 78,35, 'S',20000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 79,36, 'R',65000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 80,36, 'S',45000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 81,37, 'R',20000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 82,38, 'A',20000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 83,38, 'Y',14000,30, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 84,39, 'R',50000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 85,40, 'R',20000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 86,41, 'R',12000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 87,42, 'R',50000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 88,43, 'R',0,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 89,44, 'R',15000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 90,45, 'R',17000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 91,46, 'R',25500,15, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 92,47, 'R',30800,30, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 93,48, 'R',20000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 94,49, 'R',35000,0, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 95,49, 'D',15000,57, now(), now());
+insert into product_price (id, product_id, price_type_name , price, discount_rate, create_date, modify_date) values ( 96,50, 'R',35000,0, now(), now());
 
+
+
+
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 1, 1, 1, '김진수', '010-0000-0001', 'kimjinsu@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 2, 1, 1, '강경미', '010-0000-0002', 'carami@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 3, 1, 1, '홍상수', '010-0000-0003', 'hongsangsu@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 4, 2, 2, '도민상', '010-0000-0004', 'dominsang@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 5, 2, 2, '고아름', '010-0000-0005', 'goarum@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 6, 1, 1, '김진호', '010-0000-0006', 'kimjinho@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 7, 1, 1, '강상권', '010-0000-0007', 'kimsangkun@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 8, 1, 1, '김은비', '010-0000-0008', 'kimrain@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 9, 1, 1, '홍길동', '010-0000-0009', 'hong@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 10, 1, 1, '이순신', '010-0000-0010', 'leesunsin@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 11, 1, 1, '강감찬', '010-0000-0011', 'kangchan@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 12, 1, 1, '김수정', '010-0000-0012', 'kinsujung@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 13, 1, 1, '김미연', '010-0000-0013', 'kimmy@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 14, 1, 1, '김한국', '010-0000-0014', 'kimkorea@connect.co.kr', now(), now(), now());
+
+insert into reservation_info (id, product_id, display_info_id, reservation_name, reservation_tel, reservation_email, reservation_date,
+                              create_date, modify_date ) values ( 15, 1, 1, '도로시', '010-0000-0015', 'dorosi@connect.co.kr', now(), now(), now());
+
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (1, 1, 1, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (2, 1, 2, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (3, 1, 3, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (4, 2, 2, 2);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (5, 3, 3, 3);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (6, 4, 4, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (7, 4, 5, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (8, 4, 6, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (9, 5, 5, 2);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (10, 6, 1, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (11, 7, 1, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (12, 8, 1, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (13, 9, 1, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (14, 10, 1, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (15, 11, 1, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (16, 12, 1, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (17, 13, 1, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (18, 14, 1, 1);
+insert into reservation_info_price (id, reservation_info_id, product_price_id, count) values (19, 15, 1, 1);
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (1, 1, 1, 4, '좋았어요.', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (2, 1, 2, 5, '최고!!!!', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (3, 1, 3, 5, '또 가보고 싶어요.', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (4, 1, 4, 2, '가격대비 약간은 실망이었어요.', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (5, 1, 5, 3, '지루했어요..', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (6, 1, 6, 4, '오 재미남!!', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (7, 1, 7, 5, '최고!!!!!!!!', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (8, 1, 8, 3, '보통이였어요.', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (9, 1, 9, 2, '실망....', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (10, 1, 10, 1, '최고로 실망...', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (11, 1, 11, 3, '괜찮았어요.', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (12, 1, 12, 4, '좋았음.', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (13, 1, 13, 4, '재미남.', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (14, 1, 14, 5, '또 가고 싶어.', now(), now());
+
+insert into reservation_user_comment(id, product_id, reservation_info_id, score, comment, create_date, modify_date)
+values (15, 1, 15, 5, '즐거움!!!', now(), now());
+
+insert into reservation_user_comment_image(id, reservation_info_id, reservation_user_comment_id, file_id) values (1, 1, 1, 1);
+
+insert into reservation_user_comment_image(id, reservation_info_id, reservation_user_comment_id, file_id) values (2, 1, 2, 2);
 
 

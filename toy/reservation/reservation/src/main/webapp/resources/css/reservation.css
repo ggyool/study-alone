@@ -6695,7 +6695,6 @@ select {
     padding-bottom: 12px;
     border-top: 1px solid #eee;
 }
-
 .section_booking .bar_tit i[class*="ico_"]:first-child {
     top: 13px;
     left: 10px;
@@ -12596,17 +12595,4 @@ body.biz10 .section_item_details .item_details {
     width: 19px;
     height: 20px;
     background-position: -93px -24.5px;
-}
-.container_visual{
-	overflow : hidden;
-}
-.visual_img {
-	transition : all;
-}
-.visual_img > li{
-	vertical-align : top;
-	display : inline-block;
-}
-.visual_img > li > img{
-
 }
