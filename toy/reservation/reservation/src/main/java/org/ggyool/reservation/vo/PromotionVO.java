@@ -1,6 +1,8 @@
-package org.ggyool.reservation.dto;
+package org.ggyool.reservation.vo;
 
-public class PromotionDTO {
+import java.util.Date;
+
+public class PromotionVO {
 	private Integer id;
 	private Integer productId;
 	public Integer getId() {
@@ -17,6 +19,6 @@ public class PromotionDTO {
 	}
 	@Override
 	public String toString() {
-		return "PromotionDTO [id=" + id + ", productId=" + productId + "]";
+		return "PromotionVO [id=" + id + ", productId=" + productId + "]";
 	}
 }

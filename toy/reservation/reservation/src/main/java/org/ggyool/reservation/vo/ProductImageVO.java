@@ -1,6 +1,6 @@
-package org.ggyool.reservation.dto;
+package org.ggyool.reservation.vo;
 
-public class ProductImageDTO {
+public class ProductImageVO {
 	private Integer id;
 	private Integer productId;
 	private String type;
@@ -31,6 +31,6 @@ public class ProductImageDTO {
 	}
 	@Override
 	public String toString() {
-		return "ProductImageDTO [id=" + id + ", productId=" + productId + ", type=" + type + ", fileId=" + fileId + "]";
+		return "ProductImageVO [id=" + id + ", productId=" + productId + ", type=" + type + ", fileId=" + fileId + "]";
 	}
 }

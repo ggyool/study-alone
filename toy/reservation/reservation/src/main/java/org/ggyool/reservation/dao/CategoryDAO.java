@@ -1,6 +1,5 @@
 package org.ggyool.reservation.dao;
 
-import static org.ggyool.reservation.dao.CategorySqls.COUNT_PRODUCTS;
 import static org.ggyool.reservation.dao.CategorySqls.COUNT_PRODUCTS_BY_CATEGORY_ID;
 import static org.ggyool.reservation.dao.CategorySqls.SELECT_ALL;
 import static org.ggyool.reservation.dao.CategorySqls.SELECT_WITH_COUNT;
@@ -14,7 +13,7 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.ggyool.reservation.dto.CategoryDTO;
+import org.ggyool.reservation.vo.CategoryVO;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -28,7 +27,7 @@ public class CategoryDAO {
 
 	private NamedParameterJdbcTemplate jdbc;
 	private SimpleJdbcInsert insertAction;
-	private RowMapper<CategoryDTO> rowMapper = BeanPropertyRowMapper.newInstance(CategoryDTO.class);
+	private RowMapper<CategoryVO> rowMapper = BeanPropertyRowMapper.newInstance(CategoryVO.class);
 	
 	public CategoryDAO(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
@@ -37,12 +36,12 @@ public class CategoryDAO {
 				.usingGeneratedKeyColumns("id");
 	}
 	
-	public Integer insert(CategoryDTO categoryDto) {
-		SqlParameterSource params = new BeanPropertySqlParameterSource(categoryDto);
+	public Integer insert(CategoryVO CategoryVO) {
+		SqlParameterSource params = new BeanPropertySqlParameterSource(CategoryVO);
 		return insertAction.executeAndReturnKey(params).intValue();
 	}
 	
-	public List<CategoryDTO> selectAll(){
+	public List<CategoryVO> selectAll(){
 		return jdbc.query(SELECT_ALL, Collections.emptyMap(), rowMapper);
 	}
 	// queryForList 안쓰고 query 쓰는걸로 하나 남겨두었음

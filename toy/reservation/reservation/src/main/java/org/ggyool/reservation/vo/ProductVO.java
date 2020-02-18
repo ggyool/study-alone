@@ -1,11 +1,8 @@
-package org.ggyool.reservation.dto;
+package org.ggyool.reservation.vo;
 
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-public class ProductDTO {
+public class ProductVO {
 	private Integer id;
 	private Integer categoryId;
 	private String description;
@@ -57,7 +54,7 @@ public class ProductDTO {
 	}
 	@Override
 	public String toString() {
-		return "ProductDTO [id=" + id + ", categoryId=" + categoryId + ", description=" + description + ", content="
+		return "ProductVO [id=" + id + ", categoryId=" + categoryId + ", description=" + description + ", content="
 				+ content + ", event=" + event + ", createDate=" + createDate + ", modifyDate=" + modifyDate + "]";
 	}
 }

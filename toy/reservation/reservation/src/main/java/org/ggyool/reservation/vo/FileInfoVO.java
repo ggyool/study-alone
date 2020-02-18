@@ -1,8 +1,8 @@
-package org.ggyool.reservation.dto;
+package org.ggyool.reservation.vo;
 
 import java.util.Date;
 
-public class FileInfoDTO {
+public class FileInfoVO {
 	private Integer id;
 	private String fileName;
 	private String saveFileName;
@@ -54,7 +54,7 @@ public class FileInfoDTO {
 	}
 	@Override
 	public String toString() {
-		return "FileInfoDTO [id=" + id + ", fileName=" + fileName + ", saveFileName=" + saveFileName + ", contentType="
+		return "FileInfoVO [id=" + id + ", fileName=" + fileName + ", saveFileName=" + saveFileName + ", contentType="
 				+ contentType + ", deleteFlag=" + deleteFlag + ", createDate=" + createDate + ", modifyDate="
 				+ modifyDate + "]";
 	}

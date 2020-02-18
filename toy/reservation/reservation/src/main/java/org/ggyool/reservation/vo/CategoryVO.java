@@ -1,6 +1,6 @@
-package org.ggyool.reservation.dto;
+package org.ggyool.reservation.vo;
 
-public class CategoryDTO {
+public class CategoryVO {
 	private Integer id;
 	private String name;
 	public Integer getId() {
@@ -17,7 +17,6 @@ public class CategoryDTO {
 	}
 	@Override
 	public String toString() {
-		return "CategoryDTO [id=" + id + ", name=" + name + "]";
+		return "CategoryVO [id=" + id + ", name=" + name + "]";
 	}
-	
 }

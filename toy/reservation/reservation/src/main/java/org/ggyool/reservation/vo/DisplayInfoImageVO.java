@@ -1,6 +1,8 @@
-package org.ggyool.reservation.dto;
+package org.ggyool.reservation.vo;
 
-public class DisplayInfoImageDTO {
+import java.util.Date;
+
+public class DisplayInfoImageVO {
 	private Integer id;
 	private Integer displayInfoId;
 	private Integer fileId;
@@ -24,6 +26,6 @@ public class DisplayInfoImageDTO {
 	}
 	@Override
 	public String toString() {
-		return "DisplayInfoImageDTO [id=" + id + ", displayInfoId=" + displayInfoId + ", fileId=" + fileId + "]";
+		return "DisplayInfoImageVO [id=" + id + ", displayInfoId=" + displayInfoId + ", fileId=" + fileId + "]";
 	}
 }
