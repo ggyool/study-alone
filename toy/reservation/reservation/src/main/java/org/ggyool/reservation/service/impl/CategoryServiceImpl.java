@@ -17,7 +17,6 @@ public class CategoryServiceImpl implements CategoryService{
 	CategoryDAO categoryDao;
 	
 	@Override
-	@Transactional(readOnly=true)
 	public List<HashMap<String, Object>> getCategories() {
 		return categoryDao.selectWithCount();
 	}

@@ -22,6 +22,6 @@ public class DisplayInfoSqls {
 			+ "ON dit.product_id = pt.id "
 			+ "JOIN category AS ct "
 			+ "ON pt.category_id = ct.id "
-			+ "WHERE dit.id  = 1";
+			+ "WHERE dit.id  = :displayInfoId";
 
 }

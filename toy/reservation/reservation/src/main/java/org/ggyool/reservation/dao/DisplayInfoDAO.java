@@ -20,8 +20,8 @@ public class DisplayInfoDAO {
 	public DisplayInfoDAO(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 	}
-	public DisplayInfoDTO selectById(Integer did) {
+	public DisplayInfoDTO selectById(Integer displayInfoId) {
 		String sql = SELECT_BY_ID;
-		return jdbc.queryForObject(sql, Collections.singletonMap("did", did), displayInfoMapper);
+		return jdbc.queryForObject(sql, Collections.singletonMap("displayInfoId", displayInfoId), displayInfoMapper);
 	}
 }

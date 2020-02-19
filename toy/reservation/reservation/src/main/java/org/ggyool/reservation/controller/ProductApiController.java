@@ -1,11 +1,16 @@
 package org.ggyool.reservation.controller;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.ggyool.reservation.dto.DisplayInfoResponseDTO;
 import org.ggyool.reservation.service.CategoryService;
+import org.ggyool.reservation.service.CommentService;
+import org.ggyool.reservation.service.DisplayInfoImageService;
+import org.ggyool.reservation.service.DisplayInfoService;
+import org.ggyool.reservation.service.ProductImageService;
+import org.ggyool.reservation.service.ProductPriceService;
 import org.ggyool.reservation.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +27,16 @@ public class ProductApiController {
 	ProductService productSerice;
 	@Autowired
 	CategoryService categoryService;
+	@Autowired
+	CommentService commentService;
+	@Autowired
+	DisplayInfoService displayInfoService;
+	@Autowired
+	DisplayInfoImageService displayInfoImageService;
+	@Autowired
+	ProductImageService productImageService;
+	@Autowired
+	ProductPriceService productPriceService;
 	
 	@GetMapping
 	public Map<String, Object> products(
@@ -36,11 +51,18 @@ public class ProductApiController {
 	}
 	
 	@GetMapping("/{displayInfoId}")
-	public Map<String, Object> productsDetails(
-			@PathVariable("displayInfoId") int displayInfoId){
-		
-		
-		return Collections.emptyMap();
+	public DisplayInfoResponseDTO productsDetails(
+			@PathVariable("displayInfoId") Integer displayInfoId){
+		Integer productId;
+		DisplayInfoResponseDTO dto = new DisplayInfoResponseDTO();
+		dto.setDisplayInfo(displayInfoService.get(displayInfoId));
+		dto.setDisplayInfoImage(displayInfoImageService.getImage(displayInfoId));
+		productId = dto.getDisplayInfo().getProductId();
+		dto.setProductImages(productImageService.getImages(productId));
+		dto.setProductPrices(productPriceService.getPrices(productId));
+		dto.setComments(commentService.getComments(productId));
+		dto.setAverageScore(commentService.getAverageScore(productId));
+		return dto;
 	}
 }
 
