@@ -117,7 +117,9 @@ document.addEventListener("DOMContentLoaded", function(){
 				chkAndHideMoreBtn(totalCount);
 				var productsTemplate = document.querySelector("#itemList").innerHTML;
 				productsList.forEach(function(product,i){
-					var resHTML = productsTemplate.replace("{productDescription}", product.productDescription)
+					var resHTML = productsTemplate
+					  .replace("{displayInfoId}", product.displayInfoId)
+					  .replace("{productDescription}", product.productDescription)
 					  .replace("{productDescription}", product.productDescription)
 					  .replace("{productImageUrl}", product.productImageUrl)
 					  .replace("{placeName}", product.placeName)
