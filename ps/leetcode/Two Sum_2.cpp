@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <unordered_map>
 #include <stack>
+#include <iostream>
 using namespace std;
 
 // hash 도 해봤는데 이분탐색보다 느림
@@ -11,7 +12,7 @@ public:
 	vector<int> twoSum(vector<int>& nums, int target) {
 		int len = nums.size();
 		vector<int> ret;
-		unordered_map<int, stack<int>> mp;
+		unordered_map<int, stack<int> > mp;
 		for (int i = 0; i < len; ++i) {
 			mp[nums[i]].push(i);
 		}
@@ -38,3 +39,16 @@ public:
 		return ret;
 	}
 };
+
+int main(void){
+	Solution sol = Solution();
+	vector<int> v;
+	v.push_back(2);
+	v.push_back(7);
+	v.push_back(11);
+	v.push_back(15);
+	cout << sol.twoSum(v, 9)[0];
+	cout << sol.twoSum(v, 9)[1];
+
+	return 0;
+}
