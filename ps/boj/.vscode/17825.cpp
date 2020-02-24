@@ -1,3 +1,4 @@
+// 처음 풀 때 백트래킹 안하고 모든 조합 4**10 뽑았다.
 #include <iostream>
 #include <algorithm>
 #include <cstring>
@@ -22,13 +23,6 @@ int len[5] = {21,4,3,4,4};
 bool chk[5][21];
 vector<int> v, inp;
 int maxScore = 0;
-
-void printV(){
-    for(int i=0; i<v.size(); ++i){
-        cout << v[i] << ' ';
-    }
-    cout << '\n';
-}
 
 int range(int y, int x){
     return len[y] - x;
