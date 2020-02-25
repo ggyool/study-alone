@@ -1,7 +1,5 @@
 package org.ggyool.reservation.vo;
 
-import java.util.Date;
-
 public class PromotionVO {
 	private Integer id;
 	private Integer productId;

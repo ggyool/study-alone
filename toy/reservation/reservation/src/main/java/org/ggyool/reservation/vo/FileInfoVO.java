@@ -2,13 +2,17 @@ package org.ggyool.reservation.vo;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class FileInfoVO {
 	private Integer id;
 	private String fileName;
 	private String saveFileName;
 	private String contentType;
 	private Integer deleteFlag;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date createDate;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date modifyDate;
 	public Integer getId() {
 		return id;

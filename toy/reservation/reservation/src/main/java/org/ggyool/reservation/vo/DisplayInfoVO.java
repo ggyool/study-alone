@@ -2,6 +2,8 @@ package org.ggyool.reservation.vo;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class DisplayInfoVO {
 	private Integer id;
 	private Integer productId;
@@ -12,7 +14,9 @@ public class DisplayInfoVO {
 	private String tel;
 	private String homepage;
 	private String email;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date createDate;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date modifyDate;
 	public Integer getId() {
 		return id;

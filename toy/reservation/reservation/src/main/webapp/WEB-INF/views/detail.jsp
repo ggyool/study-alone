@@ -38,46 +38,15 @@
                     <div class="pagination">
                         <div class="bg_pagination"></div>
                         <div class="figure_pagination">
-                            <span class="num">1</span>
-                            <span class="num off">/ <span>2</span></span>
+                            <span class="num"></span>
+                            <span class="num off">/ <span></span></span>
                         </div>
                     </div>
                     <div class="group_visual">
                         <div>
                             <div class="container_visual" style="width: 414px;">
                                 <ul class="visual_img detail_swipe">
-                                    <li class="item" style="width: 414px;"> <img alt="" class="img_thumb" src=""> <span class="img_bg"></span>
-                                        <div class="visual_txt">
-                                            <div class="visual_txt_inn">
-                                                <h2 class="visual_txt_tit"> <span></span> </h2>
-                                                <p class="visual_txt_dsc"></p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="item" style="width: 414px;"> <img alt="" class="img_thumb" src=""> <span class="img_bg"></span>
-                                        <div class="visual_txt">
-                                            <div class="visual_txt_inn">
-                                                <h2 class="visual_txt_tit"> <span></span> </h2>
-                                                <p class="visual_txt_dsc"></p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="item" style="width: 414px;"> <img alt="" class="img_thumb" src=""> <span class="img_bg"></span>
-                                        <div class="visual_txt">
-                                            <div class="visual_txt_inn">
-                                                <h2 class="visual_txt_tit"> <span></span> </h2>
-                                                <p class="visual_txt_dsc"></p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="item" style="width: 414px;"> <img alt="" class="img_thumb" src=""> <span class="img_bg"></span>
-                                        <div class="visual_txt">
-                                            <div class="visual_txt_inn">
-                                                <h2 class="visual_txt_tit"> <span></span> </h2>
-                                                <p class="visual_txt_dsc"></p>
-                                            </div>
-                                        </div>
-                                    </li>
+                                  
                                 </ul>
                             </div>
                             <div class="prev">
@@ -259,6 +228,17 @@
         </div>
     </footer>
     <div id="photoviwer"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"></script>
+    <script type="text/template" id="imageItem">
+	    <li class="item" style="width: 414px;"> <img alt="" class="img_thumb" src={{saveFileName}}> <span class="img_bg"></span>
+		    <div class="visual_txt">
+		        <div class="visual_txt_inn">
+		            <h2 class="visual_txt_tit"> <span></span> </h2>
+		            <p class="visual_txt_dsc"></p>
+		        </div>
+		    </div>
+		</li>
+    </script>
     <script src="/resources/js/detail.js"></script>
 </body>
 

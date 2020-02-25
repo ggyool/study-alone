@@ -2,13 +2,17 @@ package org.ggyool.reservation.vo;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class ProductVO {
 	private Integer id;
 	private Integer categoryId;
 	private String description;
 	private String content;
 	private String event;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date createDate;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date modifyDate;
 	public Integer getId() {
 		return id;

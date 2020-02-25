@@ -3,13 +3,18 @@ package org.ggyool.reservation.dto;
 import java.util.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class CommentDTO {
 	private String comment;
 	private Integer commentId;
 	private List<CommentImageDTO> commentImages;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date createDate;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date modifyDate;
 	private String productId;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date reservationDate;
 	private String reservationEmail;
 	private Integer reservationInfoId;

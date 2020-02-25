@@ -2,13 +2,17 @@ package org.ggyool.reservation.dto;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class DisplayInfoDTO {
 	private Integer categoryId;
 	private String categoryName;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date createDate;
 	private Integer displayInfoId;
 	private String email;
 	private String homepage;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date modifyDate;
 	private String openingHours;
 	private String placeLot;

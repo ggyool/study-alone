@@ -2,12 +2,16 @@ package org.ggyool.reservation.dto;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class ProductImageDTO {
 	private String contentType;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date createDate;
 	private Boolean deleteFlag;
 	private Integer fileInfoId;
 	private String fileName;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date modifyDate;
 	private Integer productId;
 	private Integer productImageId;
