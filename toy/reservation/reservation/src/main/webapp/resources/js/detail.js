@@ -17,10 +17,11 @@ document.addEventListener("DOMContentLoaded", function(){
 		imageList : [],
 		current : 0,
 		total : 0,
+		width : 0,
 		init : function(){
 			this.imageList = imageObj.imageList;
+			this.imageList.forEach(image=>image.saveFileName = "/" + image.saveFileName);
 			this.setTotal(this.imageList.length);
-			this.setCurrent(1);
 			var firstImage = this.imageList[0];
 			var lastImage = this.imageList[this.total-1];
 			// 마지막 항목을 가장 앞에 추가
@@ -33,31 +34,66 @@ document.addEventListener("DOMContentLoaded", function(){
 			var container = document.querySelector(".container_visual .visual_img");
 			var template = document.querySelector("#imageItem").innerText;
 			var bindingTemplate = Handlebars.compile(template);
-			width = container.offsetWidth;
-			container.style.width = width * (this.getTotal()+2);
+			this.width = container.offsetWidth;
+			container.style.height = container.offsetHeight;
+			container.style.width = this.width * (this.total+2);
 			this.imageList.forEach(function(image){
-				image.saveFileName = "/" + image.saveFileName;
 				container.innerHTML += bindingTemplate(image);
 			});
+			this.setAnimationTime(0);
+			this.slideLeft();
+			this.eventInit();
 		},
 		printList : function(){
 			this.imageList.forEach(function(image){
 				console.log(image);
 			});
 		},
-		getCurrent : function(){
-			return parseInt(document.querySelector(".pagination .num"));	
-		},
-		setCurrent : function(num){
-			this.current = num;
-			document.querySelector(".pagination .num").innerText = num;
-		},
-		getTotal : function(){
-			return parseInt(document.querySelector(".pagination .num.off span"));
+		setPage : function(){
+			var page = this.current;
+			if(page===0) page = this.total;
+			if(page>this.total) page = 1;
+			document.querySelector(".pagination .num").innerText = page;
+			
 		},
 		setTotal : function(num){
 			this.total = num; 
 			document.querySelector(".pagination .num.off span").innerText = num;
+		},
+		slideLeft : function(evt){
+			var container = document.querySelector(".container_visual .visual_img");
+			this.current += 1;
+			console.log(this.current);
+			if(this.current>this.total){
+				this.current = 0;
+				this.setAnimationTime(0);
+				container.style.transform = `translateX(0px)`;
+				//debugger;
+				window.setTimeout(this.slideLeft.bind(this), 0);
+			}else{
+				this.setAnimationTime(1);
+				this.setPage(this.current);
+				container.style.transform = `translateX(${-this.current*this.width}px)`;
+			}
+		},
+		slideRight : function(){
+			this.setCurrent(1);
+		},
+		setAnimationTime : function(sec){
+			var container = document.querySelector(".container_visual .visual_img");
+			container.style.transition = `${sec}s`;
+		},
+		eventInit : function(){
+			var container = document.querySelector(".container_visual .visual_img");
+			var btnNext = document.querySelector(".btn_nxt");
+			var btnPrev = document.querySelector(".btn_prev");
+			btnNext.addEventListener("click", this.slideLeft.bind(this));
+//			container.addEventListener("transitionstart", function(evt){
+//				if(this.current >= this.total){
+//					this.setAnimationTime(0);
+//					container.style.transform = `translateX(0px)`;
+//				}
+//			}.bind(this));
 		}
 	};
 	
@@ -76,3 +112,6 @@ document.addEventListener("DOMContentLoaded", function(){
 	})();
 	
 });
+
+
+

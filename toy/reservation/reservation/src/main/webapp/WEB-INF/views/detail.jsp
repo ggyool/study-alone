@@ -9,8 +9,9 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <title>네이버 예약</title>
     <link rel="shortcut icon" href="/resources/img/favicon.ico">
-    <link href="/resources/css/style.css" rel="stylesheet">
     <link href="/resources/css/reservation.css" rel="stylesheet">
+    <link href="/resources/css/style.css" rel="stylesheet">
+
     <link href="/resources/css/detail.css" rel="stylesheet">
 </head>
 
@@ -51,7 +52,7 @@
                             </div>
                             <div class="prev">
                                 <div class="prev_inn">
-                                    <a href="#" class="btn_prev" title="이전">
+                                    <a class="btn_prev" title="이전">
                                         <!-- [D] 첫 이미지 이면 off 클래스 추가 -->
                                         <i class="spr_book2 ico_arr6_lt off"></i>
                                     </a>
@@ -59,7 +60,7 @@
                             </div>
                             <div class="nxt">
                                 <div class="nxt_inn">
-                                    <a href="#" class="btn_nxt" title="다음">
+                                    <a class="btn_nxt" title="다음">
                                         <i class="spr_book2 ico_arr6_rt"></i>
                                     </a>
                                 </div>

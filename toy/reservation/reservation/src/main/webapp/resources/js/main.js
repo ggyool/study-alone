@@ -16,6 +16,16 @@ document.addEventListener("DOMContentLoaded", function(){
 		promotionsHttpRequest.open("GET", "api/promotions")
 		promotionsHttpRequest.onreadystatechange = promotionLoadFunc;
 		promotionsHttpRequest.send();
+		
+		
+		var promotionUL = document.querySelector(".visual_img");
+		promotionUL.addEventListener("transitionend", function(){
+			if(curPromotion >= promotionLen-1){
+				curPromotion = 0;
+				promotionUL.style.transition = '0s';
+				promotionUL.style.transform = `translateX(0px)`;
+			}
+		});
 		window.setTimeout(animationFunc, slideTime);
 	})();
 	
@@ -79,14 +89,6 @@ document.addEventListener("DOMContentLoaded", function(){
 		promotionUL.style.transition = '1s';
 		++curPromotion;
 		promotionUL.style.transform = `translateX(${-curPromotion*width}px)`;
-		//console.log(curPromotion);
-		promotionUL.addEventListener("transitionend", function(){
-			if(curPromotion >= promotionLen-1){
-				curPromotion = 0;
-				promotionUL.style.transition = '0s';
-				promotionUL.style.transform = `translateX(0px)`;
-			}
-		});
 		window.setTimeout(animationFunc, slideTime);
 	}
 	

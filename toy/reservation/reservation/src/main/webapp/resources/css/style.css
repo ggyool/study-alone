@@ -452,7 +452,7 @@ hr {
 }
 
 .spr_book2 {
-    background-image: url(../img/spr_book2.png);
+    background-image: url(/img/spr_book2.png);
     background-size: 330px 400px
 }
 
