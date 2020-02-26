@@ -44,11 +44,6 @@ document.addEventListener("DOMContentLoaded", function(){
 			container.style.transform = `translateX(${-this.width}px)`;
 			this.eventInit();
 		},
-		printList : function(){
-			this.imageList.forEach(function(image){
-				console.log(image);
-			});
-		},
 		setPage : function(){
 			var page = this.current;
 			if(page===0) page = this.total;
@@ -169,7 +164,7 @@ document.addEventListener("DOMContentLoaded", function(){
 				obj.visible = "none";
 			}
 			obj.comment = commentObj.comment;
-			obj.score = commentObj.score;
+			obj.score = commentObj.score.toFixed(1);
 			obj.userId = "";
 			obj.visitDate = day.split(" ")[0] + " 방문";
 			obj.userId += email.slice(0,4) + "****";
@@ -183,21 +178,26 @@ document.addEventListener("DOMContentLoaded", function(){
 		},
 		contentLoad : function(){
 			var displayInfo = displayInfoResponse.displayInfo;
+			var displayInfoImage = displayInfoResponse.displayInfoImage;
 			var content = displayInfo.productContent;
 			var infoLabel = document.querySelector(".detail_info .in_dsc");
 			infoLabel.innerText = content;
 			
+			var locationImage = document.querySelector(".detail_location .store_location .store_map");
 			var titleLabel = document.querySelector(".detail_location .store_name");
 			var placeStreetLabel = document.querySelector(".detail_location .store_addr_bold");
 			var placeLotLabel = document.querySelector(".detail_location .addr_old_detail");
 			var placeDetailLabel = document.querySelector(".detail_location .addr_detail");
 			var placeTelLabel = document.querySelector(".detail_location .store_tel");
+			locationImage.src = "/" + displayInfoImage.saveFileName;
 			titleLabel.innerText = displayInfo.productDescription;
 			placeStreetLabel.innerText = displayInfo.placeStreet;
 			placeLotLabel.innerText = displayInfo.placeLot;
 			placeDetailLabel.innerText = displayInfo.placeName;
-			placeTelLabel.innerText = displayInfo.tel;
-			placeTelLabel.href = "tel:" + displayInfo.tel;
+			placeTelLabel.innerText = displayInfo.telephone;
+			placeTelLabel.href = "tel:" + displayInfo.telephone;
+			var moreBtn = document.querySelector(".btn_review_more");
+			moreBtn.href = `/products/${displayInfo.displayInfoId}/review`;
 		},
 		eventInit : function(){
 			var infoTab = document.querySelector(".info_tab_lst ._detail");
@@ -218,6 +218,7 @@ document.addEventListener("DOMContentLoaded", function(){
 				infoWrap.className = "detail_area_wrap hide";
 				pathWrap.className = "detail_location";
 			});
+
 		}
 	};
 	(function init(){

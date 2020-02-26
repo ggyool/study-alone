@@ -118,7 +118,7 @@
                         </div>
                         <p class="guide"> <i class="spr_book2 ico_bell"></i> <span>네이버 예약을 통해 실제 방문한 이용자가 남긴 평가입니다.</span> </p>
                     </div>
-                    <a class="btn_review_more" href="./review.html"> <span>예매자 한줄평 더보기</span> <i class="fn fn-forward1"></i> </a>
+                    <a class="btn_review_more" href=""> <span>예매자 한줄평 더보기</span> <i class="fn fn-forward1"></i> </a>
                 </div>
                 <div class="section_info_tab">
                     <!-- [D] tab 선택 시 anchor에 active 추가 -->
@@ -154,7 +154,7 @@
                     <div class="detail_location hide">
                         <div class="box_store_info no_topline">
                             <a class="store_location" title="지도웹으로 연결">
-                                <img class="store_map img_thumb" alt="map" src="https://simg.pstatic.net/static.map/image?version=1.1&amp;crs=EPSG:4326&amp;baselayer=bl_vc_bg&amp;exception=xml&amp;scale=2&amp;caller=mw_smart_booking&amp;overlayers=ol_vc_an&amp;center=127.0011948,37.5717079&amp;markers=type,default2,127.0011948,37.5717079&amp;level=11&amp;w=340&amp;h=150">
+                                <img class="store_map img_thumb" alt="map" src="">
                                 <span class="img_border"></span>
                                 <span class="btn_map"><i class="spr_book2 ico_mapview"></i></span>
                             </a>
