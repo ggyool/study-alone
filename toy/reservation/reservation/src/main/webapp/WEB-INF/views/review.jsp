@@ -41,10 +41,6 @@
                         <div class="short_review_area">
                             <div class="grade_area"> <span class="graph_mask"> <em class="graph_value" style="width: ${scorePercent}%;"></em> </span> <strong class="text_value"> <span>${averageScore}</span> <em class="total">5.0</em> </strong> <span class="join_count"><em class="green">${fn:length(commentList)}건</em> 등록</span></div>
                             <ul class="list_short_review">
-                            	
-                          
-								
-								
                             	<c:forEach var="comment" items="${commentList}">
                             		<li class="list_item">
 	                                    <div>
