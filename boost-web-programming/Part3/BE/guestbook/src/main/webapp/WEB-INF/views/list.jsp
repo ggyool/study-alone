@@ -10,7 +10,8 @@
 <body>
 <h1>방명록</h1>
 <br>
-방명록 전체 수 : ${count}
+방명록 전체 수 : ${count}<br>
+방문 수 : ${cookieCount}
 <br>
 <br>
 
