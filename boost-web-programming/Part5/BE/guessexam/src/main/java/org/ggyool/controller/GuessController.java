@@ -9,44 +9,40 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value="/guess")
 public class GuessController {
 	
-	@GetMapping
-	public String guessGet(HttpServletRequest request,
-			HttpServletResponse response,
+	@RequestMapping(method= {RequestMethod.GET, RequestMethod.POST})
+	public String guessGet(@RequestParam(name="userInput", required=false) Integer userInput,
+			HttpSession session,
 			ModelMap model) {
 		
-		Object answer, count, userInput;
-		HttpSession session = request.getSession();
-		userInput = session.getAttribute("userInput");
-		if(session.isNew() || userInput==null) {
-			answer = (int)(Math.random()*100) + 1;
-			count = 0;
-			session.setAttribute("answer", answer);
-			session.setAttribute("count", count);
-			session.setAttribute("userInput", userInput);
-		}else{
-			answer = session.getAttribute("answer");
-			count = session.getAttribute("count"); 
-			session.removeAttribute("userInput");
+		String msg; 
+		if(userInput==null) {
+			msg = "맞춰봐.";
+			session.setAttribute("answer", (int)(Math.random()*100) + 1);
+			session.setAttribute("count", 0);
 		}
-		model.addAttribute("answer", answer);
-		model.addAttribute("count", count);
-		model.addAttribute("userInput", userInput);
+		else{
+			// post 한 경우 userInput 를 받는다.
+			int answer = (int)session.getAttribute("answer");
+			int count = (int)session.getAttribute("count") + 1;
+			session.setAttribute("count", count);
+			if(userInput==answer) {
+				msg = "정답. " + count + "번 걸렸어. 정답은 " + answer + "야!";
+				session.removeAttribute("count");
+				session.removeAttribute("answer");
+			}else if(userInput>answer) {
+				msg = "커";
+			}else {
+				msg = "작아";
+			}
+		}
+		model.addAttribute("msg", msg);
 		return "guess";
-	}
-	
-	@PostMapping
-	public String guessPost(@RequestParam("userInput") Integer userInput,
-			HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		int count = (int)session.getAttribute("count");
-		session.setAttribute("count", count+1);
-		session.setAttribute("userInput", userInput);
-		return "redirect:/guess";
 	}
 }
