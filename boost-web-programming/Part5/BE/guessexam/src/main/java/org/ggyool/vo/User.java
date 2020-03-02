@@ -1,5 +1,8 @@
 package org.ggyool.vo;
 
+import org.springframework.stereotype.Component;
+
+
 public class User {
 	String id;
 	String password;

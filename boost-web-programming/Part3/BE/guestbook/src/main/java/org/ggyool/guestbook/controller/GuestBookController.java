@@ -7,6 +7,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.ggyool.guestbook.argumentresolver.HeaderInfo;
 import org.ggyool.guestbook.dto.GuestBook;
 import org.ggyool.guestbook.service.GuestBookService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class GuestBookController {
@@ -28,7 +31,12 @@ public class GuestBookController {
 	public String list(@RequestParam(name="start", required=false, defaultValue="0") int start,
 			ModelMap map, 
 			HttpServletRequest request,
-			HttpServletResponse response){
+			HttpServletResponse response,
+			HeaderInfo headerInfo){
+		
+		System.out.println("-----------------------------------------------------");
+		System.out.println(headerInfo.get("user-agent"));
+		System.out.println("-----------------------------------------------------");
 		
 		String value = null;
 		boolean isFind = false;
@@ -117,7 +125,21 @@ public class GuestBookController {
 		String clientIp = request.getRemoteAddr();
 		guestBookService.addGuestBook(guestBook, clientIp);
 		System.out.println("clientIp : " + clientIp);
-		return "redirect:list";
+		return "redirect:/list";
+	}
+	
+	@GetMapping(path="delete")
+	public String delete(@RequestParam(name="id", required=true) Long id,
+			@SessionAttribute("isAdmin") String isAdmin,
+			HttpServletRequest request,
+			RedirectAttributes rttr) {
+		if(isAdmin==null || !"true".equals(isAdmin)) {
+			rttr.addFlashAttribute("errorMessage", "로그인하지 않았습니다.");
+			return "redirect:/loginform";
+		}
+		String ip = request.getRemoteAddr();
+		guestBookService.deleteGuestBook(id, ip);
+		return "redirect:/list";
 	}
 	
 }

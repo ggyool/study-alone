@@ -14,12 +14,18 @@
 방문 수 : ${cookieCount}
 <br>
 <br>
+<c:if test="${sessionScope.isAdmin=='true'}">
+	<a href ="logout">로그아웃</a><br><br>
+</c:if>
 
 <c:forEach items="${list}" var="guestBook">
 ${guestBook.id} <br>
 ${guestBook.name} <br>
 ${guestBook.content} <br>
 ${guestBook.regdate} <br>
+<c:if test="${sessionScope.isAdmin=='true'}">
+	<a href ="delete?id=${guestBook.id}">삭제</a><br><br>
+</c:if>
 <br>
 </c:forEach>
 

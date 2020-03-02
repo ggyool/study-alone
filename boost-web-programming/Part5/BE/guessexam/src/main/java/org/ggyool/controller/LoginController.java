@@ -2,9 +2,11 @@ package org.ggyool.controller;
 
 import org.ggyool.vo.User;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
@@ -21,16 +23,17 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/dologin", method= {RequestMethod.GET})
-	public String doLoginGet(@ModelAttribute("user") User user)
-		System.out.println("get run");
-		System.out.println(user);
+	public String doLoginGet(@ModelAttribute User user) {
 		return "dologin";
 	}
 	
 	@RequestMapping(value="/dologin", method= {RequestMethod.POST})
-	public String doLogin(@ModelAttribute("user") User user) {
-		System.out.println("post run");
-		System.out.println(user);
+	public String doLoginPost(@ModelAttribute User user) {
 		return "redirect:/dologin";
+	}
+	
+	@RequestMapping(value="/dologin2", method= {RequestMethod.GET})
+	public String doLogin2(@SessionAttribute User user) {
+		return "dologin2";
 	}
 }
