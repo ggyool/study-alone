@@ -1,6 +1,6 @@
 package org.ggyool.reservation.vo;
 
-public class ReservationPriceVO {
+public class ReservationInfoPriceVO {
 	private Integer id;
 	private Integer reservationInfoId;
 	private Integer productPriceId;
@@ -31,7 +31,7 @@ public class ReservationPriceVO {
 	}
 	@Override
 	public String toString() {
-		return "ReservationPriceVO [id=" + id + ", reservationInfoId=" + reservationInfoId + ", productPriceId="
+		return "ReservationInfoPriceVO [id=" + id + ", reservationInfoId=" + reservationInfoId + ", productPriceId="
 				+ productPriceId + ", count=" + count + "]";
 	}
 }

@@ -1,7 +1,7 @@
 package org.ggyool.reservation.tests;
 
 import org.ggyool.reservation.config.ApplicationConfig;
-import org.ggyool.reservation.service.ReservationPriceService;
+import org.ggyool.reservation.service.ReservationInfoPriceService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -9,7 +9,7 @@ public class ReservationPriceServiceTests {
 	
 	public static void main(String[] args) {
 		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-		ReservationPriceService service = ac.getBean(ReservationPriceService.class);
+		ReservationInfoPriceService service = ac.getBean(ReservationInfoPriceService.class);
 		/*
 		List<ReservationPriceVO> dummys = new ArrayList<>();
 		for(int i=0 ;i<3; ++i) {
