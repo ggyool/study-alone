@@ -4,16 +4,14 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 
-
-<html lang="ko">
-
 <head>
     <meta charset="utf-8">
     <meta name="description" content="네이버 예약, 네이버 예약이 연동된 곳 어디서나 바로 예약하고, 네이버 예약 홈(나의예약)에서 모두 관리할 수 있습니다.">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
     <title>네이버 예약</title>
-    <link href="/resources/css/reservation.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/resources/img/favicon.ico">
     <link href="/resources/css/style.css" rel="stylesheet">
+    <link href="/resources/css/myreservation.css" rel="stylesheet">
 </head>
 
 <body>
@@ -31,83 +29,35 @@
         <div class="ct">
             <div class="ct_wrap">
                 <div class="top_title">
-                    <a href="./detail.html" class="btn_back" title="이전 화면으로 이동"> <i class="fn fn-backward1"></i> </a>
+                    <a class="btn_back" title="이전 화면으로 이동"> <i class="fn fn-backward1"></i> </a>
                     <h2><span class="title"></span></h2>
                 </div>
                 <div class="group_visual">
                     <div class="container_visual" style="width: 414px;">
                         <ul class="visual_img">
-                            <li class="item" style="width: 414px;"> <img alt="" class="img_thumb" src="https://ssl.phinf.net/naverbooking/20170217_264/1487312141947lTddT_JPEG/%B3%D7%C0%CC%B9%F6.jpg?type=ff1242_816"> <span class="img_bg"></span>
+                            <li class="item" style="width: 414px;"> <img alt="" class="img_thumb" src=""> <span class="img_bg"></span>
                                 <div class="preview_txt">
-                                    <h2 class="preview_txt_tit"></h2> <em class="preview_txt_dsc">₩12,000 ~ </em><em class="preview_txt_dsc">2017.2.17.(금)~2017.4.18.(화), 잔여티켓 2769매</em> </div>
+                                    <h2 class="preview_txt_tit"></h2> <em class="preview_txt_dsc"></em><em class="preview_txt_dsc"></em> </div>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="section_store_details">
                     <div class="store_details">
-                        <h3 class="in_tit"></h3>
+                        <h3 class="in_tit">장소</h3>
                         <p class="dsc">
-                            장소 : <br> 기간 : 2017.2.17.(금)~2017.4.18.(화)
                         </p>
                         <h3 class="in_tit">관람시간</h3>
                         <p class="dsc">
-                            화, 목, 금 일요일 10:00am~06:00pm(입장마감 05:30pm)<br> ‘문화가 있는 날’ 매월 마지막 주 수요일은 오후 8시까지 연장
                         </p>
                         <h3 class="in_tit">요금</h3>
                         <p class="dsc">
-                            성인(만 19~64세) 5,000원 / 청소년(만 13~18세) 4,000원<br> 어린이(만 4~12세) 3,000원 / 20인 이상 단체 20% 할인<br> 국가유공자, 장애인, 65세 이상 4,000원
                         </p>
                     </div>
                 </div>
                 <div class="section_booking_ticket">
                     <div class="ticket_body">
-                        <div class="qty">
-                            <div class="count_control">
-                                <!-- [D] 수량이 최소 값이 일때 ico_minus3, count_control_input에 disabled 각각 추가, 수량이 최대 값일 때는 ico_plus3에 disabled 추가 -->
-                                <div class="clearfix">
-                                    <a href="#" class="btn_plus_minus spr_book2 ico_minus3 disabled" title="빼기"> </a> <input type="tel" class="count_control_input disabled" value="0" readonly title="수량">
-                                    <a href="#" class="btn_plus_minus spr_book2 ico_plus3" title="더하기">
-                                    </a>
-                                </div>
-                                <!-- [D] 금액이 0 이상이면 individual_price에 on_color 추가 -->
-                                <div class="individual_price"><span class="total_price">0</span><span class="price_type">원</span></div>
-                            </div>
-                            <div class="qty_info_icon"> <strong class="product_amount"> <span>성인</span> </strong> <strong class="product_price"> <span class="price">10,200</span> <span class="price_type">원</span> </strong> <em class="product_dsc">10,200원 (15% 할인가)</em> </div>
-                        </div>
-                        <div class="qty">
-                            <div class="count_control">
-                                <div class="clearfix">
-                                    <a href="#" class="btn_plus_minus spr_book2 ico_minus3" title="빼기"> </a> <input type="tel" class="count_control_input" value="10" readonly title="수량">
-                                    <a href="#" class="btn_plus_minus spr_book2 ico_plus3" title="더하기">
-                                    </a>
-                                </div>
-                                <div class="individual_price on_color"><span class="total_price">68,000</span><span class="price_type">원</span></div>
-                            </div>
-                            <div class="qty_info_icon"> <strong class="product_amount"> <span>유아</span> </strong> <strong class="product_price"> <span class="price">6,800</span> <span class="price_type">원</span> </strong> <em class="product_dsc">6,800원 (15% 할인가)</em> </div>
-                        </div>
-                        <div class="qty">
-                            <div class="count_control">
-                                <div class="clearfix">
-                                    <a href="#" class="btn_plus_minus spr_book2 ico_minus3" title="빼기"> </a> <input type="tel" class="count_control_input" value="3" readonly title="수량">
-                                    <a href="#" class="btn_plus_minus spr_book2 ico_plus3" title="더하기">
-                                    </a>
-                                </div>
-                                <div class="individual_price on_color"><span class="total_price">60,000</span><span class="price_type">원</span></div>
-                            </div>
-                            <div class="qty_info_icon"> <strong class="product_amount"> <span>세트1</span> </strong> <strong class="product_price"> <span class="price">20,000</span> <span class="price_type">원</span> </strong> <em class="product_dsc">2인 관람권 (17% 할인가)</em> </div>
-                        </div>
-                        <div class="qty">
-                            <div class="count_control">
-                                <div class="clearfix">
-                                    <a href="#" class="btn_plus_minus spr_book2 ico_minus3" title="빼기"> </a> <input type="tel" class="count_control_input" value="3" readonly title="수량">
-                                    <a href="#" class="btn_plus_minus spr_book2 ico_plus3" title="더하기">
-                                    </a>
-                                </div>
-                                <div class="individual_price on_color"><span class="total_price">25,500</span><span class="price_type">원</span></div>
-                            </div>
-                            <div class="qty_info_icon"> <strong class="product_amount"> <span>청소년</span> </strong> <strong class="product_price"> <span class="price">8,500</span> <span class="price_type">원</span> </strong> <em class="product_dsc">8,500원 (15% 할인가)</em> </div>
-                        </div>
+                       
                     </div>
                 </div>
                 <div class="section_booking_form">
@@ -173,8 +123,24 @@
             <span class="copyright">© NAVER Corp.</span>
         </div>
     </footer>
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"></script>
+	<script type="text/template" id="bookingItem">
+	<div class="qty">
+	<div class="id">{{productPriceId}}</div>
+	<div class="index">{{index}}</div>
+	    <div class="count_control">
+	        <div class="clearfix">
+	            <a class="btn_plus_minus spr_book2 ico_minus3 disabled" title="빼기"> </a> <input type="tel" class="count_control_input disabled" value="0" readonly title="수량">
+	            <a class="btn_plus_minus spr_book2 ico_plus3" title="더하기">
+	            </a>
+	        </div>
+	        <div class="individual_price on_color"><span class="total_price">0</span><span class="price_type">원</span></div>
+	    </div>
+    <div class="qty_info_icon"> <strong class="product_amount"> <span>{{typeName}}</span> 
+	</strong> <strong class="product_price"> <span class="price">{{price}}</span> <span class="price_type">원</span> </strong> <em class="product_dsc">{{discountRate}}% 할인가</em> </div>
+	</div>
+	</script>
+	<script src="/resources/js/reservation.js"></script>
 </body>
 
 </html>

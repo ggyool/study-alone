@@ -1,6 +1,29 @@
 document.addEventListener("DOMContentLoaded", function(){
 	
 	var displayInfoResponse;
+	(function init(){
+		var locationPath = location.pathname;
+		var url = "/api" + locationPath;
+		fetch(url).then(function(response){
+			if(response.status===200 || response.status===201){
+				response.json().then( json => {
+					displayInfoResponse = json;
+					imageObj.init();
+					animationObj.init();
+					shortInfoObj.init();
+					reviewObj.init();
+					detailInfoObj.init();
+				});
+			}
+		});
+		// 예매하기 버튼
+		var doingReservationBtn = document.querySelector(".bk_btn");
+		doingReservationBtn.addEventListener("click", function(){
+			var disolayInfoId = displayInfoResponse.displayInfo.displayInfoId;
+			location.href = "/reservations/" + disolayInfoId;
+		});
+	})();
+	
 	var imageObj = {
 		imageList : [],
 		init : function (){
@@ -221,22 +244,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 		}
 	};
-	(function init(){
-		var locationPath = location.pathname;
-		var url = "/api" + locationPath;
-		fetch(url).then(function(response){
-			if(response.status===200 || response.status===201){
-				response.json().then( json => {
-					displayInfoResponse = json;
-					imageObj.init();
-					animationObj.init();
-					shortInfoObj.init();
-					reviewObj.init();
-					detailInfoObj.init();
-				});
-			}
-		});
-	})();
+	
 	
 });
 
