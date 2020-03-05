@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function(){
  					}else if(!this.isDisabled(evt.target.className)){
  						this.countDown(countLabel);
  					}
- 					this.refreshTotalPrice(qty, myPriceObj);
+ 					this.refreshTotalPrice(myPriceObj);
  				}
  			}.bind(this));
 		},
@@ -221,16 +221,57 @@ document.addEventListener("DOMContentLoaded", function(){
 		updateCountLabel(countLabel, count){
 			countLabel.value = count;
 		},
-		refreshTotalPrice : function(qty, myPriceObj){
-			var countLabel = qty.querySelector(".count_control_input");
-			var indexLabel = qty.querySelector(".index");
-			var totaPriceLabel = qty.querySelector(".total_price");
-			var count = parseInt(countLabel.value);
-			var index = parseInt(indexLabel.innerText);
-			var totalPrice = count * myPriceObj.discountPrices[index];
-			totaPriceLabel.innerText = totalPrice;
+		refreshTotalPrice : function(myPriceObj){
+			var qtys = document.querySelectorAll(".ticket_body .qty");	
+			var totalPriceLabel = document.querySelector(".booking_form_wrap #totalPrice");	
+			var totalCountLabel = document.querySelector(".booking_form_wrap #totalCount");	
+			var totalPrice = 0;
+			var totalCount = 0;
+			qtys.forEach(function(qty, idx){
+				var countLabel = qty.querySelector(".count_control_input");
+				var indexLabel = qty.querySelector(".index");
+				var qtyPriceLabel = qty.querySelector(".total_price");
+				var count = parseInt(countLabel.value);
+				var index = parseInt(indexLabel.innerText);
+				var qtyPrice = count * myPriceObj.discountPrices[index];
+				qtyPriceLabel.innerText = qtyPrice.toLocaleString();
+				totalCount += count;
+				totalPrice += qtyPrice; 
+			});
+			totalPriceLabel.innerText = totalPrice.toLocaleString();
+			totalCountLabel.innerText = totalCount.toLocaleString();
 		}
 	};
+	
+	// 유효성 체크하는 객체 만들자 
+	// 정규표현식 사용
+	function Validate(){
+		
+	}
+	Validate.prototype = {
+		checkName : function(name){
+			
+		},
+		checkTelephone : function(telephone){
+			
+		},
+		checkEmail : function(email){
+			
+		}
+	};
+	
+	function BookingForm(){
+		this.registerEvent();
+	}
+	BookingForm.prototype = {
+	    validateObj : new Validate(),
+		registerEvent : function(){
+			var nameInput = document.querySelector(".inline_control #name");
+			var telInput = document.querySelector(".inline_control #tel");
+			var emailInput = document.querySelector(".inline_control #email");
+		}
+	};
+	
 });
 
 
