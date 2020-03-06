@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function(){
 	
 	var displayInfoResponse;
+	
 	(function init(){
 		var locationPath = location.pathname;
 		var list = locationPath.split('/');
@@ -11,14 +12,36 @@ document.addEventListener("DOMContentLoaded", function(){
 				response.json().then( json => {
 					displayInfoResponse = json;	
 					var myPriceObj = new MyPrice();
+					var validateObj = new Validate();
 					new TopTitle();
 					new GroupVisual();
 					new StoreDetail(myPriceObj);
 					new BookingTicket(myPriceObj);
+					new BookingForm(validateObj);
+					new AgreementSection();
 				});
 			}
 		});
 	})();
+	
+	function addClassName(element, name){
+		var list = element.className.split(' ');
+		list.push(name);
+		element.className = list.join(' ');
+	}
+	function deleteClassName(element, name){
+		var list = element.className.split(' ');
+		var idx = list.indexOf(name);
+		if(idx!=-1){
+			list.pop(idx);
+		}
+		element.className = list.join(' ');
+	}
+	function hasClassName(element, name){
+		var list = element.className.split(' ');
+		return list.some(s=>s===name);
+	}
+	
 	
 	// product_price 테이블의 가격을 찾아보면 어떤것은 할인이 들어가있고, 어떤것은 안 들어가있다.
 	// 실제 시스템이라면 db에는 본래 가격과 할인율을 넣는게 맞다고 생각. (할인율이 유동적으로 바뀌어야 하기 때문)
@@ -164,22 +187,20 @@ document.addEventListener("DOMContentLoaded", function(){
  				if(evt.target.tagName === 'A'){
  					var qty = evt.target.closest(".qty");
  					var countLabel = qty.querySelector(".count_control_input");
- 					if(this.isPlusButton(evt.target.className)){
+ 					if(this.isPlusButton(evt.target)){
  						this.countUp(countLabel);
- 					}else if(!this.isDisabled(evt.target.className)){
+ 					}else if(!this.isDisabled(evt.target)){
  						this.countDown(countLabel);
  					}
  					this.refreshTotalPrice(myPriceObj);
  				}
  			}.bind(this));
 		},
-		isPlusButton : function(className){
-			var list = className.split(' ');
-			return list.some(s=>s==="ico_plus3");
+		isPlusButton : function(element){
+			return hasClassName(element, "ico_plus3");
 		},
-		isDisabled : function(className){
-			var list = className.split(' ');
-			return list.some(s=>s==="disabled");
+		isDisabled : function(element){
+			return hasClassName(element, "disabled");
 		},
 		countUp : function(countLabel){
 			var count = countLabel.value;
@@ -196,27 +217,14 @@ document.addEventListener("DOMContentLoaded", function(){
 		setDisabled : function(countLabel){
 			var qty = countLabel.closest(".qty");
 			var minusButton = qty.querySelector(".ico_minus3");
-			this.addClassName(minusButton, "disabled");
-			this.addClassName(countLabel, "disabled");
+			addClassName(minusButton, "disabled");
+			addClassName(countLabel, "disabled");
 		},	
 		setAbled : function(countLabel){
 			var qty = countLabel.closest(".qty");
 			var minusButton = qty.querySelector(".ico_minus3");
-			this.deleteClassName(minusButton, "disabled");
-			this.deleteClassName(countLabel, "disabled");
-		},
-		addClassName : function(element, name){
-			var list = element.className.split(' ');
-			list.push(name);
-			element.className = list.join(' ');
-		},
-		deleteClassName : function(element, name){
-			var list = element.className.split(' ');
-			var idx = list.indexOf(name);
-			if(idx!=-1){
-				list.pop(idx);
-			}
-			element.className = list.join(' ');
+			deleteClassName(minusButton, "disabled");
+			deleteClassName(countLabel, "disabled");
 		},
 		updateCountLabel(countLabel, count){
 			countLabel.value = count;
@@ -243,39 +251,90 @@ document.addEventListener("DOMContentLoaded", function(){
 		}
 	};
 	
-	// 유효성 체크하는 객체 만들자 
-	// 정규표현식 사용
+	// 유효성 체크하는 객체
 	function Validate(){
 		
 	}
 	Validate.prototype = {
+		// 한글 또는 영만 가능
 		checkName : function(name){
-			
+			return name.match(/^[가-힣a-zA-z]+$/);
 		},
 		checkTelephone : function(telephone){
-			
+			return telephone.match(/010\d{7,8}|010-\d{3,4}-\d{4}/);
 		},
 		checkEmail : function(email){
-			
+			return email.match(/^[a-z0-9A-Z-+_.]+@[a-z0-9A-Z-]+\.[a-zA-Z]{2,4}$/);
 		}
 	};
 	
-	function BookingForm(){
-		this.registerEvent();
+	function BookingForm(validateObj){
+		this.registerEvent(validateObj);
 	}
 	BookingForm.prototype = {
-	    validateObj : new Validate(),
-		registerEvent : function(){
+		registerEvent : function(validateObj){
 			var nameInput = document.querySelector(".inline_control #name");
 			var telInput = document.querySelector(".inline_control #tel");
 			var emailInput = document.querySelector(".inline_control #email");
+			nameInput.addEventListener("change", function(){
+				var name = nameInput.value;
+				if(!validateObj.checkName(name)){
+					this.nextElementSibling.style.visibility = "visible";
+				}
+			});
+			telInput.addEventListener("change", function(){
+				var tel = telInput.value;
+				if(!validateObj.checkTelephone(tel)){
+					this.nextElementSibling.style.visibility = "visible";
+				}
+			});
+			emailInput.addEventListener("change", function(){
+				var email = emailInput.value;
+				if(!validateObj.checkEmail(email)){
+					this.nextElementSibling.style.visibility = "visible";
+				}
+			});
+			var warningMessages = document.querySelectorAll(".inline_control .warning_msg");
+			warningMessages.forEach(function(warningMessage){
+				warningMessage.addEventListener("click", function(){
+					this.style.visibility = "hidden";
+				});
+			});
 		}
 	};
 	
+	function AgreementSection(){
+		this.registerEvent();
+	}
+	AgreementSection.prototype = {
+		registerEvent : function(){
+			var agreementButtons = document.querySelectorAll(".section_booking_agreement .btn_agreement");
+			agreementButtons.forEach(function(agreementButton){
+				agreementButton.addEventListener("click", function(){
+					var agreement = agreementButton.closest(".agreement");
+					if(hasClassName(agreement, "open")){
+						deleteClassName(agreement, "open");
+					}else{
+						addClassName(agreement, "open");
+					}
+				});
+			});
+			var checkAgree = document.querySelector(".section_booking_agreement .chk_agree");
+			checkAgree.addEventListener("click", function(){
+				var reservationButton = document.querySelector(".box_bk_btn .bk_btn_wrap");
+				if(checkAgree.checked){
+					deleteClassName(reservationButton, "disable");			
+				}else{
+					addClassName(reservationButton, "disable");
+				}
+			});
+		}
+	};
 });
 
 
 
 
+			
 
 

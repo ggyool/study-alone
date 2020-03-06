@@ -17,7 +17,7 @@ public class ReservationInfoServiceImpl implements ReservationInfoService{
 	ReservationInfoDAO reservationInfoDAO;  
 	
 	@Override
-	public ReservationInfoVO addReservationInfo(ReservationInfoVO reservationInfoVO) {
+	public ReservationInfoVO addReservationInfo(ReservationInfoVO reservationInfoVO, Date reservationYearMonthDay) {
 		reservationInfoVO.setReservationDate(generateReservatioDate());
 		Integer id = reservationInfoDAO.insert(reservationInfoVO);
 		reservationInfoVO.setId(id);
