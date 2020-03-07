@@ -21,7 +21,7 @@ public class ReservationInfoPriceServiceImpl implements ReservationInfoPriceServ
 		int len = reservationPriceList.size();
 		for(int i=0; i<len; ++i) {
 			Integer id = reservationPriceDao.insert(reservationPriceList.get(i));
-			reservationPriceList.get(i).setId(id);
+			reservationPriceList.get(i).setReservationInfoPriceId(id);
 		}
 		return reservationPriceList;
 	}

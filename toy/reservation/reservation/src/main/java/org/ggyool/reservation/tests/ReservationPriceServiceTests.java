@@ -1,7 +1,9 @@
 package org.ggyool.reservation.tests;
 
 import org.ggyool.reservation.config.ApplicationConfig;
+import org.ggyool.reservation.dto.ReservationResponseDTO;
 import org.ggyool.reservation.service.ReservationInfoPriceService;
+import org.ggyool.reservation.vo.ReservationInfoVO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 

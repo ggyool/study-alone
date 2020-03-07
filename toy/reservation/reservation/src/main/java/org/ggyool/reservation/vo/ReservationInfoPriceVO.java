@@ -1,15 +1,16 @@
 package org.ggyool.reservation.vo;
 
+// front에서의 입력을 바로 사용하기 위해 변수이름 기준을 그 쪽으로 했다.
 public class ReservationInfoPriceVO {
-	private Integer id;
+	private Integer reservationInfoPriceId;
 	private Integer reservationInfoId;
 	private Integer productPriceId;
 	private Integer count;
-	public Integer getId() {
-		return id;
+	public Integer getReservationInfoPriceId() {
+		return reservationInfoPriceId;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setReservationInfoPriceId(Integer reservationInfoPriceId) {
+		this.reservationInfoPriceId = reservationInfoPriceId;
 	}
 	public Integer getReservationInfoId() {
 		return reservationInfoId;
@@ -31,7 +32,7 @@ public class ReservationInfoPriceVO {
 	}
 	@Override
 	public String toString() {
-		return "ReservationInfoPriceVO [id=" + id + ", reservationInfoId=" + reservationInfoId + ", productPriceId="
-				+ productPriceId + ", count=" + count + "]";
+		return "ReservationInfoPriceVO [reservationInfoPriceId=" + reservationInfoPriceId + ", reservationInfoId="
+				+ reservationInfoId + ", productPriceId=" + productPriceId + ", count=" + count + "]";
 	}
 }

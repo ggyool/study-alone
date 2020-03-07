@@ -1,20 +1,22 @@
 package org.ggyool.reservation.tests;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.ggyool.reservation.config.ApplicationConfig;
+import org.ggyool.reservation.dao.ReservationInfoPriceDAO;
+import org.ggyool.reservation.vo.ReservationInfoPriceVO;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class ReservationPriceDaoTests {
 	public static void main(String[] args) {
-//		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-//		ReservationPriceDAO dao = ac.getBean(ReservationPriceDAO.class);
-//		ReservationPriceVO reservationPriceVo = new ReservationPriceVO();
-//		reservationPriceVo.setCount(99);
-//		reservationPriceVo.setProductPriceId(1);
-//		reservationPriceVo.setReservationInfoId(1);		
-//		Integer res = dao.insert(reservationPriceVo);
-//		System.out.println(res);
-//		System.out.println(reservationPriceVo.getId());
+		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+		ReservationInfoPriceDAO dao = ac.getBean(ReservationInfoPriceDAO.class);
+		ReservationInfoPriceVO reservationPriceVO = new ReservationInfoPriceVO();
+		reservationPriceVO.setCount(99);
+		reservationPriceVO.setProductPriceId(1);
+		reservationPriceVO.setReservationInfoId(1);		
+		Integer res = dao.insert(reservationPriceVO);
+		System.out.println(res);
+		System.out.println(reservationPriceVO.getReservationInfoPriceId());
 		
 		
 	}

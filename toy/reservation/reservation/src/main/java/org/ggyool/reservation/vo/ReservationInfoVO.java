@@ -5,24 +5,24 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class ReservationInfoVO {
-	private Integer id;
+	private Integer reservationInfoId;
 	private Integer productId;
 	private Integer displayInfoId;
 	private String reservationName;
-	private String reservationTel;
+	private String reservationTelephone;
 	private String reservationEmail;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date reservationDate;
-	private boolean cancelFlag;
+	private boolean cancelYn;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date createDate;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date modifyDate;
-	public Integer getId() {
-		return id;
+	public Integer getReservationInfoId() {
+		return reservationInfoId;
 	}
-	public void setId(Integer id) {
-		this.id = id;
+	public void setReservationInfoId(Integer reservationInfoId) {
+		this.reservationInfoId = reservationInfoId;
 	}
 	public Integer getProductId() {
 		return productId;
@@ -42,11 +42,11 @@ public class ReservationInfoVO {
 	public void setReservationName(String reservationName) {
 		this.reservationName = reservationName;
 	}
-	public String getReservationTel() {
-		return reservationTel;
+	public String getReservationTelephone() {
+		return reservationTelephone;
 	}
-	public void setReservationTel(String reservationTel) {
-		this.reservationTel = reservationTel;
+	public void setReservationTelephone(String reservationTelephone) {
+		this.reservationTelephone = reservationTelephone;
 	}
 	public String getReservationEmail() {
 		return reservationEmail;
@@ -60,11 +60,11 @@ public class ReservationInfoVO {
 	public void setReservationDate(Date reservationDate) {
 		this.reservationDate = reservationDate;
 	}
-	public boolean isCancelFlag() {
-		return cancelFlag;
+	public boolean isCancelYn() {
+		return cancelYn;
 	}
-	public void setCancelFlag(boolean cancelFlag) {
-		this.cancelFlag = cancelFlag;
+	public void setCancelYn(boolean cancelYn) {
+		this.cancelYn = cancelYn;
 	}
 	public Date getCreateDate() {
 		return createDate;
@@ -80,9 +80,10 @@ public class ReservationInfoVO {
 	}
 	@Override
 	public String toString() {
-		return "ReservationInfoVO [id=" + id + ", productId=" + productId + ", displayInfoId=" + displayInfoId
-				+ ", reservationName=" + reservationName + ", reservationTel=" + reservationTel + ", reservationEmail="
-				+ reservationEmail + ", reservationDate=" + reservationDate + ", cancelFlag=" + cancelFlag
-				+ ", createDate=" + createDate + ", modifyDate=" + modifyDate + "]";
+		return "ReservationInfoVO [reservationInfoId=" + reservationInfoId + ", productId=" + productId
+				+ ", displayInfoId=" + displayInfoId + ", reservationName=" + reservationName
+				+ ", reservationTelephone=" + reservationTelephone + ", reservationEmail=" + reservationEmail
+				+ ", reservationDate=" + reservationDate + ", cancelYn=" + cancelYn + ", createDate=" + createDate
+				+ ", modifyDate=" + modifyDate + "]";
 	}
 }
