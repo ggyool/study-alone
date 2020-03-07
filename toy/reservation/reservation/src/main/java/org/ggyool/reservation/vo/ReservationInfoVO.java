@@ -2,6 +2,8 @@ package org.ggyool.reservation.vo;
 
 import java.util.Date;
 
+import org.ggyool.reservation.dto.ReservationParamDTO;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class ReservationInfoVO {
@@ -18,6 +20,13 @@ public class ReservationInfoVO {
 	private Date createDate;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date modifyDate;
+	public ReservationInfoVO(ReservationParamDTO reservationParamDTO) {
+		this.displayInfoId = reservationParamDTO.getDisplayInfoId();
+		this.productId = reservationParamDTO.getProductId();
+		this.reservationEmail = reservationParamDTO.getReservationEmail();
+		this.reservationName = reservationParamDTO.getReservationName();
+		this.reservationTelephone = reservationParamDTO.getReservationTelephone();
+	}
 	public Integer getReservationInfoId() {
 		return reservationInfoId;
 	}

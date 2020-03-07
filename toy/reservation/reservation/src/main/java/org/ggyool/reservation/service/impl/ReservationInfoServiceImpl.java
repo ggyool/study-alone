@@ -1,10 +1,10 @@
 package org.ggyool.reservation.service.impl;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
 import org.ggyool.reservation.dao.ReservationInfoDAO;
+import org.ggyool.reservation.dto.ReservationParamDTO;
 import org.ggyool.reservation.service.ReservationInfoService;
 import org.ggyool.reservation.vo.ReservationInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,8 +17,12 @@ public class ReservationInfoServiceImpl implements ReservationInfoService{
 	ReservationInfoDAO reservationInfoDAO;  
 	
 	@Override
-	public ReservationInfoVO addReservationInfo(ReservationInfoVO reservationInfoVO, Date reservationYearMonthDay) {
-		reservationInfoVO.setReservationDate(generateReservatioDate(reservationYearMonthDay));
+	public ReservationInfoVO addReservationInfo(ReservationParamDTO reservationParamDTO) {
+		ReservationInfoVO reservationInfoVO = new ReservationInfoVO(reservationParamDTO);
+		reservationInfoVO.setReservationDate(generateReservatioDate(reservationParamDTO.getReservationYearMonthDay()));
+		Date currentDate = new Date();
+		reservationInfoVO.setModifyDate(currentDate);
+		reservationInfoVO.setCreateDate(currentDate);
 		Integer id = reservationInfoDAO.insert(reservationInfoVO);
 		reservationInfoVO.setReservationInfoId(id);
 		return reservationInfoVO;

@@ -1,8 +1,13 @@
 package org.ggyool.reservation.tests;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.ggyool.reservation.config.ApplicationConfig;
+import org.ggyool.reservation.dto.ReservationParamDTO;
 import org.ggyool.reservation.dto.ReservationResponseDTO;
 import org.ggyool.reservation.service.ReservationInfoPriceService;
+import org.ggyool.reservation.vo.ReservationInfoPriceVO;
 import org.ggyool.reservation.vo.ReservationInfoVO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -26,5 +31,11 @@ public class ReservationPriceServiceTests {
 		for(int i=0; i<3; ++i) {
 			System.out.println(list.get(i));
 		}*/
+	
+		
 	}
 }
+
+
+
+

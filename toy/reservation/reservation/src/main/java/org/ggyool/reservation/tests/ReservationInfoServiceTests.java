@@ -11,7 +11,7 @@ public class ReservationInfoServiceTests {
 		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 		ReservationInfoService service = ac.getBean(ReservationInfoService.class);
 		
-		ReservationInfoVO reservationInfoVO = new ReservationInfoVO();
+		//ReservationInfoVO reservationInfoVO = new ReservationInfoVO();
 		//reservationInfoVO.setDisplayInfoId(displayInfoId);
 		
 		//service.addReservationInfo(reservationInfoVO)
