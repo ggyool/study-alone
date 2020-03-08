@@ -53,7 +53,7 @@ public class ProductApiController {
 	@GetMapping("/{displayInfoId}")
 	public DisplayInfoResponseDTO productsDetails(
 			@PathVariable("displayInfoId") Integer displayInfoId){
-		// 서비스로 빼야하는지 잘 모르겠다.
+		// 서비스로 빼야하는지 잘 모르겠다. insert 없어서 걍 했다.
 		Integer productId;
 		DisplayInfoResponseDTO dto = new DisplayInfoResponseDTO();
 		dto.setDisplayInfo(displayInfoService.get(displayInfoId));

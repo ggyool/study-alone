@@ -9,6 +9,8 @@ import org.ggyool.reservation.service.ReservationInfoService;
 import org.ggyool.reservation.vo.ReservationInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ReservationInfoServiceImpl implements ReservationInfoService{
@@ -17,15 +19,20 @@ public class ReservationInfoServiceImpl implements ReservationInfoService{
 	ReservationInfoDAO reservationInfoDAO;  
 	
 	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
 	public ReservationInfoVO addReservationInfo(ReservationParamDTO reservationParamDTO) {
-		ReservationInfoVO reservationInfoVO = new ReservationInfoVO(reservationParamDTO);
-		reservationInfoVO.setReservationDate(generateReservatioDate(reservationParamDTO.getReservationYearMonthDay()));
-		Date currentDate = new Date();
-		reservationInfoVO.setModifyDate(currentDate);
-		reservationInfoVO.setCreateDate(currentDate);
-		Integer id = reservationInfoDAO.insert(reservationInfoVO);
-		reservationInfoVO.setReservationInfoId(id);
-		return reservationInfoVO;
+		try {
+			ReservationInfoVO reservationInfoVO = new ReservationInfoVO(reservationParamDTO);
+			reservationInfoVO.setReservationDate(generateReservatioDate(reservationParamDTO.getReservationYearMonthDay()));
+			Date currentDate = new Date();
+			reservationInfoVO.setModifyDate(currentDate);
+			reservationInfoVO.setCreateDate(currentDate);
+			Integer id = reservationInfoDAO.insert(reservationInfoVO);
+			reservationInfoVO.setReservationInfoId(id);
+			return reservationInfoVO;
+		}catch(Exception e){
+			throw new RuntimeException(e);
+		}
 	}
 	
 	// 입력 시간으로 부터 1~5일후를 공연일으로 생성

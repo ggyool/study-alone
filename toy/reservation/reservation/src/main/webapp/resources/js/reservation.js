@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", function(){
 					new BookingTicket(myPriceObj);
 					new BookingForm(validateObj);
 					new AgreementSection();
+					new ReservationPost(validateObj);
 				});
 			}
 		});
@@ -40,6 +41,44 @@ document.addEventListener("DOMContentLoaded", function(){
 	function hasClassName(element, name){
 		var list = element.className.split(' ');
 		return list.some(s=>s===name);
+	}
+	function getNowWithString(){
+		var date = new Date();
+		var year = date.getFullYear();
+		var month = date.getMonth();
+		var day = date.getDate();
+		var hour = date.getHours();
+		var minute = date.getMinutes();
+		var second = date.getSeconds();
+		var ret = year;
+		ret += `-${month<10?0:''}${month}`
+		ret += `-${day<10?0:''}${day}`; 
+		ret += ` ${hour<10?0:''}${hour}`;
+		ret += `:${minute<10?0:''}${minute}`;
+		ret += `:${second<10?0:''}${second}`;
+		return ret;
+	}
+	
+	function sendAjaxPost(url, bodyObj, success, fail){
+		var data = {
+			method: "POST",
+			headers: {
+	            "Content-Type": "application/json; charset=utf-8"
+	        },
+			body: JSON.stringify(bodyObj)
+		};
+		var responseObj;
+		fetch(url, data).then(function(response){
+			if(response.status===200 || response.status===201){
+				success();
+				response.json().then( json => {
+					responseObj = json;
+				});
+			}else{
+				fail;
+			}
+		});
+		return responseObj;
 	}
 	
 	
@@ -265,6 +304,20 @@ document.addEventListener("DOMContentLoaded", function(){
 		},
 		checkEmail : function(email){
 			return email.match(/^[a-z0-9A-Z-+_.]+@[a-z0-9A-Z-]+\.[a-zA-Z]{2,4}$/);
+		},
+		hasHyphenInTelephone : function(telephone){
+			return telephone.indexOf('-') != -1;
+		},
+		addHyphenInTelephone : function(telephone){
+			var firstSlice, secondSlice;
+			if(telephone.length === 10){
+				firstSlice = telephone.slice(3,6);
+				secondSlice = telephone.slice(6);
+			}else{
+				firstSlice = telephone.slice(3,7);
+				secondSlice = telephone.slice(7);
+			}
+			return `010-${firstSlice}-${secondSlice}`;
 		}
 	};
 	
@@ -329,6 +382,97 @@ document.addEventListener("DOMContentLoaded", function(){
 				}
 			});
 		}
+	};
+	
+	function ReservationPost(validateObj){
+		this.registerEvent(validateObj);
+	}
+	ReservationPost.prototype = {
+		registerEvent : function(validateObj){
+			var reservationButton = document.querySelector(".bk_btn_wrap");
+			reservationButton.addEventListener("click", function(){
+				if(hasClassName(reservationButton, "disable")) {
+					alert("약관에 동의하셔야 됩니다.");
+					return;
+				}
+				var reservationParam = this.makeReservationParam();
+				var error = this.checkValadation(reservationParam, validateObj);
+				if(!error){
+					var url = "/api/reservations";
+					var res = sendAjaxPost(url, reservationParam, this.successAction, this.failAction);
+					console.log(res);
+				}else{
+					alert(error);
+				}
+			}.bind(this));
+		},
+		successAction(){
+			alert("예매에 성공했습니다.");
+			var displayInfoId = displayInfoResponse.displayInfo.displayInfoId;
+			location.href = "/products/" + displayInfoId;
+		},
+		failAction(){
+			alert("예매에 실패했습니다. 잠시 후 다시 시도해주세요.");
+		},
+		checkValadation : function(reservationParam, validateObj){
+			if(reservationParam.prices.length === 0){
+				return "예약 수량을 확인하세요.";
+			}
+			if(!validateObj.checkName(reservationParam.reservationName)){
+				return "입력하신 이름에 문제가 있습니다.";
+			}
+			if(!validateObj.checkTelephone(reservationParam.reservationTelephone)){
+				return "입력하신 연락처에 문제가 있습니다.";
+			}
+			if(!validateObj.hasHyphenInTelephone(reservationParam.reservationTelephone)){
+				var modifyTelephone = validateObj.addHyphenInTelephone(reservationParam.reservationTelephone);
+				reservationParam.reservationTelephone = modifyTelephone;
+			}
+			if(!validateObj.checkEmail(reservationParam.reservationEmail)){
+				return "입력하신 이메일에 문제가 있습니다.";
+			}
+			return '';
+		},
+		makeReservationParam : function(){
+			var reservationParam = {
+				displayInfoId : displayInfoResponse.displayInfo.displayInfoId,
+				prices : this.getPrices(),
+				productId : displayInfoResponse.displayInfo.productId,
+				reservationEmail : this.getEmail(),
+				reservationName : this.getName(),
+				reservationTelephone : this.getTelephone(),
+				reservationYearMonthDay : getNowWithString()
+			};
+			return reservationParam;
+		},
+		getName : function(){
+			var nameInput = document.querySelector(".inline_control #name");
+			return nameInput.value;
+		},
+		getTelephone : function(){
+			var telInput = document.querySelector(".inline_control #tel");
+			return telInput.value;
+		},
+		getEmail : function(){
+			var emailInput = document.querySelector(".inline_control #email");
+			return emailInput.value;
+		},
+		getPrices : function(){
+			var prices = [];
+			var qtys = document.querySelectorAll(".ticket_body .qty");
+			qtys.forEach(function(qty){
+				var id = parseInt(qty.querySelector(".id").innerText);
+				var countInput = parseInt(qty.querySelector(".count_control_input").value);
+				var price = {
+					count : countInput, 
+					productPriceId : id,
+					reservationInfoId : 0,
+					reservationInfoPriceId : 0
+				};
+				if(price.count>0) prices.push(price);
+			});
+			return prices;
+		},
 	};
 });
 
