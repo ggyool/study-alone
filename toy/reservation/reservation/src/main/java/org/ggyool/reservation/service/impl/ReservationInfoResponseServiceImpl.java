@@ -7,8 +7,10 @@ import org.ggyool.reservation.dto.DisplayInfoDTO;
 import org.ggyool.reservation.dto.ReservationInfoDTO;
 import org.ggyool.reservation.dto.ReservationInfoResponseDTO;
 import org.ggyool.reservation.service.DisplayInfoService;
+import org.ggyool.reservation.service.ReservationInfoPriceService;
 import org.ggyool.reservation.service.ReservationInfoResponseService;
 import org.ggyool.reservation.service.ReservationInfoService;
+import org.ggyool.reservation.vo.ReservationInfoPriceVO;
 import org.ggyool.reservation.vo.ReservationInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,15 +22,25 @@ public class ReservationInfoResponseServiceImpl implements ReservationInfoRespon
 	ReservationInfoService reservationInfoService;
 	@Autowired
 	DisplayInfoService displayInfoService;
+	@Autowired
+	ReservationInfoPriceService reservationInfoPriceService;
 	
 	@Override
 	public ReservationInfoResponseDTO getByEmail(String reservationEmail) {
 		List<ReservationInfoDTO> reservations = new ArrayList<>();
 		List<ReservationInfoVO> list = reservationInfoService.getsByEmail(reservationEmail); 
 		for(ReservationInfoVO reservationInfoVO : list) {	
-			DisplayInfoDTO displayInfoDTO = displayInfoService.get(reservationInfoVO.getDisplayInfoId());
+			Integer displayInfoId = reservationInfoVO.getDisplayInfoId();
+			Integer reservationInfoId = reservationInfoVO.getReservationInfoId();
+			Long totalPrice = 0L;
+			DisplayInfoDTO displayInfoDTO = displayInfoService.get(displayInfoId);
+			// join 으로 바꾸기 
+//			List<ReservationInfoPriceVO> prices = 
+//			reservationInfoPriceService.getsByReservationInfoId(reservationInfoId);
 			
-		
+			
+			
+			
 			//ReservationInfoDTO reservationInfoDTO = new ReservationInfoDTO(reservationInfoVO);
 			
 		}

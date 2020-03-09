@@ -19,7 +19,7 @@ public class ReservationInfoDTO {
 	private Integer reservationInfoId;
 	private String reservationName;
 	private String reservationTelephone;
-	private Integer totalPrice;
+	private Long totalPrice;
 	public boolean isCancelYn() {
 		return cancelYn;
 	}
@@ -86,10 +86,10 @@ public class ReservationInfoDTO {
 	public void setReservationTelephone(String reservationTelephone) {
 		this.reservationTelephone = reservationTelephone;
 	}
-	public Integer getTotalPrice() {
+	public Long getTotalPrice() {
 		return totalPrice;
 	}
-	public void setTotalPrice(Integer totalPrice) {
+	public void setTotalPrice(Long totalPrice) {
 		this.totalPrice = totalPrice;
 	}
 	@Override

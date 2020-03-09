@@ -33,5 +33,10 @@ public class ReservationInfoPriceServiceImpl implements ReservationInfoPriceServ
 			throw new RuntimeException(e);
 		}
 	}
+
+	@Override
+	public List<ReservationInfoPriceVO> getsByReservationInfoId(Integer reservationInfoId) {
+		return reservationPriceDao.selectByReservationInfoId(reservationInfoId);
+	}
 	
 }

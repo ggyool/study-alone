@@ -1,5 +1,6 @@
 package org.ggyool.reservation.dao;
 
+import static org.ggyool.reservation.dao.ProductPriceSqls.SELECT_BY_ID;
 import static org.ggyool.reservation.dao.ProductPriceSqls.SELECT_BY_PRODUCT_ID;
 
 import java.util.Collections;
@@ -20,8 +21,12 @@ public class ProductPriceDAO {
 	public ProductPriceDAO(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 	}
-	public List<ProductPriceVO> selectById(Integer productId){
+	public List<ProductPriceVO> selectByProductId(Integer productId){
 		String sql = SELECT_BY_PRODUCT_ID;
 		return jdbc.query(sql, Collections.singletonMap("productId", productId), productPriceMapper);
+	}
+	public ProductPriceVO selectById(Integer productPriceId){
+		String sql = SELECT_BY_ID;
+		return jdbc.queryForObject(sql, Collections.singletonMap("productPriceId", productPriceId), productPriceMapper);
 	}
 }
