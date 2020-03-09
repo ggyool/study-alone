@@ -2,6 +2,7 @@ package org.ggyool.reservation.service.impl;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import org.ggyool.reservation.dao.ReservationInfoDAO;
 import org.ggyool.reservation.dto.ReservationParamDTO;
@@ -43,6 +44,11 @@ public class ReservationInfoServiceImpl implements ReservationInfoService{
 		calendar.add(Calendar.SECOND, addSecond);
 		date = calendar.getTime();
 		return date;
+	}
+
+	@Override
+	public List<ReservationInfoVO> getsByEmail(String reservationEmail) {
+		return reservationInfoDAO.selectByEmail(reservationEmail);
 	}
 }
 

@@ -9,19 +9,19 @@ document.addEventListener("DOMContentLoaded", function(){
 		var url = "/api/products/" + list[list.length - 1];
 		fetch(url).then(function(response){
 			if(response.status===200 || response.status===201){
-				response.json().then( json => {
-					displayInfoResponse = json;	
-					var myPriceObj = new MyPrice();
-					var validateObj = new Validate();
-					new TopTitle();
-					new GroupVisual();
-					new StoreDetail(myPriceObj);
-					new BookingTicket(myPriceObj);
-					new BookingForm(validateObj);
-					new AgreementSection();
-					new ReservationPost(validateObj);
-				});
+				return response.json();
 			}
+		}).then(function(json){
+			displayInfoResponse = json;
+			var myPriceObj = new MyPrice();
+			var validateObj = new Validate();
+			new TopTitle();
+			new GroupVisual();
+			new StoreDetail(myPriceObj);
+			new BookingTicket(myPriceObj);
+			new BookingForm(validateObj);
+			new AgreementSection();
+			new ReservationPost(validateObj);
 		});
 	})();
 	
@@ -59,7 +59,8 @@ document.addEventListener("DOMContentLoaded", function(){
 		return ret;
 	}
 	
-	function sendAjaxPost(url, bodyObj, success, fail){
+	// 어렵.. 잘 모르겠음
+	async function sendAjaxPost(url, bodyObj, success, fail){
 		var data = {
 			method: "POST",
 			headers: {
@@ -67,18 +68,18 @@ document.addEventListener("DOMContentLoaded", function(){
 	        },
 			body: JSON.stringify(bodyObj)
 		};
-		var responseObj;
-		fetch(url, data).then(function(response){
+		return fetch(url, data).then(function(response){
 			if(response.status===200 || response.status===201){
 				success();
-				response.json().then( json => {
-					responseObj = json;
-				});
+				return response.json();
 			}else{
-				fail;
+				fail();
 			}
+		}).then(function(json){
+			responseObj = json;
+		}).catch(function(error){
+			console.log(error);
 		});
-		return responseObj;
 	}
 	
 	
@@ -399,8 +400,7 @@ document.addEventListener("DOMContentLoaded", function(){
 				var error = this.checkValadation(reservationParam, validateObj);
 				if(!error){
 					var url = "/api/reservations";
-					var res = sendAjaxPost(url, reservationParam, this.successAction, this.failAction);
-					console.log(res);
+					sendAjaxPost(url, reservationParam, this.successAction, this.failAction);
 				}else{
 					alert(error);
 				}

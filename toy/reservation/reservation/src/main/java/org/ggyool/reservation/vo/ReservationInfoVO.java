@@ -20,6 +20,9 @@ public class ReservationInfoVO {
 	private Date createDate;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date modifyDate;
+	ReservationInfoVO(){
+		
+	}
 	public ReservationInfoVO(ReservationParamDTO reservationParamDTO) {
 		this.displayInfoId = reservationParamDTO.getDisplayInfoId();
 		this.productId = reservationParamDTO.getProductId();
