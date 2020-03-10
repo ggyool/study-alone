@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function(){
 	}
 	
 	// 어렵.. 잘 모르겠음
+	// validation 떠서 properties->javascript->Exclude path에 추가하였음
 	async function sendAjaxPost(url, bodyObj, success, fail){
 		var data = {
 			method: "POST",

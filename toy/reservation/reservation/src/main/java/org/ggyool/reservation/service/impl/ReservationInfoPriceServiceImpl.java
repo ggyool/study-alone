@@ -45,9 +45,10 @@ public class ReservationInfoPriceServiceImpl implements ReservationInfoPriceServ
 		Long totalPrice = 0L;
 		List<ReservationInfoPriceVO> list = this.getsByReservationInfoId(reservationInfoId); 
 		for(ReservationInfoPriceVO vo : list) {
+			Integer count = vo.getCount();
 			Integer price = vo.getPrice();
 			Double discountRate = vo.getDiscountRate();
-			totalPrice += applyDiscountRate(price, discountRate);
+			totalPrice += applyDiscountRate(price, discountRate) * count;
 		}
 		return totalPrice;
 	}
