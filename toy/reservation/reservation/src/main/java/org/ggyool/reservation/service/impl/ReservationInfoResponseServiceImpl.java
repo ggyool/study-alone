@@ -29,22 +29,19 @@ public class ReservationInfoResponseServiceImpl implements ReservationInfoRespon
 	public ReservationInfoResponseDTO getByEmail(String reservationEmail) {
 		List<ReservationInfoDTO> reservations = new ArrayList<>();
 		List<ReservationInfoEntity> list = reservationInfoService.getsByEmail(reservationEmail); 
-		for(ReservationInfoEntity reservationInfoVO : list) {	
-			Integer displayInfoId = reservationInfoVO.getDisplayInfoId();
-			Integer reservationInfoId = reservationInfoVO.getReservationInfoId();
-			Long totalPrice = 0L;
+		for(ReservationInfoEntity reservationInfoEntity : list) {	
+			Integer displayInfoId = reservationInfoEntity.getDisplayInfoId();
+			Integer reservationInfoId = reservationInfoEntity.getReservationInfoId();
 			DisplayInfoDTO displayInfoDTO = displayInfoService.get(displayInfoId);
-			// join 으로 바꾸기 
-//			List<ReservationInfoPriceVO> prices = 
-//			reservationInfoPriceService.getsByReservationInfoId(reservationInfoId);
-			
-			
-			
-			
-			//ReservationInfoDTO reservationInfoDTO = new ReservationInfoDTO(reservationInfoVO);
-			
+			Long totalPrice = reservationInfoPriceService.calcTotalPrice(reservationInfoId);
+			ReservationInfoDTO reservationInfoDTO = new ReservationInfoDTO(reservationInfoEntity, displayInfoDTO, totalPrice);
+			reservations.add(reservationInfoDTO);
 		}
-		return null;
+		Integer size = reservations.size();
+		ReservationInfoResponseDTO reservationInfoResponseDTO = new ReservationInfoResponseDTO();
+		reservationInfoResponseDTO.setReservations(reservations);
+		reservationInfoResponseDTO.setSize(size);
+		return reservationInfoResponseDTO;
 	}
 
 }

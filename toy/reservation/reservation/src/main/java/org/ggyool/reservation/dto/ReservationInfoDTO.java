@@ -2,6 +2,8 @@ package org.ggyool.reservation.dto;
 
 import java.util.Date;
 
+import org.ggyool.reservation.entity.ReservationInfoEntity;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class ReservationInfoDTO {
@@ -20,6 +22,20 @@ public class ReservationInfoDTO {
 	private String reservationName;
 	private String reservationTelephone;
 	private Long totalPrice;
+	public ReservationInfoDTO(ReservationInfoEntity reservationInfoEntity, DisplayInfoDTO displayInfoDTO, Long totalPrice){
+		this.cancelYn = reservationInfoEntity.isCancelYn();
+		this.createDate = reservationInfoEntity.getCreateDate();
+		this.displayInfo = displayInfoDTO;
+		this.displayInfoId = reservationInfoEntity.getDisplayInfoId();
+		this.modifyDate = reservationInfoEntity.getModifyDate();
+		this.productId = reservationInfoEntity.getProductId();
+		this.reservationDate = reservationInfoEntity.getReservationDate();
+		this.reservationEmail = reservationInfoEntity.getReservationEmail();
+		this.reservationInfoId = reservationInfoEntity.getReservationInfoId();
+		this.reservationName = reservationInfoEntity.getReservationName();
+		this.reservationTelephone = reservationInfoEntity.getReservationTelephone();
+		this.totalPrice = totalPrice;
+	}
 	public boolean isCancelYn() {
 		return cancelYn;
 	}

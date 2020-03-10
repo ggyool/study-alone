@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.ggyool.reservation.entity.ReservationInfoPriceEntity;
+import org.ggyool.reservation.vo.ReservationInfoPriceVO;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -22,7 +23,7 @@ public class ReservationInfoPriceDAO {
 	
 	private NamedParameterJdbcTemplate jdbc;
 	private SimpleJdbcInsert insertAction;
-	private RowMapper<ReservationInfoPriceEntity> rowMapperReservationInfoPriceEntity = BeanPropertyRowMapper.newInstance(ReservationInfoPriceEntity.class);
+	private RowMapper<ReservationInfoPriceVO> rowMapperReservationInfoPriceVO = BeanPropertyRowMapper.newInstance(ReservationInfoPriceVO.class);
 	
 	public ReservationInfoPriceDAO(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
@@ -31,18 +32,13 @@ public class ReservationInfoPriceDAO {
 				.usingGeneratedKeyColumns("id");
 	}
 	public Integer insert(ReservationInfoPriceEntity reservationPriceEntity) {
-//		Map<String, Object> params = new HashMap<>();
-//		params.put("reservation_info_id", reservationPriceEntity.getReservationInfoId());
-//		params.put("product_price_id", reservationPriceEntity.getProductPriceId());
-//		params.put("count", reservationPriceEntity.getCount());
 		SqlParameterSource params = new BeanPropertySqlParameterSource(reservationPriceEntity);
 		return insertAction.executeAndReturnKey(params).intValue();
 	}
-	// ReservationInfoPriceVO + productPriceId + discountRate
-	public List<Map<String, Object>> selectByReservationInfoId(Integer reservationInfoId){
+	public List<ReservationInfoPriceVO> selectByReservationInfoId(Integer reservationInfoId){
 		String sql = SELECT_BY_RESERVATION_INFO_ID;
 		Map<String, Object> params = Collections.singletonMap("reservationInfoId", reservationInfoId);
-		return jdbc.queryForList(sql, params);
+		return jdbc.query(sql, params, rowMapperReservationInfoPriceVO);
 	}
 }
 
