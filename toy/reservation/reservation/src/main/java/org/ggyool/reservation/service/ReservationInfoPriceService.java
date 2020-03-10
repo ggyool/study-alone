@@ -1,10 +1,11 @@
 package org.ggyool.reservation.service;
 
 import java.util.List;
+import java.util.Map;
 
-import org.ggyool.reservation.vo.ReservationInfoPriceVO;
+import org.ggyool.reservation.entity.ReservationInfoPriceEntity;
 
 public interface ReservationInfoPriceService {
-	public List<ReservationInfoPriceVO> addReservationPrices(List<ReservationInfoPriceVO> reservationPriceList, Integer reservationInfoId);
-	public List<ReservationInfoPriceVO> getsByReservationInfoId(Integer reservationInfoId);
+	public List<ReservationInfoPriceEntity> addReservationPrices(List<ReservationInfoPriceEntity> reservationPriceList, Integer reservationInfoId);
+	public List<Map<String, Object>> getsByReservationInfoId(Integer reservationInfoId);
 }

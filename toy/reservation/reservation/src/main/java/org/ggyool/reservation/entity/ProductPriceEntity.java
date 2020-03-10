@@ -1,10 +1,10 @@
-package org.ggyool.reservation.vo;
+package org.ggyool.reservation.entity;
 
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class ProductPriceVO {
+public class ProductPriceEntity {
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date createDate;
 	private Integer discountRate;
@@ -58,7 +58,7 @@ public class ProductPriceVO {
 	}
 	@Override
 	public String toString() {
-		return "ProductPriceVO [createDate=" + createDate + ", discountRate=" + discountRate + ", modifyDate="
+		return "ProductPriceEntity [createDate=" + createDate + ", discountRate=" + discountRate + ", modifyDate="
 				+ modifyDate + ", price=" + price + ", priceTypeName=" + priceTypeName + ", productId=" + productId
 				+ ", productPriceId=" + productPriceId + "]";
 	}

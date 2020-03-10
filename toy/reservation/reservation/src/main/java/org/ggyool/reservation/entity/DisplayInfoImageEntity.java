@@ -1,8 +1,6 @@
-package org.ggyool.reservation.vo;
+package org.ggyool.reservation.entity;
 
-import java.util.Date;
-
-public class DisplayInfoImageVO {
+public class DisplayInfoImageEntity {
 	private Integer id;
 	private Integer displayInfoId;
 	private Integer fileId;
@@ -26,6 +24,6 @@ public class DisplayInfoImageVO {
 	}
 	@Override
 	public String toString() {
-		return "DisplayInfoImageVO [id=" + id + ", displayInfoId=" + displayInfoId + ", fileId=" + fileId + "]";
+		return "DisplayInfoImageEntity [id=" + id + ", displayInfoId=" + displayInfoId + ", fileId=" + fileId + "]";
 	}
 }

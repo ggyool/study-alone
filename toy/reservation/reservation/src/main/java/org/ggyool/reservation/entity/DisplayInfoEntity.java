@@ -1,10 +1,10 @@
-package org.ggyool.reservation.vo;
+package org.ggyool.reservation.entity;
 
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class DisplayInfoVO {
+public class DisplayInfoEntity {
 	private Integer id;
 	private Integer productId;
 	private String openingHours;
@@ -86,7 +86,7 @@ public class DisplayInfoVO {
 	}
 	@Override
 	public String toString() {
-		return "DisplayInfoVO [id=" + id + ", productId=" + productId + ", openingHours=" + openingHours
+		return "DisplayInfoEntity [id=" + id + ", productId=" + productId + ", openingHours=" + openingHours
 				+ ", placeName=" + placeName + ", placeLot=" + placeLot + ", placeStreet=" + placeStreet + ", tel="
 				+ tel + ", homepage=" + homepage + ", email=" + email + ", createDate=" + createDate + ", modifyDate="
 				+ modifyDate + "]";

@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.ggyool.reservation.dao.ReservationInfoDAO;
 import org.ggyool.reservation.dto.ReservationParamDTO;
+import org.ggyool.reservation.entity.ReservationInfoEntity;
 import org.ggyool.reservation.service.ReservationInfoService;
-import org.ggyool.reservation.vo.ReservationInfoVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -21,9 +21,9 @@ public class ReservationInfoServiceImpl implements ReservationInfoService{
 	
 	@Override
 	@Transactional(propagation=Propagation.REQUIRED)
-	public ReservationInfoVO addReservationInfo(ReservationParamDTO reservationParamDTO) {
+	public ReservationInfoEntity addReservationInfo(ReservationParamDTO reservationParamDTO) {
 		try {
-			ReservationInfoVO reservationInfoVO = new ReservationInfoVO(reservationParamDTO);
+			ReservationInfoEntity reservationInfoVO = new ReservationInfoEntity(reservationParamDTO);
 			reservationInfoVO.setReservationDate(generateReservatioDate(reservationParamDTO.getReservationYearMonthDay()));
 			Date currentDate = new Date();
 			reservationInfoVO.setModifyDate(currentDate);
@@ -47,7 +47,7 @@ public class ReservationInfoServiceImpl implements ReservationInfoService{
 	}
 
 	@Override
-	public List<ReservationInfoVO> getsByEmail(String reservationEmail) {
+	public List<ReservationInfoEntity> getsByEmail(String reservationEmail) {
 		return reservationInfoDAO.selectByEmail(reservationEmail);
 	}
 }

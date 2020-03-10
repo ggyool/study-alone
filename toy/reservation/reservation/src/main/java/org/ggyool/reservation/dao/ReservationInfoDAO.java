@@ -9,7 +9,7 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.ggyool.reservation.vo.ReservationInfoVO;
+import org.ggyool.reservation.entity.ReservationInfoEntity;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -21,7 +21,7 @@ public class ReservationInfoDAO {
 	
 	private NamedParameterJdbcTemplate jdbc;
 	private SimpleJdbcInsert insertAction;
-	private RowMapper<ReservationInfoVO> rowMapperReservationInfoVO = BeanPropertyRowMapper.newInstance(ReservationInfoVO.class);
+	private RowMapper<ReservationInfoEntity> rowMapperreservationInfoEntity = BeanPropertyRowMapper.newInstance(ReservationInfoEntity.class);
 	
 	ReservationInfoDAO(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
@@ -29,24 +29,25 @@ public class ReservationInfoDAO {
 				.withTableName("reservation_info")
 				.usingGeneratedKeyColumns("id");
 	}
-	public Integer insert(ReservationInfoVO reservationInfoVO) {
+	// 이름이 달라서 맵으로
+	public Integer insert(ReservationInfoEntity reservationInfoEntity) {
 		Map<String, Object> params = new HashMap<>();
-		params.putIfAbsent("id", reservationInfoVO.getReservationInfoId());
-		params.putIfAbsent("product_id", reservationInfoVO.getProductId());
-		params.putIfAbsent("display_info_id", reservationInfoVO.getDisplayInfoId());
-		params.putIfAbsent("reservation_name", reservationInfoVO.getReservationName());
-		params.putIfAbsent("reservation_tel", reservationInfoVO.getReservationTelephone());
-		params.putIfAbsent("reservation_email", reservationInfoVO.getReservationEmail());
-		params.putIfAbsent("reservation_date", reservationInfoVO.getReservationDate());
-		params.putIfAbsent("cancel_flag", reservationInfoVO.isCancelYn());
-		params.putIfAbsent("create_date", reservationInfoVO.getCreateDate());
-		params.putIfAbsent("modify_date", reservationInfoVO.getModifyDate());
+		params.putIfAbsent("id", reservationInfoEntity.getReservationInfoId());
+		params.putIfAbsent("product_id", reservationInfoEntity.getProductId());
+		params.putIfAbsent("display_info_id", reservationInfoEntity.getDisplayInfoId());
+		params.putIfAbsent("reservation_name", reservationInfoEntity.getReservationName());
+		params.putIfAbsent("reservation_tel", reservationInfoEntity.getReservationTelephone());
+		params.putIfAbsent("reservation_email", reservationInfoEntity.getReservationEmail());
+		params.putIfAbsent("reservation_date", reservationInfoEntity.getReservationDate());
+		params.putIfAbsent("cancel_flag", reservationInfoEntity.isCancelYn());
+		params.putIfAbsent("create_date", reservationInfoEntity.getCreateDate());
+		params.putIfAbsent("modify_date", reservationInfoEntity.getModifyDate());
 		return insertAction.executeAndReturnKey(params).intValue();
 	}
 	
-	public List<ReservationInfoVO> selectByEmail(String reservationEmail){
+	public List<ReservationInfoEntity> selectByEmail(String reservationEmail){
 		String sql = SELECT_BY_EMAIL;
-		return jdbc.query(sql, Collections.singletonMap("reservationEmail", reservationEmail), rowMapperReservationInfoVO);		
+		return jdbc.query(sql, Collections.singletonMap("reservationEmail", reservationEmail), rowMapperreservationInfoEntity);		
 	}
 }
 

@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 
 import org.ggyool.reservation.dao.CategoryDAO;
+import org.ggyool.reservation.entity.CategoryEntity;
 import org.ggyool.reservation.service.CategoryService;
-import org.ggyool.reservation.vo.CategoryVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,7 +22,7 @@ public class CategoryServiceImpl implements CategoryService{
 	}
 
 	@Override
-	public CategoryVO addCategory(CategoryVO dto) {
+	public CategoryEntity addCategory(CategoryEntity dto) {
 		Integer id = categoryDao.insert(dto);
 		dto.setId(id);
 		return dto;

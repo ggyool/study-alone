@@ -1,10 +1,10 @@
-package org.ggyool.reservation.vo;
+package org.ggyool.reservation.entity;
 
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class ProductVO {
+public class ProductEntity {
 	private Integer id;
 	private Integer categoryId;
 	private String description;
@@ -58,7 +58,7 @@ public class ProductVO {
 	}
 	@Override
 	public String toString() {
-		return "ProductVO [id=" + id + ", categoryId=" + categoryId + ", description=" + description + ", content="
+		return "ProductEntity [id=" + id + ", categoryId=" + categoryId + ", description=" + description + ", content="
 				+ content + ", event=" + event + ", createDate=" + createDate + ", modifyDate=" + modifyDate + "]";
 	}
 }

@@ -3,8 +3,8 @@ package org.ggyool.reservation.dto;
 import java.util.Date;
 import java.util.List;
 
-import org.ggyool.reservation.vo.ReservationInfoPriceVO;
-import org.ggyool.reservation.vo.ReservationInfoVO;
+import org.ggyool.reservation.entity.ReservationInfoPriceEntity;
+import org.ggyool.reservation.entity.ReservationInfoEntity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -24,8 +24,8 @@ public class ReservationResponseDTO{
 	private Date createDate;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date modifyDate;
-	private List<ReservationInfoPriceVO> prices;
-	public ReservationResponseDTO(ReservationInfoVO reservationInfoVO, List<ReservationInfoPriceVO> prices){
+	private List<ReservationInfoPriceEntity> prices;
+	public ReservationResponseDTO(ReservationInfoEntity reservationInfoVO, List<ReservationInfoPriceEntity> prices){
 		this.reservationInfoId = reservationInfoVO.getReservationInfoId();
 		this.productId = reservationInfoVO.getProductId();
 		this.displayInfoId = reservationInfoVO.getDisplayInfoId();
@@ -98,10 +98,10 @@ public class ReservationResponseDTO{
 	public void setModifyDate(Date modifyDate) {
 		this.modifyDate = modifyDate;
 	}
-	public List<ReservationInfoPriceVO> getPrices() {
+	public List<ReservationInfoPriceEntity> getPrices() {
 		return prices;
 	}
-	public void setPrices(List<ReservationInfoPriceVO> prices) {
+	public void setPrices(List<ReservationInfoPriceEntity> prices) {
 		this.prices = prices;
 	}
 	@Override

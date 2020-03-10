@@ -3,8 +3,8 @@ package org.ggyool.reservation.service.impl;
 import java.util.List;
 
 import org.ggyool.reservation.dao.ProductPriceDAO;
+import org.ggyool.reservation.entity.ProductPriceEntity;
 import org.ggyool.reservation.service.ProductPriceService;
-import org.ggyool.reservation.vo.ProductPriceVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,12 +15,12 @@ public class ProductPriceServiceImpl implements ProductPriceService{
 	ProductPriceDAO productPriceDao;
 	
 	@Override
-	public List<ProductPriceVO> getPrices(Integer productId) {
+	public List<ProductPriceEntity> getPrices(Integer productId) {
 		return productPriceDao.selectByProductId(productId);
 	}
 
 	@Override
-	public ProductPriceVO getPrice(Integer productPriceId) {
+	public ProductPriceEntity getPrice(Integer productPriceId) {
 		return productPriceDao.selectById(productPriceId);
 	}
 

@@ -1,10 +1,11 @@
 package org.ggyool.reservation.service.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.ggyool.reservation.dao.ReservationInfoPriceDAO;
+import org.ggyool.reservation.entity.ReservationInfoPriceEntity;
 import org.ggyool.reservation.service.ReservationInfoPriceService;
-import org.ggyool.reservation.vo.ReservationInfoPriceVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -19,7 +20,7 @@ public class ReservationInfoPriceServiceImpl implements ReservationInfoPriceServ
 	@Override
 	// 부모 트랜잭션을 사용하기 위해 default 인듯?) 
 	@Transactional(propagation=Propagation.REQUIRED)
-	public List<ReservationInfoPriceVO> addReservationPrices(List<ReservationInfoPriceVO> reservationPriceList,
+	public List<ReservationInfoPriceEntity> addReservationPrices(List<ReservationInfoPriceEntity> reservationPriceList,
 			Integer reservationInfoId) {
 		try {
 			int len = reservationPriceList.size();
@@ -34,9 +35,14 @@ public class ReservationInfoPriceServiceImpl implements ReservationInfoPriceServ
 		}
 	}
 
+	// ReservationInfoPriceVO + productPriceId + discountRate
 	@Override
-	public List<ReservationInfoPriceVO> getsByReservationInfoId(Integer reservationInfoId) {
+	public List<Map<String, Object>> getsByReservationInfoId(Integer reservationInfoId) {
 		return reservationPriceDao.selectByReservationInfoId(reservationInfoId);
 	}
+//	
+//	public Long calcTotalPrice(List<Map<String, Object>> 
+//		
+//	}
 	
 }

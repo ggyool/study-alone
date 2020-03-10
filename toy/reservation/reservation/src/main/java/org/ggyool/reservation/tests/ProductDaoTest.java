@@ -2,7 +2,7 @@ package org.ggyool.reservation.tests;
 
 import org.ggyool.reservation.config.ApplicationConfig;
 import org.ggyool.reservation.dao.ProductDAO;
-import org.ggyool.reservation.vo.ProductVO;
+import org.ggyool.reservation.entity.ProductEntity;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -17,7 +17,7 @@ public class ProductDaoTest {
 //		for(Map<String, Object> key : map) {
 //			System.out.println(key);
 //		}
-		ProductVO productVO = new ProductVO();
+		ProductEntity productVO = new ProductEntity();
 		productVO.setCategoryId(1);
 		productVO.setContent("eeee");
 		dao.insert(productVO);

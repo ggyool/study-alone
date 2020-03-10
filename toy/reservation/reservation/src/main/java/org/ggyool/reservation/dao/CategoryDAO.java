@@ -13,7 +13,7 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.ggyool.reservation.vo.CategoryVO;
+import org.ggyool.reservation.entity.CategoryEntity;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
@@ -27,7 +27,7 @@ public class CategoryDAO {
 
 	private NamedParameterJdbcTemplate jdbc;
 	private SimpleJdbcInsert insertAction;
-	private RowMapper<CategoryVO> rowMapper = BeanPropertyRowMapper.newInstance(CategoryVO.class);
+	private RowMapper<CategoryEntity> rowMapper = BeanPropertyRowMapper.newInstance(CategoryEntity.class);
 	
 	public CategoryDAO(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
@@ -36,12 +36,12 @@ public class CategoryDAO {
 				.usingGeneratedKeyColumns("id");
 	}
 	
-	public Integer insert(CategoryVO CategoryVO) {
-		SqlParameterSource params = new BeanPropertySqlParameterSource(CategoryVO);
+	public Integer insert(CategoryEntity CategoryEntity) {
+		SqlParameterSource params = new BeanPropertySqlParameterSource(CategoryEntity);
 		return insertAction.executeAndReturnKey(params).intValue();
 	}
 	
-	public List<CategoryVO> selectAll(){
+	public List<CategoryEntity> selectAll(){
 		return jdbc.query(SELECT_ALL, Collections.emptyMap(), rowMapper);
 	}
 	// queryForList 안쓰고 query 쓰는걸로 하나 남겨두었음

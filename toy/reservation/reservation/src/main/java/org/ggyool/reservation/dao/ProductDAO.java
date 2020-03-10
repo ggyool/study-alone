@@ -8,7 +8,7 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.ggyool.reservation.vo.ProductVO;
+import org.ggyool.reservation.entity.ProductEntity;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -29,8 +29,8 @@ public class ProductDAO {
 				.usingGeneratedKeyColumns("id");
 	}
 	
-	public Integer insert(ProductVO productVO) {
-		SqlParameterSource params = new BeanPropertySqlParameterSource(productVO);
+	public Integer insert(ProductEntity productEntity) {
+		SqlParameterSource params = new BeanPropertySqlParameterSource(productEntity);
 		return insertAction.executeAndReturnKey(params).intValue();
 	}
 

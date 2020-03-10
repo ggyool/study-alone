@@ -3,13 +3,13 @@ package org.ggyool.reservation.dto;
 import java.util.Date;
 import java.util.List;
 
-import org.ggyool.reservation.vo.ReservationInfoPriceVO;
+import org.ggyool.reservation.entity.ReservationInfoPriceEntity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class ReservationParamDTO {
 	private Integer displayInfoId;
-	private List<ReservationInfoPriceVO> prices;
+	private List<ReservationInfoPriceEntity> prices;
 	private Integer productId;
 	private String reservationEmail;
 	private String reservationName;
@@ -22,10 +22,10 @@ public class ReservationParamDTO {
 	public void setDisplayInfoId(Integer displayInfoId) {
 		this.displayInfoId = displayInfoId;
 	}
-	public List<ReservationInfoPriceVO> getPrices() {
+	public List<ReservationInfoPriceEntity> getPrices() {
 		return prices;
 	}
-	public void setPrices(List<ReservationInfoPriceVO> prices) {
+	public void setPrices(List<ReservationInfoPriceEntity> prices) {
 		this.prices = prices;
 	}
 	public Integer getProductId() {

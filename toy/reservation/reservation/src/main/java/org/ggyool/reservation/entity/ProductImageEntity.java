@@ -1,6 +1,6 @@
-package org.ggyool.reservation.vo;
+package org.ggyool.reservation.entity;
 
-public class ProductImageVO {
+public class ProductImageEntity {
 	private Integer id;
 	private Integer productId;
 	private String type;
@@ -31,6 +31,6 @@ public class ProductImageVO {
 	}
 	@Override
 	public String toString() {
-		return "ProductImageVO [id=" + id + ", productId=" + productId + ", type=" + type + ", fileId=" + fileId + "]";
+		return "ProductImageEntity [id=" + id + ", productId=" + productId + ", type=" + type + ", fileId=" + fileId + "]";
 	}
 }

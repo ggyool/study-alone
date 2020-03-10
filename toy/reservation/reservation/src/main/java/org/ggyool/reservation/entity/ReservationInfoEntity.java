@@ -1,4 +1,4 @@
-package org.ggyool.reservation.vo;
+package org.ggyool.reservation.entity;
 
 import java.util.Date;
 
@@ -6,7 +6,7 @@ import org.ggyool.reservation.dto.ReservationParamDTO;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class ReservationInfoVO {
+public class ReservationInfoEntity {
 	private Integer reservationInfoId;
 	private Integer productId;
 	private Integer displayInfoId;
@@ -20,10 +20,10 @@ public class ReservationInfoVO {
 	private Date createDate;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date modifyDate;
-	ReservationInfoVO(){
+	ReservationInfoEntity(){
 		
 	}
-	public ReservationInfoVO(ReservationParamDTO reservationParamDTO) {
+	public ReservationInfoEntity(ReservationParamDTO reservationParamDTO) {
 		this.displayInfoId = reservationParamDTO.getDisplayInfoId();
 		this.productId = reservationParamDTO.getProductId();
 		this.reservationEmail = reservationParamDTO.getReservationEmail();
@@ -92,7 +92,7 @@ public class ReservationInfoVO {
 	}
 	@Override
 	public String toString() {
-		return "ReservationInfoVO [reservationInfoId=" + reservationInfoId + ", productId=" + productId
+		return "ReservationInfoEntity [reservationInfoId=" + reservationInfoId + ", productId=" + productId
 				+ ", displayInfoId=" + displayInfoId + ", reservationName=" + reservationName
 				+ ", reservationTelephone=" + reservationTelephone + ", reservationEmail=" + reservationEmail
 				+ ", reservationDate=" + reservationDate + ", cancelYn=" + cancelYn + ", createDate=" + createDate

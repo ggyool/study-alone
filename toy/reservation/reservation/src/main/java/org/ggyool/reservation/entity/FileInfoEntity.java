@@ -1,10 +1,10 @@
-package org.ggyool.reservation.vo;
+package org.ggyool.reservation.entity;
 
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class FileInfoVO {
+public class FileInfoEntity {
 	private Integer id;
 	private String fileName;
 	private String saveFileName;
@@ -58,7 +58,7 @@ public class FileInfoVO {
 	}
 	@Override
 	public String toString() {
-		return "FileInfoVO [id=" + id + ", fileName=" + fileName + ", saveFileName=" + saveFileName + ", contentType="
+		return "FileInfoEntity [id=" + id + ", fileName=" + fileName + ", saveFileName=" + saveFileName + ", contentType="
 				+ contentType + ", deleteFlag=" + deleteFlag + ", createDate=" + createDate + ", modifyDate="
 				+ modifyDate + "]";
 	}

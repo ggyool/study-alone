@@ -2,7 +2,7 @@ package org.ggyool.reservation.dto;
 
 import java.util.List;
 
-import org.ggyool.reservation.vo.ProductPriceVO;
+import org.ggyool.reservation.entity.ProductPriceEntity;
 
 public class DisplayInfoResponseDTO {
 	private Double averageScore;
@@ -10,7 +10,7 @@ public class DisplayInfoResponseDTO {
 	private DisplayInfoDTO displayInfo;
 	private DisplayInfoImageDTO displayInfoImage;
 	private List<ProductImageDTO> productImages;
-	private List<ProductPriceVO> productPrices;
+	private List<ProductPriceEntity> productPrices;
 	public Double getAverageScore() {
 		return averageScore;
 	}
@@ -41,10 +41,10 @@ public class DisplayInfoResponseDTO {
 	public void setProductImages(List<ProductImageDTO> productImages) {
 		this.productImages = productImages;
 	}
-	public List<ProductPriceVO> getProductPrices() {
+	public List<ProductPriceEntity> getProductPrices() {
 		return productPrices;
 	}
-	public void setProductPrices(List<ProductPriceVO> productPrices) {
+	public void setProductPrices(List<ProductPriceEntity> productPrices) {
 		this.productPrices = productPrices;
 	}
 	@Override

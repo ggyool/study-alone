@@ -1,6 +1,6 @@
-package org.ggyool.reservation.vo;
+package org.ggyool.reservation.entity;
 
-public class PromotionVO {
+public class PromotionEntity {
 	private Integer id;
 	private Integer productId;
 	public Integer getId() {
@@ -17,6 +17,6 @@ public class PromotionVO {
 	}
 	@Override
 	public String toString() {
-		return "PromotionVO [id=" + id + ", productId=" + productId + "]";
+		return "PromotionEntity [id=" + id + ", productId=" + productId + "]";
 	}
 }

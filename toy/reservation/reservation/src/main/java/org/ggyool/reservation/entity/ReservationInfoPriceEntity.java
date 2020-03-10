@@ -1,7 +1,7 @@
-package org.ggyool.reservation.vo;
+package org.ggyool.reservation.entity;
 
 // front에서의 입력을 바로 사용하기 위해 변수이름 기준을 그 쪽으로 했다.
-public class ReservationInfoPriceVO {
+public class ReservationInfoPriceEntity {
 	private Integer reservationInfoPriceId;
 	private Integer reservationInfoId;
 	private Integer productPriceId;
@@ -32,7 +32,7 @@ public class ReservationInfoPriceVO {
 	}
 	@Override
 	public String toString() {
-		return "ReservationInfoPriceVO [reservationInfoPriceId=" + reservationInfoPriceId + ", reservationInfoId="
+		return "ReservationInfoPriceEntity [reservationInfoPriceId=" + reservationInfoPriceId + ", reservationInfoId="
 				+ reservationInfoId + ", productPriceId=" + productPriceId + ", count=" + count + "]";
 	}
 }
