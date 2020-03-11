@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function(){
 		promotionsHttpRequest.onreadystatechange = promotionLoadFunc;
 		promotionsHttpRequest.send();
 		
-		
 		var promotionUL = document.querySelector(".visual_img");
 		promotionUL.addEventListener("transitionend", function(){
 			if(curPromotion >= promotionLen-1){
@@ -180,6 +179,15 @@ document.addEventListener("DOMContentLoaded", function(){
 		listProductUl[0].innerHTML = "";
 		listProductUl[1].innerHTML = "";
 	}	
+	
+	// 예약 확인 버튼 
+	document.querySelector(".header_tit .viewReservation").addEventListener("click", function(){
+		if(this.innerText === "예약확인"){
+			location.href = "/login";
+		}else{
+			location.href = "/reservations/me";
+		}
+	});
 });
 
 

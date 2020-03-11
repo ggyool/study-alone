@@ -13,4 +13,9 @@ public class ReservationController {
 		return "reservation";
 	}
 	
+	@GetMapping(path="/me")
+	public String myReservation() {
+		return "myreservation";
+	}
+	
 }

@@ -16,6 +16,17 @@ document.addEventListener("DOMContentLoaded", function(){
 				});
 			}
 		});
+		// 예약확인 버튼 
+		var myReservationBtn = document.querySelector(".section_visual .btn_my");
+		myReservationBtn.addEventListener("click", function(){
+			var emailLabel = document.querySelector(".viewReservation");
+			if(emailLabel.innerText === "예약확인"){
+				location.href = "/login";
+			}else{
+				location.href = "/reservations/me";
+			}
+		});
+		
 		// 예매하기 버튼
 		var doingReservationBtn = document.querySelector(".bk_btn");
 		doingReservationBtn.addEventListener("click", function(){
@@ -241,7 +252,6 @@ document.addEventListener("DOMContentLoaded", function(){
 				infoWrap.className = "detail_area_wrap hide";
 				pathWrap.className = "detail_location";
 			});
-
 		}
 	};
 	

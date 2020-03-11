@@ -1,8 +1,11 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page isELIgnored = "false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
+
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,8 +15,6 @@
     <link rel="shortcut icon" href="/resources/img/favicon.ico">
     <link href="resources/css/style.css" rel="stylesheet">
     <link href="resources/css/main.css" rel="stylesheet">
-    
-    
 </head>
 
 <body>
@@ -21,10 +22,10 @@
         <div class="header">
             <header class="header_tit">
                 <h1 class="logo">
-                    <a href="https://m.naver.com/" class="lnk_logo" title="네이버"> <span class="spr_bi ico_n_logo">네이버</span> </a>
-                    <a href="./myreservation.html" class="lnk_logo" title="예약"> <span class="spr_bi ico_bk_logo">예약</span> </a>
+                    <a href="/" class="lnk_logo" title="네이버"> <span class="spr_bi ico_n_logo">네이버</span> </a>
+                    <a href=	"/" class="lnk_logo" title="예약"> <span class="spr_bi ico_bk_logo">예약</span> </a>
                 </h1> 
-                <a href="./bookinglogin.html" class="btn_my"> <span class="viewReservation" title="예약확인">예약확인</span> </a>
+                <a class="btn_my"> <span class="viewReservation" title="예약확인">${sessionEmail==null?'예약확인':sessionEmail}</span> </a>
             </header>
         </div>
         <hr>
