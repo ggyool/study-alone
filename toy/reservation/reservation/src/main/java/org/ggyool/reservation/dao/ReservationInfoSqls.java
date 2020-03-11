@@ -13,6 +13,7 @@ public class ReservationInfoSqls {
 	+ ",rit.create_date AS createDate "
 	+ ",rit.modify_date AS modifyDate "
 	+ "FROM reservation_info AS rit "
-	+ "WHERE rit.reservation_email = :{reservationEmail}";
+	+ "WHERE rit.reservation_email = :{reservationEmail} "
+	+ "ORDER BY rit.reservation_date";
 
 }

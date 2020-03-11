@@ -1,6 +1,9 @@
 package org.ggyool.reservation.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,7 +17,9 @@ public class ReservationController {
 	}
 	
 	@GetMapping(path="/me")
-	public String myReservation() {
+	public String myReservation(HttpSession session, Model model) {
+		String sessionEmail = (String)session.getAttribute("email");
+		if(sessionEmail!=null) model.addAttribute("sessionEmail", sessionEmail);
 		return "myreservation";
 	}
 	

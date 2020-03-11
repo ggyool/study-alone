@@ -16,7 +16,7 @@ public class LoginController {
 	public String loginGet(HttpSession session) {
 		String sessionEmail = (String)session.getAttribute("email");
 		if(sessionEmail != null) {
-			return "myreservation";
+			return "redirect:/reservations/me";
 		}
 		return "login";
 	}
@@ -25,6 +25,6 @@ public class LoginController {
 		// db에 없는 이메일이라 해도 비어있는 내역을 주므로 그냥 go
 		// 유효성 체크는 프론트에서 하고 넘어옴
 		session.setAttribute("email", email);
-		return "myreservation";
+		return "redirect:/reservations/me";
 	}
 }
