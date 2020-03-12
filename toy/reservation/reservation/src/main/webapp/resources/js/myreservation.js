@@ -53,8 +53,14 @@ document.addEventListener("DOMContentLoaded", function(){
 				addClassName(newActive, "on");
 				if(id==="total"){
 					var totalLen = parseInt(document.querySelector(".summary_board #total span").innerText);
-					if(totalLen === 0) this.hideCardAll();
-					else this.showCardAll();
+					if(totalLen === 0) {
+						this.hideCardAll();
+						this.showNoneCard();
+					}
+					else {
+						this.showCardAll();
+						this.hideNoneCard();
+					}
 				}else{
 					this.showAndHideOthers(id);
 				}
@@ -64,39 +70,39 @@ document.addEventListener("DOMContentLoaded", function(){
 			var cards = container.querySelectorAll(".list_cards .card");
 			cards.forEach(function(card){
 				if(card.id === id+"Card"){
-					this.showCard(id);
+					if(this.isExist(id)) {
+						card.style.display = "block";
+						this.hideNoneCard();
+					}
+					else{
+						card.style.display = "none";
+						this.showNoneCard();
+					}
 				}
-				else this.hideCard(card.id);
+				else {
+					card.style.display = "none";
+				}
 			}.bind(this));
 		},
 		showCardAll : function(){
-				this.hideNoneCard();
-				var cards = container.querySelectorAll(".list_cards .card");
-				cards.forEach(function(card){
+			var cards = container.querySelectorAll(".list_cards .card");
+			cards.forEach(function(card){
+				var cardId = card.id;
+				var id = cardId.slice(0, cardId.length-"Card".length);
+				if(this.isExist(id)){
 					card.style.display = "block";
-				});
+				}
+			}.bind(this));
 		},
 		hideCardAll : function(){
-			this.showNoneCard();
 			var cards = container.querySelectorAll(".list_cards .card");
 			cards.forEach(function(card){
 				card.style.display = "none";
 			});
 		},
-		showCard : function(id){
+		isExist : function(id){
 			var len = parseInt(document.querySelector(`.summary_board #${id} span`).innerText); 
-			var card = document.querySelector(`#${id}Card.card`);
-			if(len === 0) {
-				this.showNoneCard();
-				card.style.display = "none";
-			}else{
-				this.hideNoneCard();
-				card.style.display = "block";
-			}
-		},
-		hideCard : function(cardId){
-			var card = document.querySelector(`#${cardId}.card`);
-			card.style.display = "none";
+			return len > 0;
 		},
 		showNoneCard : function(){
 			var noneCard = document.querySelector(".err");
@@ -107,15 +113,52 @@ document.addEventListener("DOMContentLoaded", function(){
 			noneCard.style.display = "none";
 		}
 	};
+	function Card(id){
+		this.id = id;
+		this.card = document.querySelector(`.list_cards #${id}Card`);
+	}
+	Card.prototype = {
+		show : function(){
+			this.card.style.display = "block";
+		},
+		hide : function(){
+			this.card.style.display = "none";
+		},
+		clearItem : function(){
+			console.log(this);
+			var items = this.card.querySelectorAll("article");
+			items.forEach(function(item){
+				console.log(this.card);
+				this.card.removeChild(item);
+			}.bind(this));
+		}
+	};
 	
-	//var summaryObj;
-	(function init(){
+	// 만들고 보니 상속 안해도 되지만 공부한김에 남겨두었음 
+	function ConfirmedCard(id){
+		// Card의 멤버 가져오기 
+		Card.call(this,id);	
+	}
+	ConfirmedCard.prototype = Object.create(Card.prototype);
+	// constructor 안바뀌므로 직접 바꿔줌
+	ConfirmedCard.prototype.constructor = ConfirmedCard;
+	ConfirmedCard.prototype.refresh = function(confirmedList){
+		var template = document.querySelector("#confirmedItem").innerText;
+		var bindingTemplate = Handlebars.compile(template);
+		this.clearItem();
+		confirmedList.forEach(function(reservation){
+			this.card.insertAdjacentHTML("beforeend", bindingTemplate(reservation));
+		}.bind(this));
+	}; // 세미콜론 꼭 찍어야 한다.
+
+	(function main(){
 		var summaryObj = new SummaryBoard();
-		sendAjaxAndrefresh(summaryObj);
+		var confirmedObj = new ConfirmedCard("confirmed");
+		sendAjaxAndrefresh(summaryObj, confirmedObj);
+	
 	})();
 	
-	
-	function sendAjaxAndrefresh(summaryObj){
+	function sendAjaxAndrefresh(summaryObj, confirmedObj){
 		sendAjax().then(function(json){
 			var reservationInfoResponse = json;
 			var reservations = reservationInfoResponse.reservations;
@@ -136,6 +179,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			var usedLen = usedList.length;
 			var canceledLen = canceledList.length;
 			summaryObj.refresh(confirmedLen, usedLen, canceledLen);
+			confirmedObj.refresh(confirmedList);
 		});
 	}
 	
