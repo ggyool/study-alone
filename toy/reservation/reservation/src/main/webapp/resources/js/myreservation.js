@@ -22,8 +22,8 @@ function isPastDate(date){
 }
 
 document.addEventListener("DOMContentLoaded", function(){
-	
-	// 클릭이벤트, 각각 card 개수
+	// Card 객체보다 이녀석을 더 이전에 만들어서 분리되어 있는데,
+	// 리팩토링 한다면 card 객체들을 이용할수도 있겠다. 
 	function SummaryBoard(){
 		this.activeId = "total";
 		this.registerEvent();
@@ -169,10 +169,11 @@ document.addEventListener("DOMContentLoaded", function(){
 				reservationInfoId = parseInt(reservationInfoId);
 				if(div.className === "booking_cancel"){
 					sendAjaxPut(reservationInfoId).then(function(){
+						// 성능 낭비이긴 한데 확실하고 편하게 호출하였음
 						sendAjaxAndrefresh();
 					});
 				}else if(div.className === "booking_review"){
-					
+					// 추후 추가 
 				}
 			}
 		});
@@ -182,10 +183,10 @@ document.addEventListener("DOMContentLoaded", function(){
 	var confirmedObj = new ExtendsCard("confirmed");
 	var usedObj = new ExtendsCard("used");
 	var canceledObj = new ExtendsCard("cancel");
+	
 	(function main(){
 		initRegisterChkButton();
-		sendAjaxAndrefresh(summaryObj, confirmedObj, usedObj, canceledObj);
-	
+		sendAjaxAndrefresh();
 	})();
 	
 	function initRegisterChkButton(){
