@@ -302,6 +302,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			return name.match(/^[가-힣a-zA-z]+$/);
 		},
 		checkTelephone : function(telephone){
+			// 바꿔야함함
 			return telephone.match(/010\d{7,8}|010-\d{3,4}-\d{4}/);
 		},
 		checkEmail : function(email){

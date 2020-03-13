@@ -17,7 +17,7 @@ public class ReservationPriceServiceTests {
 	public static void main(String[] args) {
 		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 		ReservationInfoPriceService service = ac.getBean(ReservationInfoPriceService.class);
-		System.out.println(service.getsByReservationInfoId(1));
+		
 		
 		
 		

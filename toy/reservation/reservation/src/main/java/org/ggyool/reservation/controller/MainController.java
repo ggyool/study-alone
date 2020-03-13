@@ -13,7 +13,7 @@ public class MainController {
 	public String main(HttpSession session, Model model) {
 		String sessionEmail = (String)session.getAttribute("email"); 
 		if(sessionEmail!=null) 
-			model.addAttribute("sessionEmail", "ggyool@naver.com");
+			model.addAttribute("sessionEmail", sessionEmail);
 		return "main";
 	}
 }

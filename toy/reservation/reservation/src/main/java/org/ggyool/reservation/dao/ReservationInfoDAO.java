@@ -1,6 +1,8 @@
 package org.ggyool.reservation.dao;
 
 import static org.ggyool.reservation.dao.ReservationInfoSqls.SELECT_BY_EMAIL;
+import static org.ggyool.reservation.dao.ReservationInfoSqls.SELECT_BY_ID;
+import static org.ggyool.reservation.dao.ReservationInfoSqls.UPDATE_AS_CANCEL;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -22,7 +24,7 @@ public class ReservationInfoDAO {
 	private NamedParameterJdbcTemplate jdbc;
 	private SimpleJdbcInsert insertAction;
 	private RowMapper<ReservationInfoEntity> rowMapperreservationInfoEntity = BeanPropertyRowMapper.newInstance(ReservationInfoEntity.class);
-	
+
 	ReservationInfoDAO(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
 		this.insertAction = new SimpleJdbcInsert(dataSource)
@@ -48,6 +50,16 @@ public class ReservationInfoDAO {
 	public List<ReservationInfoEntity> selectByEmail(String reservationEmail){
 		String sql = SELECT_BY_EMAIL;
 		return jdbc.query(sql, Collections.singletonMap("reservationEmail", reservationEmail), rowMapperreservationInfoEntity);		
+	}
+	
+	public Boolean updateAsCancel(Integer reservationInfoId) {
+		String sql = UPDATE_AS_CANCEL;
+		return jdbc.update(sql, Collections.singletonMap("reservationInfoId", reservationInfoId))>0?true:false;
+	}
+	
+	public ReservationInfoEntity selectById(Integer reservationInfoId) {
+		String sql = SELECT_BY_ID;
+		return jdbc.queryForObject(sql, Collections.singletonMap("reservationInfoId", reservationInfoId), rowMapperreservationInfoEntity);
 	}
 }
 

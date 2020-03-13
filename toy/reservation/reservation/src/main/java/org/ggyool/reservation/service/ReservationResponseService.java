@@ -4,5 +4,6 @@ import org.ggyool.reservation.dto.ReservationParamDTO;
 import org.ggyool.reservation.dto.ReservationResponseDTO;
 
 public interface ReservationResponseService {
-	ReservationResponseDTO getReseravtionResponse(ReservationParamDTO reservationParamDTO); 
+	ReservationResponseDTO getReseravtionResponse(ReservationParamDTO reservationParamDTO);
+	ReservationResponseDTO cancelReseravtion(Integer reservationInfoId);
 }

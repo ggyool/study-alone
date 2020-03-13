@@ -35,14 +35,20 @@ public class ProductController {
 	public String productReviewDetails(ModelMap model,
 			@PathVariable Integer displayInfoId) {
 		DisplayInfoDTO displayInfo = displayInfoService.get(displayInfoId);
-		Integer productId = displayInfo.getProductId();
-		String productDescription = displayInfo.getProductDescription();
-		Double averageScore = commentService.getAverageScore(productId);
-		model.addAttribute("displayInfoId", displayInfoId);
-		model.addAttribute("productDescription", productDescription);
-		model.addAttribute("commentList", commentService.getComments(productId));
-		model.addAttribute("averageScore", averageScore);
-		model.addAttribute("scorePercent", averageScore*20);
+		
+		// null 이 안들어감
+		System.out.println(displayInfo);
+		if(displayInfo != null) {
+			Integer productId = displayInfo.getProductId();
+			String productDescription = displayInfo.getProductDescription();
+			Double averageScore = commentService.getAverageScore(productId);
+			model.addAttribute("displayInfoId", displayInfoId);
+			model.addAttribute("productDescription", productDescription);
+			model.addAttribute("commentList", commentService.getComments(productId));
+			model.addAttribute("averageScore", averageScore);
+			model.addAttribute("scorePercent", averageScore*20);
+		}
+		
 		return "review";
 	}
 }

@@ -7,6 +7,7 @@ import org.ggyool.reservation.vo.ReservationInfoPriceVO;
 
 public interface ReservationInfoPriceService {
 	public List<ReservationInfoPriceEntity> addReservationPrices(List<ReservationInfoPriceEntity> reservationPriceList, Integer reservationInfoId);
-	public List<ReservationInfoPriceVO> getsByReservationInfoId(Integer reservationInfoId);
+	public List<ReservationInfoPriceVO> getsVOByReservationInfoId(Integer reservationInfoId);
+	public List<ReservationInfoPriceEntity> getsByReservationInfoId(Integer reservationInfoId);
 	Long calcTotalPrice(Integer reservationInfoId);
 }

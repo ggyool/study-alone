@@ -1,6 +1,7 @@
 package org.ggyool.reservation.dao;
 
 import static org.ggyool.reservation.dao.ReservationInfoPriceSqls.SELECT_BY_RESERVATION_INFO_ID;
+import static org.ggyool.reservation.dao.ReservationInfoPriceSqls.SELECT_VO_BY_RESERVATION_INFO_ID;
 
 import java.util.Collections;
 import java.util.List;
@@ -24,6 +25,7 @@ public class ReservationInfoPriceDAO {
 	private NamedParameterJdbcTemplate jdbc;
 	private SimpleJdbcInsert insertAction;
 	private RowMapper<ReservationInfoPriceVO> rowMapperReservationInfoPriceVO = BeanPropertyRowMapper.newInstance(ReservationInfoPriceVO.class);
+	private RowMapper<ReservationInfoPriceEntity> rowMapperReservationInfoPriceEntity = BeanPropertyRowMapper.newInstance(ReservationInfoPriceEntity.class);
 	
 	public ReservationInfoPriceDAO(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
@@ -35,10 +37,15 @@ public class ReservationInfoPriceDAO {
 		SqlParameterSource params = new BeanPropertySqlParameterSource(reservationPriceEntity);
 		return insertAction.executeAndReturnKey(params).intValue();
 	}
-	public List<ReservationInfoPriceVO> selectByReservationInfoId(Integer reservationInfoId){
-		String sql = SELECT_BY_RESERVATION_INFO_ID;
+	public List<ReservationInfoPriceVO> selectVOByReservationInfoId(Integer reservationInfoId){
+		String sql = SELECT_VO_BY_RESERVATION_INFO_ID;
 		Map<String, Object> params = Collections.singletonMap("reservationInfoId", reservationInfoId);
 		return jdbc.query(sql, params, rowMapperReservationInfoPriceVO);
+	}
+	public List<ReservationInfoPriceEntity> selectByReservationInfoId(Integer reservationInfoId){
+		String sql = SELECT_BY_RESERVATION_INFO_ID;
+		Map<String, Object> params = Collections.singletonMap("reservationInfoId", reservationInfoId);
+		return jdbc.query(sql, params, rowMapperReservationInfoPriceEntity);
 	}
 }
 

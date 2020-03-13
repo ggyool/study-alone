@@ -50,6 +50,17 @@ public class ReservationInfoServiceImpl implements ReservationInfoService{
 	public List<ReservationInfoEntity> getsByEmail(String reservationEmail) {
 		return reservationInfoDAO.selectByEmail(reservationEmail);
 	}
+
+	@Override
+	@Transactional(propagation=Propagation.REQUIRED)
+	public boolean cancel(Integer reservationInfoId) {
+		return reservationInfoDAO.updateAsCancel(reservationInfoId);
+	}
+
+	@Override
+	public ReservationInfoEntity getById(Integer reservationInfoId) {
+		return reservationInfoDAO.selectById(reservationInfoId);
+	}
 }
 
 

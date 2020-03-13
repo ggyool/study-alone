@@ -40,6 +40,22 @@ document.addEventListener("DOMContentLoaded", function(){
 			confirmedLabel.innerText = confirmedLen;
 			usedLabel.innerText = usedLen;
 			canceledLabel.innerText = canceledLen;
+			this.refreshCard(this.activeId);
+		},
+		 refreshCard : function(id){
+			if(id==="total"){
+				var totalLen = parseInt(document.querySelector(".summary_board #total span").innerText);
+				if(totalLen === 0) {
+					this.hideCardAll();
+					this.showNoneCard();
+				}
+				else {
+					this.showCardAll();
+					this.hideNoneCard();
+				}
+			}else{
+				this.showAndHideOthers(id);
+			}
 		},
 		registerEvent : function(){
 			var container = document.querySelector(".summary_board");
@@ -51,19 +67,7 @@ document.addEventListener("DOMContentLoaded", function(){
 				this.activeId = id;
 				var newActive = document.querySelector(`.summary_board #${this.activeId} .link_summary_board`);
 				addClassName(newActive, "on");
-				if(id==="total"){
-					var totalLen = parseInt(document.querySelector(".summary_board #total span").innerText);
-					if(totalLen === 0) {
-						this.hideCardAll();
-						this.showNoneCard();
-					}
-					else {
-						this.showCardAll();
-						this.hideNoneCard();
-					}
-				}else{
-					this.showAndHideOthers(id);
-				}
+				this.refreshCard(id);
 			}.bind(this));
 		},
 		showAndHideOthers : function(id){
@@ -91,6 +95,8 @@ document.addEventListener("DOMContentLoaded", function(){
 				var id = cardId.slice(0, cardId.length-"Card".length);
 				if(this.isExist(id)){
 					card.style.display = "block";
+				}else{
+					card.style.display = "none";
 				}
 			}.bind(this));
 		},
@@ -125,41 +131,78 @@ document.addEventListener("DOMContentLoaded", function(){
 			this.card.style.display = "none";
 		},
 		clearItem : function(){
-			console.log(this);
 			var items = this.card.querySelectorAll("article");
 			items.forEach(function(item){
-				console.log(this.card);
 				this.card.removeChild(item);
 			}.bind(this));
 		}
 	};
 	
 	// 만들고 보니 상속 안해도 되지만 공부한김에 남겨두었음 
-	function ConfirmedCard(id){
+	function ExtendsCard(id){
 		// Card의 멤버 가져오기 
 		Card.call(this,id);	
+		this.registerEvent();
 	}
-	ConfirmedCard.prototype = Object.create(Card.prototype);
+	ExtendsCard.prototype = Object.create(Card.prototype);
 	// constructor 안바뀌므로 직접 바꿔줌
-	ConfirmedCard.prototype.constructor = ConfirmedCard;
-	ConfirmedCard.prototype.refresh = function(confirmedList){
-		var template = document.querySelector("#confirmedItem").innerText;
+	ExtendsCard.prototype.constructor = ExtendsCard;
+	ExtendsCard.prototype.refresh = function(confirmedList){
+		var template = document.querySelector("#cardItem").innerText;
 		var bindingTemplate = Handlebars.compile(template);
 		this.clearItem();
 		confirmedList.forEach(function(reservation){
+			if(this.id === "confirmed") reservation.isConfirmed = true;
+			else reservation.isConfirmed = false;
+			if(this.id === "used") reservation.isUsed = true;
+			else reservation.isUsed = false;
+			reservation.totalPrice = reservation.totalPrice.toLocaleString();
 			this.card.insertAdjacentHTML("beforeend", bindingTemplate(reservation));
 		}.bind(this));
 	}; // 세미콜론 꼭 찍어야 한다.
-
+	ExtendsCard.prototype.registerEvent = function(){
+		this.card.addEventListener("click", function(evt){
+			var tagName = evt.target.tagName;
+			if(tagName === "BUTTON"){
+				var div = evt.target.closest("div");
+				var reservationInfoId = div.querySelector(".reservationInfoId").innerText;
+				reservationInfoId = parseInt(reservationInfoId);
+				if(div.className === "booking_cancel"){
+					sendAjaxPut(reservationInfoId).then(function(){
+						sendAjaxAndrefresh();
+					});
+				}else if(div.className === "booking_review"){
+					
+				}
+			}
+		});
+	};
+	
+	var summaryObj = new SummaryBoard();
+	var confirmedObj = new ExtendsCard("confirmed");
+	var usedObj = new ExtendsCard("used");
+	var canceledObj = new ExtendsCard("cancel");
 	(function main(){
-		var summaryObj = new SummaryBoard();
-		var confirmedObj = new ConfirmedCard("confirmed");
-		sendAjaxAndrefresh(summaryObj, confirmedObj);
+		initRegisterChkButton();
+		sendAjaxAndrefresh(summaryObj, confirmedObj, usedObj, canceledObj);
 	
 	})();
 	
-	function sendAjaxAndrefresh(summaryObj, confirmedObj){
-		sendAjax().then(function(json){
+	function initRegisterChkButton(){
+		// 예약확인 버튼 
+		var myReservationBtn = document.querySelector(".header_tit .btn_my");
+		myReservationBtn.addEventListener("click", function(){
+			var emailLabel = document.querySelector(".viewReservation");
+			if(emailLabel.innerText === "예약확인"){
+				location.href = "/login";
+			}else{
+				location.href = "/reservations/me";
+			}
+		});
+	}
+	
+	function sendAjaxAndrefresh(){
+		sendAjaxGet().then(function(json){
 			var reservationInfoResponse = json;
 			var reservations = reservationInfoResponse.reservations;
 			var size = reservationInfoResponse.size;
@@ -178,12 +221,14 @@ document.addEventListener("DOMContentLoaded", function(){
 			var confirmedLen = confirmedList.length;
 			var usedLen = usedList.length;
 			var canceledLen = canceledList.length;
-			summaryObj.refresh(confirmedLen, usedLen, canceledLen);
 			confirmedObj.refresh(confirmedList);
+			usedObj.refresh(usedList);
+			canceledObj.refresh(canceledList);
+			summaryObj.refresh(confirmedLen, usedLen, canceledLen);
 		});
 	}
 	
-	function sendAjax(){
+	function sendAjaxGet(){
 		var url = "/api/reservations?reservationEmail=";
 		var email = document.querySelector(".header .viewReservation").innerText;
 		url += email;
@@ -198,7 +243,34 @@ document.addEventListener("DOMContentLoaded", function(){
 		});		
 	};
 	
-	
+	function sendAjaxPut(reservationInfoId){
+		var url = "/api/reservations/" + reservationInfoId;
+		var data = {
+			method: "PUT",
+			headers: {
+	            "Content-Type": "application/json; charset=utf-8"
+	        }
+		};
+		return fetch(url, data).then(function(response){
+			if(response.status===200 || response.status===201){
+				return response.json();
+			}else{
+				
+			}
+		}).catch(function(error){
+			
+		});
+	}
 });
+
+
+
+
+
+
+
+
+
+
 
 	

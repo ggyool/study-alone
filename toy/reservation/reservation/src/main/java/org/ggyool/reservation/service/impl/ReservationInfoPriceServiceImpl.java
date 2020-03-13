@@ -36,14 +36,19 @@ public class ReservationInfoPriceServiceImpl implements ReservationInfoPriceServ
 	}
 
 	@Override
-	public List<ReservationInfoPriceVO> getsByReservationInfoId(Integer reservationInfoId) {
+	public List<ReservationInfoPriceVO> getsVOByReservationInfoId(Integer reservationInfoId) {
+		return reservationPriceDAO.selectVOByReservationInfoId(reservationInfoId);
+	}
+	
+	@Override
+	public List<ReservationInfoPriceEntity> getsByReservationInfoId(Integer reservationInfoId) {
 		return reservationPriceDAO.selectByReservationInfoId(reservationInfoId);
 	}
 	
 	@Override
 	public Long calcTotalPrice(Integer reservationInfoId) {
 		Long totalPrice = 0L;
-		List<ReservationInfoPriceVO> list = this.getsByReservationInfoId(reservationInfoId); 
+		List<ReservationInfoPriceVO> list = this.getsVOByReservationInfoId(reservationInfoId); 
 		for(ReservationInfoPriceVO vo : list) {
 			Integer count = vo.getCount();
 			Integer price = vo.getPrice();
@@ -59,4 +64,6 @@ public class ReservationInfoPriceServiceImpl implements ReservationInfoPriceServ
 		Long appliedPrice = Math.round(beforeRoundPrice/100) * 100;
 		return appliedPrice;
 	}
+
+	
 }

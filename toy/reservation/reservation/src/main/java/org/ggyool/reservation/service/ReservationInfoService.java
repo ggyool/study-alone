@@ -8,4 +8,6 @@ import org.ggyool.reservation.entity.ReservationInfoEntity;
 public interface ReservationInfoService {
 	public ReservationInfoEntity addReservationInfo(ReservationParamDTO reservationParamDTO);
 	public List<ReservationInfoEntity> getsByEmail(String reservationEmail);
+	public boolean cancel(Integer reservationInfoId); 
+	public ReservationInfoEntity getById(Integer reservationInfoId);
 }
