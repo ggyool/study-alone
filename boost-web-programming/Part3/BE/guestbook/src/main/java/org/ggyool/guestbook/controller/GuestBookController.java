@@ -33,10 +33,11 @@ public class GuestBookController {
 			HttpServletRequest request,
 			HttpServletResponse response,
 			HeaderInfo headerInfo){
-		
+		/*
 		System.out.println("-----------------------------------------------------");
 		System.out.println(headerInfo.get("user-agent"));
 		System.out.println("-----------------------------------------------------");
+		*/
 		
 		String value = null;
 		boolean isFind = false;

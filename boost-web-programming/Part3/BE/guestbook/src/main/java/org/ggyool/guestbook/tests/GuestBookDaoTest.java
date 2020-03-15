@@ -20,8 +20,8 @@ public class GuestBookDaoTest {
 	}
 	
 	public static void main(String[] args) {
-		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
-		GuestBookDao dao = ac.getBean(GuestBookDao.class);
+		//ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
+		//GuestBookDao dao = ac.getBean(GuestBookDao.class);
 		//insertTest(dao);
 	}
 }

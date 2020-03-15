@@ -28,7 +28,7 @@ public class HeaderMapArgumentResolver implements HandlerMethodArgumentResolver 
 		while(headerNames.hasNext()) {
 			String headerName = headerNames.next();
 			String headerValue = webRequest.getHeader(headerName);
-			System.out.println(headerName + "////" +  headerValue);
+			//System.out.println(headerName + "////" +  headerValue);
 			headerInfo.put(headerName, headerValue);
 		}
 		return headerInfo;

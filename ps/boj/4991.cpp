@@ -6,22 +6,13 @@ using namespace std;
 
 const int dy[4] = {0,1,0,-1};
 const int dx[4] = {1,0,-1,0};
+const int BIG = 987654321;
 
 struct Pos{
     int y,x;
     Pos(int _y, int _x)
         : y(_y), x(_x)
     {}
-};
-
-struct Edge{
-    int to, cost;
-    Edge(int a, int b)
-        :to(a), cost(b)
-    {}
-    bool operator<(const Edge &ref) const{
-        return cost > ref.cost;
-    }
 };
 
 int oy,ox,oi;
@@ -34,8 +25,6 @@ char arr[20][20];
 
 // i->j 가는 최단 경로
 int nodeDist[10][10];
-vector<bool> visited;
-
 
 bool inRange(int y, int x){
     if(y<0 || x<0 || y>=r || x>=c) return false;
@@ -69,22 +58,29 @@ void bfs(int f){
     }
 }
 
-int solve(){
-    priority_queue<Edge> pq;
-    visited = vector<bool>(plen, false);
-    visited[oi] = true;
-    
-    int ret = 0;
-    int cnt = 1;
-    while(true){
-        int next = findVisitNode(cur);
-        if(next == -1) break;
-        ret += nodeDist[cur][next];
-        ++cnt;
-        visited[next] = true;
-        cur = next;
+vector<int> v;
+vector<bool> visited;
+
+int pick(int cur, int pickn, int sum){
+    if(pickn==plen) return sum;
+    int ret = BIG;
+    for(int i=0; i<plen; ++i){
+        if(i==oi || visited[i]) continue;
+        if(nodeDist[cur][i] == -1) return -1;
+        visited[i] = true;
+        ret = min(ret, pick(i, pickn+1, sum+nodeDist[cur][i]));
+        visited[i] = false;
     }
-    return cnt==plen?ret:-1;
+    return ret;
+}
+
+// brute force
+int solve(){
+    int ret = BIG;
+    visited = vector<bool>(plen, false);
+    v.push_back(oi);
+    visited[oi] = true;
+    return pick(oi, 1, 0);
 }
 
 int main(void){
@@ -111,14 +107,5 @@ int main(void){
         }
         cout << solve() << '\n';
     }
-    /*
-    cout <<"nodedist\n";
-    priority_queue<Edge> pq;
-    for(int i=0; i<plen; ++i)
-    {
-        pq.push(Edge(i, nodeDist[0][i]));
-        
-    }
-    */
     return 0;
 }
