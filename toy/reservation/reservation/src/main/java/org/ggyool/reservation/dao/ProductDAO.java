@@ -1,7 +1,9 @@
 package org.ggyool.reservation.dao;
 
+import static org.ggyool.reservation.dao.ProductSqls.SELECT;
 import static org.ggyool.reservation.dao.ProductSqls.SELECT_BY_CATEGORY;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +11,8 @@ import java.util.Map;
 import javax.sql.DataSource;
 
 import org.ggyool.reservation.entity.ProductEntity;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.namedparam.SqlParameterSource;
@@ -20,7 +24,7 @@ public class ProductDAO {
 	
 	private NamedParameterJdbcTemplate jdbc;
 	private SimpleJdbcInsert insertAction;
-//	private RowMapper<ProductDTO> rowMapper = BeanPropertyRowMapper.newInstance(ProductDTO.class);
+	private RowMapper<ProductEntity> rowMapper = BeanPropertyRowMapper.newInstance(ProductEntity.class);
 	
 	public ProductDAO(DataSource dataSource) {
 		this.jdbc = new NamedParameterJdbcTemplate(dataSource);
@@ -41,6 +45,11 @@ public class ProductDAO {
 		params.put("start", start);
 		params.put("limit", limit);
 		return jdbc.queryForList(sql, params);
+	}
+	
+	public ProductEntity select(Integer productId) {
+		String sql = SELECT;
+		return jdbc.queryForObject(sql, Collections.singletonMap("productId", productId), rowMapper);
 	}
 }
 

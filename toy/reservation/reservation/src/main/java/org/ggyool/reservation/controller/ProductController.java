@@ -5,9 +5,9 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.ggyool.reservation.dto.CommentDTO;
-import org.ggyool.reservation.dto.DisplayInfoDTO;
+import org.ggyool.reservation.entity.ProductEntity;
 import org.ggyool.reservation.service.CommentService;
-import org.ggyool.reservation.service.DisplayInfoService;
+import org.ggyool.reservation.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,7 +23,7 @@ public class ProductController {
 	@Autowired
 	CommentService commentService;
 	@Autowired
-	DisplayInfoService displayInfoService;
+	ProductService productService;
 	
 	@GetMapping("/{displayInfoId}")
 	public String productDetails(@PathVariable Integer displayInfoId, HttpSession session, Model model) {
@@ -34,12 +34,11 @@ public class ProductController {
 		return "detail";
 	}
 	
-	@GetMapping("/{displayInfoId}/review")
+	@GetMapping("/{productId}/reviews")
 	public String productReviewDetails(ModelMap model,
-			@PathVariable Integer displayInfoId) {
-		DisplayInfoDTO displayInfo = displayInfoService.get(displayInfoId);
-		Integer productId = displayInfo.getProductId();
-		String productDescription = displayInfo.getProductDescription();
+			@PathVariable Integer productId) {
+		ProductEntity productEntity = productService.get(productId);
+		String productDescription = productEntity.getDescription();
 		List<CommentDTO> commentList = commentService.getComments(productId);
 		Double averageScore;
 		if(commentList.isEmpty()) {
@@ -48,12 +47,20 @@ public class ProductController {
 		else {
 			averageScore = commentService.getAverageScore(productId);
 		}
-		model.addAttribute("displayInfoId", displayInfoId);
 		model.addAttribute("productDescription", productDescription);
 		model.addAttribute("commentList", commentList);
 		model.addAttribute("averageScore", averageScore);
 		model.addAttribute("scorePercent", averageScore*20);
 		return "review";
+	}
+	
+	@GetMapping("/{productId}/review")
+	public String productReviewWrite(ModelMap model,
+			@PathVariable Integer productId) {
+		ProductEntity productEntity = productService.get(productId);
+		String productDescription = productEntity.getDescription();
+		model.addAttribute("productDescription", productDescription);  
+		return "reviewwrite"; 
 	}
 }
 

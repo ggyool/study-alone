@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			placeTelLabel.innerText = displayInfo.telephone;
 			placeTelLabel.href = "tel:" + displayInfo.telephone;
 			var moreBtn = document.querySelector(".btn_review_more");
-			moreBtn.href = `/products/${displayInfo.displayInfoId}/review`;
+			moreBtn.href = `/products/${displayInfo.productId}/reviews`;
 		},
 		eventInit : function(){
 			var infoTab = document.querySelector(".info_tab_lst ._detail");

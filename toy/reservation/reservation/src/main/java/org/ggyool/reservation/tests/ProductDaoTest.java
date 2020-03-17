@@ -17,9 +17,7 @@ public class ProductDaoTest {
 //		for(Map<String, Object> key : map) {
 //			System.out.println(key);
 //		}
-		ProductEntity productVO = new ProductEntity();
-		productVO.setCategoryId(1);
-		productVO.setContent("eeee");
-		dao.insert(productVO);
+		ProductEntity entity = dao.select(1);
+		System.out.println(entity);
 	}
 }

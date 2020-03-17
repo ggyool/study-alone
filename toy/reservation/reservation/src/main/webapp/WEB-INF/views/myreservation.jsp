@@ -192,7 +192,7 @@
 							</div>
 						{{/if}}
 						{{#if isUsed}}
-							<div class="booking_review">
+							<div class="booking_cancel">
 								<button class="btn"><span>예매자 리뷰 남기기</span></button>
 								<div class="reservationInfoId" style="display:none">{{reservationInfoId}}</div>
 							</div>

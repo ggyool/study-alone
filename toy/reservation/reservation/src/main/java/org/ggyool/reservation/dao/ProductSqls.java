@@ -10,5 +10,16 @@ public class ProductSqls {
 	"INNER JOIN product_image ON product.id = product_image.product_id AND product_image.type = 'th' " + 
 	"INNER JOIN file_info ON product_image.file_id = file_info.id " + 
 	"ORDER BY display_info.id limit :start, :limit";
+	
+	public static final String SELECT =
+	"SELECT id, "
+	+ "category_id AS categoryId, "
+	+ "description, "
+	+ "content, "
+	+ "event, "
+	+ "create_date AS createDate, "
+	+ "modify_date AS modifyDate "
+	+ "FROM product "
+	+ "WHERE id=:productId";
 }
 
