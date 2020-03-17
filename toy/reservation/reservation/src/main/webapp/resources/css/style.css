@@ -3812,7 +3812,6 @@ write_act .review_rating .rating .rating_rdo:checked + .span,
   width: auto;
   height: 80px;
 }
-
 .middot {
   position: relative;
   display: inline-block;
@@ -3820,7 +3819,7 @@ write_act .review_rating .rating .rating_rdo:checked + .span,
 }
 
 .middot:before {
-  content: "��";
+  content: "•";
   position: absolute;
   left: 0;
   top: 0;

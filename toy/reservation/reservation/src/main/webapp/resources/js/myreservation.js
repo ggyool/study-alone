@@ -163,17 +163,17 @@ document.addEventListener("DOMContentLoaded", function(){
 	ExtendsCard.prototype.registerEvent = function(){
 		this.card.addEventListener("click", function(evt){
 			var tagName = evt.target.tagName;
-			if(tagName === "BUTTON"){
+			if(tagName === "BUTTON" || tagName==="SPAN"){
 				var div = evt.target.closest("div");
-				var reservationInfoId = div.querySelector(".reservationInfoId").innerText;
-				reservationInfoId = parseInt(reservationInfoId);
 				if(div.className === "booking_cancel"){
+					var reservationInfoId = div.querySelector(".reservationInfoId").innerText;
 					sendAjaxPut(reservationInfoId).then(function(){
 						// 성능 낭비이긴 한데 확실하고 편하게 호출하였음
 						sendAjaxAndrefresh();
 					});
-				}else if(div.className === "booking_review"){
-					// 추후 추가 
+				}else{
+					var productId = div.querySelector(".productId").innerText; 
+					location.href = `/products/${productId}/review`;
 				}
 			}
 		});

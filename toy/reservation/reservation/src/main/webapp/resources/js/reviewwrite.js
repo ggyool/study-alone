@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			for(var i=start; i<=end; ++i){
 				deleteClassName(this.stars[i-1], "checked");
 			}
-		},
+		},	
 		updateLabel : function(){
 			var scoreLabel = document.querySelector(".star_rank");
 			if(hasClassName(scoreLabel, "gray_star"))
@@ -61,9 +61,45 @@ document.addEventListener("DOMContentLoaded", function(){
 		}
 	};
 	
+	function ReviewWrite(){
+		this.init();
+		this.registerEvent();
+	}
+	ReviewWrite.prototype = {
+		init : function(){
+			var textArea = document.querySelector(".review_textarea");
+			textArea.minLength = 5;
+			textArea.maxLength = 400;
+		},
+		registerEvent : function(){
+			var info = document.querySelector(".review_write_info");
+			var textArea = document.querySelector(".review_textarea");
+			var textCountLabel = document.querySelector(".guide_review span")
+			info.addEventListener("click", function(evt){
+				var tagName = evt.target.tagName;
+				if(tagName === "A" || tagName === "SPAN"){
+					info.style.display = "none";
+					textArea.focus();
+				}
+			});
+			
+			textArea.addEventListener("input", function(evt){
+				textCountLabel.innerText = textArea.textLength;
+				if(textArea.textLength == 0){
+					console.log("zero");
+					info.style.display = "block";	
+				}
+			});
+		}
+	};
 	
 	(function main(){
+		// 주소창 입력으로 들어온 경우
+		if(!document.referrer){
+			history.back();
+		}
 		var rating = new Rating();
+		var reviewWrite = new ReviewWrite();
 	})();
 
 })
