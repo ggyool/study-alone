@@ -110,7 +110,7 @@
         <li class="item">
             <a href="/products/{displayInfoId}" class="item_book">
                 <div class="item_preview">
-                    <img alt="{productDescription}" class="img_thumb" src="{productImageUrl}">
+                    <img alt="{productDescription}" class="img_thumb" src="/download/product-thumbnail-image/{productId}">
                     <span class="img_border"></span>
                 </div>
                 <div class="event_txt">

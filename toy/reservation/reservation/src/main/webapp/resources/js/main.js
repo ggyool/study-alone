@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function(){
 					li = document.createElement("li");
 					img = document.createElement("img");
 					img.style.width = width + "px";
-					img.src = promotion.productImageUrl;
+					img.src = "/download/product-thumbnail-image/" + promotion.productId;
 					li.appendChild(img);
 					promotionUL.appendChild(li);
 				});
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function(){
 					  .replace("{displayInfoId}", product.displayInfoId)
 					  .replace("{productDescription}", product.productDescription)
 					  .replace("{productDescription}", product.productDescription)
-					  .replace("{productImageUrl}", product.productImageUrl)
+					  .replace("{productId}", product.productId)
 					  .replace("{placeName}", product.placeName)
 					  .replace("{productContent}", product.productContent);
 					listProductUl[i%2].innerHTML += resHTML;

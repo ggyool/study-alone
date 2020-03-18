@@ -16,4 +16,18 @@ public class CommentImageSqls {
 	"JOIN file_info AS fit " + 
 	"ON rucit.file_id = fit.id " + 
 	"WHERE rucit.reservation_user_comment_id = :commentId";
+	
+	public static final String SELECT_BY_ID = 
+	"SELECT rucit.id AS commentImageId " +
+	", rucit.file_id AS fileId " +
+	", fit.file_name AS fileName " +
+	", fit.save_file_name AS saveFileName " +
+	", fit.content_type AS contentType " +
+	", fit.delete_flag AS deleteFlag " +
+	", fit.create_date AS createDate " +
+	", fit.modify_date AS modifyDate " +
+	"FROM reservation_user_comment_image AS rucit " +
+	"JOIN file_info AS fit " +
+	"ON rucit.file_id = fit.id " +
+	"WHERE rucit.id = :commentImageId";
 }

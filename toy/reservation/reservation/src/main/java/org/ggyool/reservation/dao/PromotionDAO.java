@@ -1,17 +1,13 @@
 package org.ggyool.reservation.dao;
 
-import static org.ggyool.reservation.dao.PromotionSqls.SELECT_ON_PROMOTION;
+import static org.ggyool.reservation.dao.PromotionSqls.SELECT_BY_ID;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
@@ -30,7 +26,7 @@ public class PromotionDAO {
 	}
 	
 	public List<Map<String, Object>> selectOnPromotion(){
-		return jdbc.queryForList(SELECT_ON_PROMOTION, Collections.emptyMap());
+		return jdbc.queryForList(SELECT_BY_ID, Collections.emptyMap());
 	}
 }
 

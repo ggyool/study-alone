@@ -86,7 +86,6 @@ document.addEventListener("DOMContentLoaded", function(){
 			textArea.addEventListener("input", function(evt){
 				textCountLabel.innerText = textArea.textLength;
 				if(textArea.textLength == 0){
-					console.log("zero");
 					info.style.display = "block";	
 				}
 			});

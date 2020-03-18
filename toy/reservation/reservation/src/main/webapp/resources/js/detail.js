@@ -36,12 +36,12 @@ document.addEventListener("DOMContentLoaded", function(){
 	})();
 	
 	var imageObj = {
-		imageList : [],
+		imageIds : [],
 		init : function (){
 			var productImages = displayInfoResponse.productImages;
 			productImages.forEach(function(image){
 				if(image.type === "et" || image.type === "ma"){
-					Array.prototype.push.call(imageObj.imageList, image);
+					Array.prototype.push.call(imageObj.imageIds, image.productImageId);
 				}
 			});	
 			var titleInImage = document.querySelector(".visual_txt_tit span");
@@ -49,20 +49,19 @@ document.addEventListener("DOMContentLoaded", function(){
 		}
 	};
 	var animationObj = {
-		imageList : [],
+		imageIds : [],
 		current : 1,
 		total : 0,
 		width : 0,
 		init : function(){
-			this.imageList = imageObj.imageList;
-			this.imageList.forEach(image=>image.saveFileName = "/" + image.saveFileName);
-			this.setTotal(this.imageList.length);
-			var firstImage = this.imageList[0];
-			var lastImage = this.imageList[this.total-1];
+			this.imageIds = imageObj.imageIds;
+			this.setTotal(this.imageIds.length);
+			var firstImageId = this.imageIds[0];
+			var lastImageId = this.imageIds[this.total-1];
 			// 마지막 항목을 가장 앞에 추가
-			this.imageList = [lastImage].concat(this.imageList);
+			this.imageIds = [lastImageId].concat(this.imageIds);
 			//처음 항목을 마지막에 추가
-			Array.prototype.push.call(this.imageList, firstImage);
+			Array.prototype.push.call(this.imageIds, firstImageId);
 			this.imageLoad();
 		},
 		imageLoad : function(){
@@ -71,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function(){
 			var bindingTemplate = Handlebars.compile(template);
 			this.width = container.offsetWidth;
 			container.style.width = this.width * (this.total+2);
-			this.imageList.forEach(function(image){
-				container.innerHTML += bindingTemplate(image);
+			this.imageIds.forEach(function(productImageId){
+				container.innerHTML += bindingTemplate({productImageId:productImageId});
 			});
 			this.setPage();
 			container.style.transform = `translateX(${-this.width}px)`;
@@ -191,17 +190,17 @@ document.addEventListener("DOMContentLoaded", function(){
 			var email = commentObj.reservationEmail;
 			var day = commentObj.reservationDate;
 			var obj = {};
+			obj.downlodaURL = "";
 			if(commentImage) {
-				obj.fileName = "/" + commentImage.saveFileName;
+				obj.downloadURL = "/download/comment-image/" + commentImage.imageId;
 				obj.visible = "";
 			}else{
 				obj.visible = "none";
 			}
 			obj.comment = commentObj.comment;
 			obj.score = commentObj.score.toFixed(1);
-			obj.userId = "";
 			obj.visitDate = day.split(" ")[0] + " 방문";
-			obj.userId += email.slice(0,4) + "****";
+			obj.userId = email.slice(0,4) + "****";
 			return obj;
 		}
 	};
@@ -223,7 +222,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			var placeLotLabel = document.querySelector(".detail_location .addr_old_detail");
 			var placeDetailLabel = document.querySelector(".detail_location .addr_detail");
 			var placeTelLabel = document.querySelector(".detail_location .store_tel");
-			locationImage.src = "/" + displayInfoImage.saveFileName;
+			locationImage.src = "/download/display-image/" + displayInfoImage.displayInfoId;
 			titleLabel.innerText = displayInfo.productDescription;
 			placeStreetLabel.innerText = displayInfo.placeStreet;
 			placeLotLabel.innerText = displayInfo.placeLot;

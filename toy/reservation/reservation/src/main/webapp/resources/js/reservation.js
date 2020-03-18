@@ -148,12 +148,8 @@ document.addEventListener("DOMContentLoaded", function(){
 	GroupVisual.prototype = {
 		loadImage : function(){
 			var thumbImg = document.querySelector(".group_visual .img_thumb");
-			var productImages = displayInfoResponse.productImages;
-			productImages.forEach(function(image){
-				if(image.type === "th"){
-					thumbImg.src = '/' + image.saveFileName;
-				}
-			});
+			var productId = displayInfoResponse.displayInfo.productId;
+			thumbImg.src = "/download/product-thumbnail-image/" + productId;
 		},
 		loadTitle : function(){
 			var titleLabel = document.querySelector(".group_visual .preview_txt_tit");

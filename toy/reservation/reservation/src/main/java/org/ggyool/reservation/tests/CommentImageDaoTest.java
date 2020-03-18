@@ -9,6 +9,6 @@ public class CommentImageDaoTest {
 	public static void main(String[] args) {
 		ApplicationContext ac = new AnnotationConfigApplicationContext(ApplicationConfig.class);
 		CommentImageDAO dao = ac.getBean(CommentImageDAO.class);
-		System.out.println(dao.selectByCommentId(1));
+		System.out.println(dao.selectById(1));
 	}
 }

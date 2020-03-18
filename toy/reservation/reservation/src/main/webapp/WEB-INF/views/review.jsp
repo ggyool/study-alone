@@ -48,7 +48,7 @@
 												<c:when test="${not empty comment.commentImages}">
 													<div class="review_area">
 				                                    	<div class="thumb_area">
-				                                        	<a class="thumb" title="이미지 크게 보기"> <img width="90" height="90" class="img_vertical_top" src="/${comment.commentImages[0].saveFileName}"> </a> 
+				                                        	<a class="thumb" title="이미지 크게 보기"> <img width="90" height="90" class="img_vertical_top" src="/download/comment-image/${comment.commentImages[0].imageId}"> </a> 
 				                                            	<span class="img_count">1</span>
 				                                        </div>
 												</c:when>

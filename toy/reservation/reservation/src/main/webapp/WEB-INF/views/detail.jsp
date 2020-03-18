@@ -196,7 +196,7 @@
     <div id="photoviwer"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"></script>
     <script type="text/template" id="imageItem">
-	    <li class="item" style="width: 414px;"> <img alt="" class="img_thumb" src={{saveFileName}}> <span class="img_bg"></span>
+	    <li class="item" style="width: 414px;"> <img alt="" class="img_thumb" src="/download/product-image/{{productImageId}}"}> <span class="img_bg"></span>
 		    
 		</li>
     </script>
@@ -205,7 +205,7 @@
 	    <div>
 	        <div class="review_area">
 	            <div class="thumb_area" style="display:{{visible}}">
-	                <a class="thumb" title="이미지 크게 보기"> <img width="90" height="90" class="img_vertical_top" src={{fileName}}> </a> <span class="img_count" style="display:none;">1</span>
+	                <a class="thumb" title="이미지 크게 보기"> <img width="90" height="90" class="img_vertical_top" src="{{downloadURL}}"> </a> <span class="img_count" style="display:none;">1</span>
 				</div>
 	            <h4 class="resoc_name"></h4>
 	            <p class="review">{{comment}}</p>

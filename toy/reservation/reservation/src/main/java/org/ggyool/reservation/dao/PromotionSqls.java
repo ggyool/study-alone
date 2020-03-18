@@ -1,7 +1,7 @@
 package org.ggyool.reservation.dao;
 
 public class PromotionSqls {
-	public static final String SELECT_ON_PROMOTION = 
+	public static final String SELECT_BY_ID = 
 	"SELECT promotion.id AS id, promotion.product_id AS productId " + 
 	", file_info.save_file_name AS productImageUrl " + 
 	"FROM promotion INNER JOIN product_image " + 
