@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		var doingReservationBtn = document.querySelector(".bk_btn");
 		doingReservationBtn.addEventListener("click", function(){
 			var disolayInfoId = displayInfoResponse.displayInfo.displayInfoId;
-			location.href = "/reservations/" + disolayInfoId;
+			location.href = "/products/" + disolayInfoId + "/reservation";
 		});
 	})();
 	

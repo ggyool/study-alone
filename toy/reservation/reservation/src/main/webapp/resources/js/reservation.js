@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		var locationPath = location.pathname;
 		var list = locationPath.split('/');
 		list = list.filter(s=>s); // 비어있는것을 버린다.
-		var url = "/api/products/" + list[list.length - 1];
+		var url = "/api/products/" + list[list.length - 2];
 		fetch(url).then(function(response){
 			if(response.status===200 || response.status===201){
 				return response.json();

@@ -1,20 +1,31 @@
 package org.ggyool.reservation.controller;
 
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.ggyool.reservation.entity.ProductEntity;
+import org.ggyool.reservation.service.ProductService;
+import org.ggyool.reservation.service.ReservationInfoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 @Controller
 @RequestMapping(path="reservations")
 public class ReservationController {
 	
-	@GetMapping("/{displayInfoId}")
-	public String doingReservation() {
-		return "reservation";
-	}
+	@Autowired
+	ProductService productService;
+	@Autowired
+	ReservationInfoService reservationInfoService;
 	
 	@GetMapping(path="/me")
 	public String myReservation(HttpSession session, Model model) {
@@ -22,5 +33,27 @@ public class ReservationController {
 		if(sessionEmail!=null) model.addAttribute("sessionEmail", sessionEmail);
 		return "myreservation";
 	}
+	
+	
+	// productId를 주소에서 숨기기 위해 redirect 하였음 
+	@GetMapping("/{reservationInfoId}/review")
+	public String productReviewWrite(HttpServletRequest request, ModelMap model,
+			@PathVariable Integer reservationInfoId) {
+		Map<String,?> flashMap = RequestContextUtils.getInputFlashMap(request);
+		Integer productId = (Integer)flashMap.get("productId");
+		ProductEntity productEntity = productService.get(productId);
+		String productDescription = productEntity.getDescription();
+		model.addAttribute("productDescription", productDescription);  
+		return "reviewwrite"; 
+	}
+	
+	@GetMapping("/{reservationInfoId}/review/{productId}")
+	public String passProductReviewWrite(RedirectAttributes rttr,
+			@PathVariable("reservationInfoId") Integer reservationInfoId,
+			@PathVariable("productId") Integer productId) {
+		rttr.addFlashAttribute("productId", productId);
+		return "redirect:/reservations/"+reservationInfoId+"/review";
+	}
+	
 	
 }

@@ -27,7 +27,7 @@
 		<div class="ct">
 			<div class="ct_wrap">
 				<div class="top_title review_header">
-					<a href="./myreservation.html" class="btn_back" title="이전 화면으로 이동"> <i class="fn fn-backward1"></i> </a>
+					<a href="/reservations/me" class="btn_back" title="이전 화면으로 이동"> <i class="fn fn-backward1"></i> </a>
 					<h2><span class="title">${productDescription}</span></h2>
 				</div>
 				<!-- 리뷰 별점 -->
@@ -76,7 +76,7 @@
 							<i class="fn fn-image1" aria-hidden="true"></i>
 							<span class="text_add_photo">사진 추가</span>
 						</label>
-						<input type="file" class="hidden_input" id="reviewImageFileOpenInput" accept="image/*" multiple>
+						<input type="file" class="hidden_input" id="reviewImageFileOpenInput" accept="imagejpg, image/png">
 						<div class="guide_review">
 							<span>0</span>/400
 							<span>(최소5자이상)</span>
@@ -87,13 +87,7 @@
 					<div class="review_photos review_photos_write">
 						<div class="item_preview_thumbs">
 							<ul class="lst_thumb">
-								<li class="item" style="display: none;">
-									<a href="#" class="anchor">
-										<span class="spr_book ico_del">삭제</span>
-									</a>
-									<img src="http://naverbooking.phinf.naver.net/20170306_3/1488772023601A4195_JPEG/image.jpg?type=f300_300" width="130" alt="" class="item_thumb">
-									<span class="img_border"></span>
-								</li>
+								
 							</ul>
 						</div>
 					</div>
@@ -119,6 +113,16 @@
 			<span class="copyright">© NAVER Corp.</span>
 		</div>
 	</footer>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"></script>
+	<script type="text/template" id="imageItem">
+		<li class="item">
+			<a class="anchor">
+				<span class="spr_book ico_del">삭제</span>
+			</a>
+			<img src="{{imageURL}}" width="130" alt="" class="item_thumb">
+			<span class="img_border"></span>
+		</li>
+	</script>
 	<script src="/resources/js/reviewwrite.js"></script>
 </body>
 </html>

@@ -58,18 +58,22 @@ document.addEventListener("DOMContentLoaded", function(){
 			if(hasClassName(scoreLabel, "gray_star"))
 				deleteClassName(scoreLabel, "gray_star");
 			scoreLabel.innerText = this.curScore;
+		},
+		getScore : function(){
+			return this.curScore;
 		}
 	};
 	
 	function ReviewWrite(){
+		this.MIN_LENGTH = 5;
+		this.MAX_LENGTH = 400;
 		this.init();
 		this.registerEvent();
 	}
 	ReviewWrite.prototype = {
 		init : function(){
 			var textArea = document.querySelector(".review_textarea");
-			textArea.minLength = 5;
-			textArea.maxLength = 400;
+			textArea.maxLength = this.MAX_LENGTH;
 		},
 		registerEvent : function(){
 			var info = document.querySelector(".review_write_info");
@@ -82,23 +86,96 @@ document.addEventListener("DOMContentLoaded", function(){
 					textArea.focus();
 				}
 			});
-			
 			textArea.addEventListener("input", function(evt){
 				textCountLabel.innerText = textArea.textLength;
+			});
+			// focus 를 잃었을 때
+			textArea.addEventListener("blur", function(evt){
 				if(textArea.textLength == 0){
 					info.style.display = "block";	
 				}
 			});
+		},
+		getText : function(){
+			var textArea = document.querySelector(".review_textarea");
+			return textArea.value;
+		},
+		getMinLength : function(){
+			return this.MIN_LENGTH;
+		}
+	};
+	
+	function ReviewImage(){
+		this.registerEvent();
+	}
+	ReviewImage.prototype = {
+		registerEvent : function(){
+			var fileInput = document.querySelector("#reviewImageFileOpenInput");
+			var imageContainer = document.querySelector(".review_photos .lst_thumb");
+			fileInput.addEventListener("change", function(evt){
+				const image = evt.target.files[0];	
+				var template = document.querySelector("#imageItem").innerText;
+				var bindingTemplate = Handlebars.compile(template);
+				imageContainer.innerHTML = bindingTemplate({imageURL: window.URL.createObjectURL(image)}); 
+			});
+			
+			imageContainer.addEventListener("click", function(evt){
+				if(evt.target.className === "spr_book ico_del"){
+					imageContainer.innerHTML = "";
+				}
+			});
+		}
+	};
+	
+	function SubmitButton(rating, reviewWrite, reviewImage){
+		this.registerEvent(rating, reviewWrite, reviewImage);
+	}
+	SubmitButton.prototype = {
+		registerEvent : function(rating, reviewWrite, reviewImage){
+			var btn = document.querySelector(".box_bk_btn .bk_btn");
+			btn.addEventListener("click", function(){
+				var errorMsg = this.checkValidation(rating, reviewWrite);
+				if(errorMsg != null){
+					alert(errorMsg);
+				}else{
+					
+				}
+			}.bind(this));
+		},
+		checkValidation : function(rating, reviewWrite){
+			var score = parseInt(rating.getScore());
+			if(score===0) {
+				return "별점을 등록하세요.";
+			}
+			var text = reviewWrite.getText().trim();
+			// 앞 뒤 trim, g(global)
+			text = text.replace(/(^\s*)|(\s*$)/g, "");
+			// 변수를 사용하려고 new 로 생성 
+			var re = new RegExp('.{'+reviewWrite.getMinLength()+'}');
+			if(!re.test(text)){
+				return "글자수가 너무 짧습니다.";
+			}
+			return null;
+		}, 
+		makeForm : function(rating, reviewWrite, reviewImage){
+			var form = document.createElement("form");
+			var locationPath = location.pathname;
+			var list = locationPath.split('/');
+			list = list.filter(s=>s); // 비어있는것을 버린다.
+			var reservationInfoId = parseInt(list[list.length - 2]);
 		}
 	};
 	
 	(function main(){
 		// 주소창 입력으로 들어온 경우
 		if(!document.referrer){
+			alert("잘못된 접근입니다.");
 			history.back();
 		}
 		var rating = new Rating();
 		var reviewWrite = new ReviewWrite();
+		var reviewImage = new ReviewImage();
+		var submitButton = new SubmitButton(rating, reviewWrite, reviewImage);
 	})();
 
 })

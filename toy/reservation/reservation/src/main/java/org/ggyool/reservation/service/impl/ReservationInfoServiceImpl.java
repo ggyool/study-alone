@@ -23,14 +23,14 @@ public class ReservationInfoServiceImpl implements ReservationInfoService{
 	@Transactional(propagation=Propagation.REQUIRED)
 	public ReservationInfoEntity addReservationInfo(ReservationParamDTO reservationParamDTO) {
 		try {
-			ReservationInfoEntity reservationInfoVO = new ReservationInfoEntity(reservationParamDTO);
-			reservationInfoVO.setReservationDate(generateReservatioDate(reservationParamDTO.getReservationYearMonthDay()));
+			ReservationInfoEntity reservationInfoEntity = new ReservationInfoEntity(reservationParamDTO);
+			reservationInfoEntity.setReservationDate(generateReservatioDate(reservationParamDTO.getReservationYearMonthDay()));
 			Date currentDate = new Date();
-			reservationInfoVO.setModifyDate(currentDate);
-			reservationInfoVO.setCreateDate(currentDate);
-			Integer id = reservationInfoDAO.insert(reservationInfoVO);
-			reservationInfoVO.setReservationInfoId(id);
-			return reservationInfoVO;
+			reservationInfoEntity.setModifyDate(currentDate);
+			reservationInfoEntity.setCreateDate(currentDate);
+			Integer id = reservationInfoDAO.insert(reservationInfoEntity);
+			reservationInfoEntity.setReservationInfoId(id);
+			return reservationInfoEntity;
 		}catch(Exception e){
 			throw new RuntimeException(e);
 		}

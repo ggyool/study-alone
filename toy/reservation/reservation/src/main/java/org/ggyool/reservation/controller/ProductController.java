@@ -54,13 +54,10 @@ public class ProductController {
 		return "review";
 	}
 	
-	@GetMapping("/{productId}/review")
-	public String productReviewWrite(ModelMap model,
-			@PathVariable Integer productId) {
-		ProductEntity productEntity = productService.get(productId);
-		String productDescription = productEntity.getDescription();
-		model.addAttribute("productDescription", productDescription);  
-		return "reviewwrite"; 
+	
+	@GetMapping("/{displayInfoId}/reservation")
+	public String doingReservation() {
+		return "reservation";
 	}
 }
 
