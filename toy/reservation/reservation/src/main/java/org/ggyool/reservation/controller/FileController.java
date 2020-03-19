@@ -28,13 +28,15 @@ public class FileController {
 	ProductImageService ProductImageService;
 	@Autowired
 	DisplayInfoImageService displayInfoImageService;
+	private final String FILE_PATH = "/Users/ggyool/tmp/";
+	
 	
 	@GetMapping("/comment-image/{commentImageId}")
 	public void commentImageDownload(@PathVariable("commentImageId") Integer commentImageId,
 			HttpServletResponse response) {
 		CommentImageVO commentImageVO = commentImageService.getById(commentImageId);
 		String fileName = commentImageVO.getFileName();
-		String saveFileName = "/tmp/" + commentImageVO.getSaveFileName();
+		String saveFileName = FILE_PATH + commentImageVO.getSaveFileName();
 		String contentType = commentImageVO.getContentType();
 		File file = new File(saveFileName);
 		int fileLength = (int)file.length();
@@ -65,7 +67,7 @@ public class FileController {
 			HttpServletResponse response) {
 		ProductImageDTO productImageDTO = ProductImageService.getThumbnailImage(productId);
 		String fileName = productImageDTO.getFileName();
-		String saveFileName = "/tmp/" + productImageDTO.getSaveFileName();
+		String saveFileName = FILE_PATH + productImageDTO.getSaveFileName();
 		String contentType = productImageDTO.getContentType();
 		File file = new File(saveFileName);
 		int fileLength = (int)file.length();
@@ -96,7 +98,7 @@ public class FileController {
 			HttpServletResponse response) {
 		ProductImageDTO productImageDTO = ProductImageService.get(productImageId);
 		String fileName = productImageDTO.getFileName();
-		String saveFileName = "/tmp/" + productImageDTO.getSaveFileName();
+		String saveFileName = FILE_PATH + productImageDTO.getSaveFileName();
 		String contentType = productImageDTO.getContentType();
 		File file = new File(saveFileName);
 		int fileLength = (int)file.length();
@@ -127,7 +129,7 @@ public class FileController {
 			HttpServletResponse response) {
 		DisplayInfoImageDTO displayInfoImageDTO = displayInfoImageService.getImage(displayInfoId);
 		String fileName = displayInfoImageDTO.getFileName();
-		String saveFileName = "/tmp/" + displayInfoImageDTO.getSaveFileName();
+		String saveFileName = FILE_PATH + displayInfoImageDTO.getSaveFileName();
 		String contentType = displayInfoImageDTO.getContentType();
 		File file = new File(saveFileName);
 		int fileLength = (int)file.length();

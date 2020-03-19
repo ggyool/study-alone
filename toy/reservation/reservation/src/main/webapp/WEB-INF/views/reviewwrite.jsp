@@ -29,6 +29,7 @@
 				<div class="top_title review_header">
 					<a href="/reservations/me" class="btn_back" title="이전 화면으로 이동"> <i class="fn fn-backward1"></i> </a>
 					<h2><span class="title">${productDescription}</span></h2>
+					<div id="productId" style="display:none">${productId}</div>
 				</div>
 				<!-- 리뷰 별점 -->
 				<div class="write_act">

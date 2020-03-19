@@ -40,10 +40,15 @@ public class ReservationController {
 	public String productReviewWrite(HttpServletRequest request, ModelMap model,
 			@PathVariable Integer reservationInfoId) {
 		Map<String,?> flashMap = RequestContextUtils.getInputFlashMap(request);
+		// redirect로 접근하지 않은 경우
+		if(flashMap==null) {
+			return "redirect:/reservations/me";
+		}
 		Integer productId = (Integer)flashMap.get("productId");
-		ProductEntity productEntity = productService.get(productId);
+		ProductEntity productEntity = productService.get((Integer)productId);
 		String productDescription = productEntity.getDescription();
-		model.addAttribute("productDescription", productDescription);  
+		model.addAttribute("productDescription", productDescription);
+		model.addAttribute("productId", productId);
 		return "reviewwrite"; 
 	}
 	

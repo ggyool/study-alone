@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function(){
 				}
 			});
 		},
-		getText : function(){
+		getComment : function(){
 			var textArea = document.querySelector(".review_textarea");
 			return textArea.value;
 		},
@@ -122,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			imageContainer.addEventListener("click", function(evt){
 				if(evt.target.className === "spr_book ico_del"){
 					imageContainer.innerHTML = "";
+					fileInput.value = "";
 				}
 			});
 		}
@@ -138,7 +139,10 @@ document.addEventListener("DOMContentLoaded", function(){
 				if(errorMsg != null){
 					alert(errorMsg);
 				}else{
-					
+					var form = this.makeForm(rating, reviewWrite, reviewImage);
+					// form 동적 생성시 body에 추가해야한다.
+					document.body.appendChild(form);
+					form.submit();
 				}
 			}.bind(this));
 		},
@@ -147,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			if(score===0) {
 				return "별점을 등록하세요.";
 			}
-			var text = reviewWrite.getText().trim();
+			var text = reviewWrite.getComment().trim();
 			// 앞 뒤 trim, g(global)
 			text = text.replace(/(^\s*)|(\s*$)/g, "");
 			// 변수를 사용하려고 new 로 생성 
@@ -163,7 +167,30 @@ document.addEventListener("DOMContentLoaded", function(){
 			var list = locationPath.split('/');
 			list = list.filter(s=>s); // 비어있는것을 버린다.
 			var reservationInfoId = parseInt(list[list.length - 2]);
+			var productId = parseInt(document.querySelector("#productId").innerText);
+			var comment = reviewWrite.getComment();
+			var score = rating.getScore();
+			var fileInput = document.querySelector("#reviewImageFileOpenInput");
+			fileInput.setAttribute("name", "attachedImage");
+			form.setAttribute("charset", "UTF-8");
+			form.setAttribute("method", "POST");
+			form.setAttribute("action", `/api/reservations/${reservationInfoId}/comments`);
+			form.setAttribute("enctype", "multipart/form-data");
+			
+			form.appendChild(fileInput);
+			form.appendChild(this.addInput("productId", productId));
+			form.appendChild(this.addInput("comment", comment));
+			form.appendChild(this.addInput("score", score));
+			return form;
+		},
+		addInput : function(name, value){
+			var elem = document.createElement("input");
+			elem.setAttribute("type", "hidden");
+			elem.setAttribute("name", name);
+			elem.setAttribute("value", value);
+			return elem;
 		}
+		
 	};
 	
 	(function main(){
