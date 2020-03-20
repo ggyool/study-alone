@@ -139,10 +139,20 @@ document.addEventListener("DOMContentLoaded", function(){
 				if(errorMsg != null){
 					alert(errorMsg);
 				}else{
-					var form = this.makeForm(rating, reviewWrite, reviewImage);
-					// form 동적 생성시 body에 추가해야한다.
-					document.body.appendChild(form);
-					form.submit();
+					// 처음에는 동적 form 생성해서 submit 했으나, response 받을 수 없어서 바꿨다.
+					var xhr = new XMLHttpRequest();
+					xhr.onload = function(){
+						if (xhr.status === 200 || xhr.status === 201) {	  
+							alert("리뷰 등록에 성공했습니다.");
+							location.href = "/reservations/me";
+						}else{
+							alert("리뷰 등록에 실패했습니다. 잠시 후 다시 시도하세요.");
+						}
+					};
+					var formData = this.makeFormData(rating, reviewWrite, reviewImage);
+					xhr.open("POST", this.makeRequestURL());
+					xhr.setRequestHeader("enctype", "multipart/form-data");
+					xhr.send(formData);
 				}
 			}.bind(this));
 		},
@@ -161,34 +171,24 @@ document.addEventListener("DOMContentLoaded", function(){
 			}
 			return null;
 		}, 
-		makeForm : function(rating, reviewWrite, reviewImage){
-			var form = document.createElement("form");
-			var locationPath = location.pathname;
-			var list = locationPath.split('/');
-			list = list.filter(s=>s); // 비어있는것을 버린다.
-			var reservationInfoId = parseInt(list[list.length - 2]);
+		makeFormData : function(rating, reviewWrite, reviewImage){
+			var formData = new FormData();
 			var productId = parseInt(document.querySelector("#productId").innerText);
 			var comment = reviewWrite.getComment();
 			var score = rating.getScore();
 			var fileInput = document.querySelector("#reviewImageFileOpenInput");
-			fileInput.setAttribute("name", "attachedImage");
-			form.setAttribute("charset", "UTF-8");
-			form.setAttribute("method", "POST");
-			form.setAttribute("action", `/api/reservations/${reservationInfoId}/comments`);
-			form.setAttribute("enctype", "multipart/form-data");
-			
-			form.appendChild(fileInput);
-			form.appendChild(this.addInput("productId", productId));
-			form.appendChild(this.addInput("comment", comment));
-			form.appendChild(this.addInput("score", score));
-			return form;
+			if(fileInput.value) formData.append("attachedImage", fileInput.files[0]);
+			formData.append("productId", productId);
+			formData.append("comment", comment);
+			formData.append("score", score);
+			return formData;
 		},
-		addInput : function(name, value){
-			var elem = document.createElement("input");
-			elem.setAttribute("type", "hidden");
-			elem.setAttribute("name", name);
-			elem.setAttribute("value", value);
-			return elem;
+		makeRequestURL : function(){
+			var locationPath = location.pathname;
+			var list = locationPath.split('/');
+			list = list.filter(s=>s); // 비어있는것을 버린다.
+			var reservationInfoId = parseInt(list[list.length - 2]);
+			return `/api/reservations/${reservationInfoId}/comments`;
 		}
 		
 	};

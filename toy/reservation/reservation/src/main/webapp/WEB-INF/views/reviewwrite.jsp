@@ -77,7 +77,7 @@
 							<i class="fn fn-image1" aria-hidden="true"></i>
 							<span class="text_add_photo">사진 추가</span>
 						</label>
-						<input type="file" class="hidden_input" id="reviewImageFileOpenInput" accept="imagejpg, image/png">
+						<input type="file" class="hidden_input" id="reviewImageFileOpenInput" accept="image/jpg, image/png">
 						<div class="guide_review">
 							<span>0</span>/400
 							<span>(최소5자이상)</span>

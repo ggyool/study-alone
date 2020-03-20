@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", function(){
 			var starGraph = document.querySelector(".grade_area .graph_value");
 			var gradeLabel = document.querySelector(".grade_area .text_value span");
 			starGraph.style.width = `${averageScore*20}%`;
-			gradeLabel.innerText = averageScore;
+			gradeLabel.innerText = averageScore.toFixed(1);
 		},
 		commentLoad : function(){
 			var commentList = displayInfoResponse.comments;

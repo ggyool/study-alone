@@ -57,26 +57,35 @@ public class ReservationApiController {
 			@RequestParam Integer productId,
 			@RequestParam Integer score,
 			@PathVariable Integer reservationInfoId) {
-		String folderName = makeFolderName();
-		String savePath = "img/";
-		String fileName = productId.toString() + '_' + reservationInfoId.toString() + '_' + file.getOriginalFilename();
-		File folder = new File(DEFAULT_PATH + savePath + folderName);
-		if(!folder.exists()) {
-			folder.mkdir();
-		}
-		String saveFileName = savePath + folderName + '/' + fileName;
-		try(
-			FileOutputStream fos = new FileOutputStream(DEFAULT_PATH  + saveFileName);
-			InputStream is = file.getInputStream();		
-		) {
-			int readCount = 0;
-			byte[] buffer = new byte[1024];
-			while((readCount=is.read(buffer)) != -1) {
-				fos.write(buffer, 0, readCount);
+//		System.out.println(file);
+//		System.out.println(comment);
+//		System.out.println(productId);
+//		System.out.println(reservationInfoId);
+//		System.out.println(score);
+		String fileName = null;
+		String saveFileName = null;
+		if(file != null) {
+			String folderName = makeFolderName();
+			String savePath = "img/";
+			fileName = productId.toString() + '_' + reservationInfoId.toString() + '_' + file.getOriginalFilename();
+			File folder = new File(DEFAULT_PATH + savePath + folderName);
+			if(!folder.exists()) {
+				folder.mkdir();
 			}
-		}
-		catch(Exception ex) {
-			throw new RuntimeException();
+			saveFileName = savePath + folderName + '/' + fileName;
+			try(
+				FileOutputStream fos = new FileOutputStream(DEFAULT_PATH  + saveFileName);
+				InputStream is = file.getInputStream();		
+			) {
+				int readCount = 0;
+				byte[] buffer = new byte[1024];
+				while((readCount=is.read(buffer)) != -1) {
+					fos.write(buffer, 0, readCount);
+				}
+			}
+			catch(Exception ex) {
+				throw new RuntimeException();
+			}
 		}
 		
 		ReservationUserCommentEntity reservationUserCommentEntity = new ReservationUserCommentEntity();
@@ -85,7 +94,7 @@ public class ReservationApiController {
 		reservationUserCommentEntity.setScore((double)score);
 		reservationUserCommentEntity.setReservationInfoId(reservationInfoId);
 		CommentResponseDTO commentResponseDTO = new CommentResponseDTO();
-		if(file.isEmpty()) {
+		if(file==null) {
 			commentResponseDTO = commentService.addReservation(reservationUserCommentEntity);
 		}
 		else {
