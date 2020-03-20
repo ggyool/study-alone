@@ -9,7 +9,7 @@ public class FileInfoEntity {
 	private String fileName;
 	private String saveFileName;
 	private String contentType;
-	private Integer deleteFlag;
+	private Boolean deleteFlag;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
 	private Date createDate;
 	@JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
@@ -38,10 +38,10 @@ public class FileInfoEntity {
 	public void setContentType(String contentType) {
 		this.contentType = contentType;
 	}
-	public Integer getDeleteFlag() {
+	public Boolean getDeleteFlag() {
 		return deleteFlag;
 	}
-	public void setDeleteFlag(Integer deleteFlag) {
+	public void setDeleteFlag(Boolean deleteFlag) {
 		this.deleteFlag = deleteFlag;
 	}
 	public Date getCreateDate() {
@@ -58,8 +58,8 @@ public class FileInfoEntity {
 	}
 	@Override
 	public String toString() {
-		return "FileInfoEntity [id=" + id + ", fileName=" + fileName + ", saveFileName=" + saveFileName + ", contentType="
-				+ contentType + ", deleteFlag=" + deleteFlag + ", createDate=" + createDate + ", modifyDate="
-				+ modifyDate + "]";
+		return "FileInfoEntity [id=" + id + ", fileName=" + fileName + ", saveFileName=" + saveFileName
+				+ ", contentType=" + contentType + ", deleteFlag=" + deleteFlag + ", createDate=" + createDate
+				+ ", modifyDate=" + modifyDate + "]";
 	}
 }

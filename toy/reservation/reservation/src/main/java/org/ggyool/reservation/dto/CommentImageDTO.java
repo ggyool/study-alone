@@ -2,6 +2,9 @@ package org.ggyool.reservation.dto;
 
 import java.util.Date;
 
+import org.ggyool.reservation.entity.FileInfoEntity;
+import org.ggyool.reservation.entity.ReservationUserCommentImageEntity;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class CommentImageDTO {
@@ -17,6 +20,21 @@ public class CommentImageDTO {
 	private Integer reservationInfoId;
 	private Integer reservationUserCommentId;
 	private String saveFileName;
+	CommentImageDTO(){
+		
+	}
+	public CommentImageDTO(ReservationUserCommentImageEntity reservationUserCommentImageEntity, FileInfoEntity fileInfoEntity){
+		this.contentType = fileInfoEntity.getContentType();
+		this.createDate = fileInfoEntity.getCreateDate();
+		this.deleteFlag = fileInfoEntity.getDeleteFlag();
+		this.fileId = fileInfoEntity.getId();
+		this.fileName = fileInfoEntity.getFileName();
+		this.imageId = reservationUserCommentImageEntity.getId();
+		this.modifyDate = fileInfoEntity.getModifyDate();
+		this.reservationInfoId = reservationUserCommentImageEntity.getReservationInfoId();
+		this.reservationUserCommentId = reservationUserCommentImageEntity.getReservationUserCommentId();
+		this.saveFileName = fileInfoEntity.getSaveFileName();
+	}
 	public String getContentType() {
 		return contentType;
 	}

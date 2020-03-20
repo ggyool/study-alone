@@ -2,6 +2,8 @@ package org.ggyool.reservation.dto;
 
 import java.util.Date;
 
+import org.ggyool.reservation.entity.ReservationUserCommentEntity;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class CommentResponseDTO {
@@ -14,7 +16,25 @@ public class CommentResponseDTO {
 	private Date modifyDate;
 	private Integer productId;
 	private Integer reservationInfoId;
-	private Integer Score;
+	private Integer score;
+	public CommentResponseDTO() {
+		
+	}
+	public CommentResponseDTO(ReservationUserCommentEntity reservationUserCommentEntity) {
+		this.comment = reservationUserCommentEntity.getComment();
+		this.commentId = reservationUserCommentEntity.getId();
+		this.createDate = reservationUserCommentEntity.getCreateDate();
+		this.modifyDate = reservationUserCommentEntity.getModifyDate();
+		this.productId = reservationUserCommentEntity.getProductId();
+		this.reservationInfoId = reservationUserCommentEntity.getReservationInfoId();
+		this.score = reservationUserCommentEntity.getScore().intValue();
+		this.commentImage = null;
+	}
+	public CommentResponseDTO(ReservationUserCommentEntity reservationUserCommentEntity, CommentImageDTO commentImage) {
+		this(reservationUserCommentEntity);
+		this.commentImage = commentImage;
+	}
+	
 	public String getComment() {
 		return comment;
 	}
@@ -58,15 +78,15 @@ public class CommentResponseDTO {
 		this.reservationInfoId = reservationInfoId;
 	}
 	public Integer getScore() {
-		return Score;
+		return score;
 	}
 	public void setScore(Integer score) {
-		Score = score;
+		this.score = score;
 	}
 	@Override
 	public String toString() {
 		return "CommentResponseDTO [comment=" + comment + ", commentId=" + commentId + ", commentImage=" + commentImage
 				+ ", createDate=" + createDate + ", modifyDate=" + modifyDate + ", productId=" + productId
-				+ ", reservationInfoId=" + reservationInfoId + ", Score=" + Score + "]";
-	} 
+				+ ", reservationInfoId=" + reservationInfoId + ", score=" + score + "]";
+	}
 }

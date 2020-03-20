@@ -38,7 +38,7 @@ public class ReservationInfoServiceImpl implements ReservationInfoService{
 	
 	// 입력 시간으로 부터 1~5일후를 공연일으로 생성
 	public Date generateReservatioDate(Date date) {
-		Calendar calendar = Calendar.getInstance(); 
+		Calendar calendar = Calendar.getInstance();
 		calendar.setTime(date);
 		Integer addSecond = 60*60*24 + (int)(Math.random() * 4*60*60*24);  
 		calendar.add(Calendar.SECOND, addSecond);
