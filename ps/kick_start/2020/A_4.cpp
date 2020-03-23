@@ -12,7 +12,7 @@ vector<bool> visited;
 vector<int> pv;
 
 int calc(){
-    
+
 }
 
 void pick(int idx, int pickn){

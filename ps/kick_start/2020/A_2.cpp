@@ -54,25 +54,3 @@ int main(void){
     return 0;
 }
 
-
-
-int pick(int idx, int remain){
-    if(remain == 0){
-        return 0;
-    }
-    if(idx>n){
-        return small;
-    }
-    int &ret = dp[idx][remain];
-    if(ret != -1) return ret;
-    ret = small;
-    for(int i=0; i<=k; ++i){
-        ret = ret(max, pick(idx+1, remain - i) + psum[idx][i]);
-    }
-    return ret;
-}
-
-
-80 80
-15 50
-20 10

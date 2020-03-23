@@ -32,11 +32,6 @@ int main(void){
                 pq.push(maxval/2);
                 pq.push(maxval-(maxval/2));
             }
-
-            Abc a = Abc();
-            Abc b  = Abc();
-            a<b
-            a.operator<(b);
         }
         cout << "Case #" + to_string(t) + ": " + to_string(pq.top()) << '\n'; 
     }
