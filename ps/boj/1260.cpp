@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <vector>
 #include <queue>
+#include <stack>
 using namespace std;
 
 int n,m,start;
@@ -16,6 +17,29 @@ void dfs(int cur){
             visited[next] = true;
             cout << next << ' ';
             dfs(next);
+        }
+    }
+}
+
+void dfsUsingStack(int start){
+    stack<pair<int, int>> stk;
+    stk.push({start,0});
+    visited[start] = true;
+    cout << start << ' ';
+    while(!stk.empty()){
+        int cur = stk.top().first;
+        int start = stk.top().second;
+        stk.pop();
+        int vlen = v[cur].size();
+        for(int i=start; i<vlen; ++i){
+            int next = v[cur][i];
+            if(!visited[next]){
+                cout << next << ' ';
+                visited[next] = true;
+                stk.push({cur, i+1}); // 돌던거 
+                stk.push({next, 0}); // 새로운 노드
+                break;
+            }
         }
     }
 }
@@ -56,12 +80,11 @@ int main(void){
     for(int i=1; i<=n; ++i){
         sort(v[i].begin(), v[i].end());
     }
-    visited[start] = true;
-    cout << start << ' ';
-    dfs(start);
+    
+    dfsUsingStack(start);
     cout << '\n';
 
-    visited = vector<bool>(n+1, false);
+    visited = vector<bool>(n+1, false); 
     bfs(start);
     return 0;
 }
