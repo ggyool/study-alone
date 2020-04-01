@@ -46,7 +46,6 @@ int main(void){
     int cnt = 0;
     for(int i=0; i<=r-3; ++i){
         for(int j=0; j<=c-3; ++j){
-            cout << i << ' ' << j << '\n';
             if(arr[i][j] != ans[i][j]){
                 swap(i,j);
                 ++cnt;
