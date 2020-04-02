@@ -80,6 +80,8 @@
         "optional": "cpp",
         "ratio": "cpp",
         "sstream": "cpp",
-        "string_view": "cpp"
+        "string_view": "cpp",
+        "unordered_set": "cpp",
+        "thread": "cpp"
     }
 }
