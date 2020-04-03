@@ -5,6 +5,8 @@
 using namespace std;
 
 
+// 1780.cpp 이 느린이유가 부가 연산이 많아서라고 생각하여
+// 개선히려 노력했으나 비슷하게 느림
 int n;
 int arr[2188][2188];
 int dp[2188][2188][8];
@@ -12,13 +14,6 @@ int dp[2188][2188][8];
 int ans[3];
 int log3[2188];
 
-void eachSum(int y, int x){
-    for(int i=0; i<3; ++i){
-        for(int j=0; j<3; ++j){
-            ++ans[arr[y+i][x+j]+1];
-        }
-    }
-}
 
 int check(int y, int x, int s){
     if(s==1) return arr[y][x];
