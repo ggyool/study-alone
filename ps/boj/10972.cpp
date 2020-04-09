@@ -1,10 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <string>
 using namespace std;
-
-int cnt = 1;
 
 void swap(int &refa, int &refb){
     int tmp = refa;
@@ -30,7 +27,6 @@ bool nextPermutation(vector<int> &v){
                     // while(k<l){
                     //     swap(v[k++], v[l--]);
                     // }
-                    ++cnt;
                     return true;
                 }
             }
@@ -39,24 +35,23 @@ bool nextPermutation(vector<int> &v){
     return false;
 }
 
-
-int main(void)
-{
+int main(void){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-    const int N = 5;
+    int n;
     vector<int> v;
-    for(int i=1; i<=N; ++i){
-        v.push_back(i);
+    cin >> n;
+    for(int i=0; i<n; ++i){
+        int num;
+        cin >> num;
+        v.push_back(num);
     }
-    do{
-        for(int i=0; i<N; ++i){
+    if(!nextPermutation(v)) cout << -1;
+    else{
+        for(int i=0; i<n; ++i){
             cout << v[i] << ' ';
         }
-        cout << '\n';
-    }while(nextPermutation(v));
-    //while(next_permutation(v.begin(), v.end()));
-    cout << cnt;
+    }
     return 0;
 }
