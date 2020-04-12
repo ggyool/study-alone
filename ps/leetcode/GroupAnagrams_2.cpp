@@ -14,16 +14,17 @@ public:
         int arr[26];
         for(int i=0; i<slen; ++i){
             memset(arr, 0, sizeof(arr));
-            for(char c : strs[i]){
+            for(char &c : strs[i]){
                 ++arr[c-'a'];
             }
             string key = "";
             for(int i=0; i<26; ++i){
                 string tmp = to_string(arr[i]);
-                int tlen = tmp.size();
-                for(int j=0; j<tlen; ++j){
-                    key.push_back(tmp[j]);
-                }
+                //int tlen = tmp.size();
+                key += tmp;
+                // for(int j=0; j<tlen; ++j){
+                //     key.push_back(tmp[j]);
+                // }
                 key.push_back(',');
             }
             auto iter = mp.find(key);
