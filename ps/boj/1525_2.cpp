@@ -5,26 +5,22 @@
 #include <cstring>
 using namespace std;
 
-const int dx[4] = {1,-1,3,-3};
+const int dx[4] = {1,0,-1,0};
+const int dy[4] = {0,1,0,-1};
 int dist[362880];
 int sequence[362880];
 int fact[10];
 int sq[10];
 
+// 개선
 int swapDigit(int n, int i, int j){
-    int maxi = max(i,j);
-    int mini = min(i,j);
-    // min~max 사이
-    int ret = n%sq[maxi];
-    ret = (ret/sq[mini+1]*sq[mini+1]);
-    // min 뒤
-    ret += n%sq[mini];
-    // max 앞
-    ret += n/sq[maxi+1]*sq[maxi+1];
-    // min max swap
-    int minv = n/sq[mini]%10;
-    int maxv = n/sq[maxi]%10;
-    ret += (maxv*sq[mini] + minv*sq[maxi]);
+    int ret = n;
+    int iv = n/sq[i]%10;
+    int jv = n/sq[j]%10;
+    ret -= iv*sq[i];
+    ret += jv*sq[i];
+    ret -= jv*sq[j];
+    ret += iv*sq[j];
     return ret;
 }
 
@@ -39,8 +35,9 @@ int findZero(int n){
     return i;
 }
 
-bool inRange(int i){
-    if(i<0 || i>8) return false;
+// 개선
+bool inRange(int y, int x){
+    if(y<0 || x<0 || y>2 || x>2) return false;
     return true;
 }
 
@@ -73,19 +70,13 @@ int bfs(int start){
         if(cidx==eidx) return dist[cidx];
         q.pop();
         int zero = findZero(cur);
+        int zy = zero/3;
+        int zx = zero%3;
         for(int i=0; i<4; ++i){
-            int target = zero+dx[i];
-            /*
-            8 7 6
-            5 4 3
-            2 1 0
-            */
-            // 오른쪽이면 오른쪽으로 못가게
-            // 왼쪽이면 왼쪽으로 못가게
-            if(zero%3==0 && dx[i]==-1) continue;
-            if((zero+1)%3==0 && dx[i]==1) continue;
-            if(inRange(target)){
-                int next = swapDigit(cur, zero, target);
+            int ny = zy + dy[i];
+            int nx = zx + dx[i];
+            if(inRange(ny,nx)){
+                int next = swapDigit(cur, zero, ny*3+nx);
                 int nidx = getSequence(next);
                 if(dist[nidx]==-1){
                     dist[nidx] = dist[cidx] + 1;
@@ -117,5 +108,3 @@ int main(void){
     cout << bfs(start);
     return 0;
 }
-
-
