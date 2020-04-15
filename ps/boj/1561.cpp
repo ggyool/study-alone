@@ -24,6 +24,7 @@ bool isAble(ll time){
 // n이 22에서 딱 맞춰지리란 보장이 없고 21->23 이 될 수도 
 // 명 수를 구해서 뒤에서 부터 몇 번째 인덱스인지 찾으면 된다.
 int solve(){
+    // 실수 하기 좋다
     if(n<=m) return n-1;
     ll left = 1;
     ll right = 2*30*(ll)1e9;
