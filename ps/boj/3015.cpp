@@ -10,39 +10,42 @@ typedef long long ll;
 int n;
 vector<int> v;
 
+/*
+2 4 1 2 e 5 1
+stk		 pair
+4       2,4
+4 1     4,1
+4 2		 1,2  4,2
+4 e		 4, e
+5		 e,5 2,e 2,5 4,5
+5 1     5.1
+*/
 
 // 큰게 나오면 스택을 비운다. (왼쪽은 버린다)
 // 기본 아이디어는 단순한데
 // 같은 높이의 처리 때문에 까다로워지는 문제
 // 같은게 연속으로 오면 second 1씩 더한다.
+// 같은거 뺄 생각 안하면 구현어렵다.
 ll solve(){
     ll ret = 0;
     // idx, sameCount
     stack<pair<int, int>> stk;
     for(int i=0; i<n; ++i){ 
-        if(i!=0) ++ret;
         if(stk.empty()){
-            stk.push({i, 0});
+            stk.push({i, 1});
         }
         else{
-            while(!stk.empty() && v[stk.top().first]<v[i]){
-                if(i-stk.top().first > 1) ++ret;
-                if(stk.top().second>=2) ret += stk.top().second;
+            int seqCnt = 1;
+            while(!stk.empty() && v[stk.top().first]<=v[i]){
+                ret += stk.top().second;
+                if(v[stk.top().first] == v[i]) seqCnt = stk.top().second + 1;
                 stk.pop();
             }
-            int seqCnt = 0;
-            if(!stk.empty()) {
-                if(v[stk.top().first] == v[i])
-                    seqCnt = stk.top().second+1;
-            }
-            stk.push({i, seqCnt});
+            if(!stk.empty()) ++ret;
+            stk.push({i, seqCnt}); 
+            
         }
     }
-
-    // while(!stk.empty()){
-    //     cout << v[stk.top().first] << ' ';
-    //     stk.pop();
-    // }
     return ret;
 }
 
