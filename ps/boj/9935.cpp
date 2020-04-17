@@ -8,35 +8,33 @@ using namespace std;
 
 
 string s, ls;
-stack<pair<char, int>> stk;
+deque<char> dq;
+
+bool check(){
+    int slen = s.size();
+    int dqlen = dq.size();
+    if(dqlen<slen) return false;
+    for(int i=0; i<slen; ++i){
+        if(s[i]!=dq[dqlen-slen+i]) return false;
+    }
+    return true;
+}
 
 string solve(){
     int lslen = ls.size();
     int slen = s.size();
     int i = 0;
     while(i<lslen){
-        int findIdx;
-        if(stk.empty()){
-            findIdx = 0;
-        }
-        else{
-            findIdx = stk.top().second+1;
-        }
-        if(s[findIdx] == ls[i]){
-            stk.push({ls[i], findIdx});
-            if(findIdx==slen-1){
-                for(int j=0; j<slen; ++j) stk.pop();
-            }
-        }
-        else{
-            stk.push({ls[i], -1});
+        dq.push_back(ls[i]);
+        if(check()){
+            for(int i=0; i<slen; ++i) dq.pop_back();
         }
         ++i;
     }
     string ret;
-    while(!stk.empty()){
-        ret.push_back(stk.top().first);
-        stk.pop();
+    while(!dq.empty()){
+        ret.push_back(dq.front());
+        dq.pop_front();
     }
     if(ret=="") return "FRULA";
     return ret;
