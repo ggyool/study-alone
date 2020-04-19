@@ -18,7 +18,7 @@ public:
     int numIslands(vector<vector<char>>& grid) {
         r = grid.size();
         if(r!=0) c = grid[0].size();
-        if(r==0) return 0;
+        if(r==0) return 0;  
         visited = vector<vector<bool>>(r, vector<bool>(c,false)) ;
         return dfsAll(grid);
     }

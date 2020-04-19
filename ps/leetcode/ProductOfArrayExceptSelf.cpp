@@ -9,8 +9,7 @@ class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& v) {
         int len = v.size();
-        vector<int> ret(len, 1);
-
+        vector<int> ret(len, 1);        
         int leftMul = v[0];
         int rightMul = v[len-1];
         for(int i=1; i<len; ++i){

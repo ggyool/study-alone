@@ -17,7 +17,7 @@ public:
             return false;
         }
         if(dp[left][idx]==true) return false;
-        dp[left][idx] = true;
+        dp[left][idx] = true;        
         char c = s[idx];
         if(c=='('){
             return dfs(left+1, idx+1, s, dp);
