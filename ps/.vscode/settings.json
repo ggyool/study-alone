@@ -82,6 +82,7 @@
         "sstream": "cpp",
         "string_view": "cpp",
         "unordered_set": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "__cxx_version": "cpp"
     }
 }
