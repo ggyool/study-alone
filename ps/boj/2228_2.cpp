@@ -42,3 +42,4 @@ int main(void){
     cout << solve(n,m);
     return 0;
 }
+
