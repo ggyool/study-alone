@@ -18,10 +18,10 @@ int main(void){
         dp[i][i] = true;
         if(arr[i-1]==arr[i]) dp[i-1][i] = true;
     }
-    for(int i=3; i<=n; ++i){
-        for(int j=1; j+i-1<=n; ++j){
-            if(arr[j] == arr[j+i-1] && dp[j+1][j+i-2]){
-                dp[j][j+i-1] = true;
+    for(int i=2; i<=n-1; ++i){
+        for(int j=1; j+i<=n; ++j){
+            if(arr[j] == arr[j+i] && dp[j+1][j+i-1]){
+                dp[j][j+i] = true;
             }
         }
     }
