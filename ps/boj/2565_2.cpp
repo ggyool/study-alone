@@ -12,7 +12,8 @@ int lowerBound(vector<pair<int,int>> &tv, pair<int,int> p){
     int mid;
     while(left<right){
         mid = left + (right-left)/2;
-        if(tv[mid].first < p.first && tv[mid].second < p.second){
+        // 정렬 했으므로 first 는 신경 안써도 된다.
+        if(tv[mid].second < p.second){
             left = mid + 1;
         }
         else{
@@ -25,9 +26,8 @@ int lowerBound(vector<pair<int,int>> &tv, pair<int,int> p){
 int lis(){
     vector<pair<int, int>> tv = {v[0]};
     for(int i=1; i<n; ++i){
-        int start = tv.back().first;
         int end = tv.back().second;
-        if(v[i].first > start && v[i].second > end){
+        if(v[i].second > end){
             tv.push_back(v[i]);
         }
         else{

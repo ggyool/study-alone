@@ -32,4 +32,4 @@ int main(void){
     }
     cout << dp[n-1][arr[n]];
     return 0;
-}
+}   

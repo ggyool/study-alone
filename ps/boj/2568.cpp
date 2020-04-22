@@ -20,7 +20,7 @@ int lowerBound(vector<Line> &tv, Line val){
     int mid;
     while(left<right){
         mid = left + (right-left)/2;
-        if(val.l > tv[mid].l && val.r > tv[mid].r){
+        if(val.r > tv[mid].r){
             left = mid + 1;
         }
         else{
@@ -36,7 +36,7 @@ void solve(){
     for(int i=0; i<n; ++i){
         int l = v[i].l;
         int r = v[i].r;
-        if(tv.empty() || (tv.back().l < l && tv.back().r < r)){
+        if(tv.empty() || tv.back().r < r){
             tv.push_back(v[i]);
             iv[i] = tv.size()-1;
         }
@@ -62,7 +62,7 @@ void solve(){
             stk.push(v[i].l);
         }
     }
-    cout << stk.size() << '\n';
+    cout << stk.size() << '\n'; 
     while(!stk.empty()){
         cout << stk.top() << '\n';
         stk.pop();
