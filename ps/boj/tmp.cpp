@@ -33,7 +33,7 @@ lld solve(int left, int right)
 				if (s[i] == closes[j] || s[i] == '?')
 				{
 					ret += solve(left + 1, i - 1) * solve(i + 1, right);
-					ret %= MOD;
+					//ret %= MOD;
 				}
 			}
 		}
@@ -47,7 +47,9 @@ int main(void)
 	cin.tie(0);
 	cin >> n >> s;
 	memset(dp, -1, sizeof(dp));
-	int ans = solve(0, n - 1);
+	lld ans = solve(0, n - 1);
+	cout << ans;
+	return 0;
 	if (ans < MOD/10) cout << ans;
 	else
 	{

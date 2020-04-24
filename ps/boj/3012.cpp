@@ -17,8 +17,9 @@ using namespace std;
 // ??????()
 // 5자리만 출력해야한다.
 // 10????일때 0???? 이런식으로 출력해야 하기 때문에 %1e5하지 않고 1e6
+typedef long long ll;
 const int MOD = (int)1e6;
-int dp[202][202];
+ll dp[202][202];
 char arr[202];
 int n;
 string s;
@@ -56,14 +57,14 @@ int main(void){
             for(int k=j+1; k<=j+i; k+=2){
                 int idx1 = findIndex(s[j]);
                 int idx2 = findIndex(s[k]);
+                ll val1, val2;
                 if(idx1==-1 && idx2==-1){
-                    int val1 = j+1<k-1?dp[j+1][k-1]:1;
-                    int val2 = k+1<j+i?dp[k+1][j+i]:1;
+                    val1 = j+1<k-1?dp[j+1][k-1]:1;
+                    val2 = k+1<j+i?dp[k+1][j+i]:1;
                     dp[j][j+i] += 3* val1 * val2;
                     dp[j][j+i] %= MOD;
                 }
                 else if(idx1==-1 || idx2==-1){
-                    int val1, val2;
                     // 둘 중 하나만 물음표
                     if(idx1==-1 && isCloseIndex(idx2)) {
                         val1 = j+1<k-1?dp[j+1][k-1]:1;
@@ -79,15 +80,15 @@ int main(void){
                     }
                 }
                 else if(idx1+3==idx2){
-                    int val1 = j+1<k-1?dp[j+1][k-1]:1;
-                    int val2 = k+1<j+i?dp[k+1][j+i]:1;
+                    val1 = j+1<k-1?dp[j+1][k-1]:1;
+                    val2 = k+1<j+i?dp[k+1][j+i]:1;
                     dp[j][j+i] += val1*val2;
                     dp[j][j+i] %= MOD;
                 }
             }
         }
     }
-    int ans = dp[1][n];
+    ll ans = dp[1][n];
     if(ans>=100000) {
         string ps = to_string(ans);
         int len = ps.size();
