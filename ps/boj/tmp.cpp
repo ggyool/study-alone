@@ -1,31 +1,60 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
+#include <string>
+#include <cstring>
 using namespace std;
 
-char arr[8] = {3,3,3,3,3,3,3,3};
+typedef long long int lld;
 
-void on(int idx){
-	cout << idx<< '\n';
-}
+const int MOD = 1000000;
+string s;
+int n;
+const string opens = "([{";
+const string closes = ")]}";
+lld dp[201][201];
 
-void solve(){
-    for(int i=0; i<8; ++i){
-        for(int j=0; j<8; ++j){
-            int idx = i*8 + j; 
-			if(arr[i] & (1<<(7-j))){
-                on(idx);
-            }
-        }
-    }
+/*
+50
+([[[???[]?[??][??]?{??({})]??{[]}?{?????}(?()???{?
+*/
+lld solve(int left, int right)
+{
+	if (left > right) return 1;
+
+	lld& ret = dp[left][right];
+	if (ret != -1) return ret;
+	ret = 0;
+	for (int i = left + 1; i <= right; i+=2)
+	{
+		for (int j = 0; j < 3; ++j)
+		{
+			if (s[left] == opens[j] || s[left] == '?')
+			{
+				if (s[i] == closes[j] || s[i] == '?')
+				{
+					ret += solve(left + 1, i - 1) * solve(i + 1, right);
+					ret %= MOD;
+				}
+			}
+		}
+	}
+	return ret;
 }
 
 int main(void)
 {
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
-	cout.tie(0);
-	solve();
-
+	cin >> n >> s;
+	memset(dp, -1, sizeof(dp));
+	int ans = solve(0, n - 1);
+	if (ans < MOD/10) cout << ans;
+	else
+	{
+		for (int i = 100000; i >= 10; i/=10)
+		{
+			cout << (ans % i) / (i/10);
+		}
+	}
 	return 0;
 }
