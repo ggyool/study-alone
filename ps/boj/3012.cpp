@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 
-// 일반적으로 반복문 돌려서 채워나가면 겹치는 것 떄문에 어렵다.
+// 팰린드롬 같은 식으로 반복문 돌려서 채워나가면 겹치는 것 떄문에 어렵다.
 // 길이가 6인 경우
 // 2 4 안에는 2 2 2가 들어있고
 // 4 2 안에도 2 2 2가 들어있는 문제가 생긴다.
@@ -57,6 +57,7 @@ int main(void){
             for(int k=j+1; k<=j+i; k+=2){
                 int idx1 = findIndex(s[j]);
                 int idx2 = findIndex(s[k]);
+                // int로 만들었더니 val1*val2 이런 과정에서 오버플로우
                 ll val1, val2;
                 if(idx1==-1 && idx2==-1){
                     val1 = j+1<k-1?dp[j+1][k-1]:1;
