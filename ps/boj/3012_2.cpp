@@ -60,6 +60,7 @@ int main(void){
                     dp[j][j+i] += dp[j+1][k-1] * dp[k][j+i];
                     dp[j][j+i] %= MOD;
                 }
+                // 위의 else if 조건을 바꿨더니 idx1==-1 idx2==2 같은 반례가 생겼다.
                 else if(idx1!=-1 && idx1+3==idx2){
                     dp[j][j+i] += dp[j+1][k-1] * dp[k][j+i];
                     dp[j][j+i] %= MOD;
