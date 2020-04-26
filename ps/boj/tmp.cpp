@@ -1,57 +1,50 @@
 #include <iostream>
+#include <vector>
 #include <algorithm>
-#include <cstring>
-
 using namespace std;
 
-int n;
+const int MAX = 290000;
+// i조각 까지 사용한 높이 차이 j, 값 높은 높이
+int dp[51][MAX+1];
 int arr[51];
-// idx, 높이 차이 = 큰 탑의 높이
-// 같은 idx 에서 똑같은 높이 차이의 작은 탑들과 높은 탑들이 있으면 높은 탑을 선택해야한다.
-int dp[51][250001];
+int n;
 
-int main(void)
-{
+// 490000 1 1 이런 케이스가 있는게 아닐까 ?
+
+int main(void){
 	ios_base::sync_with_stdio(false);
 	cin.tie(0);
+	cout.tie(0);
 	cin >> n;
-	for (int i = 1; i <= n; ++i)
-	{
+	for(int i=1; i<=n; ++i){
 		cin >> arr[i];
-	}
-	memset(dp, -1, sizeof(dp));
-	dp[1][arr[1]] = arr[1];
-	dp[1][0] = 0;
-	for (int i = 2; i <= n; ++i)
-	{
-		for (int j = 0; j <= 250000; ++j)
-		{
-			if (dp[i - 1][j] != -1)
-			{
-				int high = dp[i - 1][j];
-				int diff = j;
-				int low = high - diff;
-				int cur = arr[i];
-				// 높은 곳에 놓은  경우 
-				if(high+cur <= 250000)
-					dp[i][diff + cur] = max(dp[i][diff + cur], high + cur);
-				// 놓지 않은 경우
-				dp[i][diff] = max(dp[i][diff], high);
-				// 낮은 곳에 놓는 경우 역전 or no
-				if (low + cur > high)
-				{
-					if (low+cur <= 250000)
-						dp[i][low + cur - high] = max(dp[i][low + cur - high], low + cur);
+		// 높이차이가 0인것들이 정답 후보군인데, 아무것도 안 놓은 0 0 도 생기므로
+		// 처음에 초기화 했다.
+		dp[i][arr[i]] = arr[i];
+	}   
+	
+	for(int i=2; i<=n; ++i){
+		int h = arr[i];
+		for(int j=0; j<=MAX; ++j){
+			if(dp[i-1][j]>0){
+				//높은 쪽에 놓은 경우
+				if(j+h<=MAX)
+				//if(dp[i-1][j] + h <=MAX)
+					dp[i][j+h] = max(dp[i][j+h], dp[i-1][j] + h);
+				// 낮은 쪽에 놓는데, 새로운 조각을 놓으면 높이 역전하는 경우
+				if(h>=j){
+					if(h-j<=MAX)
+					//if(dp[i-1][j]-j + h <=MAX)
+						dp[i][h-j] = max(dp[i][h-j], dp[i-1][j]-j+h);
 				}
 				else
-				{
-					dp[i][high - (low + cur)] = max(dp[i][high - (low + cur)], high);
-				}
+					dp[i][j-h] = max(dp[i][j-h], dp[i-1][j]);
+				// 아무 것도 안 놓는 경우
+				dp[i][j] = max(dp[i][j], dp[i-1][j]);      
 			}
 		}
 	}
-	int ans = dp[n][0];
-	if (ans == 0) cout << -1;
-	else cout << ans;
+	if(dp[n][0] == 0) cout << -1;
+	else cout << dp[n][0];
 	return 0;
 }
