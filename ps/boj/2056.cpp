@@ -9,9 +9,7 @@ struct Task{
     int num, end;
     Task(int _num, int _end) : num(_num), end(_end){}
     bool operator<(const Task &ref) const{
-        if(end>ref.end) return true;
-		else if(end==ref.end) return num>ref.num;
-		else return false;
+        return end>ref.end;
     }
 };
 
@@ -49,14 +47,19 @@ int main(void){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-    priority_queue<Task> pq;
-	
-	pq.push({3,10});
-	pq.push({2,10});
-	pq.push({1,10});
-
-	pq.push({4,10});
-	pq.push({5,10});
-	cout << pq.top().num;
+    cin >> n;
+    v = vector<vector<int>>(n+1);
+    ind = vector<int>(n+1, 0);
+    takeTime = vector<int>(n+1, 0);
+    for(int i=1; i<=n; ++i){
+        cin >> takeTime[i] >> m;
+        ind[i] = m;
+        for(int j=0; j<m; ++j){
+            int x;
+            cin >> x;
+            v[x].push_back(i);
+        }
+    }
+    cout << topoSort();
     return 0;
 }
