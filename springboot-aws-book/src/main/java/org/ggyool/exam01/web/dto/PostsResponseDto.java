@@ -10,10 +10,10 @@ public class PostsResponseDto {
     private String content;
     private String author;
 
-    public PostsResponseDto(Posts posts){
-        id = posts.getId();
-        title = posts.getTitle();
-        content = posts.getContent();
-        author = posts.getAuthor();
+    public PostsResponseDto(Posts entity){
+        id = entity.getId();
+        title = entity.getTitle();
+        content = entity.getContent();
+        author = entity.getAuthor();
     }
 }
