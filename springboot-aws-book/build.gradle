@@ -27,6 +27,8 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('com.h2database:h2')
     // RequiredArgsConstructor 시 gradle 5에서 오류가 난다.
     // compile('org.projectlombok:lombok') 대신 아래 4개 쓰면 오류 안나긴 한다.
     compileOnly('org.projectlombok:lombok')
