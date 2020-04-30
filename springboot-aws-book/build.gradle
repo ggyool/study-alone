@@ -6,6 +6,7 @@ buildscript {
         mavenCentral()
         jcenter()
     }
+    // gradle 의 script 에서 외부 라이브러리를 참조해야 할 경우
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
@@ -18,7 +19,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group 'org.ggyool'
 version '1.0-SNAPSHOT'
-sourceCompatibility = 1.8
+//sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -36,4 +37,6 @@ dependencies {
     annotationProcessor('org.projectlombok:lombok')
     testAnnotationProcessor('org.projectlombok:lombok')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+
+    compile('org.springframework.boot:spring-boot-starter-mustache')
 }
