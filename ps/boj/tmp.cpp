@@ -1,62 +1,46 @@
-#include <iostream>
-#include <vector>
+#include <cstdio>
 #include <algorithm>
-#include <queue>
+#include <vector>
+#define INF 987654321
 using namespace std;
-
-
-struct Task{
-    int num, end;
-    Task(int _num, int _end) : num(_num), end(_end){}
-    bool operator<(const Task &ref) const{
-        if(end>ref.end) return true;
-		else if(end==ref.end) return num>ref.num;
-		else return false;
-    }
-};
-
-int n, m;
-vector<vector<int>> v;
-vector<int> ind, takeTime;
-
-int topoSort(){
-    priority_queue<Task> pq;
-    int ret = 0;
-    for(int i=1; i<=n; ++i){
-        if(ind[i] == 0){
-            // i Task 가 takeTime[i]에 끝난다.
-            pq.push(Task(i, takeTime[i]));
+int t, n, m, w, a, b, c, cycle;
+int dist[505];
+vector<vector<pair<int, int>>> vt;
+int main() {
+    scanf("%d", &t);
+    while (t--) {
+        cycle = false;
+        scanf("%d%d%d", &n, &m, &w);
+        vt.clear();
+        vt.resize(n + 1);
+        for (int i = 0; i < m; i++) {
+            scanf("%d%d%d", &a, &b, &c);
+            vt[a].emplace_back(b, c);
+            vt[b].emplace_back(a, c);
         }
-    }
-    while(!pq.empty()){
-        int num = pq.top().num;
-        int end = pq.top().end;
-        ret = max(ret, end);
-        pq.pop();
-        int len = v[num].size();
-        for(int i=0; i<len; ++i){
-            int next = v[num][i];
-            --ind[next];
-            if(ind[next] == 0){
-                pq.push(Task(next, end+takeTime[next]));
+        for (int i = 0; i < w; i++) {
+            scanf("%d%d%d", &a, &b, &c);
+            vt[a].emplace_back(b, -c);
+        }
+        for (int i = 2; i <= n; i++)
+            dist[i] = INF;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                for (auto k : vt[j]) {
+                    int there = k.first;
+                    int d = k.second;
+                    if (dist[j] != INF && (dist[there]>dist[j] + d)) {
+                        dist[there] = dist[j] + d;
+                        if (i == n)cycle = true;
+                    }
+                }
             }
         }
+        if (cycle)
+            printf("YES\n");
+        else
+            printf("NO\n");
     }
-    return ret;
-}
-
-int main(void){
-    ios_base::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    priority_queue<Task> pq;
-	
-	pq.push({3,10});
-	pq.push({2,10});
-	pq.push({1,10});
-
-	pq.push({4,10});
-	pq.push({5,10});
-	cout << pq.top().num;
     return 0;
 }
+
