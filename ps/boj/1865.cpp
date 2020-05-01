@@ -4,10 +4,10 @@
 using namespace std;
 
 struct Edge{
-	int from, to, cost;
-	Edge(int a, int b, int c){
-		from = a, to = b, cost = c;
-	}
+    int from, to, cost;
+    Edge(int a, int b, int c){
+        from = a, to = b, cost = c;
+    }
 };
 
 typedef long long ll;
