@@ -4,6 +4,7 @@
 #include <queue>
 using namespace std;
 
+
 struct Node{
     int idx, val;
     Node(int _idx, int _val) : idx(_idx), val(_val) {}
@@ -17,31 +18,28 @@ struct Edge{
     Edge(int _to, int _cost) : to(_to), cost(_cost) {}
 };
 
-
-// 핵심 dist[a][b] == dist[b][a]
-
-const int INF = (int)1e7;
-int n,e,x,y;
+const int INF = (int)1e8;
+int n,m,s;
 vector<vector<Edge>> v;
 vector<int> dist;
 
-void daijkstra(int start){
-    priority_queue<Node> pq;
+void daijkstra(){
     dist = vector<int> (n+1, INF);
-    dist[start] = 0;
-    pq.push(Node(start, dist[start]));
+    dist[s] = 0;
+    priority_queue<Node> pq;
+    pq.push(Node(s, dist[s]));
     while(!pq.empty()){
         int cur = pq.top().idx;
         int val = pq.top().val;
         pq.pop();
-        if(val>dist[cur]) continue;
+        if(dist[cur] < val) continue;
         int len = v[cur].size();
         for(int i=0; i<len; ++i){
             int next = v[cur][i].to;
             int cost = v[cur][i].cost;
             if(dist[cur]+cost < dist[next]){
                 dist[next] = dist[cur]+cost;
-                pq.push(Node(next,dist[next]));
+                pq.push(Node(next, dist[next]));
             }
         }
     }
@@ -50,30 +48,18 @@ void daijkstra(int start){
 int main(void){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
-    cout.tie(0);
-    cin >> n  >> e;
+    cout.tie(0);    
+    cin >> n >> m >> s;
     v = vector<vector<Edge>> (n+1);
-    for(int i=0; i<e; ++i){
+    for(int i=0; i<m; ++i){
         int a,b,c;
         cin >> a >> b >> c;
         v[a].push_back(Edge(b,c));
-        v[b].push_back(Edge(a,c));
     }
-    cin >> x >> y;
-    // p1 = 1 x y n
-    // p2 = 1 y x n
-    
-    daijkstra(1);
-    int p1 = dist[x];
-    int p2 = dist[y];
-    daijkstra(x);
-    p1 += dist[y];
-    p2 += dist[y];
-    daijkstra(n);
-    p1 += dist[y];
-    p2 += dist[x];
-    int ans = min(p1, p2);
-    if(ans>=INF) cout << -1;
-    else cout << ans;
+    daijkstra();
+    for(int i=1; i<=n; ++i){
+        if(dist[i]>=INF) cout << "INF\n";
+        else cout << dist[i] << '\n';
+    }
     return 0;
 }
