@@ -39,5 +39,5 @@ dependencies {
     testCompile('org.springframework.boot:spring-boot-starter-test')
 
     compile('org.springframework.boot:spring-boot-starter-mustache')
-    compile('org.springframework.boot:spring-boot-starter-oauth-client')
+    compile('org.springframework.boot:spring-boot-starter-oauth2-client')
 }
