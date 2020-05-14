@@ -26,10 +26,9 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
     // 많은 것들이 생략되어 있어서, 흐름을 이해하기 힘들었다. (아직 잘 모르지만..)
     // loadUser는 user가 로그인 한 이후 실행되는 메소드이다.
-    // accessToken과 attribute 등등 필요한 데이터는 userRequest에 모두 들어있다.
+    // accessToken과 값을 받아온느데 필요한 데이터는 userRequest에 모두 들어있다.
     // 1. custom OAuthAttribute를 만든다. (OAuthAttributes.of)
-    // 그에 필요한 값들을 userRequest에서 빼온다.
-    // delegete.loaduser 는 Exception 들 때문에 하는것 같다.
+    // delegete.loaduser 는 Exception과 attributes를 받아온다.
     // 생성자 같은걸 안쓰고 static 메소드로 하는지는 잘 모르겠다.
     // 2. db에 save, update를 한다.
     // saveOrUpdate 메소드 찾아서 있으면 혹시 달라졌나 update도 해보고
