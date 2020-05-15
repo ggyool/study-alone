@@ -39,7 +39,7 @@ vector<int> dist;
 vector<bool> visited;
 set<Node> st;
 
-void daijkstra()
+void dijkstra()
 {
 	dist[sta] = 0;
 	st.insert(Node(sta, dist[sta]));
@@ -77,7 +77,7 @@ int main(void)
 		cin >> a >> b >> c;
 		adj[a].push_back(Edge(b, c));
 	}
-	daijkstra();
+	dijkstra();
 	for (int i = 1; i <= n; ++i)
 	{
 		if (dist[i] >= INF) cout << "INF\n";

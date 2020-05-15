@@ -5,7 +5,7 @@
 using namespace std;
 
 // 최단경로를 조금이라도 포함하면 안되기 때문에 직접 지워야한다.
-// 1. daijkstra로 dist 채우기
+// 1. dijkstra로 dist 채우기
 // 2. reverse 하여 dfs or bfs 하여 path erase 하기 
 // reverse 해야한다. 뒤부터 해야지 사전에 cut 할 수 있기 때문에
 // 3. 거의 shortDist 구하기
@@ -37,7 +37,7 @@ vector<int> dist;
 vector<int> rdist;
 
 
-int daijkstra()
+int dijkstra()
 {
 	priority_queue<Node> pq;
 	dist[start] = 0;
@@ -111,10 +111,10 @@ int main(void)
 			adj[a].push_back(Edge(b, c));
 			radj[b].push_back(Edge(a, c));
 		}
-		shortDist = daijkstra();
+		shortDist = dijkstra();
 		eraseShortPath();
 		dist = vector<int>(n, INF);
-		shortDist = daijkstra();
+		shortDist = dijkstra();
 		if (shortDist == INF) cout << -1 << '\n';
 		else cout << shortDist << '\n';
 	}

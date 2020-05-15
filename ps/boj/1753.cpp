@@ -23,7 +23,7 @@ int n,m,s;
 vector<vector<Edge>> v;
 vector<int> dist;
 
-void daijkstra(){
+void dijkstra(){
     dist = vector<int> (n+1, INF);
     dist[s] = 0;
     priority_queue<Node> pq;
@@ -56,7 +56,7 @@ int main(void){
         cin >> a >> b >> c;
         v[a].push_back(Edge(b,c));
     }
-    daijkstra();
+    dijkstra();
     for(int i=1; i<=n; ++i){
         if(dist[i]>=INF) cout << "INF\n";
         else cout << dist[i] << '\n';

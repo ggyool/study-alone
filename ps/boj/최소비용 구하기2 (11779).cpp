@@ -32,7 +32,7 @@ int findMinIdx()
 	return ret;
 }
 
-int daijkstra()
+int dijkstra()
 {
 	dist[sta] = 0;
 	for (int i = 0; i < n - 1; ++i)
@@ -90,7 +90,7 @@ int main(void)
 		adj[a].push_back(Edge(b, c));
 	}
 	cin >> sta >> fin;
-	cout << daijkstra() << '\n';
+	cout << dijkstra() << '\n';
 	visited = vector<bool>(n + 1);
 	visited[sta] = true;
 	dfs(sta);

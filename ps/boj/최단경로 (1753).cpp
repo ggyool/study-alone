@@ -30,7 +30,7 @@ vector<int> dist;
 vector<bool> visited;
 priority_queue<Node> pq;
 
-void daijkstra()
+void dijkstra()
 {
 	dist[sta] = 0;
 	pq.push(Node(sta, dist[sta]));
@@ -70,7 +70,7 @@ int main(void)
 		cin >> a >> b >> c;
 		adj[a].push_back(Edge(b, c));
 	}
-	daijkstra();
+	dijkstra();
 	for (int i = 1; i <= n; ++i)
 	{
 		if (dist[i] >= INF) cout << "INF\n";

@@ -5,11 +5,11 @@
 using namespace std;
 
 /*
-모든 노드 대상 daijkstra - 84ms
+모든 노드 대상 dijkstra - 84ms
 
-2번 daijkstra - 0ms
-파티장으로 가는: 간선 뒤집어서 x에서 daijkstra
-돌아오는: x에서 daijkstra
+2번 dijkstra - 0ms
+파티장으로 가는: 간선 뒤집어서 x에서 dijkstra
+돌아오는: x에서 dijkstra
 */
 
 struct Edge
@@ -43,7 +43,7 @@ vector<int> goDist;
 vector<int> backDist;
 vector<bool> visited;
 
-void daijkstra(vector<vector<Edge>> &v, vector<int>& dist, int sta)
+void dijkstra(vector<vector<Edge>> &v, vector<int>& dist, int sta)
 {
 	visited = vector<bool>(n + 1, false);
 	priority_queue<Node> pq;
@@ -86,8 +86,8 @@ int main(void)
 		adj[a].push_back(Edge(b,c));
 		radj[b].push_back(Edge(a, c));
 	}
-	daijkstra(radj, goDist, start);
-	daijkstra(adj, backDist, start);
+	dijkstra(radj, goDist, start);
+	dijkstra(adj, backDist, start);
 	int ans = 0;
 	for (int i = 1; i <= n; ++i)
 	{

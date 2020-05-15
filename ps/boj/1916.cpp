@@ -25,7 +25,7 @@ int n,m, sNode, eNode;
 vector<vector<Edge>> v;
 vector<ll> dist;
 
-ll daijkstra(){
+ll dijkstra(){
     priority_queue<Node> pq;
     dist[sNode] = 0;
     pq.push(Node(sNode, dist[sNode]));
@@ -62,7 +62,7 @@ int main(void){
     }
     cin >> sNode >> eNode;
 
-    ll res = daijkstra();
+    ll res = dijkstra();
     cout << res;
     return 0;
 }

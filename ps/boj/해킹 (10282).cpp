@@ -27,7 +27,7 @@ int n, m, start;
 vector<vector<Edge>> adj;
 vector<int> dist;
 
-void daijkstra()
+void dijkstra()
 {
 	priority_queue<Node> pq;
 	dist[start] = 0;
@@ -70,7 +70,7 @@ int main(void)
 			cin >> a >> b >> c;
 			adj[b].push_back(Edge(a, c));
 		}
-		daijkstra();
+		dijkstra();
 		int cnt = 0;
 		int lastTime = 0;
 		for (int i = 1; i <= n;++i)

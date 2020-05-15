@@ -30,7 +30,7 @@ vector<pair<int, int>> recoverEdge;
 vector<int> from;
 vector< bool> visited;
 
-void daijkstra()
+void dijkstra()
 {
 	priority_queue<Node> pq;
 	dist[1] = 0;
@@ -87,7 +87,7 @@ int main(void)
 		adj[a].push_back(Edge(b, c));
 		adj[b].push_back(Edge(a, c));
 	}
-	daijkstra();
+	dijkstra();
 	visited[1] = true;
 	dfs(1);
 	int len = recoverEdge.size();

@@ -31,7 +31,7 @@ int findMinIdx()
 	return ret;
 }
 
-void daijkstra(int sta)
+void dijkstra(int sta)
 {
 	visited = vector<bool>(n + 1);
 	dist = vector<int>(n + 1, INF);
@@ -71,13 +71,13 @@ int main(void)
 	// p1: 1->v1->v2->n
 	// p2: 1->v2->v1->n
 	int p1 = 0, p2 = 0;
-	daijkstra(1);
+	dijkstra(1);
 	p1 += dist[via1];
 	p2 += dist[via2];
-	daijkstra(via1);
+	dijkstra(via1);
 	p1 += dist[via2];
 	p2 += dist[n];
-	daijkstra(via2);
+	dijkstra(via2);
 	p1 += dist[n];
 	p2 += dist[via1];
 	if (p1 >= INF && p2 >= INF) cout << -1;

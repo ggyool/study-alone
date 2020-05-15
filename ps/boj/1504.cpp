@@ -25,7 +25,7 @@ int n,e,x,y;
 vector<vector<Edge>> v;
 vector<int> dist;
 
-void daijkstra(int start){
+void dijkstra(int start){
     priority_queue<Node> pq;
     dist = vector<int> (n+1, INF);
     dist[start] = 0;
@@ -63,13 +63,13 @@ int main(void){
     // p1 = 1 x y n
     // p2 = 1 y x n
     
-    daijkstra(1);
+    dijkstra(1);
     int p1 = dist[x];
     int p2 = dist[y];
-    daijkstra(x);
+    dijkstra(x);
     p1 += dist[y];
     p2 += dist[y];
-    daijkstra(n);
+    dijkstra(n);
     p1 += dist[y];
     p2 += dist[x];
     int ans = min(p1, p2);

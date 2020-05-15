@@ -29,7 +29,7 @@ int n,m,s,e;
 vector<vector<Edge>> v;
 vector<int> dist, bef, path;
 
-int daijkstra(){
+int dijkstra(){
     priority_queue<Node> pq;
     dist = vector<int>(n+1, BIG);
     bef = vector<int>(n+1);
@@ -100,7 +100,7 @@ int main(void){
         v[a].push_back(Edge(b,c));
     }
     cin >> s >> e;
-    cout << daijkstra() << '\n';
+    cout << dijkstra() << '\n';
     // 방법1
     findPath();
     

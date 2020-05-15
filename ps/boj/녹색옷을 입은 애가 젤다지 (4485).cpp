@@ -26,7 +26,7 @@ bool inRange(int y, int x)
 	return true;
 }
 
-int daijkstra()
+int dijkstra()
 {
 	dist[0][0] = arr[0][0];
 	priority_queue<Pos> pq;
@@ -72,7 +72,7 @@ int main(void)
 				cin >> arr[i][j];
 			}
 		}
-		cout << "Problem " << tc << ": " << daijkstra() << '\n';
+		cout << "Problem " << tc << ": " << dijkstra() << '\n';
 	}
 	return 0;
 }

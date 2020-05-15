@@ -31,7 +31,7 @@ vector<lld> dist;
 bool isGoal[(int)1e5 + 1];
 priority_queue<Node> pq;
 
-void daijkstra()
+void dijkstra()
 {
 	for (int i = 1; i <= n; ++i)
 	{
@@ -91,7 +91,7 @@ int main(void)
 		cin >> a;
 		isGoal[a] = true;
 	}
-	daijkstra();
+	dijkstra();
 	
 	int farPeople;
 	lld farDist = -1;

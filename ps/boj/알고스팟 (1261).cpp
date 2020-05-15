@@ -30,7 +30,7 @@ bool inRange(int y, int x)
 	return true;
 }
 
-int daijkstra()
+int dijkstra()
 {
 	priority_queue<Node> pq;
 	pq.push(Node(1,1,0));
@@ -73,6 +73,6 @@ int main(void)
 			dist[i][j] = INF;
 		}
 	}
-	cout << daijkstra();
+	cout << dijkstra();
 	return 0;
 }
