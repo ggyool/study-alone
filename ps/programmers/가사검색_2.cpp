@@ -15,9 +15,9 @@ struct Node{
     }
 };
 
-struct Trie{
+struct dijkstra{
     Node* root;
-    Trie(){
+    dijkstra(){
         root = new Node();
     }
     void insert(const char* s, Node* curNode=NULL){
@@ -44,25 +44,25 @@ struct Trie{
 };
 
 vector<int> solution(vector<string> words, vector<string> queries) {
-    Trie tries[10001];
-    Trie rTries[10001];
+    dijkstra dijkstras[10001];
+    dijkstra rdijkstras[10001];
     int wlen = words.size();
     for(int i=0; i<wlen; ++i){
         int slen = words[i].size();
-        tries[slen].insert(words[i].c_str());
+        dijkstras[slen].insert(words[i].c_str());
         reverse(words[i].begin(), words[i].end());
-        rTries[slen].insert(words[i].c_str());
+        rdijkstras[slen].insert(words[i].c_str());
     }
     vector<int> ret;
     int qlen = queries.size();
     for(int i=0; i<qlen; ++i){
         int slen = queries[i].size();
         if(queries[i][0]!='?'){
-            ret.push_back(tries[slen].find(queries[i].c_str()));
+            ret.push_back(dijkstras[slen].find(queries[i].c_str()));
         }
         else{
             reverse(queries[i].begin(), queries[i].end());
-            ret.push_back(rTries[slen].find(queries[i].c_str()));
+            ret.push_back(rdijkstras[slen].find(queries[i].c_str()));
         }   
     }
     return ret;
