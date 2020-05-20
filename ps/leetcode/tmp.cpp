@@ -1,31 +1,71 @@
-#include <iostream>
+#include <cstdio>
 #include <algorithm>
-#include <string.h>
-#pragma warning(disable:4996)
+#include <iostream>
+#include <vector>
+#include <set>
+#include <map>
+#include <queue>
+#include <stack>
+#include <sstream>
 using namespace std;
+const int MAX = 100111;
+vector<int> a[MAX];
+int p[MAX][18];
+int tin[MAX];
+int tout[MAX];
+int timer;
+int l;
+void dfs(int v, int parent) {
+    tin[v] = ++timer;
+    p[v][0] = parent;
+    for (int i=1; i<=l; i++) {
+        p[v][i] = p[p[v][i-1]][i-1];
+    }
+    for (int to : a[v]) {
+        if (to != parent) {
+            dfs(to, v);
+        }
+    }
+    tout[v] = ++timer;
+}
+bool upper(int u, int v) {
+    return (tin[u] <= tin[v] && tout[u] >= tout[v]);
+}
+int lca(int u, int v) {
+    if (upper(u, v)) return u;
+    if (upper(v, u)) return v;
+    for (int i=l; i>=0; i--) {
+        if (!upper(p[u][i], v)) {
+            u = p[u][i];
+        }
+    }
+    return p[u][0];
+}
+int main() {
+    int n;
+    scanf("%d",&n);
+    for (int i=0; i<n-1; i++) {
+        int u,v;
+        scanf("%d %d",&u,&v);
+        a[u].push_back(v);
+        a[v].push_back(u);
+    }
+    for (l=1; (1<<l) <= n; l++);
+    l-=1;
+    dfs(1, 1);
+    int m;
+    scanf("%d",&m);
+    while (m--) {
+        int u, v;
+        scanf("%d %d",&u,&v);
+        printf("%d\n",lca(u, v));
+    }
 
-int map[35],mx;
+	// for(int i=0; i<=n; ++i){
+    //  for(int j=0; j<=2; ++j){
+    //      printf("%d %d %d\n",i,j,p[i][j]);
+    //  }
+    // }
 
-int main()
-{
-	fill_n(&map[0], 35, 0);
-	map[1] = 1;
-	map[2] = 2;
-	scanf("%d", &mx);
-	for (int i = 1; i < mx; i++)
-	{
-			map[i + 1] += map[i];
-			map[i + 2] += map[i]*2;
-	}
-	// 1. 기본적인 타일문제의 DP를 이용하여 해결한다.
-
-	if (mx == 1)
-		printf("%d", 1);
-	else if (mx % 2 == 0)
-		printf("%d", (map[mx]+map[mx/2+1])/2);
-	else
-		printf("%d", (map[mx]+map[mx/2])/2 );
-	// 2. 중복검사를 진행한다.
-
-	return 0;
+    return 0;
 }

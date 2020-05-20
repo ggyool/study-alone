@@ -11,6 +11,10 @@ vector<int> depth, p;
 int pp[100001][18]; // 2**16=65536
 
 void calcDepth(int cur){
+    pp[cur][0] = p[cur];
+    for(int j=1; (1<<j)<depth[cur]; ++j){
+        pp[cur][j] = pp[pp[cur][j-1]][j-1];
+    }
     int len = v[cur].size();
     for(int i=0; i<len; ++i){
         int next = v[cur][i];
@@ -44,6 +48,8 @@ int lca(int a, int b){
     }
     if(a==b) return a;
     // 그림 그려보면 이해할 수 있다.
+    // 같지 않은 부모를 찾으면 lca는 그 위에 있다.
+    // 좁혀나가면 lca바로 아래 노드가 나온다.
     for(int i=maxi; i>=0; --i){
         if(pp[a][i]!=pp[b][i]){
             a = pp[a][i];
@@ -70,19 +76,21 @@ int main(void){
     depth[1] = 1;
     p[1] = 0;
     calcDepth(1);
-    for(int i=1; i<=n; ++i){
-        pp[i][0] = p[i];
-    }
-    for(int j=1; (1<<j)<n; ++j){
-        for(int i=1; i<=n; ++i){
-            pp[i][j] = pp[pp[i][j-1]][j-1];
-        }
-    }
+    // // calcDepth 돌며 초기화 해도 된다.
+    // for(int i=1; i<=n; ++i){
+    //     pp[i][0] = p[i];
+    // }
+    // for(int j=1; (1<<j)<n; ++j){
+    //     for(int i=1; i<=n; ++i){
+    //         pp[i][j] = pp[pp[i][j-1]][j-1];
+    //     }
+    // }
     cin >> m;
     for(int i=0; i<m; ++i){
         int a,b;
         cin >> a >> b;
         cout << lca(a,b) << '\n';
     }
+    
     return 0;
 }
