@@ -16,6 +16,9 @@ int main(void){
     int ans = 0;
     int i=0, j=0;
     int sum = 0;
+    // sum>m 안 넣으면 틀림
+    // 마지막 큰 숫자가 추가되면서 sum 이 커지는 경우
+    // i를 증가시켜서 m을 만들 가능성이 있으나 무시된다.
     while(j<n || sum>m){
         if(sum<m){
             sum += arr[j++];
@@ -28,6 +31,5 @@ int main(void){
         }
     }
     cout << ans;
-
     return 0;
 }
