@@ -42,7 +42,5 @@ int main(void){
         if(sum==n) ++ans; 
     }
     cout << ans;
-
-
     return 0;
 }
