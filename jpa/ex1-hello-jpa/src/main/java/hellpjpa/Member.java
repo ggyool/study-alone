@@ -1,5 +1,6 @@
 package hellpjpa;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -8,6 +9,7 @@ public class Member {
 
     @Id
     private Long id;
+    @Column(nullable = false, length = 20)
     private String name;
     public Member() {
 

@@ -89,7 +89,7 @@ public class FileController {
         		out.write(buffer, 0, readCount);
         	}
         }catch(Exception ex) {
-        	throw new RuntimeException("File Save Error");
+        	throw new RuntimeException("File Download Error");
         }
 	}
 	
@@ -120,7 +120,7 @@ public class FileController {
         		out.write(buffer, 0, readCount);
         	}
         }catch(Exception ex) {
-        	throw new RuntimeException("File Save Error");
+        	throw new RuntimeException("File Download Error");
         }
 	}
 	
