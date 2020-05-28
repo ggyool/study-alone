@@ -1,5 +1,6 @@
 package hellpjpa;
 
+import javax.management.relation.Role;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -26,9 +27,11 @@ public class JpaMain {
 //            for(Member member : result){
 //                System.out.println("memberName = " + member.getName());
 //            }
-
-            Member member1 = new Member(7L, "G");
-            em.persist(member1);
+            Member member = new Member();
+            member.setId(1L);
+            member.setUsername("A");
+            member.setRoleType(RoleType.USER);
+            em.persist(member);
             tx.commit();
         } catch (Exception e){
             tx.rollback();
