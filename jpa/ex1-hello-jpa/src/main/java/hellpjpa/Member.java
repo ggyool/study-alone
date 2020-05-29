@@ -4,15 +4,27 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = {"NAME"}))
+// @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
+// @SequenceGenerator(name="MEMBER_SEQ_GENERATOR", sequenceName = "member_seq", initialValue = 1, allocationSize = 50)
+//@TableGenerator(name="MEMBER_SEQ_GENERATOR",
+//                table="MY_SEQUENCES", // 생성할 테이블 이름
+//                pkColumnValue="MEMBER_SEQ", allocationSize = 1)
 public class Member {
 
-    @Id
+    @Id @GeneratedValue
+    // @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "MEMBER_SEQ_GENERATOR")
+    @Column(name = "MEMBER_ID")
     private Long id;
 
-    @Column(name="name")
+    @Column(name="USERNAME")
     private String username;
 
+    // member 입장에서 n:1 관계이기 때문
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="TEAM_ID")
+    private Team team;
+
+    /*
     private Integer age;
 
 
@@ -35,7 +47,7 @@ public class Member {
 
     // db에 컬럼으로 생기지 않게 하고 싶을 때
     @Transient
-    private int temp;
+    private int temp;*/
 
     public Member() {
     }
@@ -56,51 +68,11 @@ public class Member {
         this.username = username;
     }
 
-    public Integer getAge() {
-        return age;
+    public Team getTeam() {
+        return team;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public RoleType getRoleType() {
-        return roleType;
-    }
-
-    public void setRoleType(RoleType roleType) {
-        this.roleType = roleType;
-    }
-
-    public Date getCreateDate() {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
-
-    public Date getLastModifiedDate() {
-        return lastModifiedDate;
-    }
-
-    public void setLastModifiedDate(Date lastModifiedDate) {
-        this.lastModifiedDate = lastModifiedDate;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public int getTemp() {
-        return temp;
-    }
-
-    public void setTemp(int temp) {
-        this.temp = temp;
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }

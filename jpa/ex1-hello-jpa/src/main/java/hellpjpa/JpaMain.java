@@ -16,7 +16,7 @@ public class JpaMain {
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-
+        System.out.println(" ==================try================= ");
         try{
 
 //            List<Member> result = em.createQuery("select m from Member as m", Member.class)
@@ -27,11 +27,24 @@ public class JpaMain {
 //            for(Member member : result){
 //                System.out.println("memberName = " + member.getName());
 //            }
+
+            Team team = new Team();
+            team.setName("TeamA");
+            em.persist(team);
+
             Member member = new Member();
-            member.setId(1L);
-            member.setUsername("A");
-            member.setRoleType(RoleType.USER);
+            member.setUsername("Member1");
+            member.setTeam(team);
             em.persist(member);
+            em.flush();
+            em.clear();
+
+            Member findMember = em.find(Member.class, member.getId());
+            //Team findTeam = member.getTeam();
+            System.out.println("====================findMember.getUsername() = " + findMember.getUsername());
+            //System.out.println("====================findTeam.getName() = " + findTeam.getName());
+            
+
             tx.commit();
         } catch (Exception e){
             tx.rollback();
