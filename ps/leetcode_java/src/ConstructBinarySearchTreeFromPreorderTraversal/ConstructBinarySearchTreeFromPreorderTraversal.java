@@ -1,3 +1,5 @@
+package ConstructBinarySearchTreeFromPreorderTraversal;
+
 import apple.laf.JRSUIUtils;
 
 public class ConstructBinarySearchTreeFromPreorderTraversal {
