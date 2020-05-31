@@ -16,37 +16,36 @@ public class JpaMain {
 
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        System.out.println(" ==================try================= ");
         try{
-
-//            List<Member> result = em.createQuery("select m from Member as m", Member.class)
-//                    .setFirstResult(10)
-//                    .setMaxResults(20)
-//                    .getResultList();
-//
-//            for(Member member : result){
-//                System.out.println("memberName = " + member.getName());
-//            }
-
             Team team = new Team();
             team.setName("TeamA");
             em.persist(team);
 
             Member member = new Member();
             member.setUsername("Member1");
-            member.setTeam(team);
+            member.changeTeam(team);
             em.persist(member);
+
+
             em.flush();
             em.clear();
 
-            Member findMember = em.find(Member.class, member.getId());
-            //Team findTeam = member.getTeam();
-            System.out.println("====================findMember.getUsername() = " + findMember.getUsername());
-            //System.out.println("====================findTeam.getName() = " + findTeam.getName());
+            Team findTeam = em.find(Team.class, team.getId());
+            System.out.println(findTeam.getMembers().size());
+
+            System.out.println(team.getMembers().size());
+
+//            Member findMember = em.find(Member.class, member.getId());
+//            List<Member> members = findMember.getTeam().getMembers();
+//            for(Member m : members){
+//                m.setTeam(newTeam);
+//                System.out.println(m.getUsername());
+//            }
             
 
             tx.commit();
         } catch (Exception e){
+            System.out.println("======================rollback======================");
             tx.rollback();
         } finally {
             em.close();
