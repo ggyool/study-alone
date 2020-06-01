@@ -1,5 +1,7 @@
 package hellpjpa;
 
+import org.h2.result.UpdatableRow;
+
 import javax.management.relation.Role;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -17,23 +19,42 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try{
-            Team team = new Team();
-            team.setName("TeamA");
-            em.persist(team);
-
-            Member member = new Member();
-            member.setUsername("Member1");
-            member.changeTeam(team);
-            em.persist(member);
 
 
-            em.flush();
-            em.clear();
+            Member member1 = new Member();
+            member1.setUsername("Member1");
+            em.persist(member1);
 
-            Team findTeam = em.find(Team.class, team.getId());
-            System.out.println(findTeam.getMembers().size());
+            Member member2 = new Member();
+            member2.setUsername("Member2");
+            em.persist(member2);
 
-            System.out.println(team.getMembers().size());
+            Product p1 = new Product();
+            p1.setName("p1");
+            Product p2 = new Product();
+            p2.setName("p2");
+            em.persist(p1);
+            em.persist(p2);
+
+            MemberProduct mp = new MemberProduct();
+            mp.setMember(member1);
+            mp.setProduct(p1);
+
+            MemberProduct mp2 = new MemberProduct();
+            mp2.setMember(member1);
+            mp2.setProduct(p2);
+
+            em.persist(mp);
+            em.persist(mp2);
+
+//
+//            em.flush();
+//            em.clear();
+//
+//            Team findTeam = em.find(Team.class, team.getId());
+//            System.out.println(findTeam.getMembers().size());
+//
+//            System.out.println(team.getMembers().size());
 
 //            Member findMember = em.find(Member.class, member.getId());
 //            List<Member> members = findMember.getTeam().getMembers();

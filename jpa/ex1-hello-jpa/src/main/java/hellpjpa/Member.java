@@ -1,7 +1,9 @@
 package hellpjpa;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 // @Table(uniqueConstraints = @UniqueConstraint(columnNames = {"name"}))
@@ -19,10 +21,22 @@ public class Member {
     @Column(name="USERNAME")
     private String username;
 
-    // member 입장에서 n:1 관계이기 때문
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="TEAM_ID")
+    @ManyToOne
+    @JoinColumn(name="TEAM_ID", insertable = false, updatable = false)
     private Team team;
+
+    @OneToOne
+    @JoinColumn(name="LOCKER_ID")
+    private Locker locker;
+
+
+    @OneToMany(mappedBy = "member")
+    private List<MemberProduct> memberProducts = new ArrayList<MemberProduct>();
+
+    // member 입장에서 n:1 관계이기 때문
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name="TEAM_ID")
+//    private Team team;
 
     /*
     private Integer age;
@@ -68,13 +82,15 @@ public class Member {
         this.username = username;
     }
 
-    public Team getTeam() {
-        return team;
-    }
 
-    public void changeTeam(Team team) {
-        this.team = team;
-        team.getMembers().add(this);
-    }
+    //
+//    public Team getTeam() {
+//        return team;
+//    }
+//
+//    public void changeTeam(Team team) {
+//        this.team = team;
+//        team.getMembers().add(this);
+//    }
 
 }
