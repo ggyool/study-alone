@@ -4,8 +4,8 @@ import java.io.*;
 import java.nio.Buffer;
 import java.util.StringTokenizer;
 
+// O(sqrt(n))
 public class Main {
-    // O(sqrt(n))
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -32,14 +32,35 @@ public class Main {
         }
 
 
-//        int a,b;
-//        for(int i=0; i<m; ++i){
-//            st = new StringTokenizer(br.readLine());
-//            a = Integer.parseInt(st.nextToken());
-//            b = Integer.parseInt(st.nextToken());
-//        }
-
-
+        int a,b,ans;
+        for(int tc=0; tc<m; ++tc){
+            ans = Integer.MAX_VALUE;
+            st = new StringTokenizer(br.readLine());
+            a = Integer.parseInt(st.nextToken());
+            b = Integer.parseInt(st.nextToken());
+            --a;
+            --b;
+            // 같은 구간인 경우
+            if(a/r == b/r){
+                for(int i=a; i<=b; ++i){
+                    ans = Math.min(ans, arr[i]);
+                }
+            }
+            else{
+                for(int i=a; i<=a/r*r+r-1; ++i){
+                    ans = Math.min(ans, arr[i]);
+                }
+                // 사이 구간 grr[a/r+1] ~ grr[b/r-1]
+                for(int i=a/r+1; i<b/r; ++i){
+                    ans = Math.min(ans, grr[i]);
+                }
+                int end = Math.min(n-1, b/r*r+r-1);
+                for(int i=b; i>=b/r*r; --i){
+                    ans = Math.min(ans, arr[i]);
+                }
+            }
+            bw.write(ans + "\n");
+        }
         br.close();
         bw.close();
     }
