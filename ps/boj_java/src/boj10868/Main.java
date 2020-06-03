@@ -4,7 +4,8 @@ import java.io.*;
 import java.nio.Buffer;
 import java.util.StringTokenizer;
 
-// O(sqrt(n))
+// 선처리 - n
+// O(m*sqrt(n))
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));

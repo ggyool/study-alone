@@ -3,12 +3,14 @@ package hellpjpa;
 import hellpjpa.inheritance.Item;
 import hellpjpa.inheritance.Movie;
 import org.h2.result.UpdatableRow;
+import org.hibernate.Hibernate;
 
 import javax.management.relation.Role;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class JpaMain {
@@ -21,21 +23,25 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();
         tx.begin();
         try{
-            Movie movie = new Movie();
-            movie.setDirector("directorA");
-            movie.setActor("actorA");
-            movie.setName("nameA");
-            movie.setPrice(10000);
-            em.persist(movie);
+            Member member1 = new Member();
+            member1.setUsername("user01");
+            em.persist(member1);
 
             em.flush();
             em.clear();
 
-            Item item = em.find(Item.class, movie.getId());
+            Member refMember = em.getReference(Member.class, member1.getId());
+            System.out.println("refMember.getClass() = " + refMember.getClass());
+            System.out.println("before:  " + emf.getPersistenceUnitUtil().isLoaded(refMember));
 
+            // refMember.getUsername(); // 강제 초기화 역할로 사용
+            Hibernate.initialize(refMember);
+
+            System.out.println("after:  " + emf.getPersistenceUnitUtil().isLoaded(refMember));
             tx.commit();
         } catch (Exception e){
             System.out.println("======================rollback======================");
+            e.printStackTrace();
             tx.rollback();
         } finally {
             em.close();
