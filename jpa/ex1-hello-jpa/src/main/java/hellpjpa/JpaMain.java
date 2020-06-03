@@ -20,24 +20,26 @@ public class JpaMain {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
         EntityManager em = emf.createEntityManager();
 
-        EntityTransaction tx = em.getTransaction();
+        EntityTransaction tx    = em.getTransaction();
         tx.begin();
         try{
+            Team team = new Team ();
+            team.setName("teamA");
+            em.persist(team);
             Member member1 = new Member();
             member1.setUsername("user01");
             em.persist(member1);
+            member1.setTeam(team);
+
 
             em.flush();
             em.clear();
 
-            Member refMember = em.getReference(Member.class, member1.getId());
-            System.out.println("refMember.getClass() = " + refMember.getClass());
-            System.out.println("before:  " + emf.getPersistenceUnitUtil().isLoaded(refMember));
+            List<Member> members = em.createQuery("select m from Member m join fetch m.team", Member.class).getResultList();
+            // FetchType.EAGER 은 Member
+            // SQL: select * from Member;
+            // SQL: select * from TEAM WHERE TEAM_ID = xxx
 
-            // refMember.getUsername(); // 강제 초기화 역할로 사용
-            Hibernate.initialize(refMember);
-
-            System.out.println("after:  " + emf.getPersistenceUnitUtil().isLoaded(refMember));
             tx.commit();
         } catch (Exception e){
             System.out.println("======================rollback======================");
