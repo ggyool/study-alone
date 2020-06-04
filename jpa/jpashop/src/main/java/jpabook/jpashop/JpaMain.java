@@ -13,25 +13,32 @@ import javax.persistence.Persistence;
 
 public class JpaMain {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpashop");
-        EntityManager em = emf.createEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
+        Integer a = 10;
+        Integer b = a;
+        a = 20;
+        System.out.println(a==b);
+        System.out.println(a.getClass());
+        System.out.println(b.getClass());
 
-        try{
-            Book book = new Book();
-            book.setName("book1");
-            book.setAuthor("p1");
-            em.persist(book);
-
-
-            tx.commit();
-        } catch(Exception e){
-            System.out.println("=============rollback===============");
-            tx.rollback();
-        } finally {
-            em.close();
-        }
-        emf.close();
+//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpashop");
+//        EntityManager em = emf.createEntityManager();
+//        EntityTransaction tx = em.getTransaction();
+//        tx.begin();
+//
+//        try{
+////            Book book = new Book();
+////            book.setName("book1");
+////            book.setAuthor("p1");
+////            em.persist(book);
+//
+//
+//            tx.commit();
+//        } catch(Exception e){
+//            System.out.println("=============rollback===============");
+//            tx.rollback();
+//        } finally {
+//            em.close();
+//        }
+//        emf.close();
     }
 }

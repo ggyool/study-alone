@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.StringTokenizer;
 
 // 선처리 - nlogn
-// O(m*log(n))
+// dp -> O(m*log(n))
 public class Main {
 
     public static void main(String[] args) throws IOException {
