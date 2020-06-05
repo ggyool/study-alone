@@ -25,21 +25,17 @@ public class JpaMain {
         tx.begin();
         try{
 
-            Member2 member = new Member2();
 
-            member.getAddressHistory().add(new AddressEntity("old1",  "old1", "10000"));
-            member.getAddressHistory().add(new AddressEntity("old2", "old2", "10000"));
 
-            em.persist(member);
+            List<Member> result = em.createQuery(
+                    // Member 는 테이블이름이 아니라 엔티티 이름
+                    "select m from Member as m where m.username like '%kim%'",
+                    Member.class
+            ).getResultList();
 
-            em.flush();
-            em.clear();
+            for (Member member : result) {
 
-            Member2 findMember = em.find(Member2.class, member.getId());
-            List<AddressEntity> list = findMember.getAddressHistory();
-            AddressEntity target = new AddressEntity("old1", "old1", "10000");
-            target.setId(2L);
-            list.remove(target);
+            }
 
 
 
