@@ -4,7 +4,7 @@
 #include <climits>
 using namespace std;
 
-
+// solution 만 제출
 bool isBadVersion(int version){
     return true;
 }
