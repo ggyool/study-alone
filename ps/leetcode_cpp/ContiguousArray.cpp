@@ -32,7 +32,6 @@ public:
 int main(void){
     Solution sol = Solution();
     vector<int> v = {0,1,0,1};
-    -1 0 -1 0
     cout << sol.findMaxLength(v);
 
     return 0;
