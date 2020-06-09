@@ -5,6 +5,10 @@ import com.oracle.webservices.internal.api.EnvelopeStyle;
 import javax.persistence.*;
 
 @Entity
+@NamedQuery(
+        name = "Member.findByUsername", // 관례로 엔티티명. 을 붙임
+        query = "select m from Member m where m.username=:username"
+)
 public class Member {
 
     @Id @GeneratedValue

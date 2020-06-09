@@ -43,7 +43,6 @@ public class Main {
 
     // not mine
     public static int findMinValue2(int idx, int start, int end, int i, int j){
-        System.out.println(idx + "  " + start + "  " + end + "  " + i + "  " + j);
         if(i>end || j<start) return -1;
         if(i<=start && end<=j) return tree[idx];
         int m1 = findMinValue2(2*idx, start, (start+end)/2, i, j);

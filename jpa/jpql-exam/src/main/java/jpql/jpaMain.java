@@ -27,45 +27,37 @@ public class jpaMain {
             teamC.setName("teamC");
             em.persist(teamC);
 
-            Member member = new Member();
-            member.setUsername("member1");
-            member.setAge(10);
-            member.setTeam(teamA);
-            member.setType(MemberType.ADMIN);
-            em.persist(member);
-
             Member member2 = new Member();
             member2.setUsername("member2");
             member2.setAge(20);
-            member2.setTeam(teamB);
-            member2.setType(MemberType.USER);
+            member2.setTeam(teamA);
             em.persist(member2);
 
             Member member3 = new Member();
             member3.setUsername("member3");
             member3.setAge(60);
-            member3.setTeam(teamC);
-            member3.setType(MemberType.ADMIN);
+            member3.setTeam(teamB);
             em.persist(member3);
 
-            em.flush();
+//            em.flush();
+//            em.clear();
+
+
+            Member member = new Member();
+            member.setUsername("member1");
+            member.setAge(10);
+            member.setTeam(teamA);
+            em.persist(member);
+
+            // 이 시점에서 flush 호출
+
+
+            int resultCount = em.createQuery("update Member m set m.age=20")
+                    .executeUpdate();
             em.clear();
 
-
-            String query = "select m.username from Team t join t.members m";
-
-            List<Collection> result = em.createQuery(query, Collection.class)
-                    .getResultList();
-
-            for(int i=0; i<result.size(); ++i){
-                System.out.println(result.get(0));
-            }
-            // 아래 처럼 탐색하면 안되는데 왜인지는 모르겠다.
-//            for (Collection collection : result) {
-//                System.out.println((Member)collection);;
-//            }
-
-
+            Member findMember = em.find(Member.class, member.getId());
+            System.out.println(findMember);
 
 
 
