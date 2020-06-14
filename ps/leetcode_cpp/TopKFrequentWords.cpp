@@ -5,9 +5,6 @@
 #include <algorithm>
 using namespace std;
 
-
-
-
 class Info{
 public:
     string word;
