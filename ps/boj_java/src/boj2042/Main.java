@@ -47,7 +47,6 @@ public class Main {
         update(2*idx+1, mid+1, right, target, diff);
     }
 
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
