@@ -64,8 +64,6 @@ public class Main {
         }
     }
 
-
-
     // time exceed
     // l~r 구간에 val 만큼 더한다.
     static long update(int idx, int left, int right, int l, int r, long val){
