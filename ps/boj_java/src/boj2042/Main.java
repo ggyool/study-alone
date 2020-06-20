@@ -4,6 +4,7 @@ import java.io.*;
 import java.nio.Buffer;
 import java.util.StringTokenizer;
 
+// segment tree recursive
 public class Main {
     static int n,m,k;
     static long[] arr;
