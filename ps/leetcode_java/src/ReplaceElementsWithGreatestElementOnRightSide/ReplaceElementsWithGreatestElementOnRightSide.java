@@ -1,0 +1,4 @@
+package ReplaceElementsWithGreatestElementOnRightSide;
+
+public class ReplaceElementsWithGreatestElementOnRightSide {
+}
