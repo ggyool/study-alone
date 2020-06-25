@@ -43,19 +43,14 @@ public class FindAllNumbersDisappearedInAnArray {
     }
 
     public static void main(String[] args) {
-        findDisappearedNumbers(new int[]{4,3,2,7,8,2,3,1});
+        // findDisappearedNumbers(new int[]{4,3,2,7,8,2,3,1});
     }
 }
 
 
 
 /*
-{4,3,2,7,8,2,3,1}
-{4,3,2,-7,8,2,3,1}
-{4,3,-2,-7,8,2,3,1}
-{4,-3,-2,-7,8,2,3,1}
-{4,-3,-2,-7,8,2,3,-1}
-{-4,-3,-2,-7,8,2,-3,-1}
+// other solution
 
 for(int i = 0; i < nums.length; i++) {
     int val = Math.abs(nums[i]) - 1;
@@ -70,8 +65,6 @@ for(int i = 0; i < nums.length; i++) {
     }
 }
 return ret;
-
-
 
  */
 
