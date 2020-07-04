@@ -17,9 +17,7 @@ public:
                 break;
             }
         }
-        // cnt > len 마지막이 0이라서
-        // cnt == len 마지막이 숫자라서
-
+        // cnt > len 마지막이 0이고 하나만 넣어야하는 경우
         int j = len - 1;
         if(cnt>len) {
             arr[j--] = 0;
