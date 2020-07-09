@@ -13,8 +13,15 @@ public class Philosopher extends Thread{
     public void run(){
         try {
             while(true){
-                lstick.acquire();
-                rsick.acquire();
+                if(id%2==0){
+                    lstick.acquire();
+                    rsick.acquire();
+                }
+                else{
+                    rsick.acquire();
+                    lstick.acquire();
+                }
+
                 eating();
 
                 lstick.release();
