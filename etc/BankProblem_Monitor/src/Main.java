@@ -1,10 +1,11 @@
-public class main {
+public class Main {
     public static void main(String[] args) {
-        Buffer b = new BufferUsingMonitor(10);
-        Producer p = new Producer(b, 10000);
-        Consumer c = new Consumer(b, 10000);
-        c.start();
+        BankAcount b = new BankAcount();
+        Parent p = new Parent(b);
+        Child c = new Child(b);
+
         p.start();
+        c.start();
 
         try {
             p.join();
@@ -13,6 +14,6 @@ public class main {
             e.printStackTrace();
         }
         System.out.println();
-        System.out.println("Number of items: " + b.count);
+        System.out.println(b.getBalance());
     }
 }
