@@ -37,8 +37,21 @@ public:
     }
 };
 
+void makeTree(int *arr, int len){
+    Node *dummy = new Node();
+    Node *cur = dummy;
+    for(int i=0; i<len; ++i){
+        Node *newNode = new Node();
+        newNode->val = arr[i];
+        cur->next = newNode;
+        cur = newNode;
+    }
+    return dummy->next;
+}
 
 int main(void){
-    
+    int arr[10] = {1,2,3,4,5,6,7,8,9,10};
+
+    makeTree(arr, 10);
     return 0;
 }
