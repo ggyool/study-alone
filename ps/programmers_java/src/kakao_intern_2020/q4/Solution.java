@@ -6,7 +6,7 @@ import java.util.Queue;
 
 // bfs로 풀 수 있을 것 같다.
 // 포인트는 좌표당 4방향 다 기록하는 것
-// 1,1 은 0,0에서 우하로 가는것과 하우로 가는것이 있지만
+// 1,1 은 0,0에서 우하로 가는것과 하우로 가는것이 있만
 public class Solution {
     class Pos{
         int y,x,d,cost; // d 동남서북 0123
@@ -73,14 +73,5 @@ public class Solution {
             ret = Math.min(ret, dist[r-1][c-1][i]);
         }
         return ret;
-    }
-    public static void main(String[] args) {
-        int[][] arr = new int[][] {
-                {1,2,3},
-                {4,5,6},
-                {7,8,9}
-        };
-        Solution sol = new Solution();
-        sol.solution(arr);
     }
 }
