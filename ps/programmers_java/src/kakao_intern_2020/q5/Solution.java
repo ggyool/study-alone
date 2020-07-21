@@ -6,17 +6,15 @@ public class Solution {
     ArrayList<Integer>[] adj;
     boolean visited[];
     boolean rocks[];
-    boolean isExistWq[];
     int keys[];
-    Queue<Integer> q, wq;
+    Queue<Integer> q;
+    HashSet<Integer> wait;
 
-    // open 하면서 wq에 있으면 q에 넣는 코드를 넣으니 마지막 효율성 통과하였다.
     public void visitAndOpen(int target){
         visited[target] = true;
         if(keys[target]!=-1){
             rocks[keys[target]] = false;
-            if(isExistWq[keys[target]]) {
-                isExistWq[keys[target]] = false;
+            if(wait.contains(keys[target])) {
                 visitAndOpen(keys[target]);
                 q.add(keys[target]);
             }
@@ -36,7 +34,6 @@ public class Solution {
         }
         visited = new boolean[n];
         rocks = new boolean[n];
-        isExistWq = new boolean[n];
         keys = new int[n];
         Arrays.fill(keys, -1);
         for (int[] o : order) {
@@ -44,42 +41,27 @@ public class Solution {
             keys[o[0]] = o[1];
         }
         q = new LinkedList<>();
-        wq = new LinkedList<>();
+        wait = new HashSet<>();
         if(rocks[0]) return false;
         q.add(0);
         visitAndOpen(0);
-        while(!q.isEmpty() || !wq.isEmpty()){
-            while (!q.isEmpty()){
-                int cur = q.poll();
-                int len = adj[cur].size();
-                for(int i=0; i<len; ++i){
-                    int next = adj[cur].get(i);
-                    if(visited[next]) continue;
-                    if(rocks[next] && !isExistWq[next]) {
-                        isExistWq[next] = true;
-                        wq.add(next);
-                        continue;
-                    }
-                    visitAndOpen(next);
-                    q.add(next);
-                }
-            }
-            int len = wq.size();
+        int cnt = 0;
+        while (!q.isEmpty()){
+            int cur = q.poll();
+            ++cnt;
+            int len = adj[cur].size();
             for(int i=0; i<len; ++i){
-                int cur = wq.poll();
-                if(isExistWq[cur] == false) continue;
-                if(rocks[cur]){
-                    wq.add(cur);
+                int next = adj[cur].get(i);
+                if(visited[next]) continue;
+                if(rocks[next] && !wait.contains(next)) {
+                    wait.add(next);
+                    continue;
                 }
-                else {
-                    isExistWq[cur] = false;
-                    visitAndOpen(cur);
-                    q.add(cur);
-                }
+                visitAndOpen(next);
+                q.add(next);
             }
-            if(q.isEmpty() && !wq.isEmpty()) return false;
         }
-        return true;
+        return cnt==n;
     }
 
     public static void main(String[] args) {
