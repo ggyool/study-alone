@@ -10,6 +10,7 @@ public class Solution {
     Queue<Integer> q;
     HashSet<Integer> wait;
 
+    // 연쇄적으로 rock 해제 안하면 마지막 케이스에서 시간초과 난다.
     public void visitAndOpen(int target){
         visited[target] = true;
         if(keys[target]!=-1){
