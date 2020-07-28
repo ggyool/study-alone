@@ -1,40 +1,30 @@
 #include <iostream>
-#include <vector>
-#include <queue>
 using namespace std;
 
+const int MOD = 1e9;
+
+// i: 길이, j: 마지막 숫자
+int dp[101][10];
+int n;
 
 int main(void){
-    queue<long long> q;
-    // for(int i=0; i<=9; ++i){
-    //     q.push(i);
-    // }
-    int cnt = 0;
-
-    q.push(3);
-    while(!q.empty()){
-        int cur = q.front();
-        q.pop();
-        for(int i=0; i<cur; ++i){
-            q.push(10*cur + i);
+    cin >> n;
+    for(int i=1; i<=9; ++i){
+        dp[1][i] = 1;
+    }
+    
+    for(int i=2; i<=n; ++i){
+        for(int j=0; j<=9; ++j){
+            if(j!=9) dp[i][j] += dp[i-1][j+1];
+            if(j!=0) dp[i][j] += dp[i-1][j-1];
+            dp[i][j] %= MOD;
         }
     }
-    cout << cnt;
+    int ans = 0;
+    for(int i=0; i<=9; ++i){
+        ans += dp[n][i];
+        ans %= MOD;
+    }
+    cout << ans;
     return 0;
 }
-
-
-
-
-
-/*
-long long cur = q.front();
-        ++cnt;
-        q.pop();
-        cout << cur << '\n';
-        if(cnt==(int)1e6) break;
-        for(int i=0; i<cur%10; ++i){
-            q.push(10*cur + i);
-        }
-
-*/
