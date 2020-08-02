@@ -1,71 +1,72 @@
-#include <cstdio>
-#include <algorithm>
 #include <iostream>
-#include <vector>
-#include <set>
-#include <map>
-#include <queue>
 #include <stack>
-#include <sstream>
+#include <queue>
+#include <map>
+#include <unordered_map>
 using namespace std;
-const int MAX = 100111;
-vector<int> a[MAX];
-int p[MAX][18];
-int tin[MAX];
-int tout[MAX];
-int timer;
-int l;
-void dfs(int v, int parent) {
-    tin[v] = ++timer;
-    p[v][0] = parent;
-    for (int i=1; i<=l; i++) {
-        p[v][i] = p[p[v][i-1]][i-1];
-    }
-    for (int to : a[v]) {
-        if (to != parent) {
-            dfs(to, v);
-        }
-    }
-    tout[v] = ++timer;
-}
-bool upper(int u, int v) {
-    return (tin[u] <= tin[v] && tout[u] >= tout[v]);
-}
-int lca(int u, int v) {
-    if (upper(u, v)) return u;
-    if (upper(v, u)) return v;
-    for (int i=l; i>=0; i--) {
-        if (!upper(p[u][i], v)) {
-            u = p[u][i];
-        }
-    }
-    return p[u][0];
-}
+
+// Definition for a Node.
+class Node {
+public:
+   int val;
+   Node* prev;
+   Node* next;
+   Node* child;
+   Node(int val) :val(val) {}
+   Node(int val, Node* _prev) :val(val), prev(_prev) {}
+   Node(int val, Node* _prev, Node* _next) :val(val), prev(_prev) , next(_next) {}
+   Node(int val, Node* _prev, Node* _next, Node* _child) :val(val), prev(_prev), next(_next), child(_child) {}
+};
+
+
+class Solution {
+public:
+	// tail 노드를 return
+	Node* chk(Node *iter) {
+		if (iter->child) {
+			Node *add = iter->next; // 4
+			iter->child->prev = iter; // 7->3
+			iter->next = iter->child; // 3->7
+			iter->child = NULL;
+
+			Node *tail = chk(iter->next); // chk(7) = 10
+			if(add!=NULL){
+				tail->next = add;
+				add->prev = tail;
+				return chk(add);
+			}
+			return tail;
+		}
+		else{
+			if(iter->next==NULL) return iter;
+			return chk(iter->next);
+		}
+	}
+
+   Node* flatten(Node* head) {
+	   	if(head==NULL) return NULL;
+		Node *dummy = new Node(0);
+		dummy->next = head;
+		chk(head);
+		return dummy->next;
+   }
+};
 int main() {
-    int n;
-    scanf("%d",&n);
-    for (int i=0; i<n-1; i++) {
-        int u,v;
-        scanf("%d %d",&u,&v);
-        a[u].push_back(v);
-        a[v].push_back(u);
-    }
-    for (l=1; (1<<l) <= n; l++);
-    l-=1;
-    dfs(1, 1);
-    int m;
-    scanf("%d",&m);
-    while (m--) {
-        int u, v;
-        scanf("%d %d",&u,&v);
-        printf("%d\n",lca(u, v));
-    }
+   Solution sol = Solution();
+   Node *l1 = new Node(1);
+   l1->next = new Node(2, l1);
+   l1->next->next = new Node(3, l1->next);
+   l1->next->next->next = new Node(4, l1->next->next);
+   l1->next->next->next->next = new Node(5, l1->next->next->next);
+   l1->next->next->next->next->next = new Node(6, l1->next->next->next->next);
 
-	// for(int i=0; i<=n; ++i){
-    //  for(int j=0; j<=2; ++j){
-    //      printf("%d %d %d\n",i,j,p[i][j]);
-    //  }
-    // }
 
-    return 0;
+   Node *l2 = new Node(7);
+   l2->next = new Node(8);
+   l2->next->next = new Node(9);
+   l2->next->next->next = new Node(10);
+   
+   l1->next->next->child = l2;
+
+   sol.flatten(l1);
 }
