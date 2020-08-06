@@ -1,3 +1,4 @@
+//test
 import UIKit
 
 class Person{
@@ -5,12 +6,13 @@ class Person{
     var age: Int = 30
 }
 
+var ov1: Int? = nil
+var ov2: Int! = nil
 
-var integers: Array<Int> = Array<Int>()
+ov1 = 100
+ov2 = ov1
 
-var dict: Dictionary<String, Int> = [String:Int]()
-dict["a"] = 1
-dict["b"] = 2
-dict["b"] = nil
-// dict.removeValue(forKey: "b")
-print(dict["b"]!)
+print(ov1!)
+print(ov2!) // 꼭 ! 붙여야함
+
+
