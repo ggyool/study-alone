@@ -1,60 +1,52 @@
-//func plus(a: Int, b: Int) -> Int {
-//  return a + b
-//}
 //
-//let add: (Int, Int)->Int = plus(a:b:)
-//print(add(10,20))
-
-//
-//class Person{
-//    var firstname: String
-//    var lastname: String
-//    init(_ firstname: String, _ lastname: String){
-//        self.firstname = firstname
-//        self.lastname = lastname
+//class Puppy {
+//    var name: String
+//    var owner: Person?
+//    init(name: String) {
+//        self.name = name
 //    }
-//    var koreanName: String {
-//        set(v){
-//            lastname = v
-//        }
-//        get{
-//            return lastname + " " + firstname
-//        }
+//    func goOut() {
+//        print("\(name)가 주인 \(owner!.name)와 산책을 합니다")
 //    }
 //}
 //
-//var p1: Person = Person("james", "kim")
-//var p2: Person = Person("bruce", "lee")
+//class Person {
+//    var name: String
+//    var pet: Puppy?
+//    var child: Person?
+//    init(name: String, child: Person? = nil) {
+//        self.name = name
+//        self.child = child
+//    }
+//    func test() {
+//        if let petName = pet?.name, let childName = child?.name {
+//            print("\(name)가 \(childName)에게 \(petName)를 인도합니다")
+//            self.pet?.owner = child
+//        }
+//    }
+//}
 //
-//p1.koreanName = "park"
-//print(p1.koreanName)
+//var puppy: Puppy? = Puppy(name: "choco")
+//var child: Person? = Person(name: "son")
+//var parent: Person? = Person(name: "park", child: child)
+//
+//puppy?.owner = parent
+//puppy?.goOut()
+//parent?.pet = puppy
+//parent?.test()
+//
+//print(puppy!.owner!.name)
 
-
-struct Money{
-    var currencyRate: Double = 1100
-    var dollar: Double{
-        willSet{
-            print("dollar가 \(dollar) 에서 \(newValue)로 변경 될 예정입니다.")
-        }
-        didSet{
-            print("dollar가 \(oldValue)에서 \(dollar)로 변경되었습니다.")
-        }
-    }
-    var won: Double{
-        get{
-            return dollar * currencyRate
-        }
-        set{
-            dollar = newValue/currencyRate
-        }
+class Person {
+  class func method() {
+      print("method")
+  }
+}
+class Student: Person {
+    override static func method() {
+        print("overriden method")
     }
 }
 
-
-var money: Money = Money(dollar:10)
-
-print(money.won, money.dollar)
-money.won = 1100
-print("----")
-print(money.won, money.dollar)
-
+Person.method()
+Student.method()
