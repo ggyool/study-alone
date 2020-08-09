@@ -35,18 +35,16 @@
 //parent?.pet = puppy
 //parent?.test()
 //
-//print(puppy!.owner!.name)
 
-class Person {
-  class func method() {
-      print("method")
-  }
-}
-class Student: Person {
-    override static func method() {
-        print("overriden method")
-    }
+enum VendingMachineError {
+    case invalidInput
+    case insufficientFunds(moneyNeeded: Int)
+    case outOfStock
 }
 
-Person.method()
-Student.method()
+var a: VendingMachineError = VendingMachineError.invalidInput
+var b: VendingMachineError = VendingMachineError.insufficientFunds(moneyNeeded: 10)
+
+
+print(a)
+print(b)
