@@ -1,50 +1,22 @@
-//
-//class Puppy {
-//    var name: String
-//    var owner: Person?
-//    init(name: String) {
-//        self.name = name
-//    }
-//    func goOut() {
-//        print("\(name)가 주인 \(owner!.name)와 산책을 합니다")
-//    }
-//}
-//
-//class Person {
-//    var name: String
-//    var pet: Puppy?
-//    var child: Person?
-//    init(name: String, child: Person? = nil) {
-//        self.name = name
-//        self.child = child
-//    }
-//    func test() {
-//        if let petName = pet?.name, let childName = child?.name {
-//            print("\(name)가 \(childName)에게 \(petName)를 인도합니다")
-//            self.pet?.owner = child
-//        }
-//    }
-//}
-//
-//var puppy: Puppy? = Puppy(name: "choco")
-//var child: Person? = Person(name: "son")
-//var parent: Person? = Person(name: "park", child: child)
-//
-//puppy?.owner = parent
-//puppy?.goOut()
-//parent?.pet = puppy
-//parent?.test()
-//
 
-enum VendingMachineError {
-    case invalidInput
-    case insufficientFunds(moneyNeeded: Int)
-    case outOfStock
-}
+var someNumbers = [1,2,3,4,5]
+// 초깃값이 0이고 someNumbers 내부의 모든 값을 더합니다.
+let sum: Int = someNumbers.reduce(0, { (first: Int, second: Int) -> Int in
+    print("\(first) + \(second)") //어떻게 동작하는지 확인해보세요
+    return first + second
+})
 
-var a: VendingMachineError = VendingMachineError.invalidInput
-var b: VendingMachineError = VendingMachineError.insufficientFunds(moneyNeeded: 10)
-
-
-print(a)
-print(b)
+print(sum)  // 25
+//
+//// 초깃값이 0이고 someNumbers 내부의 모든 값을 뺍니다.
+//var subtract: Int = someNumbers.reduce(0, { (first: Int, second: Int) -> Int in
+//    //print("\(first) - \(second)") //어떻게 동작하는지 확인해보세요
+//    return first - second
+//})
+//
+//print(subtract) // -25
+//
+//// 초깃값이 3이고 someNumbers 내부의 모든 값을 더합니다.
+//let sumFromThree = someNumbers.reduce(3) { $0 + $1 }
+//
+//print(sumFromThree) // 28
