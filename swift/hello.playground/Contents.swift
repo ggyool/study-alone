@@ -1,22 +1,23 @@
+class WeakOneClass {
+    var secondObj: WeakTwoClass!
+    init() {print("WeakOneClass 생성")}
+    deinit {print("WeakOneClass 해제")}
+}
+class WeakTwoClass {
+    // 이렇게 프로퍼티 앞에 weak 키워드를 넣으면 약한 참조입니다.
+    weak var firstObj: WeakOneClass!
+    init() {print("WeakTwoClass 생성")}
+    deinit {print("WeakTwoClass 해제")}
+}
+var first03: WeakOneClass? = WeakOneClass()
+// OneClass 생성
+var second03: WeakTwoClass? = WeakTwoClass()
+// TwoClass 생성
 
-var someNumbers = [1,2,3,4,5]
-// 초깃값이 0이고 someNumbers 내부의 모든 값을 더합니다.
-let sum: Int = someNumbers.reduce(0, { (first: Int, second: Int) -> Int in
-    print("\(first) + \(second)") //어떻게 동작하는지 확인해보세요
-    return first + second
-})
+first03?.secondObj = second03
+second03?.firstObj = first03
 
-print(sum)  // 25
-//
-//// 초깃값이 0이고 someNumbers 내부의 모든 값을 뺍니다.
-//var subtract: Int = someNumbers.reduce(0, { (first: Int, second: Int) -> Int in
-//    //print("\(first) - \(second)") //어떻게 동작하는지 확인해보세요
-//    return first - second
-//})
-//
-//print(subtract) // -25
-//
-//// 초깃값이 3이고 someNumbers 내부의 모든 값을 더합니다.
-//let sumFromThree = someNumbers.reduce(3) { $0 + $1 }
-//
-//print(sumFromThree) // 28
+first03 = nil
+// WeakOneClass 해제
+second03 = nil
+// WeakTwoClass 해제
