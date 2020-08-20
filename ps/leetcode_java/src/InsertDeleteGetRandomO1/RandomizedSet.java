@@ -7,7 +7,7 @@ import java.util.*;
 // map에는 문제의 val을 key로 idx를 저장
 // 문제의 포인트는 array 중간 빈 값에 대한 처리
 public class RandomizedSet {
-    
+
     HashMap<Integer, Integer> mp;
     List<Integer> arrList;
     public RandomizedSet() {
