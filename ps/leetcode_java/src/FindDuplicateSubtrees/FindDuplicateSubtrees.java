@@ -22,8 +22,6 @@ public class FindDuplicateSubtrees {
         int cnt = mp.getOrDefault(ret, 0);
         if(cnt==1) ans.add(cur);
         Integer num = mp.put(ret, cnt + 1);
-        System.out.println(num);
-        mp.computeIfAbsent()
         return ret;
     }
 }
