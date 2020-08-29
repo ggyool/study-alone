@@ -3,24 +3,34 @@ package UniqueBinarySearchTrees2;
 import java.util.ArrayList;
 import java.util.List;
 
+// solution 참고
 public class UniqueBinarySearchTrees2 {
-    public TreeNode makeTree(int val, int left, int right){
-        TreeNode root = new TreeNode(val);
-        for(int i=left; i<val; ++i){
-            root.left = makeTree(i, left, val-1);
+    public List<TreeNode> makeTree(int left, int right){
+        List<TreeNode> ret = new ArrayList<TreeNode>();
+        if(left>right){
+            ret.add(null);
+            return ret;
         }
-
-        for(int i=val+1; i<=right; ++i){
-            root.right
+        List<TreeNode> leftTrees;
+        List<TreeNode> rightTrees;
+        for(int i=left; i<=right; ++i) {
+            leftTrees = makeTree(left, i - 1);
+            rightTrees = makeTree(i + 1, right);
+            for (int n = 0; n < leftTrees.size(); ++n) {
+                for (int m = 0; m < rightTrees.size(); ++m) {
+                    TreeNode root = new TreeNode(i);
+                    root.left = leftTrees.get(n);
+                    root.right = rightTrees.get(m);
+                    ret.add(root);
+                }
+            }
         }
-
+        return ret;
     }
 
     public List<TreeNode> generateTrees(int n) {
-        List<TreeNode> ret = new ArrayList<TreeNode>();
-        for(int i=1; i<=n; ++i){
-            makeTree(i, 1, n);
-        }
+        if(n==0) return new ArrayList<TreeNode>();
+        return makeTree(1, n);
     }
 }
 
