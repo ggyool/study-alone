@@ -1,29 +1,31 @@
 package FlipColumnsForMaximumNumberOfEqualRows;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class FlipColumnsForMaximumNumberOfEqualRows {
 
 
 
-    List<Integer> toggle(List<Integer> list){
-        int len = list.size();
-        List<Integer> ret = new ArrayList<>();
-        for(int i=0; i<len; ++i){
-            ret.add(1-list.get(i));
-        }
-        return ret;
-    }
-
     public int maxEqualRowsAfterFlips(int[][] matrix) {
         HashMap<List<Integer>, Integer> mp = new HashMap<>();
         for(int i=0; i<matrix.length; ++i){
-            List<Integer> list = Arrays.stream(matrix[i]).boxed().collect(Collectors.toList());
-            List<Integer> tlist = toggle(list);
+            // 무조건 0으로 시작하게 넣기
+            List<Integer> list = new ArrayList<>();
+            if(matrix[i][0] == 0){
+                for(int j=0; j<matrix[i].length; ++j){
+                    list.add(matrix[i][j]);
+                }
+            }
+            else{
+                for(int j=0; j<matrix[i].length; ++j){
+                    list.add(1-matrix[i][j]);
+                }
+            }
             mp.put(list, mp.getOrDefault(list, 0) + 1);
-            mp.put(tlist, mp.getOrDefault(tlist, 0) + 1);
         }
         int ans = 0;
         for(List<Integer> key : mp.keySet()) {
