@@ -3,6 +3,7 @@ package LongestStringChain;
 import java.util.ArrayList;
 import java.util.List;
 
+// exactly one letter
 public class LongestStringChain {
     public int longestStrChain(String[] words) {
         List<String>[] slist = new List[17];
@@ -20,14 +21,12 @@ public class LongestStringChain {
         for(int i=2; i<=16; ++i){
             for(int j=0; j<slist[i].size(); ++j){
                 String cur = slist[i].get(j);
-                for(int k=1; k<i; ++k){
-                    for(int l=0; l<slist[k].size(); ++l){
-                        String target = slist[k].get(l);
-                        if(isAble(cur, target)){
-                            int maxv = Math.max(ilist[i].get(j), ilist[k].get(l)+1);
-                            ilist[i].set(j, maxv);
-                            ans = Math.max(ans, maxv);
-                        }
+                for(int l=0; l<slist[i-1].size(); ++l){
+                    String target = slist[i-1].get(l);
+                    if(isAble(cur, target)){
+                        int maxv = Math.max(ilist[i].get(j), ilist[i-1].get(l)+1);
+                        ilist[i].set(j, maxv);
+                        ans = Math.max(ans, maxv);
                     }
                 }
             }
