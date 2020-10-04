@@ -1,5 +1,6 @@
 package SwapForLongestRepeatedCharacterSubstring_2;
 
+// 다른 사람 sliding window 풀이
 public class SwapForLongestRepeatedCharacterSubstring_2 {
 
     public int maxRepOpt1(String text) {
