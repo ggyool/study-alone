@@ -22,7 +22,7 @@ public class Main {
                             nstk.add(new numInfo(2*bef.val, lidx, i));
                         }
                         else{
-                            nstk.add(new numInfo(2bef.val, lidx, i));
+//                            nstk.add(new numInfo(2bef.val, lidx, i));
                         }
                     }
                 }
