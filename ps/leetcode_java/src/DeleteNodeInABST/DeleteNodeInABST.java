@@ -1,68 +1,33 @@
 package DeleteNodeInABST;
 
+// geeksforgeeks.org/binary-search-tree-set-2-delete/
 public class DeleteNodeInABST {
     public TreeNode deleteNode(TreeNode root, int key) {
-        TreeNode node = findNode(root, key);
-        if(node==null) return root;
-        // terminal 노드인 경우
-        if(node.left==null && node.right==null) {
-            if(root.val==key) return null;
-            deleteClosestNode(root, node);
-        }
-        else if(node.right!=null){
-            TreeNode closestNode = findClosestBigger(node.right, node.val);
-            node.val = closestNode.val;
-            deleteClosestNode(node, closestNode);
-            closestNode = null;
-        }
-        else if(node.left!=null){
-            TreeNode closestNode = findClosestSmaller(node.left, node.val);
-            node.val = closestNode.val;
-            deleteClosestNode(node, closestNode);
-            closestNode = null;
-        }
-        return root;
-    }
+        if(root==null) return null;
+        if(root.val==key){
+            if(root.left==null) return root.right;
+            else if(root.right==null) return root.left;
 
-
-    // 지워야 하는 노드가 터미널 노드가 아닐 수도 있다.
-    private void deleteClosestNode(TreeNode root, TreeNode target){
-        if(target.val<root.val){
-            if(root.left.val==target.val) {
-                root.left = null;
-                return;
-            }
-            deleteClosestNode(root.left, target);
+            // left right 둘 다 있는 경우
+            root.val = findMinValue(root.right);
+            root.right = deleteNode(root.right, root.val);
+        }
+        else if(key<root.val){
+            root.left = deleteNode(root.left, key);
         }
         else{
-            if(root.right.val==target.val) {
-                root.right = null;
-                return;
-            }
-            deleteClosestNode(root.right, target);
+            root.right = deleteNode(root.right, key);
         }
+        return root;
     }
 
-    private TreeNode findNode(TreeNode root, int key){
-        if(root==null) return null;
-        if(root.val==key) return root;
-        else if(key<root.val) return findNode(root.left, key);
-        else return findNode(root.right, key);
-    }
-
-    // left 타고 들어가기
-    private TreeNode findClosestBigger(TreeNode root, int val){
+    int findMinValue(TreeNode root){
+        int ret = root.val;
         while(root.left!=null){
             root = root.left;
+            ret = root.val;
         }
-        return root;
-    }
-
-    private TreeNode findClosestSmaller(TreeNode root, int val) {
-        while(root.right!=null){
-            root = root.right;
-        }
-        return root;
+        return ret;
     }
 
 }
