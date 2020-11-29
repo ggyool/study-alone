@@ -2,6 +2,7 @@ package KthSmallestElementInASortedMatrix;
 
 import java.util.PriorityQueue;
 
+// 정답은 2분 탐색 풀이
 public class KthSmallestElementInASortedMatrix {
     private final int[] dy = {0, 1};
     private final int[] dx = {1, 0};
