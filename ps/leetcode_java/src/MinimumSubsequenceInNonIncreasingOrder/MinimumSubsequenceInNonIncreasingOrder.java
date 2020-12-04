@@ -10,7 +10,7 @@ public class MinimumSubsequenceInNonIncreasingOrder {
         int sum = Arrays.stream(nums).sum();
         int half = sum / 2;
         int tmp = 0;
-        for(int num : list) {
+        for (int num : list) {
             tmp += num;
             ret.add(num);
             if (half < tmp) {
@@ -22,7 +22,7 @@ public class MinimumSubsequenceInNonIncreasingOrder {
 
     public static void main(String[] args) {
         MinimumSubsequenceInNonIncreasingOrder sol = new MinimumSubsequenceInNonIncreasingOrder();
-        int[] arr = {4,4,7,6,7};
+        int[] arr = {4, 4, 7, 6, 7};
         List<Integer> integers = sol.minSubsequence(arr);
         for (Integer integer : integers) {
             System.out.println(integer);
