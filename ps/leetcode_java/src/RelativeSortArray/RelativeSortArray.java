@@ -1,32 +1,23 @@
 package RelativeSortArray;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class RelativeSortArray {
     public int[] relativeSortArray(int[] arr1, int[] arr2) {
         int[] ret = new int[arr1.length];
-        Map<Integer, Integer> count = new HashMap<>();
+        int[] count = new int[1001];
         for (int num : arr1) {
-            count.put(num, count.getOrDefault(num, 0) + 1);
+            count[num]++;
         }
 
         int i = 0;
         for (int num : arr2) {
-            int repeat = count.get(num);
-            for (int j = 0; j < repeat; j++) {
+            while (count[num]-- > 0){
                 ret[i++] = num;
             }
-            count.put(num, 0);
         }
 
         for (int num = 0; num <= 1000; num++) {
-            if (!count.containsKey(num)) continue;
-            if (count.get(num) != 0) {
-                int repeat = count.get(num);
-                for (int j = 0; j < repeat; j++) {
-                    ret[i++] = num;
-                }
+            while (count[num]-- > 0){
+                ret[i++] = num;
             }
         }
         return ret;
