@@ -1,31 +1,40 @@
 package SearchInRotatedSortedArray_2;
 
-import SearchInRotatedSortedArray.SearchInRotatedSortedArray;
-
 public class SearchInRotatedSortedArray_2 {
     public int search(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
         int mid = 0;
-        // [4,5,6,7,0,1,2]
+        int val = 0;
+
         while (left <= right) {
             mid = left + (right - left) / 2;
-            if (nums[mid] == target) {
+            val = nums[mid];
+            if (val == target) {
                 return mid;
-            } else if (nums[mid] < target) {
-                // 오른쪽에 있는게 정상 이지만
-                // 이런 경우는 왼쪽에 있다는 것
-                if (nums[right] < target && nums[left] <= target) {
-                    right = mid - 1;
-                } else {
+            }
+            // left group or non pivot
+            if (val >= nums[left]) {
+                if (val < target) {
                     left = mid + 1;
                 }
+                if (target < val) {
+                    if (target >= nums[left])
+                        right = mid - 1;
+                    else
+                        left = mid + 1;
+                }
             }
+            // right group
             else {
-                if (nums[left] > target && nums[right] >= target) {
-                    left = mid + 1;
-                } else {
+                if (target < val) {
                     right = mid - 1;
+                }
+                if (val < target) {
+                    if (target <= nums[right])
+                        left = mid + 1;
+                    else
+                        right = mid - 1;
                 }
             }
         }
@@ -34,7 +43,7 @@ public class SearchInRotatedSortedArray_2 {
 
     public static void main(String[] args) {
         SearchInRotatedSortedArray_2 sol = new SearchInRotatedSortedArray_2();
-        int[] arr = {4,5,6,7,8,1,2,3};
+        int[] arr = {1};
         System.out.println(sol.search(arr, 0));
     }
 }
