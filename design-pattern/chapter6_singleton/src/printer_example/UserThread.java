@@ -6,7 +6,10 @@ public class UserThread extends Thread {
     }
 
     public void run() {
-        Printer printer = Printer.getPrinter();
+//        Printer printer = Printer.getPrinter();
+//        printer.print(Thread.currentThread().getName() + " " + printer.toString());
+
+        PrinterUsingHolder printer = PrinterUsingHolder.getPrinter();
         printer.print(Thread.currentThread().getName() + " " + printer.toString());
     }
 }
