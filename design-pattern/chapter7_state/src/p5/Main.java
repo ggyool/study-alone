@@ -6,10 +6,10 @@ public class Main {
         Stock stock = new Stock(beverage, 3);
 
         VendingMachine vendingMachine = new VendingMachine(0, stock);
-        vendingMachine.insertMoney(1000);
-        vendingMachine.takeOutBeverage();
-        vendingMachine.takeOutBeverage();
 
 
+        vendingMachine.pushReturnButton();
+        vendingMachine.pushBeverageButton();
+        vendingMachine.pushBeverageButton();
     }
 }

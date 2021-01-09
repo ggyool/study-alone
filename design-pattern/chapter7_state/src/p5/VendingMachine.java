@@ -26,7 +26,7 @@ public class VendingMachine {
         this.enoughMoneyState = new EnoughMoneyState(this);
         this.notEnoughMoneyState = new NotEnoughMoneyState(this);
         this.soldOutState = new SoldOutState(this);
-        this.state = this.noMoneyState;
+        decideState();
     }
 
     public void insertMoney(int money) {
@@ -38,9 +38,24 @@ public class VendingMachine {
         decideState();
     }
 
+    public void pushBeverageButton() {
+        state.pushBeverageButton();
+    }
+
+    public void pushReturnButton() {
+        state.pushReturnButton();
+    }
+
     public void returnMoney() {
         System.out.println("돈을 반환합니다: " + money + "원");
         money = 0;
+        decideState();
+    }
+
+    public void takeOutBeverage() {
+        System.out.println(stock.getBeverageName() + "를 뽑았습니다.");
+        this.money -= stock.getBeveragePrice();
+        stock.reduceCount();
         decideState();
     }
 
@@ -55,13 +70,6 @@ public class VendingMachine {
     private boolean isSoldOutState() {
         int count = stock.getCount();
         return count == ZERO;
-    }
-
-    public void takeOutBeverage() {
-        System.out.println(stock.getBeverageName() + "를 뽑았습니다.");
-        this.money -= stock.getBeveragePrice();
-        stock.reduceCount();
-        decideState();
     }
 
     private void decideMoneyState() {
