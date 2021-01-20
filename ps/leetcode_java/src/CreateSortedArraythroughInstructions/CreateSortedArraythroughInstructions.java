@@ -7,7 +7,7 @@ import java.util.TreeSet;
 // bit
 public class CreateSortedArraythroughInstructions {
     public int createSortedArray(int[] instructions) {
-
+        return 0;
     }
 }
 
