@@ -1,11 +1,12 @@
 package FindTheMostCompetitiveSubsequence;
 
-import javafx.util.Pair;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.PriorityQueue;
 
+
+// 느리다 속도 2포인터로 만들면 될것같은데
+// 가장 작은 값을 가리키는 커서, 어디까지 확인했는지 가리키는 커서
 // 갑이 작은 순으로 정렬, 같다면 인덱스 작은 순
 public class FindTheMostCompetitiveSubsequence {
     public int[] mostCompetitive(int[] nums, int k) {
