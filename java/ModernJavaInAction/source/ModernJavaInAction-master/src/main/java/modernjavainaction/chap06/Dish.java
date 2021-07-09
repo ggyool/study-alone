@@ -1,10 +1,10 @@
 package modernjavainaction.chap06;
 
-import static java.util.Arrays.asList;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static java.util.Arrays.asList;
 
 public class Dish {
 
@@ -44,6 +44,7 @@ public class Dish {
   public enum Type {
     MEAT,
     FISH,
+    KOREAN,
     OTHER
   }
 
