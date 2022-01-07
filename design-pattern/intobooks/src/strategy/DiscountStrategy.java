@@ -1,2 +1,5 @@
-package strategy;public interface DIscountStrategy {
+package strategy;
+
+public interface DiscountStrategy {
+    int getDiscountPrice(Item item);
 }

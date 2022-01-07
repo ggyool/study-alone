@@ -1,2 +1,5 @@
-package templatemethod;public interface LdapContext {
+package templatemethod;
+
+public interface LdapContext {
+    String getAttribute(String name);
 }

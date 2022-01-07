@@ -6,5 +6,4 @@ public class Client {
         FileOut encryptionOut = new EncryptionOut(new FileOutImpl());
         encryptionOut.write("안녕".getBytes());
     }
-    
 }

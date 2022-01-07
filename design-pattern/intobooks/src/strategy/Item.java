@@ -1,2 +1,5 @@
-package strategy;public interface Item {
+package strategy;
+
+public interface Item {
+    double getPrice();
 }
