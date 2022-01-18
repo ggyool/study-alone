@@ -2,13 +2,19 @@ package Mediator;
 
 public class Client {
     public static void main(String[] args) {
+        // 초기화
         VideoPlayer videoPlayer = new VideoPlayer();
         TitleUI titleUI = new TitleUI();
-        VideoListUI videoListUI = new VideoListUI(videoPlayer, titleUI);
+        MediaController mediaController = new MediaController();
+        VideoListUI videoListUI = new VideoListUI();
+        VideoMediator videoMediator = new VideoMediator(videoPlayer, titleUI, videoListUI);
 
-        MediaController mediaController = new MediaController(videoListUI, videoPlayer);
-        mediaController.clickListUI(0);
+        mediaController.addObserver(videoMediator);
+        videoListUI.addObservers(videoMediator);
 
+
+        // 동작 테스트
+        videoListUI.select(0);
         mediaController.clickPlayStopButton();
         mediaController.clickPlayStopButton();
         mediaController.clickNextButton();

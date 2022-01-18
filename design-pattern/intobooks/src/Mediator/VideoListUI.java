@@ -6,36 +6,41 @@ import java.util.List;
 public class VideoListUI {
 
     private List<Video> videos = new ArrayList<>();
-    private VideoPlayer videoPlayer;
-    private TitleUI titleUI;
+    private List<ListObserver> listObservers = new ArrayList<>();
 
-    public VideoListUI(VideoPlayer videoPlayer, TitleUI titleUI) {
-        this.videoPlayer = videoPlayer;
-        this.titleUI = titleUI;
+    public VideoListUI() {
         videos.add(new Video("video1", 5));
         videos.add(new Video("video2", 7));
         videos.add(new Video("video3", 3));
     }
 
+    public void addObservers(ListObserver listObserver) {
+        listObservers.add(listObserver);
+    }
+
     public void select(int index) {
+        Video video = takeValidateVideo(index);
+        for (ListObserver listObserver : listObservers) {
+            listObserver.delegateVideo(video);
+        }
+    }
+
+    private Video takeValidateVideo(int index) {
         if (index < 0 || index >= videos.size()) {
             throw new IllegalArgumentException("리스트 범위 벗어남");
         }
-        Video video = videos.get(index);
-        titleUI.changeVideo(video);
-        videoPlayer.changeVideo(video);
-        videoPlayer.play();
+        return videos.get(index);
     }
 
-    public void selectNext() {
-        Video video = videoPlayer.getVideo();
-        int index = videos.indexOf(video);
-        select(index + 1);
+    public Video takeNextByCurrentVideo(Video video) {
+        int index = videos.indexOf(video) + 1;
+        Video nextVideo = takeValidateVideo(index);
+        return nextVideo;
     }
 
-    public void selectPrev() {
-        Video video = videoPlayer.getVideo();
-        int index = videos.indexOf(video);
-        select(index - 1);
+    public Video takePrevByCurrentVideo(Video video) {
+        int index = videos.indexOf(video) - 1;
+        Video prevVideo = takeValidateVideo(index);
+        return prevVideo;
     }
 }
